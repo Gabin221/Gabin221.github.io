@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Gabin221, mon premier site</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="Images/monLogo.jpg">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="stylePendu.css" rel="stylesheet" type="text/css">
+	</head>
+<body>
+
+	<table>
+	<tr>
+		<td colspan="2" id="banniere" >
+			<img src="../Images/monLogo.jpg"/>
+		</td>
+	</tr>
+	<tr>
+		<td id="colonneMenu">
+  			<ul id="menu-vertical">
+    				<li><a href="../Page principale/index.html">Page d'accueil</a></li>
+    				<li><a href="#">Jeux</a>
+      					<ul class="sous">
+        					<li><a href="../Pendu/indexPendu.html">Pendu</a></li>
+        					<li><a href="../Devine-nombre/indexDevineNombre.html">Devine nombre</a></li>
+      					</ul>
+    				</li>
+    				<li><a href="../Budget/indexBudget.html">Budget</a></li>
+    				<li><a href="../GT7/indexVoituresGT7.html">Voitures GT7</a></li>
+    				<li><a href="../Carte bar/indexCarteBar.html">Carte du bar</a></li>
+    				<li class="deroulant"><a href="#">Codes</a>
+      					<ul class="sous">
+        					<li><a href=../Python/indexPython.html>Python</a></li>
+        					<li><a href=../Html/indexHtml.html>HTML/Javascript/CSS</a></li>
+      					</ul>
+    				</li>
+    				<li><a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a></li>
+    				<li><a href="../Contact/indexContact.html">Contact</a></li>
+  			</ul>
+		</td>
+		<td id="contenu">
+<main>
+        <h1>Le jeu du Pendu</h1>
+    <section class="regle ">
+        <p>Voici les règles:</p>
+        <ul>
+            <li>Vous avez 9 coups pour trouver le mot</li>
+            <li>Vous gagnez des points en fonction de la taille du mot</li>
+            <li>Vous ne perdez pas de point quand vous ratez</li>
+        </ul>
+        <p>Il existe 2 modes de jeu:</p>
+        <ul>
+            <li>Joueur contre Joueur</li>
+            <li>Joueur contre ordinateur</li>
+        </ul>
+        <button class="ordinateur" data-joueur="Ordinateur">Joueur Vs Ordinateur</button>
+        <button class="joueur" data-joueur="Joueur 2">Joueur Vs Joueur</button>
+    </section>
+    <section class="pendu disparition">
+        <section>
+
+            <article>
+                <p>Score Joueur 1 :</p>
+                <p>0</p>
+            </article>
+            <article>
+                <p></p>
+                <p>0</p>
+            </article>
+            <article>
+            </article>
+        </section>
+        <section>
+        </section>
+        <section>
+        </section>
+        <section>
+            <button data-alphabet="A">A</button>
+            <button data-alphabet="Z">Z</button>
+            <button data-alphabet="E">E</button>
+            <button data-alphabet="R">R</button>
+            <button data-alphabet="T">T</button>
+            <button data-alphabet="Y">Y</button>
+            <button data-alphabet="U">U</button>
+            <button data-alphabet="I">I</button>
+            <button data-alphabet="O">O</button>
+            <button data-alphabet="P">P</button>
+            <button data-alphabet="Q">Q</button>
+            <button data-alphabet="S">S</button>
+            <button data-alphabet="D">D</button>
+            <button data-alphabet="F">F</button>
+            <button data-alphabet="G">G</button>
+            <button data-alphabet="H">H</button>
+            <button data-alphabet="J">J</button>
+            <button data-alphabet="K">K</button>
+            <button data-alphabet="L">L</button>
+            <button data-alphabet="M">M</button>
+            <button data-alphabet="W">W</button>
+            <button data-alphabet="X">X</button>
+            <button data-alphabet="C">C</button>
+            <button data-alphabet="V">V</button>
+            <button data-alphabet="B">B</button>
+            <button data-alphabet="N">N</button>
+            <button data-alphabet=" "> </button>
+        </section>
+        <section>
+        </section>
+    </section>
+</main>
+<script src="dico.js"></script>
+<script src="penduClass.js"></script>
+<script src="mainPendu.js"></script>
+		</td>
+		</tr>
+		<tr>
+		<td colspan="2" id="colonneFooter">
+		<div>
+			<ul class="lienReseaux">
+				<li>
+        				<a class="liensReseaux" href="https://twitter.com/"><img class="logo" src="../Images/logoTwitter.png"> Mon twitter</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://facebook.com/"><img class="logo" src="../Images/logoFacebook.png"> Mon facebook</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://youtube.com/"><img class="logo" src="../Images/logoYoutube.png"> Mon Youtube</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://spotify.com/"><img class="logo" src="../Images/logoSpotify.png"> Mon Spotify</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://github.com/"><img class="logo" src="../Images/logoGithub.png"> Mon Git-Hub</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://instagram.com/"><img class="logo" src="../Images/logoInstagram.png"> Mon Instagram</a>
+				</li>
+				<li>
+        				<a class="liensReseaux" href="https://snapchat.com/"><img class="logo" src="../Images/logoSnap.png"> Mon Snapchat</a>
+				</li>
+			</ul>
+		</div>
+		</td>
+		</tr>
+	</table>
+	</body>
+</html>

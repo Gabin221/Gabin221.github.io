@@ -1,0 +1,200 @@
+html {	font-family: sans-serif;
+}
+
+body { 	color: black;
+       	text-align: left;
+       	background-image: url(../Images/image_de_fond.png);
+	bgproperties: "fixed";
+	margin-left: 0%;
+	margin-right: 0%;
+	margin-top: 2%;
+	margin-bottom: 2%;}
+
+.liensReseaux {
+	color: #076177;
+   	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+p1{	font-size: 40px;
+  	line-height: 2;
+	color: black;
+	text-align: center;}
+
+p2{	text-align: left;}
+
+#banniere {
+height: 100%;
+}
+
+#colonneMenu{
+background: black;}
+
+#contenu {
+	height: 5%;
+  	padding : 40px;}
+
+#colonneFooter{
+background: #B7E7F3;}
+
+img {	height : 170px;
+	width: 100%;}
+
+.logo {
+	height : 20px;
+	width: 20px;
+}
+
+#menu-vertical, #menu-vertical ul {
+  padding:0;
+  margin:0;
+  list-style:none;
+  width: 180px; /* seule ligne rajoutée */
+}
+
+#menu-vertical li {
+  position: relative;
+  background:#EFEFEF; /* juste pour cacher le texte de la page en-dessous */
+}
+
+#menu-vertical a {
+  display:block;
+  text-decoration: none;
+  color: #000;
+}
+
+#menu-vertical ul {
+  position: absolute;
+  left:-999em;
+}
+
+#menu-vertical li:hover ul {
+  top: 0;
+  left: 180px;
+    	background-color: black;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.disparition,main section.pendu section:nth-of-type(4).disparition{
+    display: none;
+}
+main section.pendu section:nth-of-type(1){ /* Affichage score ou petit menu*/
+     position: absolute;
+     width: 25%;
+     font-size: 2rem;
+ }
+main section.pendu section:nth-of-type(5){ /* affiche résultat*/
+    position: absolute;
+    right:50px;
+    top:0;
+    width: 25%;
+    text-align: left;
+	color: black;
+}
+main section.pendu section:nth-of-type(5) p{ /* affiche résultat*/
+    font-size: 5rem;
+	color: black;
+}
+main section.pendu section:nth-of-type(5) button{
+    font-size: 2rem;
+	color: black;
+}
+main section.pendu section:nth-of-type(2){ /* Pour le pendu*/
+    text-align: center;
+	color: black;
+}
+main section.pendu section:nth-of-type(3){ /* pour le mot caché*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+	color: black;
+}
+main section.pendu section:nth-of-type(4){ /*Pour le petit clavier a bouton*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    flex-wrap: wrap;
+}
+main section.pendu section:nth-of-type(4) button{ /* Pour les button*/
+    font-size: 2rem;
+    margin: 5px;
+}
+
+div.lettre{ /* Pour les lettres cachées*/
+    font-size: 4rem;
+    color: black;
+    margin: 0 10px;
+    justify-content: center;
+    border-bottom: 2px solid black;
+}
+canvas{ /* canvas pendu*/
+    border: 1px solid black;
+	color: black;
+}
+main section.pendu section:nth-of-type(1) article:nth-of-type(3){ /*petit menu*/
+    text-align: left;
+}
+main section.pendu section:nth-of-type(1) article:nth-of-type(3) button{ /*petit menu bouton*/
+    margin: 2%;
+}
+main section.regle{
+    font-size: 2rem;
+    text-align: left;
+	color: black;
+}
+main section.regle ul {
+    width: 50%;
+   margin: 0 auto;
+	color: black;
+}
+main section.regle p{
+    font-size: 3rem;
+	color: black;
+}
+main section.regle button{
+    margin:2%;
+    font-size: 2rem;
+	color: black;
+}
+
+button{
+    box-shadow:inset 0px 1px 0px 0px #75140b;
+    background-color:#68C7EE;
+    border-radius:6px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+	color: black;
+    font-family:Arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:6px 15px;
+    text-decoration:none;
+}
+button:hover {
+    background:linear-gradient(to bottom, #946e6e 5%, #735956 100%);
+    background-color:white;
+}
+button:active {
+    position:relative;
+    top:1px;
+}
+
+button:disabled{
+    background:linear-gradient(to bottom, rgba(153, 153, 153, 0.54) 5%, #eff2ff 100%);
+    background-color: rgba(129, 138, 138, 0.52);
+}
+canvas{
+    border: black 2px solid;
+	padding: 5px;
+	color: black;
+}
