@@ -1,0 +1,8 @@
+html, body {
+    min-height: 100%;
+    padding: 0;
+}
+
+img {
+    max-width: 100%; /* pour que mes images soit de la taille de leur bloc parents*/
+}

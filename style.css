@@ -3,7 +3,7 @@ html {	font-family: sans-serif;
 
 body { 	color: black;
        	text-align: left;
-       	background-image: url(../Images/image_de_fond.png);
+       	background-image: url(Images/image_de_fond.png);
 	bgproperties: "fixed";
 	margin-left: 0%;
 	margin-right: 0%;
@@ -76,11 +76,4 @@ img {	height : 170px;
   top: 0;
   left: 180px;
     	background-color: black;
-}
-
-.guessField{	width: 30%;}
-
-.lastResult {
-        color: white;
-        padding: 3px;
 }

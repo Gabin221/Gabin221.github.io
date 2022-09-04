@@ -1,0 +1,83 @@
+html {	font-family: sans-serif;
+}
+
+body { 	color: black;
+       	text-align: left;
+       	background-image: url(Images/image_de_fond.png);
+	bgproperties: "fixed";
+	margin-left: 0%;
+	margin-right: 0%;
+	margin-top: 2%;
+	margin-bottom: 2%;}
+
+textarea {
+    resize: none;
+    text-align: left;
+}
+
+#wrap {
+  width: 90%;
+  height: 40px;
+  margin: 0;
+  z-index: 99;
+  position: fixed;
+  background-color: #444444;
+}
+
+.navbar {
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+}
+
+.navbar li {
+  height: auto;
+  width: 100px;
+  float: left;
+  text-align: center;
+  list-style: none;
+  font: normal bold 13px/1em Arial, Verdana, Helvetica;
+  padding: 0;
+  margin: 0;
+  background-color: #444444;
+}
+
+.navbar a {
+  padding: 18px 0;
+  border-left: 1px solid #ccc9c9;
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.navbar li:hover,
+a:hover {
+  background-color: #444444;
+}
+
+.navbar li ul {
+  display: none;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li:hover ul {
+  display: block;
+}
+
+.navbar li ul li {
+  background-color: #444444;
+}
+
+.navbar li ul li a {
+  border-left: 1px solid #444444;
+  border-right: 1px solid #444444;
+  border-top: 1px solid #c9d4d8;
+  border-bottom: 1px solid #444444;
+}
+
+.navbar li ul li a:hover {
+  background-color: #a3a1a1;
+}
