@@ -1,17 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Read Text File Tutorial</title>
-  </head>
-  <body>
-    <input type="file" onchange="loadFile(this.files[0])">
-    <br>
-    <pre id="output"></pre>
-    <script>
-      async function loadFile(file) {
-        let text = await file.text();
-        document.getElementById('output').textContent = text;
-      }
-    </script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Générateur de code barres</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.jpg">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="styleGenerateurCodeBarres.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+  <div class="navbar">
+ 
+    <!-- Navbar logo -->
+    <div class="nav-header">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../Images/monLogo.jpg" width="200px" height="50px">
+        </a>
+      </div>
+    </div>
+ 
+    <!-- responsive navbar toggle button -->
+    <input type="checkbox" id="nav-check">
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+ 
+    <!-- Navbar items -->
+    <div class="nav-links">
+      <a href="../index.html">Accueil</a>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Jeux&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Pendu\indexPendu.html">Pendu</a>
+          <a href="../Devine-nombre/indexDevineNombre.html">Devine-nombre</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Codes&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Python/indexPython.html">Python</a>
+          <a href="../HTML/indexHtml.html">HTML/CSS/Javascript</a>
+        </div>
+      </div>
+      <a href="../Budget/indexBudget.html">Budget</a>
+      <a href="../GT7/indexVoituresGT7.html">Voitures GT7</a>
+      <a href="../Carte bar/indexCarteBar.html">Carte du bar</a>
+      <a href="indexGenerateurCodeBarres.html">Codes barres</a>
+      <a href="../Contact/indexContact.html">Contact</a>
+    </div>
+  </div>
+
+<div class="divCorps">
+
+<h1>Générateur de code barres</h1></br></br>
+
+</div>
   </body>
 </html>

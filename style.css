@@ -1,5 +1,5 @@
 html {
-	background: red;
+	background: white;
 }
 
 .code {
@@ -21,6 +21,7 @@ body{
   background-image: url(background-img.jpg);
   background-size: cover;
   background-attachment: fixed;
+text-align: left;
 }
 .navbar{
   height: 70px;
@@ -91,7 +92,7 @@ body{
   .navbar .nav-links{
     position: absolute;
     display: block;
-    text-align: center;
+    text-align: left;
     width: 50%;
     background-color: rgb(9, 14, 90);
     transition: all 0.3s ease-in;
@@ -177,4 +178,23 @@ body{
 }
 .dropBtn2 i {
   margin-left: 15px;
+}
+.divCorps{
+margin-left: 10%;
+margin-right: 10%;
+margin-top: 5%;
+margin-bottom: 5%;
+}
+
+h1 {
+text-align: center;
+margin-top: 10px;
+text-decoration: underline;
+font-weight: normal;
+font-size: 48px;
+}
+
+p {
+text-align: center;
+font-size: 18px;
 }

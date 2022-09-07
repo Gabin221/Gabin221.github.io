@@ -109,7 +109,7 @@ class Pendu{ //classe du pendu
             div.classList.add('lettre');
             if(element==="-" || element===" "){
                 div.innerHTML=("-");
-                div.style.color = "white";
+                div.style.color = "black";
             }
             else {
                 div.innerHTML=("-");
@@ -146,11 +146,11 @@ class Pendu{ //classe du pendu
             div.classList.add('lettre');
             if(element==="-"){
                 div.innerHTML=("-");
-                div.style.color = "white";
+                div.style.color = "black";
             }
             else {
                 div.innerHTML=(element);
-                div.style.color = "white";
+                div.style.color = "black";
             }
             document.querySelector('main section.pendu section:nth-of-type(3)').append(div);
         });
@@ -173,7 +173,7 @@ class Pendu{ //classe du pendu
                 if(element===lettre){
                     let div =document.querySelector(`main section.pendu section:nth-of-type(3) div:nth-of-type(${index+1})`);
                     div.innerHTML= lettre;
-                    div.style.color = "white";
+                    div.style.color = "black";
                 }
             });
             this.MotJuste();
@@ -302,7 +302,7 @@ class Pendu{ //classe du pendu
                     if (element === lettre) {
                         let div = document.querySelector(`main section.pendu section:nth-of-type(3) div:nth-of-type(${index + 1})`);
                         div.innerHTML = lettre;
-                        div.style.color = "white";
+                        div.style.color = "black";
                     }
                 });
                 this.MotJuste();
@@ -328,7 +328,7 @@ class Pendu{ //classe du pendu
                     if(element===uneLettre){
                         let div =document.querySelector(`main section.pendu section:nth-of-type(3) div:nth-of-type(${index+1})`);
                         div.innerHTML= uneLettre;
-                        div.style.color = "white";
+                        div.style.color = "black";
                     }
                 });
                 this.MotJuste();

@@ -4,45 +4,68 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Voitures Gran Turismo 7</title>
-		<link rel="icon" type="image/png" sizes="16x16" href="Images/monLogo.jpg">
+		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.jpg">
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="styleVoituresGT7.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body>
-	<table>
-	<tr>
-		<td colspan="2" id="banniere" >
-			<img src="../Images/monLogo.jpg"/>
-		</td>
-	</tr>
-	<tr>
-		<td id="colonneMenu">
-  			<ul id="menu-vertical">
-    				<li><a href="../index.html">Page d'accueil</a></li>
-    				<li><a href="#">Jeux</a>
-      					<ul class="sous">
-        					<li><a href="../Pendu/indexPendu.html">Pendu</a></li>
-        					<li><a href="../Devine-nombre/indexDevineNombre.html">Devine nombre</a></li>
-      					</ul>
-    				</li>
-    				<li><a href="../Budget/indexBudget.html">Budget</a></li>
-    				<li><a href="GT7/indexVoituresGT7.html">Voitures GT7</a></li>
-    				<li><a href="../Carte bar/indexCarteBar.html">Carte du bar</a></li>
-    				<li class="deroulant"><a href="#">Codes</a>
-      					<ul class="sous">
-        					<li><a href=../Python/indexPython.html>Python</a></li>
-        					<li><a href=../Html/indexHtml.html>HTML/Javascript/CSS</a></li>
-      					</ul>
-    				</li>
-    				<li><a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a></li>
-    				<li><a href="../Emilie/indexEmilie.html">Emilie</a></li>
-    				<li><a href="../Contact/indexContact.html">Contact</a></li>
-  			</ul>
-		</td>
-		<td id="contenu">
+  <div class="navbar">
+ 
+    <!-- Navbar logo -->
+    <div class="nav-header">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../Images/monLogo.jpg" width="200px" height="50px">
+        </a>
+      </div>
+    </div>
+ 
+    <!-- responsive navbar toggle button -->
+    <input type="checkbox" id="nav-check">
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+ 
+    <!-- Navbar items -->
+    <div class="nav-links">
+      <a href="../index.html">Accueil</a>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Jeux&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Pendu\indexPendu.html">Pendu</a>
+          <a href="../Devine-nombre/indexDevineNombre.html">Devine-nombre</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Codes&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Python/indexPython.html">Python</a>
+          <a href="../HTML/indexHtml.html">HTML/CSS/Javascript</a>
+        </div>
+      </div>
+      <a href="../Budget/indexBudget.html">Budget</a>
+      <a href="indexVoituresGT7.html">Voitures GT7</a>
+      <a href="../Carte bar/indexCarteBar.html">Carte du bar</a>
+      <a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a>
+      <a href="../Contact/indexContact.html">Contact</a>
+    </div>
+  </div>
+
+<div class="divCorps">
+
+<h1>Voitures Gran Turismo 7</h1></br></br>
+
 <input id="searchbar" onkeyup="search_animal()" type="text"
-        name="search" placeholder="Parmi les voitures disponibles dans le jeu">
+        name="search" placeholder="Dispos dans le jeu">
 
     	<ol id='list' style="list-style-type: disc">
 		<li class="animals">Alfa Romeo</li>
@@ -550,37 +573,6 @@
     	</ol>
 
 	<script src="mainVoituresGT7.js"></script>
-		</td>
-		</tr>
-		<tr>
-		<td colspan="2" id="colonneFooter">
-		<div>
-			<ul class="lienReseaux">
-				<li>
-        				<a class="liensReseaux" href="https://twitter.com/"><img class="logo" src="../Images/logoTwitter.png"> Mon twitter</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://facebook.com/"><img class="logo" src="../Images/logoFacebook.png"> Mon facebook</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://youtube.com/"><img class="logo" src="../Images/logoYoutube.png"> Mon Youtube</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://spotify.com/"><img class="logo" src="../Images/logoSpotify.png"> Mon Spotify</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://github.com/"><img class="logo" src="../Images/logoGithub.png"> Mon Git-Hub</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://instagram.com/"><img class="logo" src="../Images/logoInstagram.png"> Mon Instagram</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://snapchat.com/"><img class="logo" src="../Images/logoSnap.png"> Mon Snapchat</a>
-				</li>
-			</ul>
-		</div>
-		</td>
-		</tr>
-	</table>
+</div>
     	</body>
 </html>
