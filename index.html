@@ -9,71 +9,55 @@
 		<link href="style.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
-	<table>
-	<tr>
-		<td colspan="2" id="banniere" >
-			<img src="Images/monLogo.jpg"/>
-		</td>
-	</tr>
-	<tr>
-		<td id="colonneMenu">
-  			<ul id="menu-vertical">
-    				<li><a href="index.html">Page d'accueil</a></li>
-    				<li><a href="#">Jeux</a>
-      					<ul class="sous">
-        					<li><a href="Pendu/indexPendu.html">Pendu</a></li>
-        					<li><a href="Devine-nombre/indexDevineNombre.html">Devine nombre</a></li>
-      					</ul>
-    				</li>
-    				<li><a href="Budget/indexBudget.html">Budget</a></li>
-    				<li><a href="GT7/indexVoituresGT7.html">Voitures GT7</a></li>
-    				<li><a href="Carte bar/indexCarteBar.html">Carte du bar</a></li>
-    				<li class="deroulant"><a href="#">Codes</a>
-      					<ul class="sous">
-        					<li><a href=Python/indexPython.html>Python</a></li>
-        					<li><a href=Html/indexHtml.html>HTML/Javascript/CSS</a></li>
-      					</ul>
-    				</li>
-    				<li><a href="Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a></li>
-    				<li><a href="Emilie/indexEmilie.html">Emilie</a></li>
-    				<li><a href="Contact/indexContact.html">Contact</a></li>
-  			</ul>
-		</td>
-		<td id="contenu">
-			<p1>Bonjour à tous et bienvenu sur mon site !</p1><br /><br /><br />
-
-			<p2>Ce site est un peu rudimentaire pour l'instant mais il devrait s'améliorer avec le temps. Pour l'instant, vous ne pouvez faire que quelques bricoles sur ce coin reculé d'internet. Vous pouvez aller sur mon application de gestion de budget, vous pouvez également jouer au pendu ou au devine-nombre ou encore vous pouvez regarder les différentes voitures disponibles sur GT7.</p2>
-		</td>
-		</tr>
-		<tr>
-		<td colspan="2" id="colonneFooter">
-		<div>
-			<ul class="lienReseaux">
-				<li>
-        				<a class="liensReseaux" href="https://twitter.com/"><img class="logo" src="Images/logoTwitter.png"> Mon twitter</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://facebook.com/"><img class="logo" src="Images/logoFacebook.png"> Mon facebook</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://youtube.com/"><img class="logo" src="Images/logoYoutube.png"> Mon Youtube</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://spotify.com/"><img class="logo" src="Images/logoSpotify.png"> Mon Spotify</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://github.com/"><img class="logo" src="Images/logoGithub.png"> Mon Git-Hub</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://instagram.com/"><img class="logo" src="Images/logoInstagram.png"> Mon Instagram</a>
-				</li>
-				<li>
-        				<a class="liensReseaux" href="https://snapchat.com/"><img class="logo" src="Images/logoSnap.png"> Mon Snapchat</a>
-				</li>
-			</ul>
-		</div>
-		</td>
-		</tr>
-	</table>
+  <div class="navbar">
+ 
+    <!-- Navbar logo -->
+    <div class="nav-header">
+      <div class="nav-logo">
+        <a href="#">
+          <img src="Images/monLogo.jpg" width="200px" height="50px">
+        </a>
+      </div>
+    </div>
+ 
+    <!-- responsive navbar toggle button -->
+    <input type="checkbox" id="nav-check">
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+ 
+    <!-- Navbar items -->
+    <div class="nav-links">
+      <a href="#">Accueil</a>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Jeux
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Pendu</a>
+          <a href="#">Devine-nombre</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Codes
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Python</a>
+          <a href="#">HTML/CSS/Javascript</a>
+        </div>
+      </div>
+      <a href="#">Budget</a>
+      <a href="#">Voitures GT7</a>
+      <a href="#">Carte du bar</a>
+      <a href="#">Codes barres</a>
+      <a href="#">Contact</a>
+    </div>
+ 
+  </div>
 	</body>
 </html>

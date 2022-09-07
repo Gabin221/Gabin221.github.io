@@ -10,27 +10,31 @@
 	</head>
 	<body>            
         <nav>
-            <ul>
-                <li><a href="../index.html">Page d'accueil</a></li>
-                <li class="deroulant"><a href="#">Jeux</a>
-                    <ul class="sous">
-                        <li><a href="../Pendu/indexPendu.html">Pendu</a></li>
-                        <li><a href="../Devine-nombre/indexDevineNombre.html">Devine nombre</a></li>
-                    </ul>
-                </li>
-                <li><a href="../Budget/indexBudget.html">Budget</a></li>
-                <li><a href="../GT7/indexVoituresGT7.html">Voitures GT7</a></li>
-                <li><a href="../Carte bar/indexCarteBar.html">Carte du bar</a></li>
-                <li class="deroulant"><a href="#">Codes</a>
-                    <ul class="sous">
-                        <li><a href=../Python/indexPython.html>Python</a></li>
-                        <li><a href=Html/indexHtml.html>Web</a></li>
-                    </ul>
-                </li>
-                <li><a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a></li>
-                <li><a href="../Emilie/indexEmilie.html">Emilie</a></li>
-                <li><a href="../Contact/indexContact.html">Contact</a></li>
-            </ul>
+            <div class="conteneur-nav">
+                <label for="mobile">Affichier/Cacher le menu</label>
+                <input type="checkbox" id="mobile" role="button">
+                <ul>
+                    <li><a href="../index.html">Page d'accueil</a></li>
+                    <li class="deroulant"><a href="#">Jeux ▼</a>
+                        <ul class="sous">
+                            <li><a href="../Pendu/indexPendu.html">Pendu</a></li>
+                            <li><a href="../Devine-nombre/indexDevineNombre.html">Devine nombre</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Budget/indexBudget.html">Budget</a></li>
+                    <li><a href="../GT7/indexVoituresGT7.html">Voitures GT7</a></li>
+                    <li><a href="../Carte bar/indexCarteBar.html">Carte du bar</a></li>
+                    <li class="deroulant"><a href="#">Codes ▼</a>
+                        <ul class="sous">
+                            <li><a href=../Python/indexPython.html>Python</a></li>
+                            <li><a href=Html/indexHtml.html>Web</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a></li>
+                    <li><a href="../Emilie/indexEmilie.html">Emilie</a></li>
+                    <li><a href="../Contact/indexContact.html">Contact</a></li>
+                </ul>
+            </div>
         </nav>
         
             <br/>
@@ -38,6 +42,10 @@
             <br/>
             <br/>
             <hr>
+
+	<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="p">{</span><span class="nb">chr</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">65</span><span class="p">,</span> <span class="mi">91</span><span class="p">)}</span>
+</pre></div>
+
             <center>
             <textarea disabled rows="10" cols="40">
     def affiche():
