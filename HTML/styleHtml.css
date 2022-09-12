@@ -178,15 +178,23 @@ margin-bottom: 5%;
 }
 
 h1 {
-text-align: center;
-margin-top: 10px;
-text-decoration: underline;
-font-weight: normal;
-font-size: 48px;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 48px;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 35px;
+    color: black;
 }
 
 p {
-text-align: center;
+text-align: left;
 font-size: 18px;
 }
 
@@ -194,8 +202,13 @@ font-size: 18px;
 	border: 1px black solid;
 	width: 60%;
 	margin-left: auto;
-    	margin-right: auto;
+    margin-right: auto;
 	background: black;
 	text-align: left;
 	color: white;
+}
+
+a {
+    color: green;
+   	text-decoration: none;
 }

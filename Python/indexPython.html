@@ -60,61 +60,120 @@
   </div>
 
 <div class="divCorps">
+    
+<h1>Python</h1>
 
-<h1>Python</h1></br></br>
+ <br><br><br><br>
 
-	<pre>
-	<div class="code">
+<hr>
+<h2>Sommaire</h2>
+<a href="#nPremiersNombres" title="Afficher les n premiers nombres">Afficher les n premiers nombres</a><br>
+<a href="#calculPi" title="Calculer pi">Calculer pi</a><br>
+<a href="#motsCles" title="Liste des mots clés">Liste des mots clés</a>
+<hr>
+    
+<br><br><br><br>
+    
+<h3><a name="nPremiersNombres">Afficher les n premiers nombres</a></h3>
+    
+<p>L'idée derrière ce code est d'afficher les n premiers nombres. Pour se faire, on va utiliser une boucle for qui va de 0 à n (ici n=3) et qui les affichent à l'écran.</p>
+    
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: green">for</span> i <span style="color: blue">in</span> <span style="color: purple">range</span>(0, 3):
+    <span style="color: blue">print</span>(i)
+    </div>
+</pre>
+    
+<h3><a name="calculPi">Calculer pi</a></h3>
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: #0B16F4">import</span> numpy <span style="color: #0B16F4">as</span> np
+
+
+<span style="color: #0B16F4">def</span> calculPi():
+    n = 100000
+    compteur = 0
+    <span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(n):
+        x = np.random.random()
+        y = np.random.random()
+        if x**2 + y**2 <= 1:
+            compteur += 1
+    return compteur*4/n
+
+
+nbrMoyenne = 30
+pi = np.empty(nbrMoyenne)
+<span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(<span style="color: #B61313">0</span>, nbrMoyenne):
+    pi[i] = calculPi()
+
+<span style="color: #D92691">print</span>(<span style="color: #40F40B">f"pi = {np.mean(pi)} ± {np.abs(np.mean(pi) - np.pi)/2}"</span>)
+</div>
+</pre>
+
+<h3><a name="motsCles">Liste des mots clés</a></h3>
+    
+<pre>
+<div class="code">
 <span style="color: gray"># Les mots clés en Python</span>
 
-<span style="color: blue">and</span>
-<span style="color: blue">as</span>
-<span style="color: blue">assert</span>
-<span style="color: blue">break</span>
-<span style="color: blue">class</span>
-<span style="color: blue">continue</span>
-<span style="color: blue">def</span>
-<span style="color: blue">del</span>
-<span style="color: blue">elif</span>
-<span style="color: blue">else</span>
-<span style="color: blue">except</span>
-<span style="color: blue">finally</span>
-<span style="color: blue">for</span>
-<span style="color: blue">from</span>
-<span style="color: blue">global</span>
-<span style="color: blue">if</span>
-<span style="color: blue">import</span>
-<span style="color: blue">in</span>
-<span style="color: blue">is</span>
-<span style="color: blue">is not</span>
-<span style="color: blue">lambda</span>
-<span style="color: blue">not</span>
-<span style="color: blue">or</span>
-<span style="color: blue">pass</span>
-<span style="color: blue">raise</span>
-<span style="color: blue">return</span>
-<span style="color: blue">try</span>
-<span style="color: blue">while</span>
-<span style="color: blue">yield</span>
+<span style="color: #0B16F4">and</span> = &ltspan style="color: blue"&gtand&lt/span&gt
+<span style="color: #0B16F4">as</span> = &ltspan style="color: blue"&gtas&lt/span&gt
+<span style="color: #0B16F4">assert</span> = &ltspan style="color: blue"&gtassert&lt/span&gt
+<span style="color: #0B16F4">break</span> = &ltspan style="color: blue"&gtbreak&lt/span&gt
+<span style="color: #0B16F4">class</span> = &ltspan style="color: blue"&gtclass&lt/span&gt
+<span style="color: #0B16F4">continue</span> = &ltspan style="color: blue"&gtcontinue&lt/span&gt
+<span style="color: #0B16F4">def</span> = &ltspan style="color: blue"&gtdef&lt/span&gt
+<span style="color: #0B16F4">del</span> = &ltspan style="color: blue"&gtdel&lt/span&gt
+<span style="color: #0B16F4">elif</span> = &ltspan style="color: blue"&gtelif&lt/span&gt
+<span style="color: #0B16F4">else</span> = &ltspan style="color: blue"&gtelse&lt/span&gt
+<span style="color: #0B16F4">except</span> = &ltspan style="color: blue"&gtexcept&lt/span&gt
+<span style="color: #0B16F4">finally</span> = &ltspan style="color: blue"&gtfinally&lt/span&gt
+<span style="color: #0B16F4">for</span> = &ltspan style="color: blue"&gtfor&lt/span&gt
+<span style="color: #0B16F4">from</span> = &ltspan style="color: blue"&gtfrom&lt/span&gt
+<span style="color: #0B16F4">global</span> = &ltspan style="color: blue"&gtglobal&lt/span&gt
+<span style="color: #0B16F4">if</span> = &ltspan style="color: blue"&gtif&lt/span&gt
+<span style="color: #0B16F4">import</span> = &ltspan style="color: blue"&gtimport&lt/span&gt
+<span style="color: #0B16F4">in</span> = &ltspan style="color: blue"&gtin&lt/span&gt
+<span style="color: #0B16F4">is</span> = &ltspan style="color: blue"&gtis&lt/span&gt
+<span style="color: #0B16F4">is not</span> = &ltspan style="color: blue"&gtis not&lt/span&gt
+<span style="color: #0B16F4">lambda</span> = &ltspan style="color: blue"&gtlambda&lt/span&gt
+<span style="color: #0B16F4">not</span> = &ltspan style="color: blue"&gtnot&lt/span&gt
+<span style="color: #0B16F4">or</span> = &ltspan style="color: blue"&gtor&lt/span&gt
+<span style="color: #0B16F4">pass</span> = &ltspan style="color: blue"&gtpass&lt/span&gt
+<span style="color: #0B16F4">raise</span> = &ltspan style="color: blue"&gtraise&lt/span&gt
+<span style="color: #0B16F4">return</span> = &ltspan style="color: blue"&gtreturn&lt/span&gt
+<span style="color: #0B16F4">try</span> = &ltspan style="color: blue"&gttry&lt/span&gt
+<span style="color: #0B16F4">while</span> = &ltspan style="color: blue"&gtwhile&lt/span&gt
+<span style="color: #0B16F4">yield</span> = &ltspan style="color: blue"&gtyield&lt/span&gt
 
-<span style="color: #D92691">True</span>
-<span style="color: #D92691">False</span>
-<span style="color: #D92691">None</span>
-<span style="color: #D92691">exec</span>
-<span style="color: #D92691">print</span>()
-<span style="color: #D92691">help</span>()
-<span style="color: #D92691">dir</span>()
-<span style="color: #D92691">input</span>()
-<span style="color: #D92691">len</span>()
-<span style="color: #D92691">range</span>()
-<span style="color: #D92691">ord</span>()
-<span style="color: #D92691">locals</span>()
-<span style="color: #D92691">globals</span>()
-<span style="color: #D92691">str</span>()
-<span style="color: #D92691">int</span>()
-<span style="color: #D92691">open</span>()
+<span style="color: #D92691">True</span> = &ltspan style="color: #D92691"&gtTrue&lt/span&gt
+<span style="color: #D92691">False</span> = &ltspan style="color: #D92691"&gtFalse&lt/span&gt
+<span style="color: #D92691">None</span> = &ltspan style="color: #D92691"&gtNone&lt/span&gt
+<span style="color: #D92691">exec</span> = &ltspan style="color: #D92691"&gtexec&lt/span&gt
+<span style="color: #D92691">print</span>() = &ltspan style="color: #D92691"&gtprint&lt/span&gt
+<span style="color: #D92691">help</span>() = &ltspan style="color: #D92691"&gthelp&lt/span&gt
+<span style="color: #D92691">dir</span>() = &ltspan style="color: #D92691"&gtdir&lt/span&gt
+<span style="color: #D92691">input</span>() = &ltspan style="color: #D92691"&gtinput&lt/span&gt
+<span style="color: #D92691">len</span>() = &ltspan style="color: #D92691"&gtlen&lt/span&gt
+<span style="color: #D92691">range</span>() = &ltspan style="color: #D92691"&gtrange&lt/span&gt
+<span style="color: #D92691">ord</span>() = &ltspan style="color: #D92691"&gtord&lt/span&gt
+<span style="color: #D92691">locals</span>() = &ltspan style="color: #D92691"&gtlocals&lt/span&gt
+<span style="color: #D92691">globals</span>() = &ltspan style="color: #D92691"&gtglobals&lt/span&gt
+<span style="color: #D92691">str</span>() = &ltspan style="color: #D92691"&gtstr&lt/span&gt
+<span style="color: #D92691">int</span>() = &ltspan style="color: #D92691"&gtint&lt/span&gt
+<span style="color: #D92691">open</span>() = &ltspan style="color: #D92691"&gtopen&lt/span&gt
+
+<span style="color: #B61313">1</span>() = &ltspan style="color: #B61313"&gt1&lt/span&gt
+
+<span style="color: #40F40B">f"affichage"</span>() = &ltspan style="color: #40F40B"&gtf""&lt/span&gt
 	</div>
 	</pre>
+    
 </div>
-    </body>
+</body>
 </html>
