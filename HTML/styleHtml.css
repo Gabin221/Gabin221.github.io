@@ -203,9 +203,10 @@ font-size: 18px;
 	width: 60%;
 	margin-left: auto;
     margin-right: auto;
-	background: black;
+	background: white;
 	text-align: left;
-	color: white;
+	color: black;
+        white-space: pre-line;
 }
 
 a {
