@@ -206,6 +206,7 @@ font-size: 18px;
 	background: black;
 	text-align: left;
 	color: white;
+        white-space: pre-line;
 }
 
 a {
