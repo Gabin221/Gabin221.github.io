@@ -101,7 +101,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(n):
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = np.random.random()
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = np.random.random()
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x**2 + y**2 <= 1:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">if</span> x**2 + y**2 <= 1:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compteur += 1
 &nbsp;&nbsp;&nbsp;&nbsp;return compteur*4/n
 
@@ -109,7 +109,7 @@
 nbrMoyenne = 30
 pi = np.empty(nbrMoyenne)
 <span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(<span style="color: #B61313">0</span>, nbrMoyenne):
-    pi[i] = calculPi()
+&nbsp;&nbsp;&nbsp;&nbsp;pi[i] = calculPi()
 
 <span style="color: #D92691">print</span>(<span style="color: #40F40B">f"pi = {np.mean(pi)} ± {np.abs(np.mean(pi) - np.pi)/2}"</span>)
 </div>
