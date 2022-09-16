@@ -127,6 +127,9 @@ text-align: left;
   .navbar .nav-links .drop-content a {
     color: rgb(9, 14, 90);
   }  
+    .codeBarres{
+        width: 100%;
+    }
  
 }
  
@@ -194,8 +197,10 @@ h3 {
 }
 
 p {
-text-align: left;
-font-size: 18px;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 a {
