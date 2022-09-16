@@ -178,11 +178,11 @@ margin-bottom: 5%;
 }
 
 h1 {
-text-align: center;
-margin-top: 10px;
-text-decoration: underline;
-font-weight: normal;
-font-size: 48px;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 48px;
 }
 
 h3 {
@@ -196,17 +196,6 @@ h3 {
 p {
 text-align: left;
 font-size: 18px;
-}
-
-.code {
-	border: 1px black solid;
-	width: 100%;
-	margin-left: auto;
-    	margin-right: auto;
-	background: white;
-	text-align: left;
-	color: black;
-        white-space: pre-line;
 }
 
 a {
