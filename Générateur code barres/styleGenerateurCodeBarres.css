@@ -211,3 +211,12 @@ a {
 .codeBarres{
     width: 100%;
 }
+
+#scroll_to_top {
+  position: fixed;
+  bottom: 5%;
+  right: -8%;
+}
+#scroll_to_top img {
+  width: 20%;
+}
