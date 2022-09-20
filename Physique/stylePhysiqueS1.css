@@ -219,6 +219,7 @@ a {
   vertical-align:-64%;
   text-align:center;
     font-size: 18px;
+    font-style: italic;
 }
 .frac > .num, .frac > .den{
   display: inline-block;
