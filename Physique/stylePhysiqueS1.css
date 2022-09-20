@@ -205,8 +205,8 @@ a {
 
 .math {
     padding:0 .1em;
-    font-size:1.2em;
-    font-style:normal;
+    font-size: 18px;
+    font-style: italic;
 }
 
 .ct{
@@ -218,8 +218,6 @@ a {
   margin-left:.1em;margin-right:.1em;
   vertical-align:-64%;
   text-align:center;
-    font-size: 18px;
-    font-style: italic;
 }
 .frac > .num, .frac > .den{
   display: inline-block;
