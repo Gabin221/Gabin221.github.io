@@ -190,7 +190,14 @@ h3 {
     margin-top: 10px;
     font-weight: normal;
     font-size: 35px;
-    color: black;
+    color: green;
+}
+
+h4 {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 20px;
+    color: mediumpurple;
 }
 
 p {
@@ -199,7 +206,6 @@ font-size: 18px;
 }
 
 a {
-    color: green;
    	text-decoration: none;
 }
 
@@ -232,4 +238,41 @@ a {
 }
 .den{
     vertical-align: top;
+}
+
+.chapitre{
+    color: green;
+   	text-decoration: none;
+}
+
+.partie{
+    color: mediumpurple;
+   	text-decoration: none;
+}
+
+.loi{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loiSpan{
+    border: 1px solid red;
+}
+
+.equation{
+    border: 1px solid red;
+    padding: 15px;
+}
+
+ol, li {
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img{
+    
 }
