@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Gabin221, mon premier site</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="stylePhysiqueS1.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+        <div class="navbar">
+
+        <!-- Navbar logo -->
+        <div class="nav-header">
+          <div class="nav-logo">
+            <a href="index.html">
+              <img src="../Images/monLogo.png" width="200px" height="50px">
+            </a>
+          </div>
+        </div>
+
+        <!-- responsive navbar toggle button -->
+        <input type="checkbox" id="nav-check">
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <!-- Navbar items -->
+        <div class="nav-links">
+          <a href="../index.html">Accueil</a>
+          <a href="../Budget/indexBudget.html">Budget</a>
+          <a href="../Carte bar/indexCarteBar.html">Carte du bar</a>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">Codes&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="../Python/indexPython.html">Python</a>
+              <a href="../HTML/indexHtml.html">HTML/CSS/Javascript</a>
+            </div>
+          </div>
+          <a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">Jeux&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="../Pendu\indexPendu.html">Pendu</a>
+              <a href="../Devine-nombre/indexDevineNombre.html">Devine-nombre</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">S1&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="../Anglais/indexAnglaisS1.html">Anglais</a>
+              <a href="../CISCO/indexCiscoS1.html">CISCO</a>
+              <a href="../CGE/indexCgeS1.html">CGE</a>
+              <a href="../ESLA/indexEslaS1.html">ESLA</a>
+              <a href="../IR/indexIrS1.html">IR</a>
+              <a href="../Maths S1/indexMathsS1.html">Maths</a>
+              <a href="indexPhysiqueS1.html">Physique</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">S2&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="#">Anglais</a>
+              <a href="#">CISCO</a>
+              <a href="#">CGE</a>
+              <a href="#">ESLA</a>
+              <a href="#">IR</a>
+              <a href="#">Maths</a>
+              <a href="#">Physique</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">S3&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="#">Anglais</a>
+              <a href="#">CISCO</a>
+              <a href="#">CGE</a>
+              <a href="#">ESLA</a>
+              <a href="#">IR</a>
+              <a href="#">Maths</a>
+              <a href="#">Physique</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a class="dropBtn" href="#">S4&emsp;▼
+              <i class="fas fa-angle-down"></i>
+            </a>
+            <div class="drop-content">
+              <a href="#">Anglais</a>
+              <a href="#">CISCO</a>
+              <a href="#">CGE</a>
+              <a href="#">ESLA</a>
+              <a href="#">IR</a>
+              <a href="#">Maths</a>
+              <a href="#">Physique</a>
+            </div>
+          </div>
+          <a href="GT7/indexVoituresGT7.html">Voitures GT7</a>
+          <a href="Contact/indexContact.html">Contact</a>
+        </div>
+        </div>
+
+        <div class="divCorps">
+
+        <h1>Physique</h1>
+
+        <br><br><br><br>
+
+        <h2>Sommaire</h2>
+        <a href="#thGenerSurCircuits" title="Théorèmes généraux sur les circuits" class="chapitre">Théorèmes généraux sur les circuits</a><br>
+        <a href="#intro1" title="Introduction" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduction</a><br>
+        <a href="#loiDesNoeuds" title="Loi des noeuds" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loi des noeuds</a><br>
+        <a href="#loiDesMailles" title="Loi des mailles" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loi des mailles</a><br>
+        <a href="#loiOhm" title="Loi d'Ohm" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loi d'Ohm</a><br>
+        <a href="#associationResistances" title="Association de résistances" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Association de résistances</a><br>
+        <a href="#pontDiviseurTension" title="Pont diviseur de tension" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pont diviseur de tension</a><br>
+        <hr>
+
+        <br><br><br><br>
+
+        <h3><a name="thGenerSurCircuits">Théorèmes généraux sur les circuits</a></h3>
+
+        <h4><a name="intro1">Introduction</a></h4>
+
+        <p>Nous avons la relation:</p>
+
+        <br>
+
+        <div class="math ct">
+            <span class="equation">
+                I = 
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">|Q|</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">&Delta;t</span>
+                    </span>
+                </span>
+                = 
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">Nq<sub>e</sub></span>
+                        <span class="fracbar">/</span>
+                        <span class="den">&Delta;t</span>
+                    </span>
+                </span>
+            </span>
+        </div>
+        
+        <br>
+
+        <p>avec <span class="math">N=-1,60.10<sup>-19</sup> C</span>. Elle définie l'intensité du courant électrique (en Ampères) en fonction de la quantité de courant (en Coulombs) par unités de temps (en secondes).</p>
+
+        <br><br>
+
+        <h4><a name="loiDesNoeuds">Loi des noeuds</a></h4>
+
+        <p>Par convention, le courant circule de la borne <b>+</b> vers la borne <b>-</b> (ou le <b>COM</b>). Il circule donc vers les potentiels les plus bas.</p>
+        <p>Un ampèremètre se branche de sorte que le courant le traverse d'abord par sa borne <b>+</b> vers sa borne <b>-</b> (ou le <b>COM</b>). Le courant doit donc circuler de la même manière que circule le courant dans un circuit.</p>
+        <p>Nous pouvons donc définir la notion de <b>noeud</b>. En effet, on parle de noeud lorsque dans un circuit, il y a un point qui relie 3 fils. La loi de conservation de la charge impose que la quantité d'électrons rentrant dans un noeud soit égale à la quantité d'électrons sortant. On obtient donc la loi des noeuds :</p>
+
+        <div class="loi">
+            La somme des intensités des courants rentrant dans un noeud est égale à la somme des intensités des courant sortant de ce noeud.
+        </div>
+
+        <br><br><br><br>
+
+        <h4><a name="loiDesMailles">Loi des Mailles</a></h4>
+
+        <p>Nous pouvons définir la notion de potentiel en tout point du circuit. Ainsi, nous pouvons obtenir une différence de potentiels (donc une tension qui est une grandeur algébrique) entre deux points. Ainsi, une tension entre le point A et le point B sera notée <b><i>U<sub>AB</sub></i></b> et sera fléchée de <b>B vers A</b>.</p>
+        <p>Comme un ampèremètre, le voltmètre se branche de sorte que le courant circule du <b>+</b> vers le <b>-</b> (ou le <b>COM</b>). Ainsi, la borne <b>+</b> du voltmètre se place au point A et la borne <b>-</b> du voltmètre se branche au point B.</p>
+        <p>Nous pouvons définir la notion de maille. En effet, une maille est une portion du circuit qui est constituée de plusieurs branches formant un circuit fermé. Ainsi, en choisissant un sens de parcours arbitraire dans cette maille, nous pouvons dire :</p>
+
+        <div class="loi">
+            La somme algébrique des tensions à l'intérieur d'une maille est nulle.
+        </div>
+
+        <br><br><br><br>
+
+        <h4><a name="loiOhm">Loi d'Ohm</a></h4>
+                    
+        <p>Nous pouvons définir deux conventions pour un dipôle :</p>
+            <ol>
+                <li>la convention générateur: c'est lorsque les flèches de tension et l'intensité vont dans le même sens</li>
+                <li>la convention récepteur: c'est lorsque les flèches de tension et l'intensité vont dans le sens contraire</li>
+            </ol>
+        <p>Il faut donc adapter le sens des flèches au dipôle: une résistance sera en convention récepteur et un générateur sera en convention générateur.</p>
+                    
+        <p>Nous pouvons donc définir la loi d'Ohm en convention récepteur :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                U = RI
+            </span>
+        </div>
+            
+        <br>
+            
+        <p>ainsi qu'en convention générateur :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                U = -RI
+            </span>
+        </div>
+
+        <br><br><br><br>
+
+        <h4><a name="associationResistances">Association de résistances</a></h4>
+            
+        <p>Nous pouvons associer les résistances d'un montage pour obtenir une résistance équivalente.</p>
+            
+        <br>
+        
+        <center>
+            <figure>
+                <img src="Images/resistancesSerie.gif" alt="Schéma d'un montage de résistances en série">
+                <figcaption>
+                    <i>Schéma d'un montage de résistances en série.</i>
+                </figcaption>
+            </figure>
+        </center>
+            
+        <br>
+            
+        <p>Si les résistances sont montées en série comme dans le montage ci-dessus, alors en faisant une loi des mailles nous obtenons la relation suivante :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                R<sub>eq</sub> = &Sigma; R<sub>i</sub>
+            </span>
+        </div>
+            
+        <br>
+        
+        <center>
+            <figure>
+                <img src="Images/resistancesderivation.gif" alt="Schéma d'un montage de résistances en dérivation">
+                <figcaption>
+                    <i>Schéma d'un montage de résistances en dérivation.</i>
+                </figcaption>
+            </figure>
+        </center>
+            
+        <br>
+            
+        <p>Si les résistances sont montées en dérivation comme dans le montage ci-dessus, alors en faisant une loi des mailles nous obtenons la relation suivante :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 25px">
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">R<sub>eq</sub></span>
+                    </span>
+                </span>
+                = &Sigma;
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">R<sub>i</sub></span>
+                    </span>
+                </span>
+            </span>
+        </div>
+
+        <br><br><br><br>
+
+        <h4><a name="pontDiviseurTension">Pont diviseur de tension</a></h4>
+            
+        <p>Nous pouvons parler d epont diviseur de tension lorsque des résistances sont montées en série. Nous avons donc le schéma ci-dessous :</p>
+            
+        <br>
+            
+        <center>
+            <figure>
+                <img src="Images/pontDiviseurTension.png" alt="Schéma montrant un pont diviseur de tension">
+                <figcaption>
+                    <i>Schéma d'un montage de pont diviseur de tension.</i>
+                </figcaption>
+            </figure>
+        </center>
+            
+        <br>
+            
+        <p>Nous avons donc la relation suivante :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 25px">
+                U<sub>2</sub> = 
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">R<sub>2</sub></span>
+                        <span class="fracbar">/</span>
+                        <span class="den">&Sigma; R<sub>i</sub></span>
+                    </span>
+                U
+                </span>
+            </span>
+        </div>
+
+<div id="scroll_to_top">
+    <a href="#top"><img src="../Images/scrolltop.png" alt="top" /></a>
+</div>
+            
+</div>
+</body>
+</html>
