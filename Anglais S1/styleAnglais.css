@@ -196,28 +196,21 @@ font-size: 18px;
   text-align: center;
 }
 #activeCardButtons {
-  min-width: 100%;
-  max-width: 900px;
   margin-left:auto;
   margin-right:auto;
   
 }
 #prev {
-
-  margin-left: 0px;
-  padding: 2px;
+  width: 150px;
+  margin-top: 5px;
 }
 #flip {
-  position:absolute;
-  width: 50px;
-  left:50%;
-  margin-left:-25px;
-
-
+  width: 150px;
+  margin-top: 5px;
 }
 #next {
-float:right;
-  margin-right:15px;
+  width: 150px;
+  margin-top: 5px;
 }
 #submit {
   position:relative;
