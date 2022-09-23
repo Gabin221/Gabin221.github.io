@@ -225,12 +225,20 @@ td {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    table-layout: fixed;
+    width: 100%; 
 }
 
 thead,
 tfoot {
     background-color: #333;
     color: #fff;
+}
+
+img {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .math {

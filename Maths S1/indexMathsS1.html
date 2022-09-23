@@ -125,6 +125,9 @@
         <a href="#trigonometrie" title="Trigonométrie" class="chapitre">Trigonométrie</a><br>
         <a href="#cercleTrigo" title="Cercle trigonométrique" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cercle trigonométrique</a><br>
         <a href="#sinCosTrigonometrie" title="Fonctions sinus et cosinus" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fonctions sinus et cosinus</a><br>
+        <a href="#tanTrigonometrie" title="Fonctions tangente" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fonctions tangente</a><br>
+        <a href="#generalitesSurFonctions" title="Généralités sur les fonctions" class="chapitre">Généralités sur les fonctions</a><br>
+        <a href="#fonctionsUsuelles" title="Fonctions usuelles" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fonctions usuelles</a><br>
             
         <hr>
             
@@ -173,7 +176,7 @@
             
         <center>
             <figure>
-                <img src="Images/cercleTrigonometrique.png" width="250px" style="margin-left: auto; margin-right: auto;>
+                <img src="Images/cercleTrigonometrique.png">
                 <figcaption>
                     <i>Schéma du cercle trigonométrique.</i>
                 </figcaption>
@@ -273,11 +276,143 @@
             
         <br>
             
-        <p>En plus de ces fonctions remarquables, nous avons leurs fonctions inverses : <b>arcsin(x)</b> et <b>arccos(x)</b>. Nous avons <i>arccos(x)</i> &in; [0; &pi;] et <i>arcsin(x)</i> &in; [-&pi;/2; &pi;/2].</p>
+        <p>En plus de ces fonctions remarquables, nous avons leurs fonctions inverses : <b>arcsin(x)</b> et <b>arccos(x)</b>. Nous avons <i>arccos(x)</i> &in; [0; &pi;] et <i>arcsin(x)</i> &in; ]
+        <span class="math">
+            <span class="frac">
+                <span class="num">-&pi;</span>
+                <span class="fracbar">/</span>
+                <span class="den">2</span>
+            </span>
+        </span>;<span class="math">
+            <span class="frac">
+                <span class="num">&pi;</span>
+                <span class="fracbar">/</span>
+                <span class="den">2</span>
+            </span>
+        </span>[.</p>
+            
+        <br><br><br><br>
+            
+        <h4 name="tanTrigonometrie">Fonction tangente</h4>
+            
+        <br>
+            
+        <p>On peut définir la tangente comme étant le rapport du sinus et du cosinus. Elle est définie 
+        sur ]
+        <span class="math">
+            <span class="frac">
+                <span class="num">-&pi;</span>
+                <span class="fracbar">/</span>
+                <span class="den">2</span>
+            </span>
+        </span>
+        ;<span class="math">
+            <span class="frac">
+                <span class="num">&pi;</span>
+                <span class="fracbar">/</span>
+                <span class="den">2</span>
+            </span>
+            </span>[. Nous avons donc sa représentation graphique suivante :</p>
+            
+        <br>
+            
+        <img src="Images/grapheTan.png" alt="Graphique de la fonction tangente.">
+            
+        <p>Ses valeurs remarquables sont :</p>
+            
+        <br>
+            
+        <table>
+            <tbody>
+                <tr>
+                    <td><i>x</i></td>
+                    <td>0</td>
+                    <td>&pi;/6</td>
+                    <td>&pi;/4</td>
+                    <td>&pi;/3</td>
+                    <td>&pi;/2</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>tan(<i>x</i>)</td>
+                    <td>0</td>
+                    <td>1/&radic;3</td>
+                    <td>1</td>
+                    <td>&radic;3</td>
+                    <td>Valeur interdite</td>
+                </tr>
+            </tbody>
+        </table>
+            
+        <br>
+            
+        <p>On retrouve donc les propriétés suivantes :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                tan(-x) = -tan(x)
+            </span>
+        </div>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                tan(&pi; - x) = -tan(x)
+            </span>
+        </div>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                tan(&pi; + x) = tan(x)
+            </span>
+        </div>
+            
+        <br>
+            
+        <p>Nous pouvons également donné le graphe de la fonction réciproque de <i>tan(x)</i>, la fonction <i>arctan(x)</i> :</p>
+            
+        <br>
+            
+        <img src="Images/grapheArctan.png" alt="Graphique de la fonction arctangente.">
+            
+        <br>
+            
+        <p>Nous pouvons constater que pour la fonction <i>arctan(x)</i>, on a :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                arctan(-x) = -arctan(x)
+            </span>
+        </div>
+            
+        <br><br><br><br>
+            
+        <h3 name="generalitesSurFonctions">Généralités sur les fonctions usuelles</h3>
+            
+        <br>
+            
+        <h4 name="fonctionsUsuelles">Fonctions usuelles</h4>
+            
+        <br>
+            
+        <p>Les fonctions usuelles sont représentées sur le graphe ci-dessous :</p>
+            
+        <img src="Images/grapheFonctionsRemarquables.png" alt="Graphique de la fonction arctangente.">
+            
+            
+            
 
-<div id="scroll_to_top">
-    <a href="#top"><img src="../Images/scrolltop.png" alt="top" /></a>
-</div>
+        <div id="scroll_to_top">
+            <a href="#top"><img src="../Images/scrolltop.png" alt="top" /></a>
+        </div>
         
 </div>
 </body>
