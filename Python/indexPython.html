@@ -125,7 +125,9 @@
 <h2>Sommaire</h2>
 <a href="#nPremiersNombres" title="Afficher les n premiers nombres">Afficher les n premiers nombres</a><br>
 <a href="#calculPi" title="Calculer pi">Calculer pi</a><br>
-<a href="#motsCles" title="Liste des mots clés">Liste des mots clés</a>
+<a href="#motsCles" title="Liste des mots clés">Liste des mots clés</a><br>
+<a href="#graphique" title="Tracer un graphe avec Matplotlib">Tracer un graphe avec Matplotlib</a><br>
+    
 <hr>
     
 <br><br><br><br>
@@ -144,6 +146,31 @@
 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue">print</span>(i)
     </div>
 </pre>
+    
+<br><br><br><br>
+    
+<h3><a name="graphique">Tracer un graphe avec Matplotlib</a></h3>
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: blue">import</span> numpy <span style="color: blue">as</span> np
+<span style="color: blue">import</span> matplotlib.pyplot <span style="color: blue">as</span> plt
+
+x = np.linspace(-<span style="color: #B61313">5</span>, <span style="color: #B61313">10</span>, <span style="color: #B61313">1000</span>)
+y = x**<span style="color: #B61313">2</span>
+
+plt.figure()
+plt.plot(x, y, label=<span style="color: #40F40B">"f(x)"</span>)
+plt.xlim(-<span style="color: #B61313">5</span>, <span style="color: #B61313">10</span>)
+plt.ylim()
+plt.grid()
+plt.legend()
+plt.show()
+</div>
+</pre>
+    
+<br><br><br><br>
     
 <h3><a name="calculPi">Calculer pi</a></h3>
 <pre>
@@ -172,6 +199,8 @@ pi = np.empty(nbrMoyenne)
 <span style="color: #D92691">print</span>(<span style="color: #40F40B">f"pi = {np.mean(pi)} ± {np.abs(np.mean(pi) - np.pi)/2}"</span>)
 </div>
 </pre>
+        
+<br><br><br><br>
 
 <h3><a name="motsCles">Liste des mots clés</a></h3>
     
