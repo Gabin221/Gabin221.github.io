@@ -133,6 +133,16 @@ function prevCard() {
   back.innerHTML = myCards[cardIndex].definition;
 
 }
+function emptyDeck() {
+  var confirmation = confirm("Are you sure you want to delete this entire deck?");
+  if (confirmation) {
+  myCards.splice(0, myCards.length);
+  cardIndex = 0;
+  front.innerHTML = "&nbsp;";
+  back.innerHTML = "&nbsp;";
+  }
+  document.getElementById("newTerm").focus();
+}
 
     document.addEventListener("keyup", function(event) {
     event.preventDefault();
