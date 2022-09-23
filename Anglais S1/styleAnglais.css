@@ -196,8 +196,9 @@ font-size: 18px;
   text-align: center;
 }
 #activeCardButtons {
-  margin-left:auto;
-  margin-right:auto;
+    margin-left:auto;
+    margin-right:auto;
+    width: 100%;
   
 }
 #prev {
