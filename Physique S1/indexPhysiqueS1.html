@@ -129,6 +129,7 @@
         <a href="#loiOhm" title="Loi d'Ohm" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Loi d'Ohm</a><br>
         <a href="#associationResistances" title="Association de résistances" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Association de résistances</a><br>
         <a href="#pontDiviseurTension" title="Pont diviseur de tension" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pont diviseur de tension</a><br>
+        <a href="#puissanceEnergieElectrique" title="Puissance et énergie électrique" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Puissance et énergie électrique</a><br>
         <hr>
 
         <br><br><br><br>
@@ -326,10 +327,97 @@
             </span>
         </div>
 
-<div id="scroll_to_top">
-    <a href="#top"><img src="../Images/scrolltop.png" alt="top" /></a>
-</div>
+        <br><br><br><br>
+
+        <h4><a name="puissanceEnergieElectrique">Puissance et énergie électrique</a></h4>
             
-</div>
-</body>
+        <p>Nous pouvons définir la puissance électrique reçue par un dipôle :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                P = UI
+            </span>
+        </div>
+            
+        <br>
+            
+        <p>De plus, nous savons que la tension et l'intensité électrique sont des grandeurs algébrique donc la puissance l'est aussi. Ainsi, nous pouvons déduire deux cas :</p>
+            
+        <ol>
+            <li>P > 0 : le dipôle reçoit de la puissance, il est donc <b>récepteur</b></li>
+            <li>P &lt; 0 : le dipôle perd de la puissance, il est donc <b>générateur</b></li>
+        </ol>
+            
+        <p>Cette puissance se mesure avec un <b>wattmètre</b> qui mesure à la fois le courant et la tension afin d'en déduire la puissance. Il possède donc 4 bornes.</p>
+            
+        <p>Ainsi, un dipôle donné ne peut pas admettre autant d'énergie qu'il le souhaite, il y a une limite maximale. Nous pouvons donc utiliser la relation <i>P = UI</i> pour calculer la tension maximale ou le courant maximal qui traverse un dipôle pour ne pas l'endommager. En fonction de la contrainte soit sur lal tension, soit sur l'intensité du courant, nous avons deux équations possibles (les deux se déduire en injectant la loi d'Ohm dans l'équation sur la puissance électrique) :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation">
+                P = RI<sup>2</sup> = 
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">U<sup>2</sup></span>
+                        <span class="fracbar">/</span>
+                        <span class="den">R</span>
+                     </span>
+                 </span>
+            </span>
+        </div>
+            
+        <br>
+            
+        <p>La puissance calculée est donc la puissance maximale à utiliser. Si on dépasse cette valeur, le composant pourrait être endommagé.</p>
+        <p>Nous savons de plus que la relation qui relie puissance et énergie est la relation <i>E = P&Delta;t</i>. Ainsi, l'énergie reçue par un dipôle est :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                E = P<sub>j</sub>&Delta;t
+            </span>
+        </div>
+            
+        <br>
+            
+        <p><i>P<sub>j</sub></i> est la puissance de Joule. Ainsi, on a la même relation qu'en mécanique, mais avec la puissance qui est définie comme précédemment.</p>
+        <p>Nous pouvons noter que les puissances s'ajoutent de la même manière que la loi des noeuds :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                P<sub>entrée</sub> = P<sub>sortie</sub> + P<sub>pertes</sub>
+            </span>
+        </div>
+            
+        <br>
+            
+        <p>Nous pouvons également définir le rendement :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation">
+                &eta; = 
+                <span class="math">
+                    <span class="frac">
+                        <span class="num">P<sub>sortie</sub></span>
+                        <span class="fracbar">/</span>
+                        <span class="den">P<sub>entrée</sub></span>
+                     </span>
+                 </span>
+            </span>
+        </div>
+
+        <div id="scroll_to_top">
+            <a href="#top"><img src="../Images/scrolltop.png" alt="top" /></a>
+        </div>
+            
+        </div>
+    </body>
 </html>

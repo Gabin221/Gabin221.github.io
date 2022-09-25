@@ -181,11 +181,11 @@ margin-bottom: 5%;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 10px;
-    text-decoration: underline;
-    font-weight: normal;
-    font-size: 48px;
+text-align: center;
+margin-top: 10px;
+text-decoration: underline;
+font-weight: normal;
+font-size: 48px;
 }
 
 h3 {
@@ -193,7 +193,14 @@ h3 {
     margin-top: 10px;
     font-weight: normal;
     font-size: 35px;
-    color: black;
+    color: green;
+}
+
+h4 {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 20px;
+    color: mediumpurple;
 }
 
 p {
@@ -221,4 +228,14 @@ a {
 }
 #scroll_to_top img {
   width: 35px;
+}
+
+.chapitre{
+    color: green;
+   	text-decoration: none;
+}
+
+.partie{
+    color: mediumpurple;
+   	text-decoration: none;
 }
