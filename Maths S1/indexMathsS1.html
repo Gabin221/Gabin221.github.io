@@ -151,21 +151,33 @@
                     <td>30°</td>
                     <td>45°</td>
                     <td>60°</td>
-                    <td>90°</td>
-                    <td>120°</td>
-                    <td>180°</td>
                 </tr>
             </tbody>
             <tbody>
                 <tr>
-                    <td><i>x</i> en radians</td>
+                    <td><i>x</i> (en rad)</td>
                     <td>0</td>
                     <td>&pi;/6</td>
                     <td>&pi;/4</td>
                     <td>&pi;/3</td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>Degrés</td>
+                    <td>90°</td>
+                    <td>120°</td>
+                    <td>180°</td>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><i>x</i> (en rad)</td>
                     <td>&pi;/2</td>
                     <td>2&pi;/3</td>
                     <td>&pi;</td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
@@ -342,7 +354,7 @@
                     <td>1/&radic;3</td>
                     <td>1</td>
                     <td>&radic;3</td>
-                    <td>Valeur interdite</td>
+                    <td>interdit</td>
                 </tr>
             </tbody>
         </table>
@@ -440,9 +452,7 @@
                 <tr>
                     <td>f(x)</td>
                     <td>k</td>
-                    <td><i>x</i></td>
-                    <td><i>x</i><sup>2</sup></td>
-                    <td><i>x</i><sup>3</sup></td>
+                    <td><i>x<sup>n</sup></i></td>
                     <td><span class="math"><span class="frac">
                         <span class="num">1</span>
                         <span class="fracbar">/</span>
@@ -455,9 +465,7 @@
                 <tr>
                     <td>f'(x)</td>
                     <td>0</td>
-                    <td><i>1</i></td>
-                    <td><i>2x</i></td>
-                    <td><i>3x</i><sup>2</sup></td>
+                    <td><i>n.x<sup>n-1</sup></i></td>
                     <td><span class="math"><span class="frac">
                         <span class="num">-1</span>
                         <span class="fracbar">/</span>
@@ -481,7 +489,6 @@
             <tbody>
                 <tr>
                     <td>forme de f(x)</td>
-                    <td><i>u(x) + k</i></td>
                     <td><i>u(x) + v(x)</i></td>
                     <td><i>u(x) * v(x)</i></td>
                     <td><i>k * u(x)</i></td>
@@ -490,7 +497,6 @@
             <tbody>
                 <tr>
                     <td>forme de f'(x)</td>
-                    <td><i>u'(x)</i></td>
                     <td><i>u'(x) + v'(x)</i></td>
                     <td><i>u'(x).v(x) + u(x).v'(x)</i></td>
                     <td><i>k * u'(x)</i></td>
@@ -503,10 +509,6 @@
                         <span class="num">u(x)</span>
                         <span class="fracbar">/</span>
                         <span class="den">v(x)</span></span></span></td>
-                    <td><span class="math"><span class="frac">
-                        <span class="num">1</span>
-                        <span class="fracbar">/</span>
-                        <span class="den">u(x)</span></span></span></td>
                     <td><span class="math"><span class="frac">
                         <span class="num">k</span>
                         <span class="fracbar">/</span>
@@ -525,10 +527,6 @@
                         <span class="fracbar">/</span>
                         <span class="den">v(x)<sup>2</sup></span></span></span></td>
                     <td><span class="math"><span class="frac">
-                        <span class="num">-v'(x)</span>
-                        <span class="fracbar">/</span>
-                        <span class="den">v(x)<sup>2</sup></span></span></span></td>
-                    <td><span class="math"><span class="frac">
                         <span class="num">-k.v'(x)</span>
                         <span class="fracbar">/</span>
                         <span class="den">v(x)<sup>2</sup></span></span></span></td>
@@ -539,6 +537,21 @@
                 </tr>
             </tbody>
         </table>
+            
+        <br>
+            
+        <p>Nous pouvons utiliser la notion de dérivabilité pour déduire le nombre de solutions d'une équation lorsque celle-ci n'est pas résolvable. Ainsi, si nous avons :</p>
+            
+        <br>
+            
+        <ol>
+            <li><i>f</i> est dérivable et de variation strictement identique sur un intervalle <i>I</i></li>
+            <li><i>k</i> est un réel faisant partie de l'ensemble des images des réels parcourant <i>I</i></li>
+        </ol>
+            
+        <br>
+            
+        <p>alors, l'équation <i>f(x) = k</i> admet une unique solution sur l'intervalle <i>I</i>.</p>
             
 
         <div id="scroll_to_top">
