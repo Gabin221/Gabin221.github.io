@@ -128,6 +128,8 @@
         <a href="#tanTrigonometrie" title="Fonctions tangente" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fonctions tangente</a><br>
         <a href="#generalitesSurFonctions" title="Généralités sur les fonctions" class="chapitre">Généralités sur les fonctions</a><br>
         <a href="#fonctionsUsuelles" title="Fonctions usuelles" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fonctions usuelles</a><br>
+        <a href="#DeriveeFonctionsUsuelles" title="Dérivée de fonctions usuelles" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dérivée de fonctions usuelles</a><br>
+        <a href="#CalculerDeriveeFonctionsUsuelles" title="Calculer une dérivée de fonctions usuelles" class="partie">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calculer une dérivée de fonctions usuelles</a><br>
             
         <hr>
             
@@ -407,7 +409,136 @@
             
         <img src="Images/grapheFonctionsRemarquables.png" alt="Graphique de la fonction arctangente.">
             
+        <br>
             
+        <h4 name="DeriveeFonctionsUsuelles">Dérivée de fonctions usuelles</h4>
+            
+        <br>
+            
+        <p>Le nombre dérivé d'une fonction en un point représente le coefficient directeur de la tangente en ce point. En effet, en chaque point nous pouvons tracer une droite qui "colle" à la courbe. On trouve ainsi une droite de la forme <i>y = ax + b</i> dont le coefficient directeur est le nombre dérivé en ce point. Le nombre dérivé en <i>a</i> est noté <i>f'(a)</i>. En calculant le nombre dérivé pour chacun des points de la fonction, on obtient la fonction dérivée. En réalité, l'équation d'une tangente est de la forme :</p>
+            
+        <br>
+            
+        <div class="math ct">
+            <span class="equation" style="padding: 5px">
+                y = f'(x<sub>a</sub>)(x - x<sub>a</sub>) + f(x<sub>a</sub>)
+            </span>
+        </div>
+            
+        <br>
+            
+        <h4 name="calculerDeriveeFonctionsUsuelles">Calculer une dérivée de fonctions usuelles</h4>
+            
+        <br>
+            
+        <p>Nous pouvons dresser le tableau qui donne les dérivées de chaque fonction usuelle :</p>
+            
+        <br>
+            
+        <table>
+            <tbody>
+                <tr>
+                    <td>f(x)</td>
+                    <td>k</td>
+                    <td><i>x</i></td>
+                    <td><i>x</i><sup>2</sup></td>
+                    <td><i>x</i><sup>3</sup></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">x</span></span></span></td>
+                    <td><i>&radic;x</i></td>
+                    <td><i>e<sup>x</sup></i></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>f'(x)</td>
+                    <td>0</td>
+                    <td><i>1</i></td>
+                    <td><i>2x</i></td>
+                    <td><i>3x</i><sup>2</sup></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">-1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">x<sup>2</sup></span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">2&radic;x</span></span></span></td>
+                    <td><i>e<sup>x</sup></i></td>
+                </tr>
+            </tbody>
+        </table>
+            
+        <br>
+            
+        <p>De plus, si nous avons la dérivée de fonctions usuelles avec une opération entre elles, nous avons les relatioon suivante :</p>
+            
+        <br>
+            
+        <table>
+            <tbody>
+                <tr>
+                    <td>forme de f(x)</td>
+                    <td><i>u(x) + k</i></td>
+                    <td><i>u(x) + v(x)</i></td>
+                    <td><i>u(x) * v(x)</i></td>
+                    <td><i>k * u(x)</i></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>forme de f'(x)</td>
+                    <td><i>u'(x)</i></td>
+                    <td><i>u'(x) + v'(x)</i></td>
+                    <td><i>u'(x).v(x) + u(x).v'(x)</i></td>
+                    <td><i>k * u'(x)</i></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>forme de f(x)</td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">u(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">v(x)</span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">1</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">u(x)</span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">k</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">v(x)</span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">u(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">k</span></span></span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td>forme de f'(x)</td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">u'(x).v(x) - u(x).v'(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">v(x)<sup>2</sup></span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">-v'(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">v(x)<sup>2</sup></span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">-k.v'(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">v(x)<sup>2</sup></span></span></span></td>
+                    <td><span class="math"><span class="frac">
+                        <span class="num">u'(x)</span>
+                        <span class="fracbar">/</span>
+                        <span class="den">k</span></span></span></td>
+                </tr>
+            </tbody>
+        </table>
             
 
         <div id="scroll_to_top">

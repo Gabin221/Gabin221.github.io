@@ -12,7 +12,8 @@ body{
   background-image: url(background-img.jpg);
   background-size: cover;
   background-attachment: fixed;
-text-align: left;
+    text-align: left;
+    width: 100%
 }
 .navbar{
   height: 70px;
@@ -57,7 +58,14 @@ text-align: left;
   display: none;
 }
  
-@media (max-width:700px) {
+@media (max-width:700px) {  
+    .divCorps{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
   .navbar .nav-btn{
     display: inline-block;
     position: absolute;
@@ -203,6 +211,7 @@ h4 {
 p {
 text-align: left;
 font-size: 18px;
+    width: 100%
 }
 
 a {
