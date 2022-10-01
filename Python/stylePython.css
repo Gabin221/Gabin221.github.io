@@ -202,7 +202,7 @@ font-size: 16px;
 	border: 1px black solid;
 	width: 100%;
 	margin-left: auto;
-    	margin-right: auto;
+    margin-right: auto;
 	background: white;
 	text-align: left;
 	color: black;
@@ -216,4 +216,5 @@ a {
 
 ol, li {
     margin-left: 20px;
+    font-size: 16px;
 }
