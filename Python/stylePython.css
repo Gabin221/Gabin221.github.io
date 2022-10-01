@@ -56,6 +56,13 @@ text-align: left;
 }
  
 @media (max-width:700px) {
+    .divCorps{
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    
   .navbar .nav-btn{
     display: inline-block;
     position: absolute;
