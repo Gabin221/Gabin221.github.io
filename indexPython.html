@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Python</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="stylePython.css" rel="stylesheet" type="text/css">
+	</head>
+    <body>
+  <div class="navbar">
+ 
+    <!-- Navbar logo -->
+    <div class="nav-header">
+      <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../Images/monLogo.png" width="200px" height="50px">
+        </a>
+      </div>
+    </div>
+ 
+    <!-- responsive navbar toggle button -->
+    <input type="checkbox" id="nav-check">
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+ 
+    <!-- Navbar items -->
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="Budget/indexBudget.html">Budget</a>
+      <a href="Carte bar/indexCarteBar.html">Carte du bar</a>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Codes&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="Python/indexPython.html">Python</a>
+          <a href="HTML/indexHtml.html">HTML/CSS/Javascript</a>
+        </div>
+      </div>
+      <a href="Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">Jeux&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="Pendu\indexPendu.html">Pendu</a>
+          <a href="Devine-nombre/indexDevineNombre.html">Devine-nombre</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">S1&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Anglais</a>
+          <a href="#">CISCO</a>
+          <a href="#">CGE</a>
+          <a href="#">ESLA</a>
+          <a href="#">IR</a>
+          <a href="#">Maths</a>
+          <a href="#">Physique</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">S2&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Anglais</a>
+          <a href="#">CISCO</a>
+          <a href="#">CGE</a>
+          <a href="#">ESLA</a>
+          <a href="#">IR</a>
+          <a href="#">Maths</a>
+          <a href="#">Physique</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">S3&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Anglais</a>
+          <a href="#">CISCO</a>
+          <a href="#">CGE</a>
+          <a href="#">ESLA</a>
+          <a href="#">IR</a>
+          <a href="#">Maths</a>
+          <a href="#">Physique</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a class="dropBtn" href="#">S4&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="#">Anglais</a>
+          <a href="#">CISCO</a>
+          <a href="#">CGE</a>
+          <a href="#">ESLA</a>
+          <a href="#">IR</a>
+          <a href="#">Maths</a>
+          <a href="#">Physique</a>
+        </div>
+      </div>
+      <a href="GT7/indexVoituresGT7.html">Voitures GT7</a>
+      <a href="Contact/indexContact.html">Contact</a>
+    </div>
+  </div>
+
+<div class="divCorps">
+    
+<h1>Python</h1>
+
+<br><br><br><br>
+
+<hr>
+<h2>Sommaire</h2>
+<a href="#pyToExe" title=".py en .exe">.py en .exe</a><br>
+<a href="#nPremiersNombres" title="Afficher les n premiers nombres">Afficher les n premiers nombres</a><br>
+<a href="#graphique" title="Tracer un graphe avec Matplotlib">Tracer un graphe avec Matplotlib</a><br>
+<a href="#calculPi" title="Calculer pi">Calculer pi</a><br>
+<a href="#motsCles" title="Liste des mots clés">Liste des mots clés</a><br>
+    
+<hr>
+    
+<br><br><br><br>
+    
+<h3><a name="pyToExe">.py en .exe</a></h3>
+
+<br>
+    
+<p>La création d'un fichier .exe à partir d'un .py se fait en utilisant Pyinstaller. C'est juste un module Python. On fait donc ceci en utilisant l'invite de commande et en suivant les instructions ci-dessous :</p>
+    
+<br>
+    
+<ol>
+    <li>pip install pyinstaller</li>
+    <li>se déplacer dans le dossier qui contient le .py à convertir</li>
+    <li>pyinstaller --one file NOMDUFICHIER.py</li>
+</ol>
+    
+<br><br><br><br>
+    
+<h3><a name="nPremiersNombres">Afficher les n premiers nombres</a></h3>
+
+<br>
+    
+<p>L'idée derrière ce code est d'afficher les n premiers nombres. Pour se faire, on va utiliser une boucle for qui va de 0 à n (ici n=3) et qui les affichent à l'écran.</p>
+    
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: green">for</span> i <span style="color: blue">in</span> <span style="color: purple">range</span>(0, 3):
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: blue">print</span>(i)
+    </div>
+</pre>
+    
+<br><br><br><br>
+    
+<h3><a name="graphique">Tracer un graphe avec Matplotlib</a></h3>
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: blue">import</span> numpy <span style="color: blue">as</span> np
+<span style="color: blue">import</span> matplotlib.pyplot <span style="color: blue">as</span> plt
+
+x = np.linspace(-<span style="color: #B61313">5</span>, <span style="color: #B61313">10</span>, <span style="color: #B61313">1000</span>)
+y = x**<span style="color: #B61313">2</span>
+
+plt.figure()
+plt.plot(x, y, label=<span style="color: #40F40B">"f(x)"</span>)
+plt.xlim(-<span style="color: #B61313">5</span>, <span style="color: #B61313">10</span>)
+plt.ylim()
+plt.grid()
+plt.legend()
+plt.show()
+</div>
+</pre>
+    
+<br><br><br><br>
+    
+<h3><a name="calculPi">Calculer pi</a></h3>
+<pre>
+    <div class="code">
+<span style="color: gray"># Le code Python</span>
+
+<span style="color: #0B16F4">import</span> numpy <span style="color: #0B16F4">as</span> np
+
+
+<span style="color: #0B16F4">def</span> calculPi():
+&nbsp;&nbsp;&nbsp;&nbsp;n = 100000
+&nbsp;&nbsp;&nbsp;&nbsp;compteur = 0
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(n):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = np.random.random()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = np.random.random()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">if</span> x**2 + y**2 <= 1:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;compteur += 1
+&nbsp;&nbsp;&nbsp;&nbsp;return compteur*4/n
+
+
+nbrMoyenne = 30
+pi = np.empty(nbrMoyenne)
+<span style="color: #0B16F4">for</span> i <span style="color: #0B16F4">in</span> <span style="color: #D92691">range</span>(<span style="color: #B61313">0</span>, nbrMoyenne):
+&nbsp;&nbsp;&nbsp;&nbsp;pi[i] = calculPi()
+
+<span style="color: #D92691">print</span>(<span style="color: #40F40B">f"pi = {np.mean(pi)} ± {np.abs(np.mean(pi) - np.pi)/2}"</span>)
+</div>
+</pre>
+        
+<br><br><br><br>
+
+<h3><a name="motsCles">Liste des mots clés</a></h3>
+    
+<pre>
+<div class="code">
+<span style="color: gray"># Les mots clés en Python</span>
+
+<span style="color: #0B16F4">and</span> = &ltspan style="color: blue"&gtand&lt/span&gt
+<span style="color: #0B16F4">as</span> = &ltspan style="color: blue"&gtas&lt/span&gt
+<span style="color: #0B16F4">assert</span> = &ltspan style="color: blue"&gtassert&lt/span&gt
+<span style="color: #0B16F4">break</span> = &ltspan style="color: blue"&gtbreak&lt/span&gt
+<span style="color: #0B16F4">class</span> = &ltspan style="color: blue"&gtclass&lt/span&gt
+<span style="color: #0B16F4">continue</span> = &ltspan style="color: blue"&gtcontinue&lt/span&gt
+<span style="color: #0B16F4">def</span> = &ltspan style="color: blue"&gtdef&lt/span&gt
+<span style="color: #0B16F4">del</span> = &ltspan style="color: blue"&gtdel&lt/span&gt
+<span style="color: #0B16F4">elif</span> = &ltspan style="color: blue"&gtelif&lt/span&gt
+<span style="color: #0B16F4">else</span> = &ltspan style="color: blue"&gtelse&lt/span&gt
+<span style="color: #0B16F4">except</span> = &ltspan style="color: blue"&gtexcept&lt/span&gt
+<span style="color: #0B16F4">finally</span> = &ltspan style="color: blue"&gtfinally&lt/span&gt
+<span style="color: #0B16F4">for</span> = &ltspan style="color: blue"&gtfor&lt/span&gt
+<span style="color: #0B16F4">from</span> = &ltspan style="color: blue"&gtfrom&lt/span&gt
+<span style="color: #0B16F4">global</span> = &ltspan style="color: blue"&gtglobal&lt/span&gt
+<span style="color: #0B16F4">if</span> = &ltspan style="color: blue"&gtif&lt/span&gt
+<span style="color: #0B16F4">import</span> = &ltspan style="color: blue"&gtimport&lt/span&gt
+<span style="color: #0B16F4">in</span> = &ltspan style="color: blue"&gtin&lt/span&gt
+<span style="color: #0B16F4">is</span> = &ltspan style="color: blue"&gtis&lt/span&gt
+<span style="color: #0B16F4">is not</span> = &ltspan style="color: blue"&gtis not&lt/span&gt
+<span style="color: #0B16F4">lambda</span> = &ltspan style="color: blue"&gtlambda&lt/span&gt
+<span style="color: #0B16F4">not</span> = &ltspan style="color: blue"&gtnot&lt/span&gt
+<span style="color: #0B16F4">or</span> = &ltspan style="color: blue"&gtor&lt/span&gt
+<span style="color: #0B16F4">pass</span> = &ltspan style="color: blue"&gtpass&lt/span&gt
+<span style="color: #0B16F4">raise</span> = &ltspan style="color: blue"&gtraise&lt/span&gt
+<span style="color: #0B16F4">return</span> = &ltspan style="color: blue"&gtreturn&lt/span&gt
+<span style="color: #0B16F4">try</span> = &ltspan style="color: blue"&gttry&lt/span&gt
+<span style="color: #0B16F4">while</span> = &ltspan style="color: blue"&gtwhile&lt/span&gt
+<span style="color: #0B16F4">yield</span> = &ltspan style="color: blue"&gtyield&lt/span&gt
+
+<span style="color: #D92691">True</span> = &ltspan style="color: #D92691"&gtTrue&lt/span&gt
+<span style="color: #D92691">False</span> = &ltspan style="color: #D92691"&gtFalse&lt/span&gt
+<span style="color: #D92691">None</span> = &ltspan style="color: #D92691"&gtNone&lt/span&gt
+<span style="color: #D92691">exec</span> = &ltspan style="color: #D92691"&gtexec&lt/span&gt
+<span style="color: #D92691">print</span>() = &ltspan style="color: #D92691"&gtprint&lt/span&gt
+<span style="color: #D92691">help</span>() = &ltspan style="color: #D92691"&gthelp&lt/span&gt
+<span style="color: #D92691">dir</span>() = &ltspan style="color: #D92691"&gtdir&lt/span&gt
+<span style="color: #D92691">input</span>() = &ltspan style="color: #D92691"&gtinput&lt/span&gt
+<span style="color: #D92691">len</span>() = &ltspan style="color: #D92691"&gtlen&lt/span&gt
+<span style="color: #D92691">range</span>() = &ltspan style="color: #D92691"&gtrange&lt/span&gt
+<span style="color: #D92691">ord</span>() = &ltspan style="color: #D92691"&gtord&lt/span&gt
+<span style="color: #D92691">locals</span>() = &ltspan style="color: #D92691"&gtlocals&lt/span&gt
+<span style="color: #D92691">globals</span>() = &ltspan style="color: #D92691"&gtglobals&lt/span&gt
+<span style="color: #D92691">str</span>() = &ltspan style="color: #D92691"&gtstr&lt/span&gt
+<span style="color: #D92691">int</span>() = &ltspan style="color: #D92691"&gtint&lt/span&gt
+<span style="color: #D92691">open</span>() = &ltspan style="color: #D92691"&gtopen&lt/span&gt
+
+<span style="color: #B61313">1</span> = &ltspan style="color: #B61313"&gt1&lt/span&gt
+
+<span style="color: #40F40B">f"affichage"</span> = &ltspan style="color: #40F40B"&gtf""&lt/span&gt
+
+tabulation = &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+	</div>
+	</pre>
+    
+</div>
+</body>
+</html>
