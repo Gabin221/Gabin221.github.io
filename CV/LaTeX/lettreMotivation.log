@@ -1,7 +1,7 @@
 This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2021.1.4)  2 OCT 2022 21:40
 entering extended mode
-**./coverLetter.tex
-(coverLetter.tex
+**./lettreMotivation.tex
+(lettreMotivation.tex
 LaTeX2e <2020-10-01> patch level 2
 L3 programming layer <2020-12-07> xparse <2020-03-03>
 (C:\Users\serru\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
@@ -27,8 +27,8 @@ tex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count186
 \l__pdf_internal_box=\box47
-) (coverLetter.aux)
-\openout1 = `coverLetter.aux'.
+) (lettreMotivation.aux)
+\openout1 = `lettreMotivation.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -44,6 +44,12 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
+
+Overfull \hbox (11.66164pt too wide) in paragraph at lines 32--36
+\OT1/cmr/m/n/10.95 De plus, dans de precedents tra-vails, j'ai developpe de
+s competences specifiques.
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 32--36
 
@@ -62,18 +68,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--40
 [1
 
 {C:/Users/serru/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-(coverLetter.aux) ) 
+(lettreMotivation.aux) ) 
 Here is how much of TeX's memory you used:
- 410 strings out of 479697
- 7538 string characters out of 2867134
- 277059 words of memory out of 3000000
- 17586 multiletter control sequences out of 15000+200000
+ 412 strings out of 479697
+ 7577 string characters out of 2867134
+ 277069 words of memory out of 3000000
+ 17588 multiletter control sequences out of 15000+200000
  403730 words of font info for 28 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,4n,49p,279b,103s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb>
-Output written on coverLetter.pdf (1 page, 23445 bytes).
+ 43i,4n,49p,317b,103s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb>
+Output written on lettreMotivation.pdf (1 page, 23666 bytes).
 PDF statistics:
  10 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
