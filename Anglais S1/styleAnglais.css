@@ -428,3 +428,8 @@ a.close {
 .hide {
 	display:none;
 }
+
+a {
+   color: black;
+   text-decoration: none;
+}
