@@ -3,15 +3,19 @@
 \contentsline {section}{\numberline {1.1}Introduction}{3}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Loi des nœuds}{3}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Loi des mailles}{3}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Loi d'Ohm}{3}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Association de résistances}{3}{section.1.5}%
-\contentsline {section}{\numberline {1.6}Pont diviseur de tensions}{3}{section.1.6}%
-\contentsline {section}{\numberline {1.7}Puissances et énergie électrique}{3}{section.1.7}%
-\contentsline {chapter}{\numberline {2}Les grandeurs périodiques: généralités}{4}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Les grandeurs variables}{4}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Les grandeurs périodiques}{4}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Composantes continue et variable}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Mesure des valeurs moyenne et efficace de grandeurs alternatives}{4}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Mesure des valeurs moyenne et efficace de grandeurs non alternatives}{4}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Application}{4}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Propriété énergétique}{4}{section.2.7}%
+\contentsline {section}{\numberline {1.4}Loi d'Ohm}{4}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Association de résistances}{4}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Pont diviseur de tensions}{5}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Puissances et énergie électrique}{5}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Les grandeurs périodiques: généralités}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Les grandeurs périodiques}{7}{section.2.1}%
+\contentsline {paragraph}{La période}{7}{section*.5}%
+\contentsline {paragraph}{La fréquence}{7}{section*.6}%
+\contentsline {paragraph}{Les valeurs extrémales}{7}{section*.7}%
+\contentsline {paragraph}{La valeur moyenne}{7}{section*.8}%
+\contentsline {paragraph}{La valeur efficace}{7}{Definition.3}%
+\contentsline {section}{\numberline {2.2}Composantes continue et variable}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Mesure des valeurs moyenne et efficace de grandeurs alternatives}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Mesure des valeurs moyenne et efficace de grandeurs non alternatives}{8}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Application}{8}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Propriété énergétique}{8}{section.2.6}%

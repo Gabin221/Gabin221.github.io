@@ -21,7 +21,7 @@ BTS SNIR}
 \rule{\linewidth}{0.5mm}\\[0.2cm]
 \huge\bfseries
 \begin{center}
-Physique
+Physique S1
 \end{center}
 \rule{\linewidth}{0.5mm}\\[0.2cm]
 \maketitle
@@ -38,25 +38,221 @@ Physique
 
 \section{Introduction}
 
+Nous avons la relation:
+\begin{equation}
+I = \frac{Q}{\Delta t} = \frac{Nq_{e}}{\Delta t} \text{\hspace{20px} avec $q_{e} = -1.60.10^{-19}$ C.}
+\end{equation}
+
+Elle définie l'intensité du courant électrique (en Ampères) en fonction de la quantité de courant (en Coulombs) par unités de temps (en secondes).
+
 \section{Loi des nœuds}
+
+Par convention, le courant circule de la borne \textbf{+} vers la borne \textbf{-} (ou le \textbf{COM}). Il circule donc vers les potentiels les plus bas.\\
+Un ampèremètre se branche de sorte que le courant le traverse d'abord par sa borne \textbf{+} vers sa borne \textbf{-} (ou le \textbf{COM}). Le courant doit donc circuler de la même manière que circule le courant dans un circuit.\\
+Nous pouvons donc définir la notion de nœud. En effet, on parle de nœud lorsque dans un circuit, il y a un point qui relie 3 fils. La loi de conservation de la charge impose que la quantité d'électrons rentrant dans un nœud soit égale à la quantité d'électrons sortant. On obtient donc la loi des nœuds:
+\begin{Definition}
+La somme des intensités des courants rentrant dans un nœud est égale à la somme des intensités des courant sortant de ce nœud.
+\end{Definition} 
 
 \section{Loi des mailles}
 
-\section{Loi d'Ohm}
-
-\section{Association de résistances}
-
-\section{Pont diviseur de tensions}
-
-\section{Puissances et énergie électrique}
+Nous pouvons définir la notion de potentiel en tout point du circuit. Ainsi, nous pouvons obtenir une différence de potentiels (donc une tension qui est une grandeur algébrique) entre deux points. Ainsi, une tension entre le point A et le point B sera notée $ U_{AB} $ et sera fléchée de B vers A.\\
+Comme un ampèremètre, le voltmètre se branche de sorte que le courant circule du \textbf{+} vers le \textbf{-} (ou le \textbf{COM}). Ainsi, la borne \textbf{+} du voltmètre se place au point A et la borne \textbf{-} du voltmètre se branche au point B.\\
+Nous pouvons définir la notion de maille. En effet, une maille est une portion du circuit qui est constituée de plusieurs branches formant un circuit fermé. Ainsi, en choisissant un sens de parcours arbitraire dans cette maille, nous pouvons dire :
+\begin{Definition}
+La somme algébrique des tensions à l'intérieur d'une maille est nulle.
+\end{Definition} 
 
 \newpage
 
+\section{Loi d'Ohm}
+
+Nous pouvons définir deux conventions pour un dipôle:
+\begin{itemize}
+\item la convention générateur: c'est lorsque les flèches de tension et l'intensité vont dans le même sens
+\item la convention récepteur: c'est lorsque les flèches de tension et l'intensité vont dans le sens contraire
+\end{itemize}
+
+Il faut donc adapter le sens des flèches au dipôle: une résistance sera en convention récepteur et un générateur sera en convention générateur.\\
+Nous pouvons donc définir la loi d'Ohm en convention récepteur:
+\begin{equation}
+U = RI \text{\hspace{20px} en convention récepteur}
+\end{equation}
+\begin{equation}
+U = -RI \text{\hspace{20px} en convention générateur}
+\end{equation}
+
+\section{Association de résistances}
+
+Nous pouvons associer les résistances d'un montage pour obtenir une résistance équivalente. Nous avons donc deux cas possibles:
+\begin{figure}[!h]
+\begin{center}
+\subfloat[Schéma d'un montage de résistances en série.]{
+\label{montageSerie}
+\includegraphics[scale=1]{Images/resistancesSerie.png} }
+\hfill
+\subfloat[Schéma d'un montage de résistances en dérivation.]{
+\label{montageDerivation}
+\includegraphics[scale=1]{Images/resistancesderivation.png} }
+\end{center}
+\caption{}
+\end{figure}
+
+
+Si les résistances sont montées en série comme dans le montage~\ref{montageSerie} ci-dessus, alors en faisant une loi des mailles nous obtenons la relation suivante:
+\begin{equation}
+R_{eq} = \Sigma R_{i}
+\end{equation}
+
+Si les résistances sont montées en dérivation comme dans le montage~\ref{montageDerivation} ci-dessus, alors en faisant une loi des mailles nous obtenons la relation suivante:
+\begin{equation}
+\frac{1}{R_{eq}} = \Sigma\frac{1}{R_{i}}
+\end{equation}
+
+\newpage
+
+\section{Pont diviseur de tensions}
+
+Nous pouvons parler de pont diviseur de tension lorsque des résistances sont montées en série. Nous avons donc le schéma ci-dessous:
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=1]{Images/pontDiviseurTension.png} 
+\caption{Schéma d'un montage de pont diviseur de tension.}
+\label{pontDiviseurTension}
+\end{center}
+\end{figure}
+
+Nous avons donc la relation suivante:
+\begin{equation}
+U_{2} = \frac{R_{2}}{\Sigma R_{i}}U
+\end{equation}
+
+\section{Puissances et énergie électrique}
+
+Nous pouvons définir la puissance électrique reçue par un dipôle:\\
+\begin{equation}
+P = UI
+\label{relationPuissance}
+\end{equation}
+
+De plus, nous savons que la tension et l'intensité électrique sont des grandeurs algébrique donc la puissance l'est aussi. Ainsi, nous pouvons déduire deux cas:
+\begin{itemize}
+\item P > 0 : le dipôle reçoit de la puissance, il est donc \textbf{récepteur}
+\item P < 0 : le dipôle perd de la puissance, il est donc \textbf{générateur}
+\end{itemize}
+
+Cette puissance se mesure avec un wattmètre qui mesure à la fois le courant et la tension afin d'en déduire la puissance. Il possède donc 4 bornes.\\
+Ainsi, un dipôle donné ne peut pas admettre autant d'énergie qu'il le souhaite, il y a une limite maximale. Nous pouvons donc utiliser la relation~\ref{relationPuissance} pour calculer la tension maximale ou le courant maximal qui traverse un dipôle pour ne pas l'endommager. En fonction de la contrainte soit sur la tension, soit sur l'intensité du courant, nous avons deux équations possibles (les deux se déduire en injectant la loi d'Ohm dans l'équation sur la puissance électrique):
+\begin{equation}
+P = RI^{2} = \frac{U^{2}}{R}
+\end{equation}
+
+La puissance calculée est donc la puissance maximale à utiliser. Si on dépasse cette valeur, le composant pourrait être endommagé.
+
+\newpage
+
+Nous pouvons relier cette notion de puissance maximale à la notion d'énergie maximale:
+\begin{align}
+E = P\Delta t \Rightarrow E = RI^{2} = \frac{U^{2}}{R} \Rightarrow E = P_{j}\Delta t
+\end{align}
+
+$ P_{j} $ est la puissance de Joule. Ainsi, on a la même relation qu'en mécanique, mais avec la puissance qui est définie comme précédemment.
+
+\begin{figure}[!h]
+\begin{center}
+\begin{tikzpicture}
+\draw[thin][->] (0, 0) -- (3, 0);
+\draw[thin] (3, -0.5) -- (3, 0.5) -- (6, 0.5) -- (6, -0.5) -- (3, -0.5);
+\draw[thin][->] (6, 0) -- (9, 0);
+\draw[thin][->] (4.5, -0.5) -- (5.5, -1);
+\draw (1.5,0) node[above] {$P_{entree}$};
+\draw (7.5,0) node[above] {$P_{sortie}$};
+\draw (5.5,-1) node[right] {$P_{pertes}$};
+\end{tikzpicture}
+\end{center}
+\end{figure}
+
+Nous pouvons noter que les puissances s'ajoutent de la même manière que la loi des nœuds:
+\begin{equation}
+P_{entree} = P_{sortie} + P_{pertes}
+\end{equation}
+
+Nous pouvons également définir le rendement:
+\begin{equation}
+\eta = \frac{P_{sortie}}{P_{entree}}
+\end{equation}
+
 \chapter{Les grandeurs périodiques: généralités}
 
-\section{Les grandeurs variables}
+Les grandeurs dépendant du temps seront notées en minuscules. Nous parlerons donc d'une grandeur à un instant donné. Nous parlerons par exemple d'une intensité de $ 20 mA $ à $ t = 80 \mu s $.
 
 \section{Les grandeurs périodiques}
+
+Derrière la notion de périodicité d'une fonction se cachent diverses informations.
+
+\paragraph{La période} C'est la durée minimale nécessaire pour qu'un motif se répète. Elle est notée \textbf{T} et nous étudierons donc nos signaux sur une unique période.
+
+\paragraph{La fréquence} C'est le nombre de périodes contenues dans une durée égale à $ 1s $. Nous pouvons la calculer en faisant:
+\begin{equation}
+f = \frac{1}{T}
+\end{equation}
+
+\paragraph{Les valeurs extrémales} Ce sont les valeurs de la plus haute image ainsi que de la plus basse. Ces deux grandeurs peuvent nous renseigner sur la tension crête-à-crête par exemple.
+
+\paragraph{La valeur moyenne} Elle correspond à la surface relative contenue entre la courbe et l'axe des abscisses. Nous avons donc la relation:
+\begin{equation}
+<X> = \frac{\Sigma A_{i}}{T}
+\end{equation}
+
+Nous pouvons donc appliquer la méthode suivante:
+\begin{enumerate}
+\item tout d'abord on identifie la période
+\item ensuite nous découpons cette période en formes géométriques simples
+\item après ceci nous calculons l'aire de toutes ces formes géométriques
+\item enfin nous faisons la somme de toutes et après nous divisons le résultat par une période
+\end{enumerate}
+
+Nous pouvons rajouter que la moyenne est indépendante de la période, qu'elle peut être appelée \textbf{composante continue} et que si elle est nulle alors le signal est \textbf{alternatif}.
+
+\paragraph{La valeur efficace} 
+\begin{Definition}
+La valeur efficace d'une grandeur périodique est la valeur qu'il faudrait donner à une grandeur constante pour fournir la même puissance à une résistance.
+\end{Definition} 
+
+La grandeur efficace est toujours notée en majuscule. Elle est définit par la relation:
+\begin{equation}
+X = \sqrt{< x^{2} >}
+\label{relationGrandeurEfficace}
+\end{equation}
+
+Nous pouvons donc la calculer selon la méthode suivante:
+\begin{enumerate}
+\item on élève la grandeur au carré
+\item on calcule la valeur moyenne de cette valeur au carré
+\item on prend la racine du résultat
+\end{enumerate}
+
+Si par exemple nous avons comme signal une fonction rectangle, nous faisons comme ceci:
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/grapheAuCarre.png} 
+\caption{Graphique montrant une période de la fonction $ rect(x) $ ainsi que sa mise au carré.}
+\label{grapheFonctionMiseAuCarre}
+\end{center}
+\end{figure}
+
+Sur le graphique~\ref{grapheFonctionMiseAuCarre}, nous avons tracé un signal mis au carré; ceci représente la première étape de la méthode précédente. La deuxième étape consiste donc à calculer la moyenne de la courbe au carré:
+\begin{align*}
+<X^{2}> & = \frac{A_{bleue} + A_{jaune}}{T}\\
+	& = \frac{(0.5 - (-0.5))*0.7^{2} + (1 - 0.5)*(-0.3)^{2}}{1.5}\\
+	& \approx 0.36~Y^{2}
+\end{align*}
+
+Nous pouvons à présent calculer la grandeur efficace:
+\begin{align*}
+X = \sqrt{<X^{2}>} & = \sqrt{0.36}\\
+				   & = 0.6~Y
+\end{align*}
 
 \section{Composantes continue et variable}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  6 OCT 2022 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  6 OCT 2022 22:35
 entering extended mode
 **./cours.tex
 (cours.tex
@@ -1478,15 +1478,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: twoside 
-* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
-* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=512.14963pt
-* \textheight=759.6886pt
-* \oddsidemargin=-29.59087pt
-* \evensidemargin=-29.59087pt
-* \topmargin=-61.46466pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-47.23828pt
 * \headheight=12.0pt
 * \headsep=19.8738pt
 * \topskip=11.0pt
@@ -1625,40 +1625,95 @@ Non-PDF special ignored!
 
 ]
 Chapitre 1.
+Package hyperref Info: bookmark level for unknown Definition defaults to 0 on i
+nput line 54.
 [3
 
 ]
+<Images/resistancesSerie.png, id=136, 193.72375pt x 217.81375pt>
+File: Images/resistancesSerie.png Graphic file (type png)
+<use Images/resistancesSerie.png>
+Package pdftex.def Info: Images/resistancesSerie.png  used on input line 92.
+(pdftex.def)             Requested size: 193.72327pt x 217.8132pt.
+<Images/resistancesderivation.png, id=137, 241.90375pt x 210.7875pt>
+File: Images/resistancesderivation.png Graphic file (type png)
+<use Images/resistancesderivation.png>
+Package pdftex.def Info: Images/resistancesderivation.png  used on input line 9
+6.
+(pdftex.def)             Requested size: 241.90315pt x 210.78699pt.
+ [4 <./Images/resistancesSerie.png> <./Images/resistancesderivation.png>]
+<Images/pontDiviseurTension.png, id=154, 220.825pt x 198.7425pt>
+File: Images/pontDiviseurTension.png Graphic file (type png)
+<use Images/pontDiviseurTension.png>
+Package pdftex.def Info: Images/pontDiviseurTension.png  used on input line 119
+.
+(pdftex.def)             Requested size: 220.82445pt x 198.742pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
+
+ []
+
+[5 <./Images/pontDiviseurTension.png>] [6]
 Chapitre 2.
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 193.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 195.
+
+[7
+
+]
+<Images/grapheAuCarre.png, id=187, 462.528pt x 346.896pt>
+File: Images/grapheAuCarre.png Graphic file (type png)
+<use Images/grapheAuCarre.png>
+Package pdftex.def Info: Images/grapheAuCarre.png  used on input line 238.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 \tf@thm=\write10
 \openout10 = `cours.thm'.
 
-
+ 
 AED: lastpage setting LastPage
-[4
-
-] (cours.aux)
+[8 <./Images/grapheAuCarre.png>] (cours.aux)
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: E1BC85ACB9CC03D38DD6B5478AA17C34;1205.
+(rerunfilecheck)             Checksum: BEA82D77195AFDB13B1B083AECFD014E;1457.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 42275 strings out of 479697
- 949031 string characters out of 2867133
- 1598113 words of memory out of 3000000
- 58521 multiletter control sequences out of 15000+200000
- 423366 words of font info for 85 fonts, out of 3000000 for 9000
+ 42457 strings out of 479697
+ 952447 string characters out of 2867133
+ 1600102 words of memory out of 3000000
+ 58649 multiletter control sequences out of 15000+200000
+ 429985 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 124i,8n,127p,790b,768s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 124i,9n,127p,790b,868s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
-er-t1.enc}<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-s
-uper/sfbx1095.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/cm-super/sfbx1200.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/cm-super/sfbx1440.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/cm-super/sfbx2074.pfb><C:/Users/serru/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/cm-super/sfbx2488.pfb><C:/Users/serru/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on cours.pdf (4 pages, 121289 bytes).
+er-t1.enc}<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmmi10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi8.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/serru/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/serru/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/serru/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Users/se
+rru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/
+Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1440.
+pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/s
+fbx2074.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm
+-super/sfbx2488.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/cm-super/sfcc1095.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/cm-super/sfrm1000.pfb><C:/Users/serru/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Users/serru/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/cm-super/sfsl1095.pfb><C:/Users/serru/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on cours.pdf (8 pages, 306526 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 22 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 58 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
