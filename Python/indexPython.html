@@ -179,6 +179,10 @@ y = x**<span style="color: #B61313">2</span>
 
 plt.figure()
 plt.plot(x, y, label=<span style="color: #40F40B">"f(x)"</span>)
+plt.plot(np.linspace(<span style="color: #B61313">-25</span>, <span style="color: #B61313">25</span>, <span style="color: #B61313">1000</span>), np.ones(<span style="color: #D92691">len</span>(x))*<span style="color: #B61313">0</span>, color=<span style="color: #40F40B">"black"</span>)
+plt.plot(np.ones(<span style="color: #D92691">len</span>(x))*<span style="color: #B61313">0</span>, np.linspace(<span style="color: #B61313">-25</span>, <span style="color: #B61313">25</span>, <span style="color: #B61313">1000</span>), color=<span style="color: #40F40B">"black"</span>)
+plt.xlabel(<span style="color: #40F40B">"abscisses"</span>)
+plt.ylabel(<span style="color: #40F40B">"ordonnées"</span>)
 plt.xlim(-<span style="color: #B61313">5</span>, <span style="color: #B61313">10</span>)
 plt.ylim()
 plt.grid()
