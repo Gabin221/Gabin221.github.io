@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,openany]{book}
+\documentclass[12pt,a4paper,openany]{book}
 
 \input{C:/Users/serru/Documents/Codes/LaTeX/Environnement_package.tex}
 \input{C:/Users/serru/Documents/Codes/LaTeX/Environnements_settings.tex}

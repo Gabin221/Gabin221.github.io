@@ -20,8 +20,8 @@
 \contentsline {paragraph}{Puissance instantanée p(t)}{11}{section*.13}%
 \contentsline {paragraph}{Puissance active P}{11}{section*.14}%
 \contentsline {paragraph}{Puissance apparente S}{11}{section*.15}%
-\contentsline {paragraph}{Facteur de puissance}{11}{section*.16}%
-\contentsline {paragraph}{Puissance réactive}{11}{section*.17}%
+\contentsline {paragraph}{Facteur de puissance}{12}{section*.16}%
+\contentsline {paragraph}{Puissance réactive}{12}{section*.17}%
 \contentsline {chapter}{\numberline {3}Régime sinusoïdal: généralités}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Généralités}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Grandeurs relatives au régime sinusoïdal}{13}{section.3.2}%
