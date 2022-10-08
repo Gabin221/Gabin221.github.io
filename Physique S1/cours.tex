@@ -250,37 +250,182 @@ Sur le graphique~\ref{grapheFonctionMiseAuCarre}, nous avons tracé un signal mi
 
 Nous pouvons à présent calculer la grandeur efficace:
 \begin{align*}
-X = \sqrt{<X^{2}>} & = \sqrt{0.36}\\
-				   & = 0.6~Y
+X 	& = \sqrt{<X^{2}>}\\
+	& = \sqrt{0.36}\\
+	& = 0.6~Y
 \end{align*}
+
+\newpage
 
 \section{Composantes continue et variable}
 
-\section{Mesure des valeurs moyenne et efficace de grandeurs alternatives}
+En physique, nous avons souvent ce genre de signal (en bleu):
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/composanteVariableContinue.png} 
+\caption{Graphique représentant un signal quelconque (ici en bleu) comme étant la somme de deux autres signaux (ici en vert et en orange).}
+\label{composanteVariableContinue}
+\end{center}
+\end{figure}
 
-\section{Mesure des valeurs moyenne et efficace de grandeurs non alternatives}
+Ce genre de signal peut souvent être décomposé en une somme de signal alternatif (en orange) et continue (en vert). En effet, les signaux périodiques sont soit alternatifs (donc leur moyenne est nulle), soit leur moyenne est différente de zéro. Cependant, un signal périodique peut être plus ou moins monté ou descendu pour avoir une moyenne nulle: c'est ce qui est représenté dans la figure~\ref{composanteVariableContinue}. Nous avons donc la relation suivante:
+\begin{equation}
+U^{2}_{eff} = <U>^{2} + U^{2}_{ac}
+\end{equation}
+
+Nous avons donc, dans le cas de la figure~\ref{composanteVariableContinue}:
+\begin{equation*}
+\textcolor{blue}{U_{eff}}^{2} = \textcolor{green}{2}^{2} + \textcolor{orange}{U_{ac}}^{2}
+\end{equation*}
+
+La valeur moyenne d'un signal \textbf{alternatif} ou \textbf{non alternatif} se mesure avec un appareil en mode \textbf{DC}.\\
+La valeur efficace d'un signal \textbf{alternatif} ou \textbf{non alternatif} se mesure toujours avec un appareil en mode \textbf{AC+DC}. Cependant, si le signal est \textbf{alternatif}, nous pouvons nous contenter du mode \textbf{AC}. Nous pouvons voir les choses selon la relation (qui est vraie \textbf{du point de vue des appareils}):
+\begin{equation*}
+U^{2}_{AC+DC} = U^{2}_{DC} + U^{2}_{AC}
+\end{equation*}
+
+\newpage
 
 \section{Application}
 
+Nous avons le graphique suivant:
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/applicationChapitre2.png} 
+\caption{Graphique représentant une tension en fonction du temps.}
+\label{applicationChapitre2}
+\end{center}
+\end{figure}
+
+\begin{itemize}
+\item La grandeur $ u(t) $ est-elle alternative ?\\
+\textcolor{red}{Non car la moyenne n'est pas nulle.}
+\item Calculer la valeur moyenne $ <u> $ de $ u(t) $. Comment mesurer cette valeur ?\\
+\textcolor{red}{
+\begin{align*}
+<u> & = \frac{2.\frac{3T}{4}}{T}\\
+	& = 1.5~V
+\end{align*}
+Pour mesurer ceci, nous utiliserons un voltmètre en mode DC.}
+\item Décomposer $ u(t) $ en une somme d'un signal continu et d'un signal alternatif.\\
+\textcolor{red}{La décomposition est faite sur la figure~\ref{applicationChapitre2}. La composante continue est la courbe verte et la composante alternative est la courbe orange.}
+\item Calculer la valeur moyenne $ <u_{ac}> $ de $ u_{ac}(t) $. Ce signal est-il alternatif ?\\
+\textcolor{red}{
+\begin{align*}
+<u_{ac}> & = \frac{0.5\frac{3T}{4} + (-1.5)\frac{T}{4}}{T}\\
+		 & = \frac{3}{8} - \frac{3}{8}\\
+		 & = 0~V
+\end{align*}
+Ce signal est donc alternatif.
+}
+\item Calculer la valeur efficace $ U_{ac} $ de $ u_{ac}(t) $. Comment mesurer cette valeur ?\\
+\textcolor{red}{
+\begin{align*}
+U_{ac} & = \sqrt{\frac{0.5^{2}\frac{3T}{4} + (-1.5)^{2}\frac{T}{4}}{T}}\\
+	   & \approx 0.87~V
+\end{align*}
+Pour mesurer ceci, nous utiliserons un voltmètre en mode AC+DC? Nous pouvons aussi utiliser le mode AC en alternatif.}
+\item Calculer la valeur efficace $ U $ de $ u(t) $. Comment mesurer cette valeur ?\\
+\textcolor{red}{
+\begin{align*}
+U^{2} & = <U>^{2} + U^{2}_{ac}\\
+\Rightarrow U & = \sqrt{<U>^{2} + U^{2}_{ac}}\\
+			  & = \sqrt{3}~V
+\end{align*}
+Nous pouvons uniquement utiliser un voltmètre en mode AC+DC.
+}
+\end{itemize}
+
 \section{Propriété énergétique}
 
-%\begin{pyverbatim}
-%import math
-%def racine(a):
-%    return math.sqrt(a)
-%print(racine(9))
-%\end{pyverbatim}
-%\bigskip
-%Résultat : 
-%\begin{pycode}
-%import math
-%def racine(a):
-%    return math.sqrt(a)
-%print(racine(9))
-%\end{pycode}
-%\begin{pyconsole}
-%var = 1 + 1
-%var
-%\end{pyconsole}
+Nous avons 3 sortes de puissances:
+
+\paragraph{Puissance instantanée p(t)} Elle correspond à la puissance instantanée transportée par un signal. Elle est définie par:
+\begin{equation}
+p(t) = u(t)i(t)
+\end{equation}
+
+\begin{itemize}
+\item en convention récepteur:
+\begin{itemize}
+\item si $ p(t)>0 $, le dipôle \textbf{consomme} de la puissance
+\item si $ p(t)<0 $, le dipôle \textbf{fourni} de la puissance
+\end{itemize}
+\item en convention générateur:
+\begin{itemize}
+\item si $ p(t)>0 $, le dipôle \textbf{fourni} de la puissance
+\item si $ p(t)<0 $, le dipôle \textbf{consomme} de la puissance
+\end{itemize}
+\end{itemize}
+
+\paragraph{Puissance active P} Elle correspond à la puissance moyenne $ <p(t)> $ et se mesure avec un wattmètre. Elle vaut:
+\begin{itemize}
+\item en régime continu:
+\begin{equation}
+P = UI
+\end{equation}
+\item si la tension est constante et le courant est variable:
+\begin{equation}
+P = E<i>
+\end{equation}
+\item en régime sinusoïdal:
+\begin{equation}
+P = UIcos(\phi)
+\end{equation}
+\end{itemize}
+
+\paragraph{Puissance apparente S} Elle s'exprime en (V.A) est définie par la relation:
+\begin{equation}
+S = UI
+\end{equation}
+
+U et I représentent la valeur efficace respectivement de $ u(t) $ et $ i(t) $.
+
+\paragraph{Facteur de puissance} Le facteur de puissance est défini par la relation:
+\begin{equation}
+k = \frac{P}{S}
+\end{equation}
+
+\paragraph{Puissance réactive} La puissance réactive se définie selon la relation suivante:
+\begin{equation}
+Q = \sqrt{S^{2} - P^{2}}
+\end{equation}
+
+\newpage
+
+Prenons le cas suivant:
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/calculPuissance.png} 
+\caption{Graphique montrant la composition d'une puissance instantanée.}
+\label{calculPuissance}
+\end{center}
+\end{figure}
+
+Dans ce cas, nous avons les valeurs suivantes:
+\begin{itemize}
+\item $ U = 8.16~V $
+\item $ I = 1.52~A $
+\item $ S = 12~V.A $
+\item $ P = 10~W $
+\item $ k \approx 0.83 $
+\item $ Q = 8.8~W $
+\end{itemize}
+
+\chapter{Régime sinusoïdal: généralités}
+
+\section{Généralités}
+
+\section{Grandeurs relatives au régime sinusoïdal}
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/representationSinusoideGeneralites.png} 
+\caption{Graphique représentant un régime sinusoïdal quelconque.}
+\label{representationSinusoideGeneralites}
+\end{center}
+\end{figure}
+
+\section{Notion de puissance en régime sinusoïdal}
 
 \end{document}

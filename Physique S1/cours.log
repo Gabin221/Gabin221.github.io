@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  6 OCT 2022 22:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  8 OCT 2022 13:23
 entering extended mode
 **./cours.tex
 (cours.tex
@@ -1630,19 +1630,19 @@ nput line 54.
 [3
 
 ]
-<Images/resistancesSerie.png, id=136, 193.72375pt x 217.81375pt>
+<Images/resistancesSerie.png, id=171, 193.72375pt x 217.81375pt>
 File: Images/resistancesSerie.png Graphic file (type png)
 <use Images/resistancesSerie.png>
 Package pdftex.def Info: Images/resistancesSerie.png  used on input line 92.
 (pdftex.def)             Requested size: 193.72327pt x 217.8132pt.
-<Images/resistancesderivation.png, id=137, 241.90375pt x 210.7875pt>
+<Images/resistancesderivation.png, id=172, 241.90375pt x 210.7875pt>
 File: Images/resistancesderivation.png Graphic file (type png)
 <use Images/resistancesderivation.png>
 Package pdftex.def Info: Images/resistancesderivation.png  used on input line 9
 6.
 (pdftex.def)             Requested size: 241.90315pt x 210.78699pt.
  [4 <./Images/resistancesSerie.png> <./Images/resistancesderivation.png>]
-<Images/pontDiviseurTension.png, id=154, 220.825pt x 198.7425pt>
+<Images/pontDiviseurTension.png, id=189, 220.825pt x 198.7425pt>
 File: Images/pontDiviseurTension.png Graphic file (type png)
 <use Images/pontDiviseurTension.png>
 Package pdftex.def Info: Images/pontDiviseurTension.png  used on input line 119
@@ -1666,54 +1666,94 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 [7
 
 ]
-<Images/grapheAuCarre.png, id=187, 462.528pt x 346.896pt>
+<Images/grapheAuCarre.png, id=222, 462.528pt x 346.896pt>
 File: Images/grapheAuCarre.png Graphic file (type png)
 <use Images/grapheAuCarre.png>
 Package pdftex.def Info: Images/grapheAuCarre.png  used on input line 238.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [8 <./Images/grapheAuCarre.png>]
+<Images/composanteVariableContinue.png, id=233, 462.528pt x 346.896pt>
+File: Images/composanteVariableContinue.png Graphic file (type png)
+<use Images/composanteVariableContinue.png>
+Package pdftex.def Info: Images/composanteVariableContinue.png  used on input l
+ine 265.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [9 <./Images/composanteVariableContinue.png>]
+<Images/applicationChapitre2.png, id=243, 462.528pt x 346.896pt>
+File: Images/applicationChapitre2.png Graphic file (type png)
+<use Images/applicationChapitre2.png>
+Package pdftex.def Info: Images/applicationChapitre2.png  used on input line 29
+4.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [10 <./Images/applicationChapitre2.png>]
+
+Package hyperref Warning: Difference (3) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 343.
+
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 361.
+
+[11]
+<Images/calculPuissance.png, id=263, 462.528pt x 346.896pt>
+File: Images/calculPuissance.png Graphic file (type png)
+<use Images/calculPuissance.png>
+Package pdftex.def Info: Images/calculPuissance.png  used on input line 399.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [12 <./Images/calculPuissance.png>]
+Chapitre 3.
+<Images/representationSinusoideGeneralites.png, id=270, 462.528pt x 346.896pt>
+File: Images/representationSinusoideGeneralites.png Graphic file (type png)
+<use Images/representationSinusoideGeneralites.png>
+Package pdftex.def Info: Images/representationSinusoideGeneralites.png  used on
+ input line 423.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 \tf@thm=\write10
 \openout10 = `cours.thm'.
 
- 
+
 AED: lastpage setting LastPage
-[8 <./Images/grapheAuCarre.png>] (cours.aux)
+[13
+
+ <./Images/representationSinusoideGeneralites.png>] (cours.aux)
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: BEA82D77195AFDB13B1B083AECFD014E;1457.
+(rerunfilecheck)             Checksum: AD9C5148983D5B6AB95ABF837DCB4475;1914.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 42457 strings out of 479697
- 952447 string characters out of 2867133
- 1600102 words of memory out of 3000000
- 58649 multiletter control sequences out of 15000+200000
+ 42518 strings out of 479697
+ 953835 string characters out of 2867133
+ 1602102 words of memory out of 3000000
+ 58682 multiletter control sequences out of 15000+200000
  429985 words of font info for 100 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 124i,9n,127p,790b,868s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 124i,10n,127p,790b,868s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
 er-t1.enc}<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/serru/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/serru/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/serru/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1095.pfb><C:/Users/se
-rru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/
-Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1440.
-pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/s
-fbx2074.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm
--super/sfbx2488.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/cm-super/sfcc1095.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/cm-super/sfrm1000.pfb><C:/Users/serru/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Users/serru/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/cm-super/sfsl1095.pfb><C:/Users/serru/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on cours.pdf (8 pages, 306526 bytes).
+onts/cm/cmex10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/serru/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/serru/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/serru/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/serru/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/s
+erru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1095.pfb><C:
+/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200
+.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/
+sfbx1440.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/c
+m-super/sfbx2074.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/cm-super/sfbx2488.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/font
+s/type1/public/cm-super/sfcc1095.pfb><C:/Users/serru/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/cm-super/sfrm1000.pfb><C:/Users/serru/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb><C:/Users/serru/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfsl1095.pfb><C:/Users/serru/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on cours.pdf (13 pages, 411032 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 58 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 82 named destinations out of 1000 (max. 500000)
+ 269 words of extra memory for PDF output out of 10000 (max. 10000000)
 
