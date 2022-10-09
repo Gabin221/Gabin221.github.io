@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  9 OCT 2022 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  9 OCT 2022 19:10
 entering extended mode
 **./cours.tex
 (cours.tex
@@ -1625,7 +1625,7 @@ Non-PDF special ignored!
 
 ]
 Chapitre 1.
-<Images/cercleTrigonometrique.png, id=70, 1011.78pt x 839.135pt>
+<Images/cercleTrigonometrique.png, id=95, 1011.78pt x 839.135pt>
 File: Images/cercleTrigonometrique.png Graphic file (type png)
 <use Images/cercleTrigonometrique.png>
 Package pdftex.def Info: Images/cercleTrigonometrique.png  used on input line 4
@@ -1637,49 +1637,76 @@ Overfull \hbox (22.1919pt too wide) in paragraph at lines 43--44
  []
 
 
-LaTeX Warning: Reference `tableauAnglesRemarquables' on page 3 undefined on inp
-ut line 44.
-
-
-LaTeX Warning: Reference `tableauAnglesRemarquables' on page 3 undefined on inp
-ut line 44.
-
-
 Package hyperref Warning: Difference (3) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 51.
 
-[3
+
+Underfull \vbox (badness 1297) has occurred while \output is active []
+
+ [3
 
  <./Images/cercleTrigonometrique.png>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
 (hyperref)                than one, level fixed on input line 59.
 
-[4]
+<Images/grapheTan.png, id=105, 462.528pt x 346.896pt>
+File: Images/grapheTan.png Graphic file (type png)
+<use Images/grapheTan.png>
+Package pdftex.def Info: Images/grapheTan.png  used on input line 74.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+[4 <./Images/grapheTan.png>]
+<Images/grapheArctan.png, id=123, 462.528pt x 346.896pt>
+File: Images/grapheArctan.png Graphic file (type png)
+<use Images/grapheArctan.png>
+Package pdftex.def Info: Images/grapheArctan.png  used on input line 105.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [5 <./Images/grapheArctan.png>]
 Chapitre 2.
+<Images/grapheFonctionsRemarquables.png, id=135, 462.528pt x 346.896pt>
+File: Images/grapheFonctionsRemarquables.png Graphic file (type png)
+<use Images/grapheFonctionsRemarquables.png>
+Package pdftex.def Info: Images/grapheFonctionsRemarquables.png  used on input 
+line 123.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+[6
+
+ <./Images/grapheFonctionsRemarquables.png>]
+Overfull \hbox (17.2795pt too wide) in paragraph at lines 154--159
+ [] 
+ []
+
+[7]
+Chapitre 3.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 176
+.
+(C:\Users\serru\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+Underfull \hbox (badness 10000) in paragraph at lines 176--177
+
+ []
+
+[8
+
+]
 \tf@thm=\write10
 \openout10 = `cours.thm'.
 
-
+ 
 AED: lastpage setting LastPage
-[5
-
-] (cours.aux)
+[9] (cours.aux)
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: 0B28C3500934D9F02FEA7DA5BDA6CD88;666.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: E11F77C47E8C6ECB33FC576C489C681E;1109.
  ) 
 Here is how much of TeX's memory you used:
- 42315 strings out of 479697
- 949666 string characters out of 2867133
- 1597093 words of memory out of 3000000
- 58553 multiletter control sequences out of 15000+200000
- 427349 words of font info for 102 fonts, out of 3000000 for 9000
+ 42406 strings out of 479697
+ 951194 string characters out of 2867133
+ 1603093 words of memory out of 3000000
+ 58598 multiletter control sequences out of 15000+200000
+ 431958 words of font info for 117 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 124i,8n,127p,790b,777s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 124i,13n,127p,790b,782s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
 er-t1.enc}<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmmi12.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1687,17 +1714,19 @@ blic/amsfonts/cm/cmmi8.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmr12.pfb><C:/Users/serru/AppData/Local/Programs/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/serru/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/serru/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb><C:/Users/serru/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1440.pfb><C:/Users/se
-rru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1728.pfb><C:/
-Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx2488.
-pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/s
-fcc1200.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm
--super/sfrm1200.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/cm-super/sfsl1200.pfb>
-Output written on cours.pdf (5 pages, 215372 bytes).
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/serru/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/User
+s/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1200.pfb>
+<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfbx1
+440.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-sup
+er/sfbx1728.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/cm-super/sfbx2488.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/cm-super/sfcc1200.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/cm-super/sfrm1200.pfb><C:/Users/serru/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/cm-super/sfsl1200.pfb>
+Output written on cours.pdf (9 pages, 351830 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 52 named destinations out of 1000 (max. 500000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
