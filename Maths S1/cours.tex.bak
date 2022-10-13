@@ -221,7 +221,14 @@ Avec tout ceci, en utilisant \textbf{SoCaTo}, nous trouvons que $ a = rcos(\thet
 z = a + ib = r(cos(\theta) + isin(\theta))
 \end{equation}
 
-Cette manière d'écrire un nombre complexe s'appelle la \textbf{forme trigonométrique} et peut se noter de manière simplifiée $ z = [r, \theta] $.
+Cette manière d'écrire un nombre complexe s'appelle la \textbf{forme trigonométrique} et peut se noter de manière simplifiée $ z = [r, \theta] $. Nous pouvons noter que par identification entre la forme algébrique et la forme trigonométrique, nous avons:
+\begin{align}
+|r| = \sqrt{a^{2} + b^{2}} & \Leftrightarrow & 
+\begin{a}
+\theta = arctan(\dfrac{b}{a}) \text{\hspace{50px} si $ a > 0 $}\\
+													    = arctan(\dfrac{b}{a}) + \pi \text{\hspace{30px} si $ a < 0 $}\\
+a = |r|cos(\theta) & \Leftrightarrow & b = |r|sin(\theta)
+\end{align}
 
 Nous avons des relations remarquables sur le module et l'argument d'un nombre complexe:
 \begin{align}

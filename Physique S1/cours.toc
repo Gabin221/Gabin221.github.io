@@ -22,7 +22,6 @@
 \contentsline {paragraph}{Puissance apparente S}{11}{section*.15}%
 \contentsline {paragraph}{Facteur de puissance}{12}{section*.16}%
 \contentsline {paragraph}{Puissance réactive}{12}{section*.17}%
-\contentsline {chapter}{\numberline {3}Régime sinusoïdal: généralités}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Généralités}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Grandeurs relatives au régime sinusoïdal}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Notion de puissance en régime sinusoïdal}{13}{section.3.3}%
+\contentsline {chapter}{\numberline {3}Régime sinusoïdal alternatif: généralités}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Grandeurs relatives au régime sinusoïdal}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Notion de puissance en régime sinusoïdal}{15}{section.3.2}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  8 OCT 2022 13:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.12) (preloaded format=pdflatex 2022.10.6)  13 OCT 2022 20:45
 entering extended mode
 **./cours.tex
 (cours.tex
@@ -1630,19 +1630,19 @@ nput line 54.
 [3
 
 ]
-<Images/resistancesSerie.png, id=170, 193.72375pt x 217.81375pt>
+<Images/resistancesSerie.png, id=165, 193.72375pt x 217.81375pt>
 File: Images/resistancesSerie.png Graphic file (type png)
 <use Images/resistancesSerie.png>
 Package pdftex.def Info: Images/resistancesSerie.png  used on input line 92.
 (pdftex.def)             Requested size: 193.72327pt x 217.8132pt.
-<Images/resistancesderivation.png, id=171, 241.90375pt x 210.7875pt>
+<Images/resistancesderivation.png, id=166, 241.90375pt x 210.7875pt>
 File: Images/resistancesderivation.png Graphic file (type png)
 <use Images/resistancesderivation.png>
 Package pdftex.def Info: Images/resistancesderivation.png  used on input line 9
 6.
 (pdftex.def)             Requested size: 241.90315pt x 210.78699pt.
  [4 <./Images/resistancesSerie.png> <./Images/resistancesderivation.png>]
-<Images/pontDiviseurTension.png, id=188, 220.825pt x 198.7425pt>
+<Images/pontDiviseurTension.png, id=183, 220.825pt x 198.7425pt>
 File: Images/pontDiviseurTension.png Graphic file (type png)
 <use Images/pontDiviseurTension.png>
 Package pdftex.def Info: Images/pontDiviseurTension.png  used on input line 119
@@ -1666,20 +1666,20 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 [7
 
 ]
-<Images/grapheAuCarre.png, id=220, 462.528pt x 346.896pt>
+<Images/grapheAuCarre.png, id=215, 462.528pt x 346.896pt>
 File: Images/grapheAuCarre.png Graphic file (type png)
 <use Images/grapheAuCarre.png>
 Package pdftex.def Info: Images/grapheAuCarre.png  used on input line 238.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
  [8 <./Images/grapheAuCarre.png>]
-<Images/composanteVariableContinue.png, id=232, 462.528pt x 346.896pt>
+<Images/composanteVariableContinue.png, id=227, 462.528pt x 346.896pt>
 File: Images/composanteVariableContinue.png Graphic file (type png)
 <use Images/composanteVariableContinue.png>
 Package pdftex.def Info: Images/composanteVariableContinue.png  used on input l
 ine 265.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
  [9 <./Images/composanteVariableContinue.png>]
-<Images/applicationChapitre2.png, id=242, 462.528pt x 346.896pt>
+<Images/applicationChapitre2.png, id=237, 462.528pt x 346.896pt>
 File: Images/applicationChapitre2.png Graphic file (type png)
 <use Images/applicationChapitre2.png>
 Package pdftex.def Info: Images/applicationChapitre2.png  used on input line 29
@@ -1695,42 +1695,46 @@ Package hyperref Warning: Difference (2) between bookmark levels is greater
 (hyperref)                than one, level fixed on input line 361.
 
 [11]
-<Images/calculPuissance.png, id=260, 462.528pt x 346.896pt>
+<Images/calculPuissance.png, id=255, 462.528pt x 346.896pt>
 File: Images/calculPuissance.png Graphic file (type png)
 <use Images/calculPuissance.png>
 Package pdftex.def Info: Images/calculPuissance.png  used on input line 397.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
  [12 <./Images/calculPuissance.png>]
 Chapitre 3.
-<Images/representationSinusoideGeneralites.png, id=269, 462.528pt x 346.896pt>
+<Images/representationSinusoideGeneralites.png, id=264, 462.528pt x 346.896pt>
 File: Images/representationSinusoideGeneralites.png Graphic file (type png)
 <use Images/representationSinusoideGeneralites.png>
 Package pdftex.def Info: Images/representationSinusoideGeneralites.png  used on
- input line 421.
+ input line 426.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+[13
+
+ <./Images/representationSinusoideGeneralites.png>]
+<Images/fresnelSinusoideGeneralites.png, id=276, 462.528pt x 346.896pt>
+File: Images/fresnelSinusoideGeneralites.png Graphic file (type png)
+<use Images/fresnelSinusoideGeneralites.png>
+Package pdftex.def Info: Images/fresnelSinusoideGeneralites.png  used on input 
+line 455.
+(pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
+ [14 <./Images/fresnelSinusoideGeneralites.png>]
 \tf@thm=\write10
 \openout10 = `cours.thm'.
 
-
+ 
 AED: lastpage setting LastPage
-[13
-
- <./Images/representationSinusoideGeneralites.png>] (cours.aux)
+[15] (cours.aux)
 Package rerunfilecheck Info: File `cours.out' has not changed.
-(rerunfilecheck)             Checksum: AD9C5148983D5B6AB95ABF837DCB4475;1914.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+(rerunfilecheck)             Checksum: A9BE6A119875BA9E2E5C16268241BF7B;1859.
  ) 
 Here is how much of TeX's memory you used:
- 42534 strings out of 479697
- 954013 string characters out of 2867133
- 1603093 words of memory out of 3000000
- 58696 multiletter control sequences out of 15000+200000
+ 42548 strings out of 479697
+ 954398 string characters out of 2867133
+ 1604093 words of memory out of 3000000
+ 58704 multiletter control sequences out of 15000+200000
  432467 words of font info for 115 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 124i,10n,127p,790b,877s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 124i,13n,127p,790b,877s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-sup
 er-t1.enc}<C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmex10.pfb><C:/Users/serru/AppData/Local/Programs/MiKTeX/fonts/type1/pu
@@ -1750,9 +1754,9 @@ s/type1/public/cm-super/sfrm1095.pfb><C:/Users/serru/AppData/Local/Programs/MiK
 TeX/fonts/type1/public/cm-super/sfrm1200.pfb><C:/Users/serru/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/cm-super/sfsl1200.pfb><C:/Users/serru/AppData/Lo
 cal/Programs/MiKTeX/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on cours.pdf (13 pages, 386928 bytes).
+Output written on cours.pdf (15 pages, 425847 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 

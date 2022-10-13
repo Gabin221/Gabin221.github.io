@@ -410,20 +410,81 @@ Dans ce cas, nous avons les valeurs suivantes:
 \item $ Q = 8.8~W $
 \end{itemize}
 
-\chapter{Régime sinusoïdal: généralités}
-
-\section{Généralités}
+\chapter{Régime sinusoïdal alternatif: généralités}
 
 \section{Grandeurs relatives au régime sinusoïdal}
 
+Un signal est alternatif si son \textbf{équation horaire} est de la forme:
+\begin{align}
+u(t) & = U_{max}sin(\omega t + \theta_{u})\\
+	 & = U\sqrt{2}sin(\omega t + \theta_{u}) \text{\hspace{20px} avec $ U $ la valeur efficace}
+\end{align}
+
+Cependant, il faut faire très attention car la relation $ U_{max} = U\sqrt{2} $ n'est \textbf{vraie} que pour une \textbf{sinusoïde alternative}. Cette fonction se représente donc par le graphe suivant:
 \begin{figure}[!h]
 \begin{center}
 \includegraphics[scale=0.8]{Images/representationSinusoideGeneralites.png} 
-\caption{Graphique représentant un régime sinusoïdal quelconque.}
+\caption{Graphique représentant une tension en régime sinusoïdal.}
 \label{representationSinusoideGeneralites}
 \end{center}
 \end{figure}
 
+Nous avons donc $ \omega = \dfrac{2\pi}{T} $ (ici $ \omega = 314~rad.s^{-1} $). Par lecture graphique, nous pouvons voir que $ U_{max} = 3~V $. Pour l'instant, notre équation horaire de la sinusoïde du graphe~\ref{representationSinusoideGeneralites} est donc:
+\begin{equation*}
+u(t) = 3sin(314t + \theta)
+\end{equation*}
+
+Nous devons désormais déterminer la phase à l'origine. Nous avons:
+\begin{align*}
+u(t) & = 3sin(314t + \theta)\\
+u(t=0) & = 3sin(\theta)\\
+\Leftrightarrow -1.5 & = 3sin(\theta) \text{\hspace{20px} le $ 1.5~V $ est lu graphiquement}\\
+\Leftrightarrow \theta & = arcsin\left(\dfrac{-1.5}{3}\right)\\
+					   & = arcsin\left(-0.5\right)\\
+					   & = \{\dfrac{-\pi}{6}; \dfrac{-5\pi}{6}\}
+\end{align*}
+
+Deux solutions sont possibles:
+\begin{equation*}
+u(t) = 3sin\left(314t - \dfrac{\pi}{6}\right) \text{\hspace{20px} ou \hspace{20px}} u(t) = 3sin\left(314t - \dfrac{5\pi}{6}\right)
+\end{equation*}
+
+Pour déterminer la bonne solution, nous allons utiliser la \textbf{représentation vectorielle de Fresnel}. Une très bonne animation se trouve sur \href{https://phyanim.sciences.univ-nantes.fr/Elec/Alternatif/Fresnel_FJ.php}{\textcolor{blue}{ce site}}. Nous avons donc deux solutions:
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[scale=0.8]{Images/fresnelSinusoideGeneralites.png} 
+\caption{Représentation de Fresnel de la situation précédente.}
+\label{fresnelSinusoideGeneralites}
+\end{center}
+\end{figure}
+
+Grâce à l'animation et à la figure~\ref{fresnelSinusoideGeneralites} qui montre les deux solutions possibles, nous pouvons déduire que, puisque le graphe~\ref{representationSinusoideGeneralites} est \textbf{croissant} en partant de l'\textbf{origine}, la bonne solution est:
+\begin{align*}
+u(t) & = 3sin\left(314t - \dfrac{\pi}{6}\right)\\
+	 & = 2.1\sqrt{2}sin\left(314t - \dfrac{\pi}{6}\right)
+\end{align*}
+
+Nous pouvons également représenter ce signal par sa \textbf{notation complexe}. En effet, puisqu'un nombre complexe avec la \textbf{notation trigonométrique} est défini par son \textbf{module} et son \textbf{argument}, nous avons dans ce cas $ U = 2.1~V $ et $ \theta = -\dfrac{\pi}{6} $ donc nous avons:
+\begin{equation*}
+\underline{U} = \left[2.1; -\dfrac{\pi}{6}\right]
+\end{equation*}
+
 \section{Notion de puissance en régime sinusoïdal}
+
+Dans cette partie, nous allons faire une comparaison entre les différentes puissances en régime périodique et en régime sinusoïdal alternatif:
+\begin{table}[!h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|} %c/l/r pour centré/à gauche/droite
+\hline type de grandeur & unité & Régime périodique & régime sinusoïdal alternatif\\
+\hline Puissance active P & $ W $ & $ P  = <p(t)> = <u(t)i(t)> $ & $ P = UIcos(\theta_{u/i}) $\\
+\hline Puissance apparente S & $ V.A $ & $ S = UI $ & $ S = UI $\\
+\hline Puissance réactive Q & $ Var $ & $ Q = \sqrt{S^{2} - P^{2}} $ & $ Q = UIsin(\theta_{u/i}) $\\
+\hline Facteur de puissance k &  & $ k = \dfrac{P}{S} $ & $ k = cos(\theta_{u/i}) $\\
+\hline
+\end{tabular}
+\caption{Comparaison entre les méthodes de calculs de puissance en fonction du régime périodique étudié.}
+\label{tableauComparaisonPuissances}
+\end{center}
+\end{table}
 
 \end{document}
