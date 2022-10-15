@@ -36,9 +36,16 @@ Informatique et Réseau
 
 \chapter{Sous réseaux}
 
-Nous avons un très bon \href{https://www.sebastienadam.be/ipcalculator/}{convertisseur} en ligne.
+Nous avons un très bon \href{https://www.sebastienadam.be/ipcalculator/}{\textit{convertisseur}} en ligne.\\
 
-Prenons le cas de l'adresse réseau $ 192.168.5.0 $. Puisque c'est un réseau de \textbf{classe C}~\footnote{car le réseau est constitué de 3 octets}, alors le masque est un $ /24 $, donc $ 255.255.255.0 $. Dans ce premier cas, nous voulons partager ce réseau en 5 sous-réseaux.\\
+Nous avons trois classes principales d'adresse IP:
+\begin{itemize}
+\item classe A: le premier octet va de 0 à 126, le masque est /8
+\item classe B: le premier octet va de 128~\footnote{127 est réservé} à 191, le masque est /16
+\item classe C: le premier octet va de 192 à 223, le masque est /24\\
+\end{itemize}
+
+Prenons le cas de l'adresse réseau $ 192.168.5.0 $. Puisque c'est un réseau de \textbf{classe C}, alors le masque est un $ /24 $, donc $ 255.255.255.0 $. Dans ce premier cas, nous voulons partager ce réseau en 5 sous-réseaux.\\
 Notre réseau ressemble donc à \textcolor{red}{nnnnnnnn.nnnnnnnn.nnnnnnnn.hhhhhhhh}. N'objectif maintenant va être de calculer l'\textbf{adresse} de chaque sous-réseaux, la \textbf{plage d'adresse IP}, l'\textbf{adresse de diffusion} ainsi que le \textbf{nombre maximal d'hôtes}.\\
 La première chose à faire est de \textbf{chercher} la \textbf{puissance de 2} qui permet d'être \textbf{supérieur ou égal} à 5:
 \begin{equation*}
