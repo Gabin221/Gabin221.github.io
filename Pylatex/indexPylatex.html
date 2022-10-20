@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>Gabin221, mon premier site</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.png">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<link href="stylePylatex.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+        <div class="navbar">
+
+        <!-- Navbar logo -->
+        <div class="nav-header">
+        <div class="nav-logo">
+        <a href="../index.html">
+          <img src="../Images/monLogo.png" width="200px" height="50px">
+        </a>
+        </div>
+        </div>
+
+        <!-- responsive navbar toggle button -->
+        <input type="checkbox" id="nav-check">
+        <div class="nav-btn">
+        <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+        </label>
+        </div>
+
+        <!-- Navbar items -->
+        <div class="nav-links">
+        <a href="../index.html">Accueil</a>
+        <a href="../Budget/indexBudget.html">Budget</a>
+        <a href="../Carte bar/indexCarteBar.html">Carte du bar</a>
+        <div class="dropdown">
+        <a class="dropBtn" href="#">Codes&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Python/indexPython.html">Python</a>
+          <a href="indexPython.html">Pylatex</a>
+          <a href="../HTML/indexHtml.html">HTML/CSS/Javascript</a>
+        </div>
+        </div>
+        <a href="../Générateur code barres/indexGenerateurCodeBarres.html">Codes barres</a>
+        <div class="dropdown">
+        <a class="dropBtn" href="#">Jeux&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Pendu\indexPendu.html">Pendu</a>
+          <a href="../Devine-nombre/indexDevineNombre.html">Devine-nombre</a>
+        </div>
+        </div>
+        <div class="dropdown">
+        <a class="dropBtn" href="#">S1&emsp;▼
+          <i class="fas fa-angle-down"></i>
+        </a>
+        <div class="drop-content">
+          <a href="../Anglais S1/indexAnglais.html">Anglais</a>
+          <a href="#">CISCO</a>
+          <a href="../CGE S1/cours.pdf">CGE</a>
+          <a href="#">ESLA</a>
+              <a href="../IR_R S1/cours.pdf">IRR</a>
+          <a href="../Maths S1/cours.pdf">Maths</a>
+          <a href="../Physique S1/cours.pdf#toolbar=0">Physique</a>
+        </div>
+        </div>
+        <a href="../GT7/indexVoituresGT7.html">Voitures GT7</a>
+        <a href="../Recrutement/indexRecrutement.html">Recrutement</a>
+        <a href="../Contact/indexContact.html">Contact</a>
+        </div>
+        </div>
+
+        <div class="divCorps">
+
+        <h1>PyLatex</h1>
+
+        <br><br><br><br>
+            
+        <hr>
+        <h2>Sommaire</h2>
+        <a href="#titres" title="Les titres">Les titres</a><br>
+        <a href="#texte" title="Ecrire du texte">Ecrire du texte</a><br>
+        <a href="#graphique" title="Tracer un graphe">Tracer un graphe</a><br>
+        <a href="#equation" title="Equation">Equation</a><br>
+        <a href="#importImges" title="Importer des images">Importer des images</a><br>
+
+        <hr>
+
+        <br><br><br><br>
+
+        <p>Pylatex est un package python permettant de générer facilement un fichier PDF via LaTeX. Générer un fichier LaTeX via ce procéder présente l'avantage d'avoir a priori moins de lignes de codes. De plus, l'avantage le plus important c'est que pour générer des calculs dans un document LaTeX, la méthode traditionnelle consiste à faire le calcul à la main puis le recopier dans un document .tex sauf que grâce à Python, nous pouvons faire faire le calcul par l'ordinateur et ainsi gagner beaucoup de temps et d'efficacité.</p>
+            
+        <p>Cependant, pour utiliser ce package, il faut a priori un environnement LaTeX et un environnement Perl.</p>
+            
+        <p>L'objectif de cette page est donc de présenter les différentes méthodes pour créer un document LaTeX via Pylatex.</p>
+            
+        <br><br><br><br>
+            
+        <h3><a name="titres">Les titres</a></h3>
+            
+        <p>La première chose à comprendre avec ce package est que si nous avons un titre, il faut indenter le code python. Ce code reposant intégralement sur la synthaxe python, le contenu d'une partie doit être indenté et doit être désindenté si nous avons finis une partie.</p>
+        
+        <p>Contrairement à LaTeX pur, avec Pylatex nous n'avons que trois niveaux de titre: section, subsection et subsubsection.</p>
+    
+        <pre>
+            <div class="code">
+                <span style="color: gray"># Le code Python</span>
+                
+                from pylatex import Document, Section, Subsection, Subsubsection
+                
+                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                doc = Document(geometry_options=geometry_options)
+
+                with doc.create(Section('Titre de la section')):
+                &nbsp;&nbsp;&nbsp;&nbsp;# Le texte dans la section
+                &nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Subsection('Math that is incorrect')):
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Le texte de la subsection
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Subsubsection("The correct answer")):
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Le texte de la subsubsection
+                
+                with doc.create(Section('Titre de la deuxième section')):
+                &nbsp;&nbsp;&nbsp;&nbsp;# Le texte dans la deuxième section
+                
+                doc.generate_pdf('full', clean_tex=False)
+            </div>
+        </pre>
+                        
+        <br><br><br><br>
+            
+        <h3><a name="texte">Ecrire du texte</a></h3>
+            
+        <p>Toute saisie de texte doit se faire via la ligne suivante:</p>
+            
+        <pre>
+            <div class="code">
+                <span style="color: gray"># Le code Python</span>
+                
+                from pylatex import Document, Section
+                
+                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                doc = Document(geometry_options=geometry_options)
+
+                with doc.create(Section('Titre de la section')):
+                &nbsp;&nbsp;&nbsp;&nbsp;doc.append('Du texte dans la section')
+                
+                doc.generate_pdf('full', clean_tex=False)
+            </div>
+        </pre>
+            
+        <br><br><br><br>
+            
+        <h3><a name="graphique">Tracer un graphe</a></h3>
+            
+        <p>Pour tracer un graphe en pylatex, nous pouvons utiliser l'environnement Tikz:</p>
+            
+        <pre>
+            <div class="code">
+                <span style="color: gray"># Le code Python</span>
+                
+                from pylatex import TikZ, Axis, Plot
+                
+                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+doc = Document(geometry_options=geometry_options)
+
+                with doc.create(TikZ()):
+                &nbsp;&nbsp;&nbsp;&nbsp;plot_options = 'height=10cm, width=10cm, grid=major'
+                &nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Axis(options=plot_options)) as plot:
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plot.append(Plot(name='model', func='x^2'))
+                    
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coordinates = [
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-4.77778, 2027.60977),
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-3.55556, 347.84069),
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-2.33333, 22.58953),
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-1.11111, -493.50066),
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(0.11111, 46.66082),
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1.33333, -205.56286),
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2.55556, -341.40638),
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3.77778, -1169.24780),
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(5.00000, -3269.56775),
+                    ]
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plot.append(Plot(name='estimate', coordinates=coordinates))
+                
+                doc.generate_pdf('full', clean_tex=False)
+            </div>
+        </pre>
+            
+        <br><br><br><br>
+            
+        <h3><a name="equation">Equation</a></h3>
+            
+        <pre>
+            <div class="code">
+                <span style="color: gray"># Le code Python</span>
+                
+                import numpy as np
+                from pylatex import Math
+                
+                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                doc = Document(geometry_options=geometry_options)
+
+                a = np.array([[100, 10, 20]]).T
+                M = np.matrix([[2, 3, 4],
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0, 0, 1],
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0, 0, 2]])
+                               
+                doc.append(Math(data=[Matrix(M), Matrix(a), '=', Matrix(M * a)]))
+                doc.append(Math(data=["3*2 = 6]))
+                
+                doc.generate_pdf('full', clean_tex=False)
+            </div>
+        </pre>
+            
+        <br><br><br><br>
+            
+        <h3><a name="importImages">Importer des images</a></h3>
+
+        </div>
+    </body>
+</html>
