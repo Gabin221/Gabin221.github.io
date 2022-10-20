@@ -77,7 +77,20 @@
 
 <div class="divCorps">
 
-<h1>Voitures Gran Turismo 7</h1></br></br>
+<h1>Voitures Gran Turismo 7</h1><br><br>
+    
+<p>Pour s'occuper de la base de données:</p>
+    
+<ol>
+    <li>Mot de passe: le classico</li>
+    <li>Retrouver la structure de la base: SHOW COLUMNS FROM voiture;</li>
+    <li>Pour ajouter des données:</li>
+</ol>
+<p>INSERT INTO `voiture` (`marque`, `modele`, `annee`, `transmission`, `puissance`, `poids`, `propulsion`) VALUES</p>
+<p>('Alfa Romeo', 'Mito', '2009', 'FF', '155', '1145', 'Turbo'),</p>
+<p>('Alfa Romeo', '4C', '2014', 'MR', '239', '950', 'Turbo');</p>
+    
+<br>
 
 <input id="searchbar" onkeyup="search_animal()" type="text"
         name="search" placeholder="Dispos dans le jeu">

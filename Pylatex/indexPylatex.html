@@ -7,6 +7,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="../Images/monLogo.png">
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="stylePylatex.css" rel="stylesheet" type="text/css">
+        
 	</head>
 	<body>
         <div class="navbar">
@@ -79,7 +80,7 @@
 
         <h1>PyLatex</h1>
 
-        <br><br><br><br>
+        <br><br><br><br>        
             
         <hr>
         <h2>Sommaire</h2>
@@ -113,20 +114,20 @@
                 
                 from pylatex import Document, Section, Subsection, Subsubsection
                 
-                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                geometry_options = {<span style="color: #40F40B">"top=2cm, bottom=2cm, left=2cm, right=2cm"</span>}
                 doc = Document(geometry_options=geometry_options)
 
-                with doc.create(Section('Titre de la section')):
+                <span style="color: #0B16F4">with</span> doc.create(Section(<span style="color: #40F40B">"Titre de la section"</span>)):
                 &nbsp;&nbsp;&nbsp;&nbsp;# Le texte dans la section
-                &nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Subsection('Math that is incorrect')):
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">with</span> doc.create(Subsection(<span style="color: #40F40B">"Titre de la subsection"</span>)):
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Le texte de la subsection
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Subsubsection("The correct answer")):
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0B16F4">with</span> doc.create(Subsubsection(<span style="color: #40F40B">"Titre de la subsubsection"</span>)):
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Le texte de la subsubsection
                 
-                with doc.create(Section('Titre de la deuxième section')):
+                <span style="color: #0B16F4">with</span> doc.create(Section(<span style="color: #40F40B">"Titre de la deuxième section"</span>)):
                 &nbsp;&nbsp;&nbsp;&nbsp;# Le texte dans la deuxième section
                 
-                doc.generate_pdf('full', clean_tex=False)
+                doc.generate_pdf(<span style="color: #40F40B">"full"</span>, clean_tex=False)
             </div>
         </pre>
                         
@@ -142,10 +143,10 @@
                 
                 from pylatex import Document, Section
                 
-                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                geometry_options = {<span style="color: #40F40B">"top=2cm, bottom=2cm, left=2cm, right=2cm"</span>}
                 doc = Document(geometry_options=geometry_options)
 
-                with doc.create(Section('Titre de la section')):
+                <span style="color: #0B16F4">with</span> doc.create(Section('Titre de la section')):
                 &nbsp;&nbsp;&nbsp;&nbsp;doc.append('Du texte dans la section')
                 
                 doc.generate_pdf('full', clean_tex=False)
@@ -164,10 +165,10 @@
                 
                 from pylatex import TikZ, Axis, Plot
                 
-                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                geometry_options = {<span style="color: #40F40B">"top=2cm, bottom=2cm, left=2cm, right=2cm"</span>}
 doc = Document(geometry_options=geometry_options)
 
-                with doc.create(TikZ()):
+                <span style="color: #0B16F4">with</span> doc.create(TikZ()):
                 &nbsp;&nbsp;&nbsp;&nbsp;plot_options = 'height=10cm, width=10cm, grid=major'
                 &nbsp;&nbsp;&nbsp;&nbsp;with doc.create(Axis(options=plot_options)) as plot:
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plot.append(Plot(name='model', func='x^2'))
@@ -201,7 +202,7 @@ doc = Document(geometry_options=geometry_options)
                 import numpy as np
                 from pylatex import Math
                 
-                geometry_options = {"top=2cm, bottom=2cm, left=2cm, right=2cm"}
+                geometry_options = {<span style="color: #40F40B">"top=2cm, bottom=2cm, left=2cm, right=2cm"</span>}
                 doc = Document(geometry_options=geometry_options)
 
                 a = np.array([[100, 10, 20]]).T
@@ -219,6 +220,24 @@ doc = Document(geometry_options=geometry_options)
         <br><br><br><br>
             
         <h3><a name="importImages">Importer des images</a></h3>
+            
+        <pre>
+            <div class="code">
+                <span style="color: gray"># Le code Python</span>
+                
+                import numpy as np
+                from pylatex import Math
+                
+                geometry_options = {<span style="color: #40F40B">"top=2cm, bottom=2cm, left=2cm, right=2cm"</span>}
+                doc = Document(geometry_options=geometry_options)
+
+                <span style="color: #0B16F4">with</span> doc.create(Figure(position='h!')) as kitten_pic:
+                &nbsp;&nbsp;&nbsp;&nbsp;kitten_pic.add_image(os.path.join(os.path.dirname(__file__), "le lien de l'image"), width='120px')
+                &nbsp;&nbsp;&nbsp;&nbsp;kitten_pic.add_caption("ici la legende")
+                
+                doc.generate_pdf('full', clean_tex=False)
+            </div>
+        </pre>
 
         </div>
     </body>
