@@ -99,7 +99,7 @@
         <script>
             const db = firebase.firestore();
             db.settings({ timestampsInSnapshots: true});
-            db.collection('boissons').get().then((snapshot) => {
+            db.collection('boissons').document('bieres').get().then((snapshot) => {
             snapshot.docs.forEach(doc => {console.log(doc.data())
                 ;})
             })
