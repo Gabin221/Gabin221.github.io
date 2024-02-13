@@ -98,17 +98,11 @@
 
         <script>
             const db = firebase.firestore();
-            const booksRef = firebase.firestore().collection('boissons');
-
-            booksRef
-              .get()
-              .then((snapshot) => {
-                const data = snapshot.docs.map((doc) => ({
-                  id: doc.id,
-                  ...doc.data(),
-                }));
-                console.log("All data in 'books' collection", data); 
-              });
+            db.settings({ timestampsInSnapshots: true});
+            db.collection('boissons').get().then((snapshot) => {
+            snapshot.docs.forEach(doc => {console.log(doc.data())
+                ;})
+            })
         </script>
 
         <script src="infoCommande.js"></script>
