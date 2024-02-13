@@ -367,12 +367,12 @@
             </div>
         </div>
 
-        <script src="../scripts/infoCommande.js"></script>
+        <script src="infoCommande.js"></script>
 
-        <script src="../scripts/changementTexteBoutonCommande.js"></script>
+        <script src="changementTexteBoutonCommande.js"></script>
 
-        <script src="../scripts/boutonPanier.js"></script>
+        <script src="boutonPanier.js"></script>
 
-        <script src="../scripts/creationPanier.js"></script>
+        <script src="creationPanier.js"></script>
     </body>
 </html>
