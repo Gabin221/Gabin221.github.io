@@ -42,10 +42,37 @@
 
 			const db = firebase.firestore();
 
-			db.collection("boissons").get().then((querySnapshot) => {
+			// Récupérer une référence à la collection principale "boissons"
+			const boissonsRef = db.collection("boissons");
+
+			// Récupérer toutes les données de la collection principale "boissons"
+			boissonsRef.get().then((querySnapshot) => {
 				querySnapshot.forEach((doc) => {
-					console.log(`${doc.id} => ${doc.data()}`);
+					// doc.id contient l'identifiant de la sous-collection (par exemple, "biere", "sirop")
+					console.log("Sous-collection :", doc.id);
+
+					// Pour chaque sous-collection, récupérer une référence à la collection correspondante
+					const subCollectionRef = boissonsRef.doc(doc.id).collection(doc.id);
+
+					// Récupérer tous les documents de la sous-collection
+					subCollectionRef.get().then((subCollectionSnapshot) => {
+						subCollectionSnapshot.forEach((subDoc) => {
+							// subDoc.id contient l'identifiant du document (par exemple, "1664", "Grim", "Fraise", "Orgeat")
+							console.log("Document :", subDoc.id);
+							// subDoc.data() contient les données du document
+							console.log("Données :", subDoc.data());
+						});
+
+						// Ajouter un log pour vérifier si des documents ont été récupérés
+						if (subCollectionSnapshot.empty) {
+							console.log("Aucun document trouvé dans la sous-collection", doc.id);
+						}
+					}).catch((error) => {
+						console.log("Erreur lors de la récupération des documents de la sous-collection", doc.id, ":", error);
+					});
 				});
+			}).catch((error) => {
+				console.log("Erreur lors de la lecture des données :", error);
 			});
 		</script>
 		
