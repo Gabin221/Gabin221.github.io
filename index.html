@@ -29,36 +29,36 @@
 		<h1 style="text-align: center;">Gabin's bar</h1>
 
 		<div class="container">
-			<a href="#">Sirops</a>
-			<a href="#">Softs</a>
-			<a href="#">Bières</a>
-			<a href="#">Vins</a>
-			<a href="#">Classiques</a>
-			<a href="#">Extravagants</a>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">Classiques</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">Extravagants</div>
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
-			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Sirops</h3>
 			</div>
 
-			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Softs</h3>
 			</div>
 
-			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Bières</h3>
 			</div>
 
-			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Vins</h3>
 			</div>
 
-			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Classiques</h3>
 			</div>
 
-			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Extravagants</h3>
 			</div>
 		</div>
@@ -146,6 +146,33 @@
 
 			}).catch((error) => {
 				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+			});
+		</script>
+
+		<script>
+			const sirops = document.getElementById('sirops');
+			const boutonSirops = document.getElementById('boutonSirops');
+			const softs = document.getElementById('softs');
+			const boutonSofts = document.getElementById('boutonSofts');
+
+			boutonSirops.addEventListener('click', function() {
+				if (sirops.style.display === 'none') {
+					sirops.style.display = 'block';
+					softs.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+				}
+			});
+
+			boutonSofts.addEventListener('click', function() {
+				if (softs.style.display === 'none') {
+					softs.style.display = 'block';
+					sirops.style.display = "none";
+				} else {
+					softs.style.display = 'none';
+					sirops.style.display = 'none';
+				}
 			});
 		</script>
 
