@@ -36,7 +36,33 @@
 			<a href="#">Extravagants</a>
 		</div>
 
-		<div id="issuesList"></div>
+		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div id="sirops">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Sirops</h3>
+			</div>
+
+			<div id="softs">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Softs</h3>
+			</div>
+
+			<div id="bieres">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Bières</h3>
+			</div>
+
+			<div id="vins">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Vins</h3>
+			</div>
+
+			<div id="classiques">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Classiques</h3>
+			</div>
+
+			<div id="extravagants">
+				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Extravagants</h3>
+			</div>
+		</div>
+
+		
 
 		<script src="Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
@@ -66,35 +92,6 @@
 				div.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
 			});
 		</script>
-		
-		<!-- <script>
-			firebase.initializeApp(firebaseConfig);
-
-			const db = firebase.firestore();
-			const issuesRef = firebase.database.collection('boissons');
-
-			function readIssues() {
-				issuesRef.on("value", function(snapshot) {
-				  snapshot.forEach(snap => {
-					const issue = snap.val();
-			  
-					document.getElementById("issuesList").innerHTML += `
-					  <div class="card mb-3" id="${issue.id}" style="width: 25rem">
-						<div class="card-body">
-						  <h3 class="card-title">${issue.desc}</h3>
-						  <h6>Issue ID: ${issue.id}</h6>
-						  <p><span class="label label-info">Status: ${issue.status}</span></p>
-						  <p><span class="glyphicon glyphicon-time">Priority Level: ${issue.priority}</span></p>
-						  <p><span class="glyphicon glyphicon-user">Assigned to: ${issue.assignedTo}</span></p>
-						  <button onclick="setStatusClosed('${issue.id}')" id="closeButton" class="btn btn-warning mx-3">Close</button>
-						  <button onclick="deleteIssue('${issue.id}')" class="btn btn-danger mx-3">Delete</button>
-						</div>
-					  </div>
-					`
-				  })
-				}
-			  )}
-		</script> -->
 
 	</body>
 </html>
