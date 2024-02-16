@@ -11,17 +11,7 @@
 					overflow: auto;
 					white-space: nowrap; 
 					width: 100%;	  
-				} 
-				a {
-					display: inline-block;
-					text-decoration: none;
-					text-align: center;
-					padding: 12px;
-					font-size: 20px;
 				}
-				a:hover{
-					background-color: green;
-				}	
 		</style>
 	</head>
 	<body>
@@ -158,6 +148,10 @@
 			const boutonBieres = document.getElementById('boutonBieres');
 			const vins = document.getElementById('vins');
 			const boutonVins = document.getElementById('boutonVins');
+			const classiques = document.getElementById('classiques');
+			const boutonClassiques = document.getElementById('boutonClassiques');
+			const extravagants = document.getElementById('extravagants');
+			const boutonExtravagants = document.getElementById('boutonExtravagants');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
@@ -165,11 +159,15 @@
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				}
 			});
 
@@ -179,11 +177,15 @@
 					softs.style.display = 'block';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				}
 			});
 
@@ -193,11 +195,15 @@
 					softs.style.display = 'none';
 					bieres.style.display = 'block';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				}
 			});
 
@@ -207,11 +213,51 @@
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'block';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonClassiques.addEventListener('click', function() {
+				if (classiques.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'block';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonExtravagants.addEventListener('click', function() {
+				if (extravagants.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
 				}
 			});
 		</script>
