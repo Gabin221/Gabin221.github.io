@@ -156,16 +156,20 @@
 			const boutonSofts = document.getElementById('boutonSofts');
 			const bieres = document.getElementById('bieres');
 			const boutonBieres = document.getElementById('boutonBieres');
+			const vins = document.getElementById('vins');
+			const boutonVins = document.getElementById('boutonVins');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
 					sirops.style.display = 'block';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
+					vins.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
+					vins.style.display = 'none';
 				}
 			});
 
@@ -174,10 +178,12 @@
 					sirops.style.display = "none";
 					softs.style.display = 'block';
 					bieres.style.display = 'none';
+					vins.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
+					vins.style.display = 'none';
 				}
 			});
 
@@ -186,10 +192,26 @@
 					sirops.style.display = "none";
 					softs.style.display = 'none';
 					bieres.style.display = 'block';
+					vins.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
 					bieres.style.display = 'none';
+					vins.style.display = 'none';
+				}
+			});
+
+			boutonVins.addEventListener('click', function() {
+				if (vins.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
 				}
 			});
 		</script>
