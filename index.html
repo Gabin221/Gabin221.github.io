@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Gabin's bar</title>
-        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
-        <style>
-            .container {
-              background-color: #cccccc;
-              overflow: auto;
-              white-space: nowrap; 
-              width: 100%;	  
-            } 
-            a {
-              display: inline-block;
-              text-decoration: none;
-              text-align: center;
-              padding: 12px;
-              font-size: 20px;
-            }
-            a:hover{
-              background-color: green;
-            }	
-        </style>
-    </head>
-    <body>
-        <h1 style="text-align: center;">Gabin's bar</h1>
+	<head>
+		<title>Gabin's bar</title>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+		<style>
+				.container {
+					background-color: #cccccc;
+					overflow: auto;
+					white-space: nowrap; 
+					width: 100%;	  
+				} 
+				a {
+					display: inline-block;
+					text-decoration: none;
+					text-align: center;
+					padding: 12px;
+					font-size: 20px;
+				}
+				a:hover{
+					background-color: green;
+				}	
+		</style>
+	</head>
+	<body>
+		<h1 style="text-align: center;">Gabin's bar</h1>
 
-        <div class="container">
-            <a href="#">Sirops</a>
-            <a href="#">Softs</a>
-            <a href="#">Bières</a>
-            <a href="#">Vins</a>
-            <a href="#">Classiques</a>
-            <a href="#">Extravagants</a>
-        </div>
+		<div class="container">
+			<a href="#">Sirops</a>
+			<a href="#">Softs</a>
+			<a href="#">Bières</a>
+			<a href="#">Vins</a>
+			<a href="#">Classiques</a>
+			<a href="#">Extravagants</a>
+		</div>
 
-        <script src="Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+		<script src="Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-        <script>
-            firebase.initializeApp(firebaseConfig);
-            const db = firebase.firestore();
+		<script>		
+			firebase.initializeApp(firebaseConfig);
 
-        </script>
-    </body>
+			const db = firebase.firestore();
+
+			db.collection("boissons").doc("biere").get().then((querySnapshot) => {
+				querySnapshot.forEach((doc) => {
+					console.log(`${doc.id} => ${doc.data()}`);
+				});
+			});
+		</script>
+		
+	</body>
 </html>
