@@ -71,7 +71,12 @@
 			firebase.initializeApp(firebaseConfig);
 
 			const db = firebase.firestore();
+			var divSirops = document.getElementById('sirops');
+			var divSofts = document.getElementById('softs');
 			var divBieres = document.getElementById('bieres');
+			var divVins = document.getElementById('vins');
+			var divClassiques = document.getElementById('classiques');
+			var divExtravagants = document.getElementById('extravagants');
 
 			// Récupérer toutes les données de la collection "boissons"
 			db.collection("boissons").get().then((querySnapshot) => {
@@ -84,13 +89,58 @@
 				});
 
 				// Extraire la liste des bières
+				let sirops = boissonsData["sirop"];
+				let softs = boissonsData["softs"];
 				let bieres = boissonsData["biere"];
+				let vins = boissonsData["vins"];
+				let classiques = boissonsData["classiques"];
+				let extravagants = boissonsData["extravagants"];
+
+				// Afficher la liste des sirops
+				for (const key in sirops) {
+					if (sirops.hasOwnProperty(key)) {
+						const sirop = sirops[key];
+						divSirops.innerHTML += sirop + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in softs) {
+					if (softs.hasOwnProperty(key)) {
+						const soft = softs[key];
+						divSofts.innerHTML += soft + "<br>";
+					}
+				}
 
 				// Afficher la liste des bières
 				for (const key in bieres) {
 					if (bieres.hasOwnProperty(key)) {
 						const biere = bieres[key];
 						divBieres.innerHTML += biere + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in vins) {
+					if (vins.hasOwnProperty(key)) {
+						const vin = vins[key];
+						divVins.innerHTML += vin + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in classiques) {
+					if (classiques.hasOwnProperty(key)) {
+						const classique = classiques[key];
+						divClassiques.innerHTML += classique + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in extravagants) {
+					if (extravagants.hasOwnProperty(key)) {
+						const extravagant = extravagants[key];
+						divExtravagants.innerHTML += extravagant + "<br>";
 					}
 				}
 
