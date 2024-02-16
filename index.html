@@ -42,7 +42,7 @@
 
 			const db = firebase.firestore();
 
-			db.collection("boissons").doc("biere").get().then((querySnapshot) => {
+			db.collection("boissons").get().then((querySnapshot) => {
 				querySnapshot.forEach((doc) => {
 					console.log(`${doc.id} => ${doc.data()}`);
 				});
