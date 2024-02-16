@@ -38,28 +38,28 @@
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
-			<div id="sirops">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Sirops</h3>
+			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Sirops</h3>
 			</div>
 
-			<div id="softs">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Softs</h3>
+			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Softs</h3>
 			</div>
 
-			<div id="bieres">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Bières</h3>
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Bières</h3>
 			</div>
 
-			<div id="vins">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Vins</h3>
+			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Vins</h3>
 			</div>
 
-			<div id="classiques">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Classiques</h3>
+			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Classiques</h3>
 			</div>
 
-			<div id="extravagants">
-				<h3 style="text-align: center; border: 1px solid black; width: 70%; margin: auto; margin-top: 50px;">Extravagants</h3>
+			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center;">
+				<h3 style="text-align: center;">Extravagants</h3>
 			</div>
 		</div>
 
@@ -71,7 +71,7 @@
 			firebase.initializeApp(firebaseConfig);
 
 			const db = firebase.firestore();
-			var div = document.getElementById('issuesList');
+			var divBieres = document.getElementById('bieres');
 
 			// Récupérer toutes les données de la collection "boissons"
 			db.collection("boissons").get().then((querySnapshot) => {
@@ -83,14 +83,19 @@
 					boissonsData[doc.id] = doc.data();
 				});
 
-				// Convertir l'objet en format JSON
-				let boissonsJSON = JSON.stringify(boissonsData);
+				// Extraire la liste des bières
+				let bieres = boissonsData["biere"];
 
-				// Afficher les données JSON
-				div.innerHTML += "<pre>" + boissonsJSON + "</pre>";
+				// Afficher la liste des bières
+				for (const key in bieres) {
+					if (bieres.hasOwnProperty(key)) {
+						const biere = bieres[key];
+						divBieres.innerHTML += biere + "<br>";
+					}
+				}
 
 			}).catch((error) => {
-				div.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
 			});
 		</script>
 
