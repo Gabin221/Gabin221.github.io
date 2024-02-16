@@ -44,38 +44,26 @@
 			firebase.initializeApp(firebaseConfig);
 
 			const db = firebase.firestore();
+			var div = document.getElementById('issuesList');
 
-			// Récupérer une référence à la collection principale "boissons"
-			const boissonsRef = db.collection("boissons");
+			// Récupérer toutes les données de la collection "boissons"
+			db.collection("boissons").get().then((querySnapshot) => {
+				let boissonsData = {};
 
-			// Récupérer toutes les données de la collection principale "boissons"
-			boissonsRef.get().then((querySnapshot) => {
 				querySnapshot.forEach((doc) => {
-					// doc.id contient l'identifiant de la sous-collection (par exemple, "biere", "sirop")
-					console.log("Sous-collection :", doc.id);
-
-					// Pour chaque sous-collection, récupérer une référence à la collection correspondante
-					const subCollectionRef = boissonsRef.doc(doc.id).collection(doc.id);
-
-					// Récupérer tous les documents de la sous-collection
-					subCollectionRef.get().then((subCollectionSnapshot) => {
-						subCollectionSnapshot.forEach((subDoc) => {
-							// subDoc.id contient l'identifiant du document (par exemple, "1664", "Grim", "Fraise", "Orgeat")
-							console.log("Document :", subDoc.id);
-							// subDoc.data() contient les données du document
-							console.log("Données :", subDoc.data());
-						});
-
-						// Ajouter un log pour vérifier si des documents ont été récupérés
-						if (subCollectionSnapshot.empty) {
-							console.log("Aucun document trouvé dans la sous-collection", doc.id);
-						}
-					}).catch((error) => {
-						console.log("Erreur lors de la récupération des documents de la sous-collection", doc.id, ":", error);
-					});
+					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
+					// doc.data() contient les données du document
+					boissonsData[doc.id] = doc.data();
 				});
+
+				// Convertir l'objet en format JSON
+				let boissonsJSON = JSON.stringify(boissonsData);
+
+				// Afficher les données JSON
+				div.innerHTML += "<pre>" + boissonsJSON + "</pre>";
+
 			}).catch((error) => {
-				console.log("Erreur lors de la lecture des données :", error);
+				div.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
 			});
 		</script>
 		
