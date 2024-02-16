@@ -66,7 +66,7 @@
 		var divExtravagants = document.getElementById('extravagants');
 
 		// Récupérer toutes les données de la collection "boissons"
-		db.collection("boissons").get().then((querySnapshot) => {
+		db.collection("anniversaire").get().then((querySnapshot) => {
 			let boissonsData = {};
 
 			querySnapshot.forEach((doc) => {
@@ -75,7 +75,7 @@
 				boissonsData[doc.id] = doc.data();
 			});
 			
-			let bieres = boissonsData["biere"];
+			let bieres = boissonsData["Biere"];
 
 			// Afficher la liste des bières
 			for (const key in bieres) {
