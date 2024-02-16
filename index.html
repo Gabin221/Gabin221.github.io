@@ -154,24 +154,42 @@
 			const boutonSirops = document.getElementById('boutonSirops');
 			const softs = document.getElementById('softs');
 			const boutonSofts = document.getElementById('boutonSofts');
+			const bieres = document.getElementById('bieres');
+			const boutonBieres = document.getElementById('boutonBieres');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
 					sirops.style.display = 'block';
 					softs.style.display = 'none';
+					bieres.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					softs.style.display = 'none';
+					bieres.style.display = 'none';
 				}
 			});
 
 			boutonSofts.addEventListener('click', function() {
 				if (softs.style.display === 'none') {
-					softs.style.display = 'block';
 					sirops.style.display = "none";
+					softs.style.display = 'block';
+					bieres.style.display = 'none';
 				} else {
-					softs.style.display = 'none';
 					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+				}
+			});
+
+			boutonBieres.addEventListener('click', function() {
+				if (bieres.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
 				}
 			});
 		</script>
