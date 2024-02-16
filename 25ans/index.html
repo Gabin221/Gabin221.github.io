@@ -4,9 +4,53 @@
         <title>25 ans Gabin</title>
 	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+	<style>
+		.container {
+			background-color: #cccccc;
+			overflow: auto;
+			white-space: nowrap; 
+			width: 100%;	  
+		}
+	</style>
     </head>
     <body>
-	<a href="../index.html">Vers la page de mon anniversaire</a>
+	<a href="../index.html">Vers la page de Gabin's bar</a>
+	<h1 style="text-align: center;">Gabin's bar</h1>
+	
+	<div class="container">
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">Classiques</div>
+		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">Extravagants</div>
+	</div>
+
+	<div style="display: flex; flex-direction: column; justify-content: center;">
+		<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Sirops</h3>
+		</div>
+		
+		<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Softs</h3>
+		</div>
+		
+		<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Bières</h3>
+		</div>
+		
+		<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Vins</h3>
+		</div>
+		
+		<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Classiques</h3>
+		</div>
+		
+		<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<h3 style="text-align: center;">Extravagants</h3>
+		</div>
+	</div>
 	
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
