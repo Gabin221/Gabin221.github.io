@@ -36,7 +36,7 @@
 			<h3 style="text-align: center;">Softs</h3>
 		</div>
 		
-		<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+		<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
 			<h3 style="text-align: center;">Bières</h3>
 		</div>
 		
@@ -57,14 +57,9 @@
 
 	<script>		
 		firebase.initializeApp(firebaseConfig);
-	
+
 		const db = firebase.firestore();
-		var divSirops = document.getElementById('sirops');
-		var divSofts = document.getElementById('softs');
 		var divBieres = document.getElementById('bieres');
-		var divVins = document.getElementById('vins');
-		var divClassiques = document.getElementById('classiques');
-		var divExtravagants = document.getElementById('extravagants');
 
 		// Récupérer toutes les données de la collection "boissons"
 		db.collection("Anniversaire").get().then((querySnapshot) => {
@@ -78,18 +73,19 @@
 			
 			let bieres = boissonsData["Bieres"];
 
-			// Afficher la liste des bières
-			for (const key in bieres) {
-				if (bieres.hasOwnProperty(key)) {
-					const biere = bieres[key];
-					divBieres.innerHTML += biere + "<br>";
+			// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+			for (const cle in bieres) {
+				if (bieres.hasOwnProperty(cle)) {
+					const valeur = bieres[cle];
+					divBieres.innerHTML += cle + " : " + valeur + " L<br>";
 				}
 			}
 
-			}).catch((error) => {
-				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
-			});
-	</script>
+		}).catch((error) => {
+			divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+		});
+
+		</script>
 
 	    <script>
 			const sirops = document.getElementById('sirops');
