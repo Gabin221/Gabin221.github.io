@@ -20,11 +20,12 @@
 		
 		<div class="container">
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
-			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonAlcoolForts">AlcoolForts</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
-			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">Classiques</div>
-			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">Extravagants</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBulles">Bulles</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonRepas">Repas</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonApero">Apero</div>
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -32,8 +33,8 @@
 				<h3 style="text-align: center;">Sirops</h3>
 			</div>
 			
-			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Softs</h3>
+			<div id="alcoolForts" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">AlcoolForts</h3>
 			</div>
 			
 			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
@@ -44,12 +45,16 @@
 				<h3 style="text-align: center;">Vins</h3>
 			</div>
 			
-			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Classiques</h3>
+			<div id="bulles" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Bulles</h3>
 			</div>
 			
-			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Extravagants</h3>
+			<div id="repas" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Repas</h3>
+			</div>
+			
+			<div id="apero" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Apero</h3>
 			</div>
 		</div>
 		
@@ -60,6 +65,12 @@
 
 			const db = firebase.firestore();
 			var divBieres = document.getElementById('bieres');
+			var divAlcoolForts = document.getElementById('alcoolForts');
+			var divApero = document.getElementById('apero');
+			var divBulles = document.getElementById('bulles');
+			var divRepas = document.getElementById('repas');
+			var divSirops = document.getElementById('sirops');
+			var divVin = document.getElementById('vins');
 
 			// Récupérer toutes les données de la collection "boissons"
 			db.collection("Anniversaire").get().then((querySnapshot) => {
@@ -72,12 +83,66 @@
 				});
 				
 				let bieres = boissonsData["Bieres"];
+				let alcoolForts = boissonsData["AlcoolForts"];
+				let apero = boissonsData["Apero"];
+				let bulles = boissonsData["Bulles"];
+				let repas = boissonsData["Repas"];
+				let sirops = boissonsData["Sirops"];
+				let vins = boissonsData["Vin"];
 
 				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
 				for (const cle in bieres) {
 					if (bieres.hasOwnProperty(cle)) {
 						const valeur = bieres[cle];
 						divBieres.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in alcoolForts) {
+					if (alcoolForts.hasOwnProperty(cle)) {
+						const valeur = alcoolForts[cle];
+						divAlcoolForts.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in apero) {
+					if (apero.hasOwnProperty(cle)) {
+						const valeur = apero[cle];
+						divApero.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in bulles) {
+					if (bulles.hasOwnProperty(cle)) {
+						const valeur = bulles[cle];
+						divBulles.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in repas) {
+					if (repas.hasOwnProperty(cle)) {
+						const valeur = repas[cle];
+						divRepas.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in sirops) {
+					if (sirops.hasOwnProperty(cle)) {
+						const valeur = sirops[cle];
+						divSirops.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in vins) {
+					if (vins.hasOwnProperty(cle)) {
+						const valeur = vins[cle];
+						divVin.innerHTML += cle + " : " + valeur + " L<br>";
 					}
 				}
 
@@ -89,122 +154,156 @@
 	    <script>
 			const sirops = document.getElementById('sirops');
 			const boutonSirops = document.getElementById('boutonSirops');
-			const softs = document.getElementById('softs');
-			const boutonSofts = document.getElementById('boutonSofts');
+			const alcoolForts = document.getElementById('alcoolForts');
+			const boutonAlcoolForts = document.getElementById('boutonAlcoolForts');
 			const bieres = document.getElementById('bieres');
 			const boutonBieres = document.getElementById('boutonBieres');
 			const vins = document.getElementById('vins');
 			const boutonVins = document.getElementById('boutonVins');
-			const classiques = document.getElementById('classiques');
-			const boutonClassiques = document.getElementById('boutonClassiques');
-			const extravagants = document.getElementById('extravagants');
-			const boutonExtravagants = document.getElementById('boutonExtravagants');
+			const bulles = document.getElementById('bulles');
+			const boutonBulles = document.getElementById('boutonBulles');
+			const repas = document.getElementById('repas');
+			const boutonRepas = document.getElementById('boutonRepas');
+			const apero = document.getElementById('apero');
+			const boutonApero = document.getElementById('boutonApero');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
 					sirops.style.display = 'block';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 
-			boutonSofts.addEventListener('click', function() {
-				if (softs.style.display === 'none') {
+			boutonAlcoolForts.addEventListener('click', function() {
+				if (alcoolForts.style.display === 'none') {
 					sirops.style.display = "none";
-					softs.style.display = 'block';
+					alcoolForts.style.display = 'block';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 
 			boutonBieres.addEventListener('click', function() {
 				if (bieres.style.display === 'none') {
 					sirops.style.display = "none";
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'block';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 
 			boutonVins.addEventListener('click', function() {
 				if (vins.style.display === 'none') {
 					sirops.style.display = "none";
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'block';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 
-			boutonClassiques.addEventListener('click', function() {
-				if (classiques.style.display === 'none') {
+			boutonBulles.addEventListener('click', function() {
+				if (bulles.style.display === 'none') {
 					sirops.style.display = "none";
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'block';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'block';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 
-			boutonExtravagants.addEventListener('click', function() {
-				if (extravagants.style.display === 'none') {
+			boutonRepas.addEventListener('click', function() {
+				if (repas.style.display === 'none') {
 					sirops.style.display = "none";
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'block';
+					bulles.style.display = 'none';
+					repas.style.display = 'block';
+					apero.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
-					softs.style.display = 'none';
+					alcoolForts.style.display = 'none';
 					bieres.style.display = 'none';
 					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
+				}
+			});
+
+			boutonApero.addEventListener('click', function() {
+				if (apero.style.display === 'none') {
+					sirops.style.display = "none";
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
 				}
 			});
 		</script>
