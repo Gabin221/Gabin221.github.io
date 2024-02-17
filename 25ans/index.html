@@ -31,35 +31,35 @@
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
 			<div id="presentation" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
-				<h3 style="text-align: center;">Présentation</h3>
+				<h2 style="text-align: center;">Présentation</h2>
 			</div>
 
 			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Sirops</h3>
+				<h2 style="text-align: center;">Sirops</h2>
 			</div>
 			
 			<div id="alcoolForts" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">AlcoolForts</h3>
+				<h2 style="text-align: center;">AlcoolForts</h2>
 			</div>
 			
 			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Bières</h3>
+				<h2 style="text-align: center;">Bières</h2>
 			</div>
 			
 			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Vins</h3>
+				<h2 style="text-align: center;">Vins</h2>
 			</div>
 			
 			<div id="bulles" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Bulles</h3>
+				<h2 style="text-align: center;">Bulles</h2>
 			</div>
 			
 			<div id="repas" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Repas</h3>
+				<h2 style="text-align: center;">Repas</h2>
 			</div>
 			
 			<div id="apero" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Apéro</h3>
+				<h2 style="text-align: center;">Apéro</h2>
 			</div>
 		</div>
 		
@@ -76,6 +76,7 @@
 			var divRepas = document.getElementById('repas');
 			var divSirops = document.getElementById('sirops');
 			var divVin = document.getElementById('vins');
+			var divPresentation = document.getElementById('presentation');
 
 			// Récupérer toutes les données de la collection "boissons"
 			db.collection("Anniversaire").get().then((querySnapshot) => {
@@ -94,6 +95,7 @@
 				let repas = boissonsData["Repas"];
 				let sirops = boissonsData["Sirops"];
 				let vins = boissonsData["Vin"];
+				let presentation = boissonsData["Presentation"];
 
 				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
 				for (const cle in bieres) {
@@ -148,6 +150,14 @@
 					if (vins.hasOwnProperty(cle)) {
 						const valeur = vins[cle];
 						divVin.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in presentation) {
+					if (presentation.hasOwnProperty(cle)) {
+						const valeur = presentation[cle];
+						divPresentation.innerHTML += "<b>" + cle + "</b>" + " <br> " + valeur + "<br><br>";
 					}
 				}
 
