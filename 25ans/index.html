@@ -19,16 +19,21 @@
 		<h1 style="text-align: center;">25 ans de Gabin</h1>
 		
 		<div class="container">
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonPresentation">Présentation</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonAlcoolForts">AlcoolForts</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBulles">Bulles</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonRepas">Repas</div>
-			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonApero">Apero</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonApero">Apéro</div>
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div id="presentation" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
+				<h3 style="text-align: center;">Présentation</h3>
+			</div>
+
 			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Sirops</h3>
 			</div>
@@ -37,7 +42,7 @@
 				<h3 style="text-align: center;">AlcoolForts</h3>
 			</div>
 			
-			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">Bières</h3>
 			</div>
 			
@@ -54,7 +59,7 @@
 			</div>
 			
 			<div id="apero" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">Apero</h3>
+				<h3 style="text-align: center;">Apéro</h3>
 			</div>
 		</div>
 		
@@ -166,6 +171,8 @@
 			const boutonRepas = document.getElementById('boutonRepas');
 			const apero = document.getElementById('apero');
 			const boutonApero = document.getElementById('boutonApero');
+			const presentation = document.getElementById('presentation');
+			const boutonPresentation = document.getElementById('boutonPresentation');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
@@ -176,6 +183,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -184,6 +192,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -196,6 +205,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -204,6 +214,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -216,6 +227,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -224,6 +236,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -236,6 +249,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -244,6 +258,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -256,6 +271,7 @@
 					bulles.style.display = 'block';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -264,6 +280,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -276,6 +293,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'block';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -284,6 +302,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 
@@ -296,6 +315,7 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'block';
+					presentation.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -304,6 +324,29 @@
 					bulles.style.display = 'none';
 					repas.style.display = 'none';
 					apero.style.display = 'none';
+					presentation.style.display = 'none';
+				}
+			});
+
+			boutonPresentation.addEventListener('click', function() {
+				if (presentation.style.display === 'none') {
+					sirops.style.display = "none";
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
+					presentation.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
+					presentation.style.display = 'none';
 				}
 			});
 		</script>
