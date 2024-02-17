@@ -15,76 +15,75 @@
 	</style>
     </head>
     <body>
-	<a href="../index.html">Vers la page de Gabin's bar</a>
-	<h1 style="text-align: center;">25 ans de Gabin</h1>
-	
-	<div class="container">
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">Classiques</div>
-		<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">Extravagants</div>
-	</div>
-
-	<div style="display: flex; flex-direction: column; justify-content: center;">
-		<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-			<h3 style="text-align: center;">Sirops</h3>
-		</div>
+		<a href="../index.html">Vers la page de Gabin's bar</a>
+		<h1 style="text-align: center;">25 ans de Gabin</h1>
 		
-		<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-			<h3 style="text-align: center;">Softs</h3>
+		<div class="container">
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">Sirops</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">Bières</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">Vins</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">Classiques</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">Extravagants</div>
 		</div>
-		
-		<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
-			<h3 style="text-align: center;">Bières</h3>
-		</div>
-		
-		<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-			<h3 style="text-align: center;">Vins</h3>
-		</div>
-		
-		<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-			<h3 style="text-align: center;">Classiques</h3>
-		</div>
-		
-		<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-			<h3 style="text-align: center;">Extravagants</h3>
-		</div>
-	</div>
-	
-	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-	<script>		
-		firebase.initializeApp(firebaseConfig);
-
-		const db = firebase.firestore();
-		var divBieres = document.getElementById('bieres');
-
-		// Récupérer toutes les données de la collection "boissons"
-		db.collection("Anniversaire").get().then((querySnapshot) => {
-			let boissonsData = {};
-
-			querySnapshot.forEach((doc) => {
-				// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
-				// doc.data() contient les données du document
-				boissonsData[doc.id] = doc.data();
-			});
+		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Sirops</h3>
+			</div>
 			
-			let bieres = boissonsData["Bieres"];
+			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Softs</h3>
+			</div>
+			
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
+				<h3 style="text-align: center;">Bières</h3>
+			</div>
+			
+			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Vins</h3>
+			</div>
+			
+			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Classiques</h3>
+			</div>
+			
+			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">Extravagants</h3>
+			</div>
+		</div>
+		
+		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-			// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
-			for (const cle in bieres) {
-				if (bieres.hasOwnProperty(cle)) {
-					const valeur = bieres[cle];
-					divBieres.innerHTML += cle + " : " + valeur + " L<br>";
+		<script>		
+			firebase.initializeApp(firebaseConfig);
+
+			const db = firebase.firestore();
+			var divBieres = document.getElementById('bieres');
+
+			// Récupérer toutes les données de la collection "boissons"
+			db.collection("Anniversaire").get().then((querySnapshot) => {
+				let boissonsData = {};
+
+				querySnapshot.forEach((doc) => {
+					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
+					// doc.data() contient les données du document
+					boissonsData[doc.id] = doc.data();
+				});
+				
+				let bieres = boissonsData["Bieres"];
+
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in bieres) {
+					if (bieres.hasOwnProperty(cle)) {
+						const valeur = bieres[cle];
+						divBieres.innerHTML += cle + " : " + valeur + " L<br>";
+					}
 				}
-			}
 
-		}).catch((error) => {
-			divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
-		});
-
+			}).catch((error) => {
+				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+			});
 		</script>
 
 	    <script>
