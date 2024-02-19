@@ -43,6 +43,7 @@
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBulles">Bulles</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonRepas">Repas</div>
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonApero">Apéro</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">Softs</div>
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -77,6 +78,10 @@
 			<div id="apero" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h2 style="text-align: center;">Apéro</h2>
 			</div>
+			
+			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h2 style="text-align: center;">Softs</h2>
+			</div>
 		</div>
 		
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
@@ -93,6 +98,7 @@
 			var divSirops = document.getElementById('sirops');
 			var divVin = document.getElementById('vins');
 			var divPresentation = document.getElementById('presentation');
+			var divSofts = document.getElementById('softs');
 
 			// Récupérer toutes les données de la collection "boissons"
 			db.collection("Anniversaire").get().then((querySnapshot) => {
@@ -112,6 +118,7 @@
 				let sirops = boissonsData["Sirops"];
 				let vins = boissonsData["Vin"];
 				let presentation = boissonsData["Presentation"];
+				let softs = boissonsData["Softs"];
 
 				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
 				for (const cle in bieres) {
@@ -177,6 +184,14 @@
 					}
 				}
 
+				// Afficher la liste des bières avec la paire clé-valeur et l'unité "L"
+				for (const cle in softs) {
+					if (softs.hasOwnProperty(cle)) {
+						const valeur = softs[cle];
+						divSofts.innerHTML += cle + " : " + valeur + " L<br>";
+					}
+				}
+
 			}).catch((error) => {
 				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
 			});
@@ -212,6 +227,8 @@
 			const boutonApero = document.getElementById('boutonApero');
 			const presentation = document.getElementById('presentation');
 			const boutonPresentation = document.getElementById('boutonPresentation');
+			const softs = document.getElementById('softs');
+			const boutonSofts = document.getElementById('boutonSofts');
 
 			boutonSirops.addEventListener('click', function() {
 				if (sirops.style.display === 'none') {
@@ -223,6 +240,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -232,6 +250,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -245,6 +264,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -254,6 +274,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -267,6 +288,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -276,6 +298,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -289,6 +312,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -298,6 +322,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -311,6 +336,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -320,6 +346,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -333,6 +360,7 @@
 					repas.style.display = 'block';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -342,6 +370,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -355,6 +384,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'block';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -364,6 +394,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 
@@ -377,6 +408,7 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'block';
+					softs.style.display = 'none';
 				} else {
 					sirops.style.display = 'none';
 					alcoolForts.style.display = 'none';
@@ -386,6 +418,31 @@
 					repas.style.display = 'none';
 					apero.style.display = 'none';
 					presentation.style.display = 'none';
+					softs.style.display = 'none';
+				}
+			});
+
+			boutonSofts.addEventListener('click', function() {
+				if (softs.style.display === 'none') {
+					sirops.style.display = "none";
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
+					presentation.style.display = 'none';
+					softs.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					alcoolForts.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					bulles.style.display = 'none';
+					repas.style.display = 'none';
+					apero.style.display = 'none';
+					presentation.style.display = 'none';
+					softs.style.display = 'none';
 				}
 			});
 		</script>
