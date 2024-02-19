@@ -16,6 +16,23 @@
     </head>
     <body>
 		<a href="../index.html">Vers la page de Gabin's bar</a>
+		<br>
+		<br>
+
+		<div>
+			<a href="Application">Pour télécharger mon application Androïd</a>
+			<br>
+			<div style="display: inline-block; text-decoration: none; cursor: pointer;" id="aide">Comment l'installer ?</div>
+			<div style="color: #4d4c4c;">Dernière modification: le 19/02/2024</div>
+			<div id="texteAide" style="display: block;">
+				<ol>
+					<li>Cliquer sur le lien ci-dessus afin de télécharger le fichier .apk</li>
+					<li>Si ce n'est pas déjà fait, aller dans les paramètres et autoriser l'installation des applications de source inconnue</li>
+					<li>Aller dans l'application <b>Mes fichiers</b> et cliquer sur le .apk</li>
+				</ol>
+			</div>
+		</div>
+
 		<h1 style="text-align: center;">25 ans de Gabin</h1>
 		
 		<div class="container">
@@ -117,7 +134,7 @@
 				for (const cle in apero) {
 					if (apero.hasOwnProperty(cle)) {
 						const valeur = apero[cle];
-						divApero.innerHTML += cle + " : " + valeur + " L<br>";
+						divApero.innerHTML += cle + " : " + valeur + "<br>";
 					}
 				}
 
@@ -133,7 +150,7 @@
 				for (const cle in repas) {
 					if (repas.hasOwnProperty(cle)) {
 						const valeur = repas[cle];
-						divRepas.innerHTML += cle + " : " + valeur + " L<br>";
+						divRepas.innerHTML += cle + " : " + valeur + "<br>";
 					}
 				}
 
@@ -141,7 +158,7 @@
 				for (const cle in sirops) {
 					if (sirops.hasOwnProperty(cle)) {
 						const valeur = sirops[cle];
-						divSirops.innerHTML += cle + " : " + valeur + " L<br>";
+						divSirops.innerHTML += cle + "<br>";
 					}
 				}
 
@@ -163,6 +180,19 @@
 
 			}).catch((error) => {
 				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+			});
+		</script>
+
+		<script>
+			const aide = document.getElementById('texteAide');
+			const boutonAide = document.getElementById('aide');
+
+			boutonAide.addEventListener('click', function() {
+				if (aide.style.display === 'none') {
+					aide.style.display = 'block';
+				} else {
+					aide.style.display = 'none';
+				}
 			});
 		</script>
 
