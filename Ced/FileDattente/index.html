@@ -15,10 +15,37 @@
 			</a>
 		</button>
 
-		<div id="playlist">
-			<h3 style="text-align: center;">
+		<div id="playlist" style="width: 50%; margin: 0 auto; border: 1px solid black; padding: 30px;">
+			<h3>
 				Liste d'attente
 			</h3>
+
+			<ol>
+				<li>
+					Musique 1
+					<button>
+						x
+					</button>
+				</li>
+				<li>
+					Musique 2
+					<button>
+						x
+					</button>
+				</li>
+				<li>
+					Musique 3
+					<button>
+						x
+					</button>
+				</li>
+				<li>
+					Musique 4
+					<button>
+						x
+					</button>
+				</li>
+			</ol>
 		</div>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
@@ -36,7 +63,9 @@
 					boissonsData[doc.id] = doc.data();
 				});
 
-				let sirops = boissonsData["musique2"];
+				divSirops.innerHTML += querySnapshot.data();
+
+				/*let sirops = boissonsData["musique2"];
 
 				let compteur = 0
 				
@@ -45,7 +74,7 @@
 						const sirop = sirops[key];
 						divSirops.innerHTML += sirop + "<br>";
 					}
-				}
+				}*/
 
 			}).catch((error) => {
 				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
