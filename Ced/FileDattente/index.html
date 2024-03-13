@@ -20,13 +20,9 @@
 				Liste d'attente
 			</h3>
 
-			<ol>
+			<ol id="items">
 				<li>
 					Musique 1
-					<br>
-					<button>
-						x
-					</button>
 					<br>
 					<a class='up' href='#'>up</a>
 					<a class='down' href='#'>down</a>
@@ -34,19 +30,11 @@
 				<li>
 					Musique 2
 					<br>
-					<button>
-						x
-					</button>
-					<br>
 					<a class='up' href='#'>up</a>
 					<a class='down' href='#'>down</a>
 				</li>
 				<li>
 					Musique 3
-					<br>
-					<button>
-						x
-					</button>
 					<br>
 					<a class='up' href='#'>up</a>
 					<a class='down' href='#'>down</a>
@@ -54,14 +42,12 @@
 				<li>
 					Musique 4
 					<br>
-					<button>
-						x
-					</button>
-					<br>
 					<a class='up' href='#'>up</a>
 					<a class='down' href='#'>down</a>
 				</li>
 			</ol>
+
+			<button type="button" id="add-item">Add item</button>
 		</div>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
@@ -90,6 +76,34 @@
 					});
 				}
 			}
+		</script>
+
+		<script>
+			let addButton = document.getElementById("add-item");
+
+			const currentIndex = 0
+
+			addButton.addEventListener("click", function() {
+
+			// Retrieves the 'list'
+			let list = document.getElementById("items");
+			let textNode = window.prompt("Enter item:");
+			if (textNode != null) {
+				let item = document.createElement("li");
+				//Creates a textnode from the users input
+				item.appendChild(document.createTextNode(textNode));
+				//Adds the users textnode at the end of the list
+				list.appendChild(item);
+				// Creates a delete button 
+				let deleteButton = document.createElement("span");
+				//add a click event to remove the current item
+				deleteButton.addEventListener("click", function() {
+				item.remove()
+				})
+				deleteButton.innerHTML = "Delete"
+				item.appendChild(deleteButton)
+			}
+			});
 		</script>
 	</body>
 </html>
