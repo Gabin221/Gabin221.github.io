@@ -26,24 +26,32 @@
 					<button>
 						x
 					</button>
+					<a class='up' href='#'>up</a>
+					<a class='down' href='#'>down</a>
 				</li>
 				<li>
 					Musique 2
 					<button>
 						x
 					</button>
+					<a class='up' href='#'>up</a>
+					<a class='down' href='#'>down</a>
 				</li>
 				<li>
 					Musique 3
 					<button>
 						x
 					</button>
+					<a class='up' href='#'>up</a>
+					<a class='down' href='#'>down</a>
 				</li>
 				<li>
 					Musique 4
 					<button>
 						x
 					</button>
+					<a class='up' href='#'>up</a>
+					<a class='down' href='#'>down</a>
 				</li>
 			</ol>
 		</div>
@@ -51,34 +59,29 @@
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 		<script>		
-			firebase.initializeApp(firebaseConfig);
-
-			const db = firebase.firestore();
-			var divSirops = document.getElementById('playlist');
-
-			db.collection("fileDattente").get().then((querySnapshot) => {
-				let boissonsData = {};
-
-				querySnapshot.forEach((doc) => {
-					boissonsData[doc.id] = doc.data();
-				});
-
-				divSirops.innerHTML += querySnapshot.data();
-
-				/*let sirops = boissonsData["musique2"];
-
-				let compteur = 0
-				
-				for (const key in sirops) {
-					if (sirops.hasOwnProperty(key)) {
-						const sirop = sirops[key];
-						divSirops.innerHTML += sirop + "<br>";
-					}
-				}*/
-
-			}).catch((error) => {
-				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
-			});
+			window.onload = function () {
+				var upLink = document.querySelectorAll(".up");
+			
+				for (var i = 0; i < upLink.length; i++) {
+					upLink[i].addEventListener('click', function () {
+						var wrapper = this.parentElement;
+			
+						if (wrapper.previousElementSibling)
+							wrapper.parentNode.insertBefore(wrapper, wrapper.previousElementSibling);
+					});
+				}
+			
+				var downLink = document.querySelectorAll(".down");
+			
+				for (var i = 0; i < downLink.length; i++) {
+					downLink[i].addEventListener('click', function () {
+						var wrapper = this.parentElement;
+			
+						if (wrapper.nextElementSibling)
+							wrapper.parentNode.insertBefore(wrapper.nextElementSibling, wrapper);
+					});
+				}
+			}
 		</script>
 	</body>
 </html>
