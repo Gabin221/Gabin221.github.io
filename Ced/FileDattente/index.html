@@ -3,6 +3,8 @@
 <html lang="fr">
 	<head>
 		<title>Title of the page</title>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 	</head>
 	<body>
 		<h1 style="text-align: center;">File d'attente</h1>
@@ -34,8 +36,10 @@
 					boissonsData[doc.id] = doc.data();
 				});
 
-				let sirops = boissonsData["musique1"];
+				let sirops = boissonsData["musique2"];
 
+				let compteur = 0
+				
 				for (const key in sirops) {
 					if (sirops.hasOwnProperty(key)) {
 						const sirop = sirops[key];
