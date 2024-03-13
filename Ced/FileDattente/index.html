@@ -12,5 +12,40 @@
 				Accueil
 			</a>
 		</button>
+
+		<div id="playlist">
+			<h3 style="text-align: center;">
+				Liste d'attente
+			</h3>
+		</div>
+
+		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+		<script>		
+			firebase.initializeApp(firebaseConfig);
+
+			const db = firebase.firestore();
+			var divSirops = document.getElementById('playlist');
+
+			db.collection("fileDattente").get().then((querySnapshot) => {
+				let boissonsData = {};
+
+				querySnapshot.forEach((doc) => {
+					boissonsData[doc.id] = doc.data();
+				});
+
+				let sirops = boissonsData["musique1"];
+
+				for (const key in sirops) {
+					if (sirops.hasOwnProperty(key)) {
+						const sirop = sirops[key];
+						divSirops.innerHTML += sirop + "<br>";
+					}
+				}
+
+			}).catch((error) => {
+				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+			});
+		</script>
 	</body>
 </html>
