@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<html lang="fr">
+	<head>
+		<title>Gabin's bar</title>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+	</head>
+	<body>
+		<a href="25ans/index.html">
+			Vers la page de mon anniversaire
+		</a>
+		<h1 style="text-align: center;">
+			Gabin's bar
+		</h1>
+
+		<div style="background-color: #cccccc; overflow: auto; white-space: nowrap; width: 100%;">
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">
+				Sirops
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSofts">
+				Softs
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonBieres">
+				Bières
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonVins">
+				Vins
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonClassiques">
+				Classiques
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonExtravagants">
+				Extravagants
+			</div>
+		</div>
+
+		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div id="sirops" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Sirops
+				</h3>
+			</div>
+
+			<div id="softs" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Softs
+				</h3>
+			</div>
+
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Bières
+				</h3>
+			</div>
+
+			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Vins
+				</h3>
+			</div>
+
+			<div id="classiques" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Classiques
+				</h3>
+			</div>
+
+			<div id="extravagants" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Extravagants
+				</h3>
+			</div>
+		</div>
+
+		<div style="margin: 30px 0 0 0; background-color: black;">
+			<div>
+				<h3 style="text-align: center; color: white;">
+					Gabin's bar sur votre téléphone...
+				</h3>
+
+				<div style="display: flex; justify-content: space-around;">
+					<a href="Application/app-debug.apk" style="text-decoration: none; color: white; width: 50px; height: 50px; border: 0; cursor: pointer;">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M16.61 15.15C16.15 15.15 15.77 14.78 15.77 14.32S16.15 13.5 16.61 13.5H16.61C17.07 13.5 17.45 13.86 17.45 14.32C17.45 14.78 17.07 15.15 16.61 15.15M7.41 15.15C6.95 15.15 6.57 14.78 6.57 14.32C6.57 13.86 6.95 13.5 7.41 13.5H7.41C7.87 13.5 8.24 13.86 8.24 14.32C8.24 14.78 7.87 15.15 7.41 15.15M16.91 10.14L18.58 7.26C18.67 7.09 18.61 6.88 18.45 6.79C18.28 6.69 18.07 6.75 18 6.92L16.29 9.83C14.95 9.22 13.5 8.9 12 8.91C10.47 8.91 9 9.24 7.73 9.82L6.04 6.91C5.95 6.74 5.74 6.68 5.57 6.78C5.4 6.87 5.35 7.08 5.44 7.25L7.1 10.13C4.25 11.69 2.29 14.58 2 18H22C21.72 14.59 19.77 11.7 16.91 10.14H16.91Z" style="fill: white;" />
+						</svg>
+					</a>
+					<a href="Application/app-debug.apk" style="text-decoration: none; color: white; width: 50px; height: 50px; border: 0; cursor: pointer;">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z" style="fill: white;" />
+						</svg>
+					</a>
+				</div>
+			</div>
+
+			<div style="background-color: #cccccc;">
+				<h3 style="text-align: center;">
+					Gabin's bar sur les réseaux...
+				</h3>
+		
+				<div style="display: flex; justify-content: space-around;">
+					<a href="https://github.com/Gabin221" style="text-decoration: none; color: black; width: 50px; height: 50px; border: 0; cursor: pointer;">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+		<script>		
+			firebase.initializeApp(firebaseConfig);
+
+			const db = firebase.firestore();
+			var divSirops = document.getElementById('sirops');
+			var divSofts = document.getElementById('softs');
+			var divBieres = document.getElementById('bieres');
+			var divVins = document.getElementById('vins');
+			var divClassiques = document.getElementById('classiques');
+			var divExtravagants = document.getElementById('extravagants');
+
+			// Récupérer toutes les données de la collection "boissons"
+			db.collection("boissons").get().then((querySnapshot) => {
+				let boissonsData = {};
+
+				querySnapshot.forEach((doc) => {
+					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
+					// doc.data() contient les données du document
+					boissonsData[doc.id] = doc.data();
+				});
+
+				// Extraire la liste des bières
+				let sirops = boissonsData["sirop"];
+				let softs = boissonsData["softs"];
+				let bieres = boissonsData["biere"];
+				let vins = boissonsData["vins"];
+				let classiques = boissonsData["classiques"];
+				let extravagants = boissonsData["extravagants"];
+
+				// Afficher la liste des sirops
+				for (const key in sirops) {
+					if (sirops.hasOwnProperty(key)) {
+						const sirop = sirops[key];
+						divSirops.innerHTML += sirop + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in softs) {
+					if (softs.hasOwnProperty(key)) {
+						const soft = softs[key];
+						divSofts.innerHTML += soft + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in bieres) {
+					if (bieres.hasOwnProperty(key)) {
+						const biere = bieres[key];
+						divBieres.innerHTML += biere + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in vins) {
+					if (vins.hasOwnProperty(key)) {
+						const vin = vins[key];
+						divVins.innerHTML += vin + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in classiques) {
+					if (classiques.hasOwnProperty(key)) {
+						const classique = classiques[key];
+						divClassiques.innerHTML += classique + "<br>";
+					}
+				}
+
+				// Afficher la liste des bières
+				for (const key in extravagants) {
+					if (extravagants.hasOwnProperty(key)) {
+						const extravagant = extravagants[key];
+						divExtravagants.innerHTML += extravagant + "<br>";
+					}
+				}
+
+			}).catch((error) => {
+				divBieres.innerHTML += "Erreur lors de la lecture des données : " + error + "<br>";
+			});
+		</script>
+
+		<script>
+			const sirops = document.getElementById('sirops');
+			const boutonSirops = document.getElementById('boutonSirops');
+			const softs = document.getElementById('softs');
+			const boutonSofts = document.getElementById('boutonSofts');
+			const bieres = document.getElementById('bieres');
+			const boutonBieres = document.getElementById('boutonBieres');
+			const vins = document.getElementById('vins');
+			const boutonVins = document.getElementById('boutonVins');
+			const classiques = document.getElementById('classiques');
+			const boutonClassiques = document.getElementById('boutonClassiques');
+			const extravagants = document.getElementById('extravagants');
+			const boutonExtravagants = document.getElementById('boutonExtravagants');
+
+			boutonSirops.addEventListener('click', function() {
+				if (sirops.style.display === 'none') {
+					sirops.style.display = 'block';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonSofts.addEventListener('click', function() {
+				if (softs.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'block';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonBieres.addEventListener('click', function() {
+				if (bieres.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'block';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonVins.addEventListener('click', function() {
+				if (vins.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'block';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonClassiques.addEventListener('click', function() {
+				if (classiques.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'block';
+					extravagants.style.display = 'none';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+
+			boutonExtravagants.addEventListener('click', function() {
+				if (extravagants.style.display === 'none') {
+					sirops.style.display = "none";
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'block';
+				} else {
+					sirops.style.display = 'none';
+					softs.style.display = 'none';
+					bieres.style.display = 'none';
+					vins.style.display = 'none';
+					classiques.style.display = 'none';
+					extravagants.style.display = 'none';
+				}
+			});
+		</script>
+	</body>
+</html>
