@@ -3,11 +3,53 @@
 <html lang="fr">
 	<head>
 		<title>Tachyon</title>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 	</head>
 	<body>
 		<h1 style="text-align: center;">
 			Tachyon
 		</h1>
 
+		<form id="programForm">
+			<label for="nomProgramme">Nom du Programme:</label><br>
+			<input type="text" id="nomProgramme" name="nomProgramme"><br>
+			<label for="description">Description:</label><br>
+			<textarea id="description" name="description"></textarea><br>
+			<label for="codeProgramme">Code du Programme:</label><br>
+			<textarea id="codeProgramme" name="codeProgramme"></textarea><br>
+			<button type="submit">Enregistrer</button>
+		</form>
+
+		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+		<script>		
+			firebase.initializeApp(firebaseConfig);
+
+			const db = firebase.firestore();
+			// Soumission du formulaire
+			document.getElementById('programForm').addEventListener('submit', function(event) {
+				event.preventDefault(); // Empêcher le formulaire de se soumettre normalement
+
+				// Récupération des valeurs du formulaire
+				const nomProgramme = document.getElementById('nomProgramme').value;
+				const description = document.getElementById('description').value;
+				const codeProgramme = document.getElementById('codeProgramme').value;
+
+				// Envoi des données à Firebase
+				const programRef = db.ref('Codes/Python/Python').push(); // Crée un nouvel ID unique pour chaque enregistrement
+				programRef.set({
+					nomProgramme: nomProgramme,
+					description: description,
+					codeProgramme: codeProgramme
+				}).then(function() {
+					console.log("Données envoyées avec succès !");
+					// Effacer le formulaire après l'envoi
+					document.getElementById('programForm').reset();
+				}).catch(function(error) {
+					console.error("Erreur d'envoi des données:", error);
+				});
+			});
+		</script>
 	</body>
 </html>
