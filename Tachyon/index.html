@@ -345,56 +345,44 @@
 		</script>
 
 		<script>
-			// Définir un tableau contenant les noms des langages
-			const langages = ["C", "C++", "Kotlin", "LaTeX", "Ligne de commande", "Python", "Shell", "Web"];
-		
-			// Récupérer les éléments div correspondant à chaque langage
-			const divsLangages = langages.map(langage => document.getElementById(langage.replace(/\s+/g, '')));
-		
-			// Récupérer les données pour chaque langage
-			divsLangages.forEach((divLangage, index) => {
-				const langage = langages[index];
-		
-				// Récupérer toutes les données de la collection correspondant au langage
-				db.collection("Codes").doc(langage).collection(langage).get().then((querySnapshot) => {
-					querySnapshot.forEach((codeDoc) => {
-						// Récupérer les champs "Nom", "Description" et "Code" du document
-						const titre = codeDoc.data().Nom;
-						const description = codeDoc.data().Description;
-						const code = codeDoc.data().Code;
-		
-						// Créer un élément div pour chaque code
-						const codeDiv = document.createElement('div');
-						codeDiv.classList.add('code');
-		
-						// Créer un élément h2 pour le titre du programme
-						const titreHeading = document.createElement('h2');
-						titreHeading.textContent = titre; // Utiliser le champ Nom comme titre
-						codeDiv.appendChild(titreHeading);
-		
-						// Créer un élément p pour la description du programme
-						const descriptionParagraphe = document.createElement('p');
-						descriptionParagraphe.textContent = description; // Utiliser le champ Description comme texte
-						codeDiv.appendChild(descriptionParagraphe);
-		
-						// Créer un élément pre pour le code du programme
-						const codePre = document.createElement('pre');
-						codePre.textContent = code; // Utiliser le champ Code comme texte
-						codeDiv.appendChild(codePre);
-		
-						// Ajouter le codeDiv à l'élément correspondant à chaque langage
-						if (divLangage) {
-							divLangage.appendChild(codeDiv);
-						} else {
-							console.error("Impossible de trouver l'élément pour le langage: " + langage);
-						}
-					});
+			var divC = document.getElementById('c');
+			var divCpp = document.getElementById('cpp');
+			var divKotlin = document.getElementById('kotlin');
+			var divLatex = document.getElementById('latex');
+			var divLignesDeCommandes = document.getElementById('lignesDeCommandes');
+			var divPython = document.getElementById('python');
+			var divShell = document.getElementById('shell');
+			var divWeb = document.getElementById('web');
+
+			var listeDiv = [divC, divCpp, divKotlin, divLatex, divLignesDeCommandes, divPython, divShell, divWeb];
+
+			// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
+			function fetchDataFromFirestore(path, div) {
+				db.doc(path).get().then((doc) => {
+					if (doc.exists) {
+						const data = doc.data();
+						const nom = data.Nom;
+						const description = data.Description;
+						const code = data.Code;
+
+						const html = `
+							<p>Nom: ${nom}</p>
+							<p>Description: ${description}</p>
+							<p>Code: ${code}</p>
+						`;
+						
+						div.innerHTML += html;
+					} else {
+						console.log("No such document!");
+					}
 				}).catch((error) => {
-					console.error("Erreur lors de la récupération des codes pour le langage " + langage + " :", error);
+					console.log("Error getting document:", error);
 				});
-			});
-		
+			}
+
+			// Appeler fetchDataFromFirestore avec le chemin spécifié
+			fetchDataFromFirestore('Codes/Ligne de commande/Ligne de commande/y0S4GaXyVTkDC6tqDEv8', divLignesDeCommandes);
+
 		</script>
-		
 	</body>
 </html>
