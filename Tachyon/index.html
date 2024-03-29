@@ -23,6 +23,8 @@
 			<button type="submit">Enregistrer</button>
 		</form>
 
+		<div id="codesContainer"></div>
+
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 		<script>
@@ -69,6 +71,37 @@
 				});
 			}).catch(error => {
 				console.error("Erreur lors de la récupération des langages de programmation :", error);
+			});
+		</script>
+
+		<script>	
+			// Référence à la collection des codes
+			const codesCollection = db.collection('Codes');
+	
+			// Récupérer les données depuis Firestore
+			codesCollection.get().then(querySnapshot => {
+				const codesContainer = document.getElementById('codesContainer');
+	
+				querySnapshot.forEach(doc => {
+					// Créer un élément div pour chaque code
+					const codeDiv = document.createElement('div');
+					codeDiv.classList.add('code');
+	
+					// Créer un élément h2 pour le nom du programme
+					const nomProgrammeHeading = document.createElement('h2');
+					nomProgrammeHeading.textContent = doc.id; // Utiliser le nom du document comme titre
+					codeDiv.appendChild(nomProgrammeHeading);
+	
+					// Créer un élément pre pour le code du programme
+					const codePre = document.createElement('pre');
+					codePre.textContent = doc.data().codeProgramme; // Récupérer le contenu du code du programme
+					codeDiv.appendChild(codePre);
+	
+					// Ajouter le codeDiv au conteneur des codes
+					codesContainer.appendChild(codeDiv);
+				});
+			}).catch(error => {
+				console.error("Erreur lors de la récupération des codes :", error);
 			});
 		</script>
 	</body>
