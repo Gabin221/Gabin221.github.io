@@ -354,7 +354,16 @@
 			var divShell = document.getElementById('shell');
 			var divWeb = document.getElementById('web');
 
-			var listeDiv = [divC, divCpp, divKotlin, divLatex, divLignesDeCommandes, divPython, divShell, divWeb];
+			var langages = {
+				divC: "C", 
+				divCpp: "C++", 
+				divKotlin: "Kotlin", 
+				divLatex: "Latex", 
+				divLignesDeCommandes: "Ligne de commande", 
+				divPython: "Python", 
+				divShell: "Shell", 
+				divWeb: "Web"
+			};
 
 			// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
 			function fetchDataFromFirestore(path, div) {
@@ -369,6 +378,7 @@
 							<p>Nom: ${nom}</p>
 							<p>Description: ${description}</p>
 							<p>Code: ${code}</p>
+							<hr>
 						`;
 						
 						div.innerHTML += html;
