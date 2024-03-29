@@ -51,49 +51,49 @@
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
-			<div id="c" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divC" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					C
 				</h3>
 			</div>
 
-			<div id="cpp" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divCpp" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					C++
 				</h3>
 			</div>
 
-			<div id="kotlin" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divKotlin" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					Kotlin
 				</h3>
 			</div>
 
-			<div id="latex" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divLatex" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					LaTeX
 				</h3>
 			</div>
 
-			<div id="lignesDeCommandes" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
+			<div id="divLignesDeCommandes" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
 				<h3 style="text-align: center;">
 					Lignes de commandes
 				</h3>
 			</div>
 
-			<div id="python" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divPython" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					Python
 				</h3>
 			</div>
 
-			<div id="shell" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divShell" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					Shell
 				</h3>
 			</div>
 
-			<div id="web" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="divWeb" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
 				<h3 style="text-align: center;">
 					Web
 				</h3>
@@ -150,21 +150,21 @@
 		</script>
 
 		<script>
-			const c = document.getElementById('c');
+			const c = document.getElementById('divC');
 			const boutonC = document.getElementById('boutonC');
-			const cpp = document.getElementById('cpp');
+			const cpp = document.getElementById('divCpp');
 			const boutonCpp = document.getElementById('boutonCpp');
-			const kotlin = document.getElementById('kotlin');
+			const kotlin = document.getElementById('divKotlin');
 			const boutonKotlin = document.getElementById('boutonKotlin');
-			const latex = document.getElementById('latex');
+			const latex = document.getElementById('divLatex');
 			const boutonLatex = document.getElementById('boutonLatex');
-			const lignesDeCommandes = document.getElementById('lignesDeCommandes');
+			const lignesDeCommandes = document.getElementById('divLignesDeCommandes');
 			const boutonLignesDeCommandes = document.getElementById('boutonLignesDeCommandes');
-			const python = document.getElementById('python');
+			const python = document.getElementById('divPython');
 			const boutonPython = document.getElementById('boutonPython');
-			const shell = document.getElementById('shell');
+			const shell = document.getElementById('divShell');
 			const boutonShell = document.getElementById('boutonShell');
-			const web = document.getElementById('web');
+			const web = document.getElementById('divWeb');
 			const boutonWeb = document.getElementById('boutonWeb');
 
 			boutonC.addEventListener('click', function() {
@@ -345,35 +345,40 @@
 		</script>
 
 		<script>
-			var divC = document.getElementById('c');
-			var divCpp = document.getElementById('cpp');
-			var divKotlin = document.getElementById('kotlin');
-			var divLatex = document.getElementById('latex');
-			var divLignesDeCommandes = document.getElementById('lignesDeCommandes');
-			var divPython = document.getElementById('python');
-			var divShell = document.getElementById('shell');
-			var divWeb = document.getElementById('web');
-
 			var langages = {
-				divC: "C", 
-				divCpp: "C++", 
-				divKotlin: "Kotlin", 
-				divLatex: "Latex", 
-				divLignesDeCommandes: "Ligne de commande", 
-				divPython: "Python", 
-				divShell: "Shell", 
+				divC: "C",
+				divCpp: "C++",
+				divKotlin: "Kotlin",
+				divLatex: "LaTeX",
+				divLignesDeCommandes: "Ligne de commande",
+				divPython: "Python",
+				divShell: "Shell",
 				divWeb: "Web"
 			};
-
+		
+			// Fonction pour récupérer la liste des IDs pour un langage donné
+			function getIDsForLanguage(langage) {
+				const path = 'Codes/' + langage + '/' + langage;
+				return db.collection(path).get().then((querySnapshot) => {
+					const ids = [];
+					querySnapshot.forEach((doc) => {
+						ids.push(doc.id);
+					});
+					return ids;
+				}).catch((error) => {
+					console.log("Error getting documents:", error);
+				});
+			}
+		
 			// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
-			function fetchDataFromFirestore(path, div) {
+			function fetchDataFromFirestore(path, div, langage) {
 				db.doc(path).get().then((doc) => {
 					if (doc.exists) {
 						const data = doc.data();
 						const nom = data.Nom;
 						const description = data.Description;
 						const code = data.Code;
-
+		
 						const html = `
 							<p>Nom: ${nom}</p>
 							<p>Description: ${description}</p>
@@ -389,27 +394,22 @@
 					console.log("Error getting document:", error);
 				});
 			}
-
-			// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
-			function fetchDataFrom(path, langage) {
-				db.collection(path).get().then((querySnapshot) => {
-					console.log("Liste des IDs pour " + langage + ":");
-					querySnapshot.forEach((doc) => {
-						console.log(doc.id);
+		
+			// Fonction pour récupérer les données et afficher dans la div associée à chaque langage
+			async function fetchDataAndDisplay() {
+				for (const [divID, langage] of Object.entries(langages)) {
+					const divElement = document.getElementById(divID);
+					const ids = await getIDsForLanguage(langage);
+					ids.forEach((docID) => {
+						const path = 'Codes/' + langage + '/' + langage + '/' + docID;
+						fetchDataFromFirestore(path, divElement, langage);
 					});
-				}).catch((error) => {
-					console.log("Error getting documents:", error);
-				});
+				}
 			}
 		
-			// Appeler fetchDataFromFirestore avec le chemin spécifié
-			fetchDataFromFirestore('Codes/Ligne de commande/Ligne de commande/y0S4GaXyVTkDC6tqDEv8', divLignesDeCommandes);
-
-			// Appeler fetchDataFrom pour chaque langage
-			for (const [divID, language] of Object.entries(langages)) {
-				const path = 'Codes/' + language + '/' + language;
-				fetchDataFrom(path, language);
-			}
+			// Appeler fetchDataAndDisplay
+			fetchDataAndDisplay();
 		</script>
+		
 	</body>
 </html>
