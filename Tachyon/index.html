@@ -23,7 +23,82 @@
 			<button type="submit">Enregistrer</button>
 		</form>
 
-		<div id="codesContainer"></div>
+		<div style="background-color: #cccccc; overflow: auto; white-space: nowrap; width: 100%;">
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonC">
+				C
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonCpp">
+				C++
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonKotlin">
+				Kotlin
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonLatex">
+				LaTeX
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonLignesDeCommandes">
+				Ligne de commandes
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonPython">
+				Python
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonShell">
+				Shell
+			</div>
+			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonWeb">
+				Web
+			</div>
+		</div>
+
+		<div style="display: flex; flex-direction: column; justify-content: center;">
+			<div id="c" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					C
+				</h3>
+			</div>
+
+			<div id="cpp" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					C++
+				</h3>
+			</div>
+
+			<div id="kotlin" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Kotlin
+				</h3>
+			</div>
+
+			<div id="latex" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					LaTeX
+				</h3>
+			</div>
+
+			<div id="lignesDeCommandes" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Lignes de commandes
+				</h3>
+			</div>
+
+			<div id="python" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Python
+				</h3>
+			</div>
+
+			<div id="shell" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Shell
+				</h3>
+			</div>
+
+			<div id="web" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+				<h3 style="text-align: center;">
+					Web
+				</h3>
+			</div>
+		</div>
 
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
@@ -74,34 +149,126 @@
 			});
 		</script>
 
-		<script>	
-			// Référence à la collection des codes
-			const codesCollection = db.collection('Codes');
-	
-			// Récupérer les données depuis Firestore
-			codesCollection.get().then(querySnapshot => {
-				const codesContainer = document.getElementById('codesContainer');
-	
-				querySnapshot.forEach(doc => {
-					// Créer un élément div pour chaque code
-					const codeDiv = document.createElement('div');
-					codeDiv.classList.add('code');
-	
-					// Créer un élément h2 pour le nom du programme
-					const nomProgrammeHeading = document.createElement('h2');
-					nomProgrammeHeading.textContent = doc.id; // Utiliser le nom du document comme titre
-					codeDiv.appendChild(nomProgrammeHeading);
-	
-					// Créer un élément pre pour le code du programme
-					const codePre = document.createElement('pre');
-					codePre.textContent = doc.data().codeProgramme; // Récupérer le contenu du code du programme
-					codeDiv.appendChild(codePre);
-	
-					// Ajouter le codeDiv au conteneur des codes
-					codesContainer.appendChild(codeDiv);
-				});
-			}).catch(error => {
-				console.error("Erreur lors de la récupération des codes :", error);
+		<script>
+			const c = document.getElementById('c');
+			const boutonC = document.getElementById('boutonC');
+			const cpp = document.getElementById('cpp');
+			const boutonCpp = document.getElementById('boutonCpp');
+			const kotlin = document.getElementById('kotlin');
+			const boutonKotlin = document.getElementById('boutonKotlin');
+			const latex = document.getElementById('latex');
+			const boutonLatex = document.getElementById('boutonLatex');
+			const lignesDeCommandes = document.getElementById('lignesDeCommandes');
+			const boutonLignesDeCommandes = document.getElementById('boutonLignesDeCommandes');
+			const python = document.getElementById('python');
+			const boutonPython = document.getElementById('boutonPython');
+
+			boutonC.addEventListener('click', function() {
+				if (c.style.display === 'none') {
+					c.style.display = 'block';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
+			});
+
+			boutonCpp.addEventListener('click', function() {
+				if (cpp.style.display === 'none') {
+					c.style.display = "none";
+					cpp.style.display = 'block';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
+			});
+
+			boutonKotlin.addEventListener('click', function() {
+				if (kotlin.style.display === 'none') {
+					c.style.display = "none";
+					cpp.style.display = 'none';
+					kotlin.style.display = 'block';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
+			});
+
+			boutonLatex.addEventListener('click', function() {
+				if (latex.style.display === 'none') {
+					c.style.display = "none";
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'block';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
+			});
+
+			boutonLignesDeCommandes.addEventListener('click', function() {
+				if (lignesDeCommandes.style.display === 'none') {
+					c.style.display = "none";
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'block';
+					python.style.display = 'none';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
+			});
+
+			boutonPython.addEventListener('click', function() {
+				if (python.style.display === 'none') {
+					c.style.display = "none";
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'block';
+				} else {
+					c.style.display = 'none';
+					cpp.style.display = 'none';
+					kotlin.style.display = 'none';
+					latex.style.display = 'none';
+					lignesDeCommandes.style.display = 'none';
+					python.style.display = 'none';
+				}
 			});
 		</script>
 	</body>
