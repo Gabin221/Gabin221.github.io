@@ -390,9 +390,26 @@
 				});
 			}
 
+			// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
+			function fetchDataFrom(path, langage) {
+				db.collection(path).get().then((querySnapshot) => {
+					console.log("Liste des IDs pour " + langage + ":");
+					querySnapshot.forEach((doc) => {
+						console.log(doc.id);
+					});
+				}).catch((error) => {
+					console.log("Error getting documents:", error);
+				});
+			}
+		
 			// Appeler fetchDataFromFirestore avec le chemin spécifié
 			fetchDataFromFirestore('Codes/Ligne de commande/Ligne de commande/y0S4GaXyVTkDC6tqDEv8', divLignesDeCommandes);
 
+			// Appeler fetchDataFrom pour chaque langage
+			for (const [divID, language] of Object.entries(langages)) {
+				const path = 'Codes/' + language + '/' + language;
+				fetchDataFrom(path, language);
+			}
 		</script>
 	</body>
 </html>
