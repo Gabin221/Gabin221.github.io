@@ -233,122 +233,13 @@
 
 		<script src="../Scripts/tachyonRecupererCodes.js"></script>
 		
-		<script>
-			// Fonction pour cacher toutes les divs sauf celle spécifiée
-			function hideAllDivsExcept(divIdToShow) {
-				var divs = document.querySelectorAll('div[id$="Code"]'); // Sélectionne toutes les divs dont l'ID se termine par "Code"
-				divs.forEach(function(div) {
-					if (div.id !== divIdToShow) {
-						div.style.display = "none";
-					}
-				});
-			}
+		<script src="../Scripts/tachyonGererAffichageFormulaireAjoutSuppressionCode.js"></script>
 
-			// Fonction pour afficher ou cacher une div en fonction de son état actuel
-			function toggleDivVisibility(divId) {
-				var div = document.getElementById(divId);
-				if (div.style.display === "none") {
-					hideAllDivsExcept(divId);
-					div.style.display = "block";
-				} else {
-					div.style.display = "none";
-				}
-			}
+		<script src="../Scripts/tachyonGererAffichageModaleConnexion.js"></script>
 
-			// Ajouter un gestionnaire d'événements de clic pour chaque bouton
-			document.getElementById("ajouterBtn").addEventListener("click", function() {
-				toggleDivVisibility("ajoutCode");
-			});
+		<script src="../Scripts/affichageFormulaireAjoutSuppressionAvecDroits.js"></script>
 
-			document.getElementById("supprimerBtn").addEventListener("click", function() {
-				toggleDivVisibility("supprimerCode");
-			});
-		</script>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				var userRights = localStorage.getItem('userRights');
-				if (userRights === "boss"){
-					document.getElementById('ajoutSuppressionCode').style.display = "block";
-				} else {
-					document.getElementById('ajoutSuppressionCode').style.display = "none";
-				}
-			});
-
-			// Ouverture de la fenêtre modale lorsque le bouton est cliqué
-			document.getElementById('openModalBtn').addEventListener('click', function() {
-				document.getElementById('myModal').style.display = 'block';
-			});
-			
-			// Fermeture de la fenêtre modale lorsque l'utilisateur clique sur le bouton de fermeture
-			document.getElementsByClassName('close')[0].addEventListener('click', function() {
-				document.getElementById('myModal').style.display = 'none';
-			});
-
-			// Fonction de déconnexion
-			function logout() {
-				// Supprimer les informations de connexion du stockage local
-				localStorage.removeItem('userLoggedIn');
-				localStorage.removeItem('currentUser');
-				localStorage.removeItem('userRights');
-				// Redirection vers la page précédente ou la page par défaut
-				var previousPage = localStorage.getItem('previousPage');
-				if (previousPage) {
-					window.location.href = previousPage;
-				} else {
-					window.location.href = 'index.html'; // Page par défaut
-				}
-			}
-			
-			// Fonction pour encoder le mot de passe avec SHA-256 en utilisant Forge
-			function encryptPassword(password) {
-				var md = forge.md.sha256.create();
-				md.update(password);
-				return md.digest().toHex();
-			}
-  
-			// Vérification des informations de connexion
-			document.getElementById('loginForm').addEventListener('submit', function(event) {
-				event.preventDefault(); // Empêcher le rechargement de la page
-
-				var pseudo = document.getElementById('pseudo').value;
-				var motDePasse = document.getElementById('motDePasse').value;
-
-				// Chiffrer le mot de passe saisi par l'utilisateur
-				var hashedPassword = encryptPassword(motDePasse);
-
-				// Vérification des informations de connexion avec Firestore
-				var usersRef = db.collection('user_gabinsbar');
-				usersRef.where('id', '==', pseudo).where('motdepasse', '==', hashedPassword).get()
-					.then((querySnapshot) => {
-						if (!querySnapshot.empty) {
-							// Récupérer les données utilisateur
-							querySnapshot.forEach((doc) => {
-								var userData = doc.data();
-								var droits = userData.droits; // Récupérer le niveau de droits de l'utilisateur
-								// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
-								localStorage.setItem('userLoggedIn', true);
-								localStorage.setItem('currentUser', pseudo);
-								localStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
-								// Redirection vers la page précédente ou la page par défaut
-								var previousPage = localStorage.getItem('previousPage');
-								if (previousPage) {
-									window.location.href = previousPage;
-								} else {
-									window.location.href = 'index.html'; // Page par défaut
-								}
-							});
-						} else {
-							// Informer l'utilisateur que les informations de connexion sont incorrectes
-							alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
-						}
-					})
-					.catch((error) => {
-						console.error('Erreur lors de la vérification des informations de connexion:', error);
-					});
-			});
-
-		</script>
+		<script src="../Scripts/allPagesConnexionDeconnexion.js"></script>
 
 	</body>
 </html>
