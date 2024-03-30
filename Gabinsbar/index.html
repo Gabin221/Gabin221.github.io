@@ -53,48 +53,51 @@
 		</div>
 
 		<div style="display: flex; flex-direction: column; justify-content: center;">
-			<div id="sirops" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="sirops" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: none; padding-bottom: 30px;">
 				<h3 style="text-align: center;">
 					Sirops
 				</h3>
+				<div id="siropsContenu" style="margin-left: 10%;"></div>
 			</div>
 		
-			<div id="softs" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="softs" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: block; padding-bottom: 30px;">
 				<h3 style="text-align: center;">
 					Softs
 				</h3>
+				<div id="softsContenu" style="margin-left: 10%;"></div>
 			</div>
 		
-			<div id="bieres" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
-				<div id="bieresBouteille" style="border: 1px solid black;">
-					<h3 style="text-align: center;">
-						Bières bouteille
-					</h3>
-				</div>
+			<div id="bieres" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: none; padding-bottom: 30px;">
+				<h3 style="text-align: center;">
+					Bières bouteille
+				</h3>
+				<div id="bieresBouteille" style="margin-left: 10%;"></div>
 		
-				<div id="bierePression" style="border: 1px solid black;">
-					<h3 style="text-align: center;">
-						Bières pression
-					</h3>
-				</div>
+				<h3 style="text-align: center;">
+					Bières pression
+				</h3>
+				<div id="bierePression" style="margin-left: 10%;"></div>
 			</div>
 		
-			<div id="vins" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="vins" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: none; padding-bottom: 30px;">
 				<h3 style="text-align: center;">
 					Vins
 				</h3>
+				<div id="vinsContenu" style="margin-left: 10%;"></div>
 			</div>
 		
-			<div id="classiques" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="classiques" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: none; padding-bottom: 30px;">
 				<h3 style="text-align: center;">
 					Classiques
 				</h3>
+				<div id="classiquesContenu" style="margin-left: 10%;"></div>
 			</div>
 		
-			<div id="extravagants" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
+			<div id="extravagants" style="border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; display: none; padding-bottom: 30px;">
 				<h3 style="text-align: center;">
 					Extravagants
 				</h3>
+				<div id="extravagantsContenu" style="margin-left: 10%;"></div>
 			</div>
 		</div>
 
@@ -127,212 +130,8 @@
 
 		<script src="../Scripts/allPagesGererAffichageBoutonsConnexionDeconnexion.js"></script>
 
-		<script>
-			var divSirops = document.getElementById('sirops');
-			var divSofts = document.getElementById('softs');
-			var divBieresBouteille = document.getElementById('bieresBouteille');
-			var divBieresPression = document.getElementById('bierePression');
-			var divVins = document.getElementById('vins');
-			var divClassiques = document.getElementById('classiques');
-			var divExtravagants = document.getElementById('extravagants');
+		<script src="../Scripts/gabinsBarRecupererListeBoissons.js"></script>
 
-			// Récupérer toutes les données de la collection "boissons" sauf les bières
-			db.collection("boissons").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
-					// doc.data() contient les données du document
-					var data = doc.data();
-					var boissonsType = doc.id;
-
-					// Afficher la liste des boissons en fonction de leur type
-					for (const key in data) {
-						if (data.hasOwnProperty(key)) {
-							const boisson = data[key];
-							if (boissonsType === "Sirops") {
-								divSirops.innerHTML += boisson + "<br>";
-							} else if (boissonsType === "Softs") {
-								divSofts.innerHTML += boisson + "<br>";
-							} else if (boissonsType === "Vins") {
-								divVins.innerHTML += boisson + "<br>";
-							} else if (boissonsType === "Classiques") {
-								divClassiques.innerHTML += boisson + "<br>";
-							} else if (boissonsType === "Extravagants") {
-								divExtravagants.innerHTML += boisson + "<br>";
-							}
-						}
-					}
-				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
-			});
-
-			// Récupérer toutes les données des bières bouteilles
-			db.collection("boissons").doc("Bières").collection("Bouteilles").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
-					// doc.data() contient les données du document
-					var data = doc.data();
-					var boissonsType = doc.id;
-
-					// Afficher la liste des boissons en fonction de leur type
-					for (const key in data) {
-						if (data.hasOwnProperty(key)) {
-							const boisson = data[key];
-							if (boissonsType === "Bouteilles") {
-								divBieresBouteille.innerHTML += boisson + "<br>";
-							}
-						}
-					}
-				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
-			});
-
-			// Récupérer toutes les données des bières bouteilles
-			db.collection("boissons").doc("Bières").collection("Pressions").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					// doc.id contient l'identifiant du document (par exemple, "biere", "sirop")
-					// doc.data() contient les données du document
-					var data = doc.data();
-					var boissonsType = doc.id;
-
-					// Afficher la liste des boissons en fonction de leur type
-					for (const key in data) {
-						if (data.hasOwnProperty(key)) {
-							const boisson = data[key];
-							if (boissonsType === "Pressions") {
-								divBieresPression.innerHTML += boisson + "<br>";
-							}
-						}
-					}
-				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
-			});
-
-		</script>
-
-		<script>
-			const sirops = document.getElementById('sirops');
-			const boutonSirops = document.getElementById('boutonSirops');
-			const softs = document.getElementById('softs');
-			const boutonSofts = document.getElementById('boutonSofts');
-			const bieres = document.getElementById('bieres');
-			const boutonBieres = document.getElementById('boutonBieres');
-			const vins = document.getElementById('vins');
-			const boutonVins = document.getElementById('boutonVins');
-			const classiques = document.getElementById('classiques');
-			const boutonClassiques = document.getElementById('boutonClassiques');
-			const extravagants = document.getElementById('extravagants');
-			const boutonExtravagants = document.getElementById('boutonExtravagants');
-
-			boutonSirops.addEventListener('click', function() {
-				if (sirops.style.display === 'none') {
-					sirops.style.display = 'block';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-
-			boutonSofts.addEventListener('click', function() {
-				if (softs.style.display === 'none') {
-					sirops.style.display = "none";
-					softs.style.display = 'block';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-
-			boutonBieres.addEventListener('click', function() {
-				if (bieres.style.display === 'none') {
-					sirops.style.display = "none";
-					softs.style.display = 'none';
-					bieres.style.display = 'block';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-
-			boutonVins.addEventListener('click', function() {
-				if (vins.style.display === 'none') {
-					sirops.style.display = "none";
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'block';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-
-			boutonClassiques.addEventListener('click', function() {
-				if (classiques.style.display === 'none') {
-					sirops.style.display = "none";
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'block';
-					extravagants.style.display = 'none';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-
-			boutonExtravagants.addEventListener('click', function() {
-				if (extravagants.style.display === 'none') {
-					sirops.style.display = "none";
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'block';
-				} else {
-					sirops.style.display = 'none';
-					softs.style.display = 'none';
-					bieres.style.display = 'none';
-					vins.style.display = 'none';
-					classiques.style.display = 'none';
-					extravagants.style.display = 'none';
-				}
-			});
-		</script>
+		<script src="../Scripts/gabinsBarGererAffichageMenu.js"></script>
 	</body>
 </html>
