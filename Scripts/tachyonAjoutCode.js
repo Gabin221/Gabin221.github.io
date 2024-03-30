@@ -1,7 +1,3 @@
-firebase.initializeApp(firebaseConfig);
-		
-const db = firebase.firestore();
-
 // Soumission du formulaire
 document.getElementById('programForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêcher le formulaire de se soumettre normalement

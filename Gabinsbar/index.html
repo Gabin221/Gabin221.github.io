@@ -5,11 +5,31 @@
 		<title>Gabin's bar</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
+		<link href="../Styles/allPagesConnexion.css" rel="stylesheet">
 	</head>
 	<body>
 		<h1 style="text-align: center;">
 			Gabin's bar
 		</h1>
+
+		<div style="display: flex; justify-content:end;">
+			<button id="logInButton" style="background: none; margin: 20px 5px 20px 0; padding: 0 10px 0 10px; cursor: pointer;">log in</button>
+			<button id="logOutButton" onclick="logout()" style="background: none; margin: 20px 5px 20px 0; padding: 0 10px 0 10px; cursor: pointer;">log out</button>
+		</div>
+		
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<form id="loginForm">
+				<label for="pseudo">Pseudo:</label><br>
+				<input type="text" id="pseudo" name="pseudo"><br>
+				<label for="motDePasse">Mot de passe:</label><br>
+				<input type="password" id="motDePasse" name="motDePasse"><br>
+				<button type="submit">Connexion</button>
+				</form>
+			</div>
+		</div>
 
 		<div style="background-color: #cccccc; overflow: auto; white-space: nowrap; width: 100%;">
 			<div style="display: inline-block; text-decoration: none; text-align: center; padding: 12px; font-size: 20px; cursor: pointer;" id="boutonSirops">
@@ -45,10 +65,18 @@
 				</h3>
 			</div>
 
-			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
-				<h3 style="text-align: center;">
-					Bières
-				</h3>
+			<div id="bieres" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: block;">
+				<div id="bieresBouteille">
+					<h3 style="text-align: center;">
+                        Bières bouteille
+                    </h3>
+				</div>
+
+				<div id="bierePression">
+					<h3 style="text-align: center;">
+                        Bières pression
+                    </h3>
+				</div>
 			</div>
 
 			<div id="vins" style=" border: 1px solid black; width: 70%; margin: auto; margin-top: 50px; text-align: center; display: none;">
@@ -93,10 +121,13 @@
 
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-		<script>		
-			firebase.initializeApp(firebaseConfig);
+		<script src="../Scripts/allPagesGererAffichageModaleConnexion.js"></script>
 
-			const db = firebase.firestore();
+		<script src="../Scripts/allPagesConnexionDeconnexion.js"></script>
+
+		<script src="../Scripts/allPagesGererAffichageBoutonsConnexionDeconnexion.js"></script>
+
+		<script>
 			var divSirops = document.getElementById('sirops');
 			var divSofts = document.getElementById('softs');
 			var divBieres = document.getElementById('bieres');
@@ -115,12 +146,12 @@
 				});
 
 				// Extraire la liste des bières
-				let sirops = boissonsData["sirop"];
-				let softs = boissonsData["softs"];
-				let bieres = boissonsData["biere"];
-				let vins = boissonsData["vins"];
-				let classiques = boissonsData["classiques"];
-				let extravagants = boissonsData["extravagants"];
+				let sirops = boissonsData["Sirops"];
+				let softs = boissonsData["Softs"];
+				let bieres = boissonsData["Bières"];
+				let vins = boissonsData["Vins"];
+				let classiques = boissonsData["Classiques"];
+				let extravagants = boissonsData["Extravagants"];
 
 				// Afficher la liste des sirops
 				for (const key in sirops) {
