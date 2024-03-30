@@ -52,8 +52,12 @@
 			Tachyon
 		</h1>
 
+		<h2>Bienvenue, <span id="userPseudo"></span> !</h2>
+
 		<!-- Bouton pour ouvrir la fenêtre modale -->
 		<button id="openModalBtn">Se connecter</button>
+		<br>
+		<button onclick="logout()">Déconnexion</button>
 
 		<!-- Fenêtre modale pour le formulaire de connexion -->
 		<div id="myModal" class="modal">
@@ -69,7 +73,7 @@
 			</div>
 		</div>
 
-		<div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 5%;">
+		<div id="ajoutSuppressionCode" style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 5%;">
 			<button type="button" id="ajouterBtn">Ajouter un code</button>
 			<button type="button" id="supprimerBtn">Supprimer un code</button>
 		</div>
@@ -553,6 +557,13 @@
 		</script>
 
 		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// Récupérer le pseudo de l'utilisateur depuis le stockage local
+				var userPseudo = localStorage.getItem('currentUser');
+				// Afficher le pseudo dans la balise span
+				document.getElementById('userPseudo').textContent = userPseudo;
+			});
+
 			// Ouverture de la fenêtre modale lorsque le bouton est cliqué
 			document.getElementById('openModalBtn').addEventListener('click', function() {
 				document.getElementById('myModal').style.display = 'block';
@@ -562,6 +573,20 @@
 			document.getElementsByClassName('close')[0].addEventListener('click', function() {
 				document.getElementById('myModal').style.display = 'none';
 			});
+
+			// Fonction de déconnexion
+			function logout() {
+				// Supprimer les informations de connexion du stockage local
+				localStorage.removeItem('userLoggedIn');
+				localStorage.removeItem('currentUser');
+				// Redirection vers la page précédente ou la page par défaut
+				var previousPage = localStorage.getItem('previousPage');
+				if (previousPage) {
+					window.location.href = previousPage;
+				} else {
+					window.location.href = 'index.html'; // Page par défaut
+				}
+			}
 			
 			// Fonction pour encoder le mot de passe avec SHA-256 en utilisant Forge
 			function encryptPassword(password) {
