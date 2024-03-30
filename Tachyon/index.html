@@ -5,11 +5,68 @@
 		<title>Tachyon</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+		<style>
+			/* Style pour la fenêtre modale */
+			.modal {
+				display: none; 
+				position: fixed; 
+				z-index: 1; 
+				left: 0;
+				top: 0;
+				width: 100%; 
+				height: 100%; 
+				overflow: auto; 
+				background-color: rgb(0,0,0); 
+				background-color: rgba(0,0,0,0.4); 
+				padding-top: 60px;
+			}
+			
+			/* Contenu de la fenêtre modale */
+			.modal-content {
+				background-color: #fefefe;
+				margin: 5% auto; 
+				padding: 20px;
+				border: 1px solid #888;
+				width: 80%; 
+			}
+			
+			/* Bouton pour fermer la fenêtre modale */
+			.close {
+				color: #aaa;
+				float: right;
+				font-size: 28px;
+				font-weight: bold;
+			}
+			
+			.close:hover,
+			.close:focus {
+				color: black;
+				text-decoration: none;
+				cursor: pointer;
+			}  
+		</style>
 	</head>
 	<body>
 		<h1 style="text-align: center;">
 			Tachyon
 		</h1>
+
+		<!-- Bouton pour ouvrir la fenêtre modale -->
+		<button id="openModalBtn">Se connecter</button>
+
+		<!-- Fenêtre modale pour le formulaire de connexion -->
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<form id="loginForm">
+				<label for="pseudo">Pseudo:</label><br>
+				<input type="text" id="pseudo" name="pseudo"><br>
+				<label for="motDePasse">Mot de passe:</label><br>
+				<input type="password" id="motDePasse" name="motDePasse"><br>
+				<button type="submit">Connexion</button>
+				</form>
+			</div>
+		</div>
 
 		<div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 5%;">
 			<button type="button" id="ajouterBtn">Ajouter un code</button>
@@ -492,6 +549,48 @@
 			document.getElementById("supprimerBtn").addEventListener("click", function() {
 				toggleDivVisibility("supprimerCode");
 			});
+		</script>
+
+		<script>
+			// Ouverture de la fenêtre modale lorsque le bouton est cliqué
+			document.getElementById('openModalBtn').addEventListener('click', function() {
+				document.getElementById('myModal').style.display = 'block';
+			});
+			
+			// Fermeture de la fenêtre modale lorsque l'utilisateur clique sur le bouton de fermeture
+			document.getElementsByClassName('close')[0].addEventListener('click', function() {
+				document.getElementById('myModal').style.display = 'none';
+			});
+			
+			// Vérification des informations de connexion
+			document.getElementById('loginForm').addEventListener('submit', function(event) {
+				event.preventDefault(); // Empêcher le rechargement de la page
+			
+				var pseudo = document.getElementById('pseudo').value;
+				var motDePasse = document.getElementById('motDePasse').value;
+			
+				// Vérification des informations de connexion avec Firestore
+				var usersRef = db.collection('user_gabinsbar');
+				usersRef.where('pseudo', '==', pseudo).where('motDePasse', '==', motDePasse).get()
+				.then((querySnapshot) => {
+					if (!querySnapshot.empty) {
+						// Connexion réussie
+						alert('Connexion réussie pour le pseudo: ' + pseudo);
+						// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
+						localStorage.setItem('userLoggedIn', true);
+						localStorage.setItem('currentUser', pseudo);
+						// Redirection vers une autre page, par exemple :
+						window.location.href = 'dashboard.html';
+					} else {
+						// Informer l'utilisateur que les informations de connexion sont incorrectes
+						alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
+					}
+				})
+				.catch((error) => {
+					console.error('Erreur lors de la vérification des informations de connexion:', error);
+				});
+			});
+  
 		</script>
 
 	</body>
