@@ -1,5 +1,5 @@
 // Ouverture de la fenêtre modale lorsque le bouton est cliqué
-document.getElementById('openModalBtn').addEventListener('click', function() {
+document.getElementById('logInButton').addEventListener('click', function() {
     document.getElementById('myModal').style.display = 'block';
 });
 

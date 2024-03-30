@@ -53,10 +53,11 @@
 		</h1>
 
 		<!-- Bouton pour ouvrir la fenêtre modale -->
-		<button id="openModalBtn">Se connecter</button>
-		<br>
-		<button onclick="logout()">Déconnexion</button>
-
+		<div style="display: flex; justify-content:end;">
+			<button id="logInButton" style="background: none; margin: 20px 5px 20px 0; padding: 0 10px 0 10px; cursor: pointer;">log in</button>
+			<button id="logOutButton" onclick="logout()" style="background: none; margin: 20px 5px 20px 0; padding: 0 10px 0 10px; cursor: pointer;">log out</button>
+		</div>
+		
 		<!-- Fenêtre modale pour le formulaire de connexion -->
 		<div id="myModal" class="modal">
 			<div class="modal-content">
@@ -225,6 +226,10 @@
 
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
+		<script src="../Scripts/allPagesGererAffichageModaleConnexion.js"></script>
+
+		<script src="../Scripts/allPagesConnexionDeconnexion.js"></script>
+
 		<script src="../Scripts/tachyonAjoutCode.js"></script>
 		
 		<script src="../Scripts/tachyonRecupererListeLangages.js"></script>
@@ -235,11 +240,7 @@
 		
 		<script src="../Scripts/tachyonGererAffichageFormulaireAjoutSuppressionCode.js"></script>
 
-		<script src="../Scripts/tachyonGererAffichageModaleConnexion.js"></script>
-
 		<script src="../Scripts/tachyonAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
-
-		<script src="../Scripts/allPagesConnexionDeconnexion.js"></script>
 
 	</body>
 </html>
