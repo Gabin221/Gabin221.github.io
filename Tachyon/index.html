@@ -5,6 +5,7 @@
 		<title>Tachyon</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<style>
 			/* Style pour la fenêtre modale */
 			.modal {
@@ -562,33 +563,48 @@
 				document.getElementById('myModal').style.display = 'none';
 			});
 			
+			// Fonction pour encoder le mot de passe avec SHA-256 en utilisant Forge
+			function encryptPassword(password) {
+				var md = forge.md.sha256.create();
+				md.update(password);
+				return md.digest().toHex();
+			}
+  
 			// Vérification des informations de connexion
 			document.getElementById('loginForm').addEventListener('submit', function(event) {
 				event.preventDefault(); // Empêcher le rechargement de la page
-			
+
 				var pseudo = document.getElementById('pseudo').value;
 				var motDePasse = document.getElementById('motDePasse').value;
-			
+
+				// Chiffrer le mot de passe saisi par l'utilisateur
+				var hashedPassword = encryptPassword(motDePasse);
+
 				// Vérification des informations de connexion avec Firestore
 				var usersRef = db.collection('user_gabinsbar');
-				usersRef.where('pseudo', '==', pseudo).where('motDePasse', '==', motDePasse).get()
-				.then((querySnapshot) => {
-					if (!querySnapshot.empty) {
-						// Connexion réussie
-						alert('Connexion réussie pour le pseudo: ' + pseudo);
-						// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
-						localStorage.setItem('userLoggedIn', true);
-						localStorage.setItem('currentUser', pseudo);
-						// Redirection vers une autre page, par exemple :
-						window.location.href = 'dashboard.html';
-					} else {
-						// Informer l'utilisateur que les informations de connexion sont incorrectes
-						alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
-					}
-				})
-				.catch((error) => {
-					console.error('Erreur lors de la vérification des informations de connexion:', error);
-				});
+				usersRef.where('id', '==', pseudo).where('motdepasse', '==', hashedPassword).get()
+					.then((querySnapshot) => {
+						if (!querySnapshot.empty) {
+							// Connexion réussie
+							alert('Connexion réussie pour le pseudo: ' + pseudo);
+							// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
+							localStorage.setItem('userLoggedIn', true);
+							localStorage.setItem('currentUser', pseudo);
+							// Redirection vers la page précédente ou la page par défaut
+							var previousPage = localStorage.getItem('previousPage');
+							if (previousPage) {
+								window.location.href = previousPage;
+							} else {
+								window.location.href = 'index.html'; // Page par défaut
+							}
+						} else {
+							// Informer l'utilisateur que les informations de connexion sont incorrectes
+							alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
+						}
+					})
+					.catch((error) => {
+						console.error('Erreur lors de la vérification des informations de connexion:', error);
+					});
 			});
   
 		</script>
