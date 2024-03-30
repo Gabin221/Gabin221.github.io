@@ -52,8 +52,6 @@
 			Tachyon
 		</h1>
 
-		<h2>Bienvenue, <span id="userPseudo"></span> !</h2>
-
 		<!-- Bouton pour ouvrir la fenêtre modale -->
 		<button id="openModalBtn">Se connecter</button>
 		<br>
@@ -73,9 +71,11 @@
 			</div>
 		</div>
 
-		<div id="ajoutSuppressionCode" style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 5%;">
-			<button type="button" id="ajouterBtn">Ajouter un code</button>
-			<button type="button" id="supprimerBtn">Supprimer un code</button>
+		<div id="ajoutSuppressionCode">
+			<div style="display: flex; justify-content: space-around; width: 100%; margin-bottom: 5%;">
+				<button type="button" id="ajouterBtn">Ajouter un code</button>
+				<button type="button" id="supprimerBtn">Supprimer un code</button>
+			</div>
 		</div>
 
 		<div id="ajoutCode" style="display: none; border: 1px solid black; width: 100%; text-align: center; margin-bottom: 5%;">
@@ -558,10 +558,12 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				// Récupérer le pseudo de l'utilisateur depuis le stockage local
-				var userPseudo = localStorage.getItem('currentUser');
-				// Afficher le pseudo dans la balise span
-				document.getElementById('userPseudo').textContent = userPseudo;
+				var userRights = localStorage.getItem('userRights');
+				if (userRights === "boss"){
+					document.getElementById('ajoutSuppressionCode').style.display = "block";
+				} else {
+					document.getElementById('ajoutSuppressionCode').style.display = "none";
+				}
 			});
 
 			// Ouverture de la fenêtre modale lorsque le bouton est cliqué
@@ -579,6 +581,7 @@
 				// Supprimer les informations de connexion du stockage local
 				localStorage.removeItem('userLoggedIn');
 				localStorage.removeItem('currentUser');
+				localStorage.removeItem('userRights');
 				// Redirection vers la page précédente ou la page par défaut
 				var previousPage = localStorage.getItem('previousPage');
 				if (previousPage) {
@@ -610,18 +613,23 @@
 				usersRef.where('id', '==', pseudo).where('motdepasse', '==', hashedPassword).get()
 					.then((querySnapshot) => {
 						if (!querySnapshot.empty) {
-							// Connexion réussie
-							alert('Connexion réussie pour le pseudo: ' + pseudo);
-							// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
-							localStorage.setItem('userLoggedIn', true);
-							localStorage.setItem('currentUser', pseudo);
-							// Redirection vers la page précédente ou la page par défaut
-							var previousPage = localStorage.getItem('previousPage');
-							if (previousPage) {
-								window.location.href = previousPage;
-							} else {
-								window.location.href = 'index.html'; // Page par défaut
-							}
+							// Récupérer les données utilisateur
+							querySnapshot.forEach((doc) => {
+								var userData = doc.data();
+								var droits = userData.droits; // Récupérer le niveau de droits de l'utilisateur
+								alert('Connexion réussie pour le pseudo: ' + pseudo + ', Niveau de droits: ' + droits);
+								// Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
+								localStorage.setItem('userLoggedIn', true);
+								localStorage.setItem('currentUser', pseudo);
+								localStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
+								// Redirection vers la page précédente ou la page par défaut
+								var previousPage = localStorage.getItem('previousPage');
+								if (previousPage) {
+									window.location.href = previousPage;
+								} else {
+									window.location.href = 'index.html'; // Page par défaut
+								}
+							});
 						} else {
 							// Informer l'utilisateur que les informations de connexion sont incorrectes
 							alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
@@ -631,7 +639,7 @@
 						console.error('Erreur lors de la vérification des informations de connexion:', error);
 					});
 			});
-  
+
 		</script>
 
 	</body>
