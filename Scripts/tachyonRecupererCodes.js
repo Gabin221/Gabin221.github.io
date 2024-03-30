@@ -1,12 +1,12 @@
 var langages = {
-    divC: "C",
-    divCpp: "C++",
-    divKotlin: "Kotlin",
-    divLatex: "LaTeX",
-    divLignesDeCommandes: "Ligne de commande",
-    divPython: "Python",
-    divShell: "Shell",
-    divWeb: "Web"
+    divCContenu: "C",
+    divCppContenu: "C++",
+    divKotlinContenu: "Kotlin",
+    divLatexContenu: "LaTeX",
+    divLignesDeCommandesContenu: "Ligne de commande",
+    divPythonContenu: "Python",
+    divShellContenu: "Shell",
+    divWebContenu: "Web"
 };
 
 // Fonction pour récupérer la liste des IDs pour un langage donné
@@ -37,7 +37,6 @@ function fetchDataFromFirestore(path, div, langage) {
                 <p>Description: ${description}</p>
                 <p>Code:</p>
                 <pre><code>${code}</code></pre> <!-- Utilisation de balises pre et code pour conserver la mise en forme -->
-                <hr>
             `;
 
             div.innerHTML += html;
