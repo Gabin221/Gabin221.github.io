@@ -94,7 +94,7 @@ function fetchDataFromFirestore(path, div, langage) {
 // Fonction pour récupérer les données et afficher dans la div associée à chaque langage
 async function fetchDataAndDisplay() {
     for (const [divID, langage] of Object.entries(langages)) {
-        const divElement = document.getElementById(`${divID}`); // Utilisez la notation des templates pour accéder aux div
+        const divElement = document.getElementById(divID); // Utilisez la notation des templates sans les guillemets
         const ids = await getIDsForLanguage(langage);
         ids.forEach((docID) => {
             const path = 'Codes/' + langage + '/' + langage + '/' + docID;
