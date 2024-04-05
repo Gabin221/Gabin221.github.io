@@ -50,25 +50,23 @@ function fetchDataFromFirestore(path, div, langage) {
             const description = data.Description;
             const code = data.Code;
 
+            // Remplacer les caractères "<" par "&lt;" et ">" par "&gt;"
+            const sanitizedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
             // Séparer les lignes de code
-            const lines = code.split('\n');
+            const lines = sanitizedCode.split('\n');
 
             const codeContent = lines.map((line, index) => {
-                // if (langage === 'Shell') {
-                //     return `<div style='margin-right: 5px;'>${index + 1}<span style='color: blue;'> :~$</span> ${line}</div>`;
-                // } else {
-                //     return `<div style='margin-right: 5px;'>${index + 1}</div>`;
-                // }
                 return `<div style='margin-right: 5px;'>${index + 1}</div>`;
             }).join('');
 
             const html = `
-                <div class='element' style='display: block; height: auto;'>
+                <div class='element' style='display: block; height: auto; border: 1px solid red;'>
                     ${nom}<br><br>
                     ${description}<br><br>
-                    <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border-bottom: 1px solid black;'>
+                    <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
                         <span style='margin-left: 10px; font-size: 16px;'>
-                            ${langage}
+                            <b>${langage}</b>
                         </span>
                         <button id='copyButton' onclick='copyCode("codeBlock", "copyButton")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;'>
                             <div id='buttonCopier'>
@@ -78,14 +76,14 @@ function fetchDataFromFirestore(path, div, langage) {
                     </div>
                     <div style='line-height: 24px;'>
                         <div style='display: flex; font-size: 16px;'>
-                            <div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 16px; padding-bottom: 16px;'>
+                            <div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 24px; padding-bottom: 24px; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 2px solid black;'>
                                 <div>
                                     ${codeContent}
                                 </div>
                             </div>
-                            <pre style='margin-top: 0; width: 90%; height: 100%; float: right; border-left: 1px solid black; display: flex; align-items: flex-start; align-self: stretch;'>
+                            <pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
                                 <code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock' data-language='${langage}'>
-${code}
+${sanitizedCode}
                                 </code>
                             </pre>
                         </div>
