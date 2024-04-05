@@ -67,31 +67,33 @@ function fetchDataFromFirestore(path, div, langage) {
             const uniqueId = generateUniqueId();
 
             const html = `
-                <div class='element' style='display: block; height: auto; border: 1px solid red;'>
-                    ${nom}<br><br>
-                    ${description}<br><br>
-                    <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
-                        <span style='margin-left: 10px; font-size: 16px;'>
-                            <b>${langage}</b>
-                        </span>
-                        <button onclick='copyCode("codeBlock${uniqueId}", "copyButton${uniqueId}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${uniqueId}'>
-                            <div id='buttonCopier'>
-                                Copier
-                            </div>
-                        </button>
-                    </div>
-                    <div style='line-height: 24px;'>
-                        <div style='display: flex; font-size: 16px;'>
-                            <div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 24px; padding-bottom: 24px; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 2px solid black;'>
-                                <div>
-                                    ${codeContent}
+                <div style='display: inline-block; width: 100%;'>
+                    <div class='element' style='display: block; height: auto; border: 1px solid red;'>
+                        ${nom}<br><br>
+                        ${description}<br><br>
+                        <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
+                            <span style='margin-left: 10px; font-size: 16px;'>
+                                <b>${langage}</b>
+                            </span>
+                            <button onclick='copyCode("codeBlock${uniqueId}", "copyButton${uniqueId}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${uniqueId}'>
+                                <div id='buttonCopier'>
+                                    Copier
                                 </div>
-                            </div>
-                            <pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
-                                <code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock${uniqueId}' data-language='${langage}'>
+                            </button>
+                        </div>
+                        <div style='line-height: 24px;'>
+                            <div style='display: flex; font-size: 16px;'>
+                                <div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 24px; padding-bottom: 24px; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 2px solid black;'>
+                                    <div>
+                                        ${codeContent}
+                                    </div>
+                                </div>
+                                <pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
+                                    <code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock${uniqueId}' data-language='${langage}'>
 ${sanitizedCode}
-                                </code>
-                            </pre>
+                                    </code>
+                                </pre>
+                            </div>
                         </div>
                     </div>
                 </div>
