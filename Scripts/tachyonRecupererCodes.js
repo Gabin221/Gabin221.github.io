@@ -26,6 +26,11 @@ var langages = {
     divWebContenu: "Web"
 };
 
+// Définissez une fonction pour générer un ID unique
+function generateUniqueId() {
+    return Math.random().toString(36).substr(2, 9);
+}
+
 // Fonction pour récupérer la liste des IDs pour un langage donné
 function getIDsForLanguage(langage) {
     const path = 'Codes/' + langage + '/' + langage;
@@ -42,7 +47,6 @@ function getIDsForLanguage(langage) {
 
 // Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
 function fetchDataFromFirestore(path, div, langage) {
-    var compteur = 1;
     db.doc(path).get().then((doc) => {
         if (doc.exists) {
             const data = doc.data();
@@ -60,6 +64,8 @@ function fetchDataFromFirestore(path, div, langage) {
                 return `<div style='margin-right: 5px;'>${index + 1}</div>`;
             }).join('');
 
+            const uniqueId = generateUniqueId();
+
             const html = `
                 <div class='element' style='display: block; height: auto; border: 1px solid red;'>
                     ${nom}<br><br>
@@ -68,7 +74,7 @@ function fetchDataFromFirestore(path, div, langage) {
                         <span style='margin-left: 10px; font-size: 16px;'>
                             <b>${langage}</b>
                         </span>
-                        <button id='copyButton' onclick='copyCode("codeBlock", "copyButton")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;'>
+                        <button onclick='copyCode("codeBlock${uniqueId}", "copyButton${uniqueId}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${uniqueId}'>
                             <div id='buttonCopier'>
                                 Copier
                             </div>
@@ -82,7 +88,7 @@ function fetchDataFromFirestore(path, div, langage) {
                                 </div>
                             </div>
                             <pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
-                                <code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock' data-language='${langage}'>
+                                <code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock${uniqueId}' data-language='${langage}'>
 ${sanitizedCode}
                                 </code>
                             </pre>
@@ -92,7 +98,6 @@ ${sanitizedCode}
             `;
 
             div.innerHTML += html;
-            compteur += 1;
         } else {
             console.log("No such document!");
         }
