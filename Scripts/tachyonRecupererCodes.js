@@ -70,7 +70,7 @@ function fetchDataFromFirestore(path, div, langage) {
                 <div style='display: inline-block; width: 100%;'>
                     <div class='element' style='display: block; height: auto; border: 1px solid red;'>
                         ${nom}<br><br>
-                        ${description}<br><br>
+                        <p style='white-space: normal;'>${description}</p><br><br>
                         <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
                             <span style='margin-left: 10px; font-size: 16px;'>
                                 <b>${langage}</b>
