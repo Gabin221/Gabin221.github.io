@@ -54,6 +54,10 @@ img {
     cursor: pointer;
 }
 
+.modal-content {
+    text-align: center;
+}
+
 #logInButton {
     background: none;
     margin: 20px 5px 20px 0;
