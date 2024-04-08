@@ -10,11 +10,6 @@ input {
     width: 70%;
 }
 
-img {
-    width: 95%;
-    max-width: 200px;
-}
-
 path {
     fill: white;    
 }
@@ -59,6 +54,22 @@ path {
     cursor: pointer;
 }
 
+.conteneurLangage {
+    border: 1px solid black; 
+    width: 95%; 
+    margin: auto; 
+    margin-top: 50px; 
+    display: none;
+}
+
+.contenuLangage {
+    margin-left: 2.5%; 
+    margin-right: 2.5%; 
+    overflow: auto; 
+    white-space: nowrap; 
+    width: 95%;
+}
+
 #logInButton {
     background: none;
     margin: 20px 5px 20px 0;
@@ -98,4 +109,35 @@ path {
     overflow: auto;
     white-space: nowrap;
     width: 100%;
+}
+
+#ajoutSuppressionCode {
+    display: flex; 
+    justify-content: space-around; 
+    width: 100%; 
+    margin-bottom: 5%;
+}
+
+#ajoutCode {
+    display: none; 
+    border: 1px solid black; 
+    width: 100%; 
+    text-align: center; 
+    margin-bottom: 5%;
+}
+
+#supprimerCode {
+    display: none; 
+    border: 1px solid black; 
+    width: 100%; 
+    text-align: center; 
+    margin-bottom: 5%;
+}
+
+#divPresentation {
+    border: 1px solid black; 
+    width: 95%; 
+    margin: auto; 
+    margin-top: 50px; 
+    display: block;
 }
