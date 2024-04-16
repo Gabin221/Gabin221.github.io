@@ -58,6 +58,19 @@ img {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
+#pageCed {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    border-radius: 20% 10%;
+}
+
 #logInButton {
     background: none;
     margin: 20px 5px 20px 0;
