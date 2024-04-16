@@ -6,25 +6,9 @@
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
-		<style>
-			/* Styles CSS pour le diaporama */
-			#slideshow {
-				width: 100%;
-				max-width: 800px; /* Ajustez la largeur maximale selon vos besoins */
-				margin: 0 auto;
-				overflow: hidden;
-				position: relative;
-			}
-			
-			#slideshow img {
-				width: 100%;
-				height: auto;
-				display: block; /* Cacher les images par défaut */
-			}
-		</style>
 	</head>
 	<body>
-		<h1 style="text-align: center;">Afficher les diapos</h1>
+		<h1 style="text-align: center;">Télécharger les images</h1>
 
 		<button type="button">
 			<a href="../index.html">
@@ -32,10 +16,13 @@
 			</a>
 		</button><br><br><br>
 
-		<div id="slideshow"></div>
+		<input type="file" id="fileInput" multiple><br>
+		<button onclick="uploadImages()">
+			Upload
+		</button>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-		<script src="../Scripts/diaposLireImages.js"></script>
+		<script src="../Scripts/diaposUploadImages.js"></script>
 	</body>
 </html>
