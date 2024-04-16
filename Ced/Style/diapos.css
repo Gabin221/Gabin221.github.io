@@ -1,14 +1,16 @@
 #slideshow {
-    width: 100%;
-    max-width: 800px;
+    height: 98vh;
     margin: 0 auto;
     overflow: hidden;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #slideshow img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100vh;
     display: block;
+    object-fit: cover;
 }
-  
