@@ -56,6 +56,11 @@ function drawChart(consommations, moyenne) {
         myChart.destroy();
     }
 
+    // Calculer la régression linéaire
+    var consommationsX = Array.from({ length: consommations.length }, (_, i) => i + 1); // Créer un tableau de valeurs x (itérations)
+    var regressionLine = linearRegression(consommationsX, consommations); // Calculer la régression linéaire
+    var trendlineData = consommationsX.map(x => regressionLine.slope * x + regressionLine.intercept); // Calculer les valeurs de la courbe de tendance
+
     myChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -66,13 +71,20 @@ function drawChart(consommations, moyenne) {
                 backgroundColor: '#FF0000',
                 borderColor: '#FF0000',
                 borderWidth: 1
-            }, {
+            }/*, {
                 type: 'line',
-                label: 'Moyenne (' + Math.round(moyenne*1000)/1000 + ' L/100)',
+                label: 'Moyenne',
                 data: Array(consommations.length).fill(moyenne), // Répéter la moyenne pour chaque itération
                 borderColor: '#000000',
                 backgroundColor: '#000000',
                 borderWidth: 1,
+            }*/, {
+                type: 'line',
+                label: 'Courbe de tendance',
+                data: trendlineData,
+                borderColor: '#0000FF',
+                borderWidth: 1,
+                fill: false
             }]
         },
         options: {
@@ -83,6 +95,35 @@ function drawChart(consommations, moyenne) {
             }
         }
     });
+
+    // Mettre à jour les valeurs dans le HTML
+    document.getElementById("consommation").innerText = Math.round(moyenne*1000)/1000 + ' L/100';
+    document.getElementById("r2").innerText = Math.round(regressionLine.rSquare*1000)/1000;
+    document.getElementById("courbeTendance").innerText = Math.round(regressionLine.slope*1000)/1000 + "x + " + Math.round(regressionLine.intercept*1000)/1000;
+}
+
+// Fonction pour calculer la régression linéaire
+function linearRegression(x, y) {
+    var n = x.length;
+    var sumX = 0;
+    var sumY = 0;
+    var sumXY = 0;
+    var sumXX = 0;
+    var sumYY = 0;
+
+    for (var i = 0; i < n; i++) {
+        sumX += x[i];
+        sumY += y[i];
+        sumXY += x[i] * y[i];
+        sumXX += x[i] * x[i];
+        sumYY += y[i] * y[i];
+    }
+
+    var slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+    var intercept = (sumY - slope * sumX) / n;
+    var rSquare = Math.pow((n * sumXY - sumX * sumY) / Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY)), 2);
+
+    return { slope: slope, intercept: intercept, rSquare: rSquare };
 }
 
 // Appeler la fonction pour récupérer les noms des voitures au chargement de la page
