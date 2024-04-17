@@ -76,3 +76,33 @@ input {
     max-height: 300px;
     border: 1px solid black;
 }
+
+#infosPlein {
+    display: flex; 
+    width: 100%; 
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+
+#divConso {
+    display: flex; 
+    flex-direction: column; 
+    width: 33%; 
+    align-items: center;
+}
+
+#divR2 {
+    display: flex; 
+    flex-direction: column; 
+    width: 33%; 
+    align-items: center; 
+    border-left: 1px solid black;
+}
+
+#divTendance {
+    display: flex; 
+    flex-direction: column; 
+    width: 33%; 
+    align-items: center; 
+    border-left: 1px solid black;
+}
