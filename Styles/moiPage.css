@@ -1,0 +1,78 @@
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+input {
+    width: 70%;
+}
+
+.divLogInOut {
+    display: flex;
+    justify-content:end;
+}
+
+.imageReseau {
+    text-decoration: none; 
+    color: black; 
+    width: 50px; 
+    height: 50px; 
+    border: 0; 
+    cursor: pointer;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+#logInButton {
+    background: none;
+    margin: 20px 5px 20px 0;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+#logOutButton {
+    background: none;
+    margin: 20px 5px 20px 0;
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+#footer {
+    margin: 30px 0 0 0;
+    background-color: #cccccc;
+}
+
+#conteneurImagesReseaux {
+    display: flex;
+    justify-content: space-around;
+}
+
+#listeDeroulanteVoiture {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#voitureSelect {
+    width: 50%;
+}
+
+#graphique {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#myChart {
+    width: 90%;
+    max-width: 500px;
+    max-height: 250px;
+    border: 1px solid black;
+}

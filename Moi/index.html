@@ -8,7 +8,7 @@
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<link href="../Styles/allPagesConnexion.css" rel="stylesheet">
-		<link href="../Styles/homePage.css" rel="stylesheet">
+		<link href="../Styles/moiPage.css" rel="stylesheet">
 	</head>
 	<body>
 		<h1>Mes statistiques</h1>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<h2>Ajouter un nouveau plein de voiture</h2>
+		<h3>Ajouter un nouveau plein de voiture</h3>
 
 		<form id="addPleinForm">
 			<label for="distance">Distance parcourue (en km):</label><br>
@@ -43,13 +43,15 @@
 			<button type="submit">Ajouter Plein</button>
 		</form>
 
-		<select id="voitureSelect" onchange="fetchAndDrawChart()">
-			<option value="">--Choisir--</option>
-			<option value="206+">--206+--</option>
-			<!-- Options de la liste déroulante seront ajoutées dynamiquement par JavaScript -->
-		</select>
+		<div id="listeDeroulanteVoiture">
+			<select id="voitureSelect" onchange="fetchAndDrawChart()">
+				<option value="">--Choisir--</option>
+			</select>
+		</div>
 
-		<canvas id="myChart" width="400" height="200"></canvas>
+		<div id="graphique">
+			<canvas id="myChart"></canvas>
+		</div>
 		
 		<div id="footer">
 			<h3>
