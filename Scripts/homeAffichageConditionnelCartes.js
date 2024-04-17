@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //var carteCed = document.querySelector('.carte h3');
     if (!checkUserStatus()) {
         // Si l'utilisateur n'est pas connecté ou n'a pas le niveau de droits "boss", masquez la carte
-        document.getElementsByClassName('cartePourMoi').style.display = "none";
+        document.getElementById('cartePourCed').style.display = "none";
+        document.getElementById('cartePourMoi').style.display = "none";
     }
 });
