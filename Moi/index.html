@@ -43,6 +43,12 @@
 			<button type="submit">Ajouter Plein</button>
 		</form>
 
+		<select id="voitureSelect" onchange="fetchAndDrawChart()">
+			<option value="">--Choisir--</option>
+			<option value="206+">--206+--</option>
+			<!-- Options de la liste déroulante seront ajoutées dynamiquement par JavaScript -->
+		</select>
+
 		<canvas id="myChart" width="400" height="200"></canvas>
 		
 		<div id="footer">
