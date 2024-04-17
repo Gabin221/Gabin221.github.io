@@ -45,13 +45,18 @@ function calculateMean(values) {
     return sum / values.length;
 }
 
-// Variable globale pour stocker l'instance du graphique
-var myChart = null;
+var myChart = null; // Déclarer la variable myChart à l'extérieur de la fonction drawChart
 
 // Fonction pour dessiner le graphique avec Chart.js
 function drawChart(consommations, moyenne) {
     var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
+
+    // Détruire le graphique existant s'il y en a un
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: Array.from({ length: consommations.length }, (_, i) => i + 1), // Itérations
@@ -79,6 +84,7 @@ function drawChart(consommations, moyenne) {
         }
     });
 }
+
 // Appeler la fonction pour récupérer les noms des voitures au chargement de la page
 window.onload = function() {
     fetchCarNames();
