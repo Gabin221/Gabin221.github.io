@@ -30,18 +30,18 @@
 			</div>
 		</div>
 
-		<h2>Ajouter un nouveau plein</h2>
+		<h2>Ajouter un nouveau plein de voiture</h2>
 
 		<form id="addPleinForm">
 			<label for="distance">Distance parcourue (en km):</label><br>
-			<input type="number" id="distance" name="distance" required><br><br>
-
+			<input type="number" id="distance" name="distance" step="0.1" required><br><br>
+		
 			<label for="volume">Volume de carburant (en litres):</label><br>
-			<input type="number" id="volume" name="volume" required><br><br>
-
+			<input type="number" id="volume" name="volume" step="0.01" required><br><br>
+		
 			<button type="submit">Ajouter Plein</button>
 		</form>
-
+		
 		<div id="footer">
 			<h3>
 				Mes réseaux...
