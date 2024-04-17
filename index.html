@@ -37,9 +37,11 @@
 				<h3>
 					Gabin's bar
 				</h3>
-				<img src="Images/gabinsbar.webp"/>
+				<a class="a_visiter" href="Gabinsbar/index.html">
+					<img src="Images/gabinsbar.webp"/>
+				</a>
 				<div class="conteneurTexteDansCarte">
-					<p>
+					<p class="texteDansCarte">
 						Cette page permet d'afficher le contenu de ma carte, il s'agit d'une liste des boissons que j'ai chez moi.
 					</p>
 					<a class="a_visiter" href="Gabinsbar/index.html">
@@ -51,9 +53,11 @@
 				<h3>
 					Tachyon
 				</h3>
-				<img src="Images/tachyon.webp"/>
+				<a class="a_visiter" href="Tachyon/index.html">
+					<img src="Images/tachyon.webp"/>
+				</a>
 				<div class="conteneurTexteDansCarte">
-					<p>
+					<p class="texteDansCarte">
 						Cette page est mon pense-bête pour la programmation. Elle me permet de noter certains morceaux de code dont je pense en avoir besoin dans l'avenir.
 					</p>
 					<a class="a_visiter" href="Tachyon/index.html">
@@ -61,16 +65,34 @@
 					</a>	
 				</div>
 			</div>
-			<div class="carte">
+			<div class="carte" id="cartePourMoi">
 				<h3>
 					Ced
 				</h3>
-				<img src="Images/ced.png"/>
+				<a class="a_visiter" href="Ced/index.html">
+					<img src="Images/ced.png"/>
+				</a>
 				<div class="conteneurTexteDansCarte">
-					<p>
+					<p class="texteDansCarte">
 						Cette page est le lien vers le site de Ced.
 					</p>
 					<a class="a_visiter" href="Ced/index.html">
+						visiter...
+					</a>	
+				</div>
+			</div>
+			<div class="carte" id="cartePourMoi">
+				<h3>
+					Mes stats
+				</h3>
+				<a class="a_visiter" href="Moi/index.html">
+					<img src="Images/moi.png"/>
+				</a>	
+				<div class="conteneurTexteDansCarte">
+					<p class="texteDansCarte">
+						Cette page me permet d'afficher quelques stats pour moi.
+					</p>
+					<a class="a_visiter" href="Moi/index.html">
 						visiter...
 					</a>	
 				</div>
@@ -93,15 +115,13 @@
 
 		<script src="Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-		<!-- <script src="Scripts/allPagesConnecteEgalFalse.js"></script> -->
-
 		<script src="Scripts/allPagesGererAffichageModaleConnexion.js"></script>
 
 		<script src="Scripts/allPagesConnexionDeconnexion.js"></script>
 
 		<script src="Scripts/allPagesGererAffichageBoutonsConnexionDeconnexion.js"></script>
 
-		<!-- <script src="Scripts/homeAffichageConditionnelPageCed.js"></script> -->
+		<script src="Scripts/homeAffichageConditionnelCartes.js"></script>
 
 	</body>
 </html>
