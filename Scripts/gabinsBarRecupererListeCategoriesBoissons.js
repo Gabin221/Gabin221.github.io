@@ -1,4 +1,4 @@
-// Récupération des langages de programmation depuis Firestore
+// Récupération des boissons depuis Firestore
 db.collection('boissons').get().then(querySnapshot => {
     const langageSelect = document.getElementById('categorie');
 
@@ -10,5 +10,5 @@ db.collection('boissons').get().then(querySnapshot => {
         langageSelect.appendChild(option);
     });
 }).catch(error => {
-    console.error("Erreur lors de la récupération des langages de programmation :", error);
+    console.error("Erreur lors de la récupération des boissons :", error);
 });
