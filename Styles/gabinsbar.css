@@ -24,6 +24,11 @@ path {
     justify-content:end;
 }
 
+.divModifierCarte {
+    display: flex;
+    justify-content:end;
+}
+
 .modal-content {
     text-align: center;
 }
@@ -56,6 +61,13 @@ path {
     width: 50px; 
     height: 50px; 
     border: 0; 
+    cursor: pointer;
+}
+
+#modifierCarte {
+    background: none;
+    margin: 0 5px 20px 0;
+    padding: 0 10px 0 10px;
     cursor: pointer;
 }
 
