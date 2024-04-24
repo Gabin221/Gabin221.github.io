@@ -8,7 +8,7 @@ document.getElementById('addPleinForm').addEventListener('submit', function(even
 
     // Obtenir le nombre total de documents dans la collection "Pleins"
     db.collection('Voitures')
-        .doc('206+')
+        .doc('206plus')
         .collection('Pleins')
         .get()
         .then(function(querySnapshot) {
@@ -17,7 +17,7 @@ document.getElementById('addPleinForm').addEventListener('submit', function(even
 
             // Créer un nouveau document avec un nom unique basé sur le nombre total de documents
             db.collection('Voitures')
-                .doc('206+')
+                .doc('206plus')
                 .collection('Pleins')
                 .doc('Plein' + (numberOfDocuments + 1)) // Nouveau nom de document
                 .set({
