@@ -102,6 +102,26 @@ function drawChart(consommations, moyenne) {
     document.getElementById("courbeTendance").innerText = Math.round(regressionLine.slope*1000)/1000 + "x + " + Math.round(regressionLine.intercept*1000)/1000;
 }
 
+function rSquared(x, y, coefficients) {
+
+    let regressionSquaredError = 0
+    let totalSquaredError = 0
+  
+    function yPrediction(x, coefficients) {
+        return coefficients[0] + coefficients[1] * x
+    }
+  
+    let yMean = y.reduce((a, b) => a + b) / y.length
+  
+    for (let i = 0; i < x.length; i++) {
+        regressionSquaredError += Math.pow(y[i] - yPrediction(x[i], coefficients), 2)
+        totalSquaredError += Math.pow(y[i] - yMean, 2)
+    }
+  
+    return 1 - (regressionSquaredError / totalSquaredError)
+  
+  }
+
 // Fonction pour calculer la régression linéaire
 function linearRegression(x, y) {
     var n = x.length;
@@ -121,7 +141,8 @@ function linearRegression(x, y) {
 
     var slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
     var intercept = (sumY - slope * sumX) / n;
-    var rSquare = Math.pow((n * sumXY - sumX * sumY) / Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY)), 2);
+
+    let rSquare = rSquared(x, y, [intercept, slope]);
 
     return { slope: slope, intercept: intercept, rSquare: rSquare };
 }
