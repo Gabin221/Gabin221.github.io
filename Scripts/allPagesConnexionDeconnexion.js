@@ -60,13 +60,3 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             console.error('Erreur lors de la vérification des informations de connexion:', error);
         });
 });
-
-// Appeler logout() lorsque la page est quittée ou fermée
-window.addEventListener('beforeunload', function(event) {
-    logout();
-});
-
-// Appeler logout() lorsque la page est fermée
-window.addEventListener('unload', function(event) {
-    logout();
-});
