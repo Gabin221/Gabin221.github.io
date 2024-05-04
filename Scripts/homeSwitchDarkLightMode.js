@@ -22,7 +22,7 @@ $("#night").click(function(){
   gsap.to("#moon", 1, {opacity: 0, x: 35, rotate: 360, transformOrigin: "center", ease: Power1.easeInOut});
   gsap.to(".star", 1, {opacity: 0, ease: Power1.easeInOut});
   gsap.to("#night", 1, {background: "#9cd6ef", borderColor: "#65c0e7", ease: Power1.easeInOut});
-  gsap.to("#background", 1, {background: "#d3edf8", ease: Power1.easeInOut});
+  gsap.to("#background", 1, {background: "#ffffff", ease: Power1.easeInOut});
   $(this).css({"pointer-events": "none"});
   
   setTimeout(function(){
