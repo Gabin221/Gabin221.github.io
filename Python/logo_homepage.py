@@ -28,6 +28,6 @@ def tableModulaire(table, modulo):
 
 
 if __name__ == "__main__":
-	table = 1806
-	modulo = 773
+	table = 3
+	modulo = 60
 	tableModulaire(table, modulo)
