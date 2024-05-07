@@ -13,11 +13,11 @@ def tableModulaire(table, modulo):
 	sinusPoints = np.sin(points + np.pi/2)
 
 	plt.figure(figsize=(6, 6))
-	plt.plot(cosinusAngles, sinusAngles, linewidth=0.2)
+	plt.plot(cosinusAngles, sinusAngles, linewidth=0.5)
 
 	for i in range(1, len(cosinusPoints)):
 		multiplication = (table * i)%modulo
-		plt.plot([cosinusPoints[i], cosinusPoints[multiplication]], [sinusPoints[i], sinusPoints[multiplication]], color='black', linewidth=0.1)
+		plt.plot([cosinusPoints[i], cosinusPoints[multiplication]], [sinusPoints[i], sinusPoints[multiplication]], color='black', linewidth=0.5)
 
 	plt.axis('equal')
 	plt.axis('off')
