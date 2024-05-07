@@ -17,7 +17,7 @@ def tableModulaire(table, modulo):
 
 	for i in range(1, len(cosinusPoints)):
 		multiplication = (table * i)%modulo
-		plt.plot([cosinusPoints[i], cosinusPoints[multiplication]], [sinusPoints[i], sinusPoints[multiplication]], color='black', linewidth=0.5)
+		plt.plot([cosinusPoints[i], cosinusPoints[multiplication]], [sinusPoints[i], sinusPoints[multiplication]], color='black')
 
 	plt.axis('equal')
 	plt.axis('off')
