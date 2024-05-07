@@ -12,7 +12,7 @@ def tableModulaire(table, modulo):
 	cosinusPoints = np.cos(points + np.pi/2)
 	sinusPoints = np.sin(points + np.pi/2)
 
-	plt.figure()
+	plt.figure(figsize=(6, 6))
 	plt.plot(cosinusAngles, sinusAngles, linewidth=0.2)
 
 	for i in range(1, len(cosinusPoints)):
@@ -21,6 +21,8 @@ def tableModulaire(table, modulo):
 
 	plt.axis('equal')
 	plt.axis('off')
+	plt.xlim(-1.1, 1.1)
+	plt.ylim(-1.1, 1.1)
 	plt.savefig("../Images/logo_home_page.png", transparent=True)
 	plt.show()
 
