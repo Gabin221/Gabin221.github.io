@@ -40,6 +40,7 @@
 			}
 
 			nav a{
+				position: relative;
 				display: block; /*Toute la surface sera cliquable*/
 				text-decoration: none;
 				color: black;
@@ -47,13 +48,29 @@
 				padding: 10px 0px;/*Agrandit le menu et espace la bordure du texte*/
 			}
 
-			nav a:hover{
-				border-bottom: 2px solid black;
-			}
-
 			.conteneur{
 				margin: 0px 20px;
 				height: 1500px;
+			}
+
+			nav a::after { /* Ajout */
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 0;
+				height: 2px;
+				background-color: black;
+				transition: width 0.3s;
+			}
+
+			nav a:hover::after { /* Ajout */
+				width: 100%;
+			}
+
+			nav a.active::after { /* Nouvelle règle pour l'élément actif */
+				width: 100%;
 			}
 		</style>
 
@@ -127,6 +144,10 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
+					// Supprimer la classe active de tous les éléments du menu
+					$('.elementMenu').removeClass('active');
+					// Ajouter la classe active à l'élément du menu cliqué
+					$(this).addClass('active');
 				});
 				$('#elementMenuGabinsBar').click(function(){
 					$.ajax({
@@ -136,6 +157,10 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
+					// Supprimer la classe active de tous les éléments du menu
+					$('.elementMenu').removeClass('active');
+					// Ajouter la classe active à l'élément du menu cliqué
+					$(this).addClass('active');
 				});
 				$('#elementMenuModulo').click(function(){
 					$.ajax({
@@ -145,6 +170,10 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
+					// Supprimer la classe active de tous les éléments du menu
+					$('.elementMenu').removeClass('active');
+					// Ajouter la classe active à l'élément du menu cliqué
+					$(this).addClass('active');
 				});
 				$('#elementMenuDRond').click(function(){
 					$.ajax({
@@ -154,6 +183,10 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
+					// Supprimer la classe active de tous les éléments du menu
+					$('.elementMenu').removeClass('active');
+					// Ajouter la classe active à l'élément du menu cliqué
+					$(this).addClass('active');
 				});
 			});
 		</script>
