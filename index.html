@@ -72,17 +72,24 @@
 			nav a.active::after { /* Nouvelle règle pour l'élément actif */
 				width: 100%;
 			}
+
+			@media only screen and (max-width: 600px) {
+			/* Masquer l'élément avec l'ID titreTopBar sur les écrans de petite taille */
+			#titreTopBar {
+				display: none;
+			}
+		}
 		</style>
 
         <link rel="icon" href="Images/logo_home_page.png" type="image/png">
 	</head>
 	<body style="background-color: #F2F2F2;">
-		<div style="display: flex; justify-content: space-between;">
-			<div href="../" style="display: flex; align-items: center; cursor: pointer;">
+		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
+			<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
 				<img src="Images/logo_home_page.png" style="width: 60px; height: 60px; margin-right: 20px;">
-				<h1>
+				<p id="titreTopBar" style="font-weight: bold; font-size: x-large;">
 					Gabin221.github.io
-				</h1>
+				</p>
 			</div>
 			<div style="display: flex; align-items: center;">
 				<div style="display: flex; align-items: center; justify-content: center;">
@@ -131,6 +138,41 @@
 
 		<div id="actualisez_moi"></div>
 
+		<div style="margin-top: 40px; border-top: 2px solid black; display: flex; justify-content: space-around;">
+			<div style="margin-top: 40px;">
+				<h3>
+					Plan du site
+				</h3>
+
+				<ul style="margin-top: 20px; list-style-type: none; display: flex; flex-direction: column;">
+					<li>
+						<a class="elementMenuAccueil" href="#" style="color: black; text-decoration: none;">
+							Accueil
+						</a>
+					</li>
+					<li>
+						<a class="elementMenuGabinsBar" href="#" style="color: black; text-decoration: none;">
+							Gabin's bar
+						</a>
+					</li>
+					<li>
+						<a class="elementMenuModulo" href="#" style="color: black; text-decoration: none;">
+							Modulo
+						</a>
+					</li>
+					<li>
+						<a class="elementMenuDRond" href="#" style="color: black; text-decoration: none;">
+							∂ rond
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div style="margin-top: 40px;">
+				<h3>
+					Réseaux
+				</h3>
+			</div>
+		</div>
 
 		<script>
 			$(document).ready(function(){
