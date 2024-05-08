@@ -107,22 +107,22 @@
 		<nav>
 			<ul>
 				<li>
-					<a id="elementMenuAccueil" class="elementMenu" href="#">
+					<a class="elementMenuAccueil" href="#">
 						Accueil
 					</a>
 				</li>
 				<li>
-					<a id="elementMenuGabinsBar" class="elementMenu" href="#">
+					<a class="elementMenuGabinsBar" href="#">
 						Gabin's bar
 					</a>
 				</li>
 				<li>
-					<a id="elementMenuModulo" class="elementMenu" href="#">
+					<a class="elementMenuModulo" href="#">
 						Modulo
 					</a>
 				</li>
 				<li>
-					<a id="elementMenuDRond" class="elementMenu" href="#">
+					<a class="elementMenuDRond" href="#">
 						∂ rond
 					</a>
 				</li>
@@ -135,8 +135,8 @@
 		<script>
 			$(document).ready(function(){
 				$('#actualisez_moi').load('accueil.html');
-
-				$('#elementMenuAccueil').click(function(){
+	
+				$(document).on('click', '.elementMenuAccueil', function(){
 					$.ajax({
 						url: 'accueil.html',
 						dataType: 'html',
@@ -144,12 +144,14 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
-					// Supprimer la classe active de tous les éléments du menu
-					$('.elementMenu').removeClass('active');
-					// Ajouter la classe active à l'élément du menu cliqué
+					$('.elementMenuAccueil').removeClass('active');
+					$('.elementMenuGabinsBar').removeClass('active');
+					$('.elementMenuModulo').removeClass('active');
+					$('.elementMenuDRond').removeClass('active');
 					$(this).addClass('active');
 				});
-				$('#elementMenuGabinsBar').click(function(){
+
+				$(document).on('click', '.elementMenuGabinsBar', function(){
 					$.ajax({
 						url: 'gabinsbar.html',
 						dataType: 'html',
@@ -157,12 +159,14 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
-					// Supprimer la classe active de tous les éléments du menu
-					$('.elementMenu').removeClass('active');
-					// Ajouter la classe active à l'élément du menu cliqué
+					$('.elementMenuAccueil').removeClass('active');
+					$('.elementMenuGabinsBar').removeClass('active');
+					$('.elementMenuModulo').removeClass('active');
+					$('.elementMenuDRond').removeClass('active');
 					$(this).addClass('active');
 				});
-				$('#elementMenuModulo').click(function(){
+
+				$(document).on('click', '.elementMenuModulo', function(){
 					$.ajax({
 						url: 'modulo.html',
 						dataType: 'html',
@@ -170,12 +174,14 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
-					// Supprimer la classe active de tous les éléments du menu
-					$('.elementMenu').removeClass('active');
-					// Ajouter la classe active à l'élément du menu cliqué
+					$('.elementMenuAccueil').removeClass('active');
+					$('.elementMenuGabinsBar').removeClass('active');
+					$('.elementMenuModulo').removeClass('active');
+					$('.elementMenuDRond').removeClass('active');
 					$(this).addClass('active');
 				});
-				$('#elementMenuDRond').click(function(){
+
+				$(document).on('click', '.elementMenuDRond', function(){
 					$.ajax({
 						url: 'drond.html',
 						dataType: 'html',
@@ -183,9 +189,10 @@
 							$('#actualisez_moi').html(data);
 						}
 					});
-					// Supprimer la classe active de tous les éléments du menu
-					$('.elementMenu').removeClass('active');
-					// Ajouter la classe active à l'élément du menu cliqué
+					$('.elementMenuAccueil').removeClass('active');
+					$('.elementMenuGabinsBar').removeClass('active');
+					$('.elementMenuModulo').removeClass('active');
+					$('.elementMenuDRond').removeClass('active');
 					$(this).addClass('active');
 				});
 			});
