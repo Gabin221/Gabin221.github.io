@@ -80,10 +80,17 @@
 			}
 		}
 			
-			.dark-mode {
-			  background-color: black;
-			  color: white;
-			}
+			.darkmode--activated p, .darkmode--activated li {
+  color: #000;
+}
+
+.button {
+  isolation: isolate;
+}
+
+.darkmode--activated .logo {
+  mix-blend-mode: difference;
+}
 		</style>
 
         <link rel="icon" href="Images/logo_home_page.png" type="image/png">
@@ -115,6 +122,8 @@
 				</div>
 			</div>
 		</div>
+
+		<span class="darkmode-ignore">😬<span>
 
 		<nav>
 			<ul>
