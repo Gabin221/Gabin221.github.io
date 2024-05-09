@@ -183,11 +183,14 @@
 
 		<script>
 			function darkMode() {
+				console.log("entree darkmode");
 				var compteur = 0;
 				if (compteur%2 === 0) {
+					console.log("pair");
 					document.getElementById('titreTopBar').style.color="black";
 					compteur += 1;
 				} else {
+					console.log("impair");
 					document.getElementById('titreTopBar').style.color="white";
 					compteur += 1;
 				}
