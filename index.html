@@ -183,7 +183,12 @@
 
 		<script>
 			function darkMode() {
-		            document.getElementById('titreTopBar').style.color="white";
+				var compteur = 0;
+				if (compteur%2 === 0) {
+					document.getElementById('titreTopBar').style.color="black";
+				} else {
+					document.getElementById('titreTopBar').style.color="white";
+				}
 		        }
 		</script>
 
