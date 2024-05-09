@@ -88,7 +88,7 @@
 	<body style="background-color: #F2F2F2;">
 		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
 			<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
-				<img src="Images/logo_home_page.png" style="width: 60px; height: 60px; margin-right: 20px;">
+				<img id="logoTopBar" src="Images/logo_home_page.png" style="width: 60px; height: 60px; margin-right: 20px;">
 				<p id="titreTopBar" style="font-weight: bold; font-size: x-large;">
 					Gabin221.github.io
 				</p>
@@ -183,15 +183,17 @@
 
 		<script>
 			var compteur = 0;
+			var logoTopBar = document.getElementById("logoTopBar");
+			
 			function darkMode() {
 				console.log("entree darkmode");
 				if (compteur%2 === 0) {
-					console.log("pair");
 					document.getElementById('titreTopBar').style.color="black";
+					logoTopBar.setAttribute("src", "Images/logo_home_page_dark.png");
 					compteur += 1;
 				} else {
-					console.log("impair");
 					document.getElementById('titreTopBar').style.color="white";
+					logoTopBar.setAttribute("src", "Images/logo_home_page.png");
 					compteur += 1;
 				}
 		        }
