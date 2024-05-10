@@ -8,9 +8,11 @@
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
 		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 			#divAll {
 				display: flex;
 				justify-content: center;
@@ -31,6 +33,23 @@
 				width: 50%; 
 				border-radius: 0 15px 15px 0;
 				text-align: center;
+			}
+
+			.social-media{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: center;
+				margin: 0 auto 20px auto;
+				width: 70%;
+				max-width: 200px;
+			}
+
+			.social-media i{
+				padding: 5px;
+				border-radius: 100%;
+				border: 1px solid black;
+				cursor: pointer;
 			}
 
 			@media only screen and (max-width: 600px) {
@@ -91,8 +110,15 @@
 					coucou
 				</div>
 				<div id="divRight">
-					<h3 style="margin-top: 40px;">Se connecter</h3>
-					<br><br>
+					<h3 style="margin: 40px 0 20px 0;">Se connecter</h3>
+
+					<div class="social-media">
+						<i class="fab fa-google"></i>
+						<i class="fab fa-facebook"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-github"></i>
+						<i class="fab fa-apple"></i>
+					</div>
 
 					<form style="margin: 0 40px 0 40px;">
 						<label for="email">Email</label><br>
