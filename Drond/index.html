@@ -33,15 +33,17 @@
 
 		<h3>Ajouter un nouveau plein de voiture</h3>
 
-		<form id="addPleinForm">
-			<label for="distance">Distance parcourue (en km):</label><br>
-			<input type="number" id="distance" name="distance" step="0.1" required><br><br>
-		
-			<label for="volume">Volume de carburant (en litres):</label><br>
-			<input type="number" id="volume" name="volume" step="0.01" required><br><br>
-		
-			<button type="submit">Ajouter Plein</button>
-		</form>
+		<div id="formulaire">
+			<form id="addPleinForm">
+				<label for="distance">Distance parcourue (en km):</label><br>
+				<input type="number" id="distance" name="distance" step="0.1" required><br><br>
+			
+				<label for="volume">Volume de carburant (en litres):</label><br>
+				<input type="number" id="volume" name="volume" step="0.01" required><br><br>
+			
+				<button type="submit">Valider le formulaire</button>
+			</form>
+		</div>
 
 		<div id="listeDeroulanteVoiture">
 			<select id="voitureSelect" onchange="fetchAndDrawChart()">
@@ -83,6 +85,18 @@
 		</div>
 
 		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var userLoggedIn = localStorage.getItem('userLoggedIn');
+
+				if (userLoggedIn){
+					document.getElementById('formulaire').style.display = 'block';
+				} else {
+					document.getElementById('formulaire').style.display = 'none';
+				}
+			});
+		</script>
 
 		<script src="../Scripts/allPagesGererAffichageModaleConnexion.js"></script>
 

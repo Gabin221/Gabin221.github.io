@@ -33,7 +33,6 @@
 				width: 50%; 
 				border-radius: 0 15px 15px 0;
 				text-align: center;
-				display: none;
 			}
 
 			#divRightCreateAccount {
@@ -41,6 +40,7 @@
 				width: 50%; 
 				border-radius: 0 15px 15px 0;
 				text-align: center;
+				display: none;
 			}
 
 			.social-media{
@@ -180,12 +180,18 @@
 					darkModeAll()
 					document.getElementById("divRightConnect").style.backgroundColor = "white";
 					document.getElementById("divRightCreateAccount").style.backgroundColor = "white";
+					document.querySelectorAll('h3, label').forEach(function(element) {
+						element.style.color = "black";
+					});
 					compteur += 1;
 				} else {
 					// darkmode
 					darkModeAll()
 					document.getElementById("divRightConnect").style.backgroundColor = "black";
 					document.getElementById("divRightCreateAccount").style.backgroundColor = "black";
+					document.querySelectorAll('h3, label').forEach(function(element) {
+						element.style.color = "white";
+					});
 					compteur += 1;
 				}
 		    }
