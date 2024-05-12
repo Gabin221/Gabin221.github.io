@@ -28,7 +28,15 @@
 				text-align: center;
 			}
 
-			#divRight {
+			#divRightConnect {
+				background-color: white; 
+				width: 50%; 
+				border-radius: 0 15px 15px 0;
+				text-align: center;
+				display: none;
+			}
+
+			#divRightCreateAccount {
 				background-color: white; 
 				width: 50%; 
 				border-radius: 0 15px 15px 0;
@@ -62,10 +70,15 @@
 					display: none;
 				}
 
-				#divRight {
+				#divRightConnect {
                     width: 100%;
 					border-radius: 15px;
                 }
+
+				#divRightCreateAccount {
+					width: 100%;
+					border-radius: 15px;
+				}
 			}
 		</style>
 
@@ -101,7 +114,7 @@
 				<div id="divLeft">
 					coucou
 				</div>
-				<div id="divRight">
+				<div id="divRightConnect">
 					<h3 style="margin: 40px 0 20px 0;">Se connecter</h3>
 
 					<div class="social-media">
@@ -110,6 +123,8 @@
 						<i class="fab fa-twitter"></i>
 						<i class="fab fa-github"></i>
 					</div>
+
+					<p><b>OU</b></p>
 
 					<form style="margin: 0 40px 0 40px;">
 						<label for="email">Pseudo</label><br>
@@ -121,7 +136,38 @@
 						<input type="submit" value="Se connecter">
 					</form>
 
-					<p style="margin: 20px 0 20px 0; color: rgb(26, 80, 179);">Créer un compte</p>
+					<p onclick="clickCreateAccount()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179);">Créer un compte</p>
+				</div>
+				<div id="divRightCreateAccount">
+					<h3 style="margin: 40px 0 20px 0;">Créer un compte</h3>
+
+					<div class="social-media">
+						<i onclick="creerCompteAvec('google')" class="fab fa-google"></i>
+						<i onclick="creerCompteAvec('facebook')" class="fab fa-facebook"></i>
+						<i onclick="creerCompteAvec('twitter')" class="fab fa-twitter"></i>
+						<i onclick="creerCompteAvec('github')" class="fab fa-github"></i>
+					</div>
+
+					<p><b>OU</b></p>
+
+					<div id="fb-root"></div>
+					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0" nonce="cxkBj1WI"></script>
+					<div class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="false"></div>
+
+					<form style="margin: 0 40px 0 40px;">
+						<label for="email">Pseudo</label><br>
+						<input style="width: 90%;" type="text" id="pseudo" name="pseudo" placeholder="Choisissez votre pseudo">
+						<br><br>
+						<label for="password">Mot de passe</label><br>
+						<input style="width: 90%;" type="password" id="password" name="password" placeholder="Choisissez votre mot de passe">
+						<br><br>
+						<label for="password">Confirmer le mot de passe</label><br>
+						<input style="width: 90%;" type="password" id="password" name="password" placeholder="Confirmer votre mot de passe">
+						<br><br>
+						<input type="submit" value="Créer un compte">
+					</form>
+
+					<p onclick="clickSeConnecter()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179);">Se connecter</p>
 				</div>
 			</div>
 		</div>
@@ -157,12 +203,53 @@
 					// darkmode
 					document.getElementById('titreTopBar').style.color="white";
 					document.getElementById('buttonSwitch').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>toggle-switch-outline</title><path d="M17 6H7C3.69 6 1 8.69 1 12S3.69 18 7 18H17C20.31 18 23 15.31 23 12S20.31 6 17 6M17 16H7C4.79 16 3 14.21 3 12S4.79 8 7 8H17C19.21 8 21 9.79 21 12S19.21 16 17 16M17 9C15.34 9 14 10.34 14 12S15.34 15 17 15 20 13.66 20 12 18.66 9 17 9Z" style="fill: white;" /></svg>';
-					document.getElementById('buttonAccount').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" style="fill: white;" /></svg>';
 					document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" style="fill: white;" /></svg>';
 					document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" style="fill: white;" /></svg>';
 					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page_dark.png");
 					document.body.style.backgroundColor = "black";
 				}
+			}
+		</script>
+
+		<script>
+			function clickCreateAccount() {
+				document.getElementById("divRightConnect").style.display = "none";
+				document.getElementById("divRightCreateAccount").style.display = "block";
+			}
+
+			function clickSeConnecter() {
+				document.getElementById("divRightConnect").style.display = "block";
+				document.getElementById("divRightCreateAccount").style.display = "none";
+			}
+		</script>
+
+		<script>
+			function creerCompteAvec(fournisseur) {
+				switch (fournisseur) {
+					case 'google':
+						// Code pour créer un compte avec Google
+						console.log('Création de compte avec Google');
+						break;
+					case 'facebook':
+						// Code pour créer un compte avec Facebook
+						console.log('Création de compte avec Facebook');
+						break;
+					case 'twitter':
+						// Code pour créer un compte avec Twitter
+						console.log('Création de compte avec Twitter');
+						break;
+					case 'github':
+						// Code pour créer un compte avec Github
+						console.log('Création de compte avec Github');
+						break;
+					default:
+						console.log('Fournisseur non pris en charge');
+				}
+			}
+
+			function clickSeConnecter() {
+				// Code pour gérer le clic sur "Se connecter"
+				console.log('Clic sur Se connecter');
 			}
 		</script>
 
