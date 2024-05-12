@@ -86,7 +86,7 @@
 	</head>
 	<body style="background-color: #F2F2F2;">
 		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
-			<a style="color: black; text-decoration: none;" href="../">
+			<a style="color: black; text-decoration: none;" href="../index.html">
 				<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
 					<img id="logoTopBar" src="../Images/logo_home_page.png" style="width: 60px; height: 60px;">
 					<p id="titreTopBar" style="font-weight: bold; font-size: x-large; margin-left: 20px;">
@@ -112,65 +112,63 @@
 		<div style="margin-top: 50px; display: flex; justify-content: center;">
 			<div id="divAll">
 				<div id="divLeft">
-					coucou
+					text
 				</div>
 				<div id="divRightConnect">
 					<h3 style="margin: 40px 0 20px 0;">Se connecter</h3>
 
-					<div class="social-media">
+					<!-- <div class="social-media">
 						<i class="fab fa-google"></i>
 						<i class="fab fa-facebook"></i>
 						<i class="fab fa-twitter"></i>
 						<i class="fab fa-github"></i>
 					</div>
 
-					<p><b>OU</b></p>
+					<p><b>OU</b></p> -->
 
-					<form style="margin: 0 40px 0 40px;">
+					<form id="loginFormConnect" style="margin: 0 40px 0 40px;">
 						<label for="email">Pseudo</label><br>
 						<input style="width: 90%;" type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
 						<br><br>
 						<label for="password">Mot de passe</label><br>
-						<input style="width: 90%;" type="password" id="password" name="password" placeholder="Mot de passe">
+						<input style="width: 90%;" type="password" id="motDePasse" name="password" placeholder="Mot de passe">
 						<br><br>
 						<input type="submit" value="Se connecter">
 					</form>
 
-					<p onclick="clickCreateAccount()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179);">Créer un compte</p>
+					<p onclick="clickCreateAccount()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179); cursor: pointer;">Créer un compte</p>
 				</div>
 				<div id="divRightCreateAccount">
 					<h3 style="margin: 40px 0 20px 0;">Créer un compte</h3>
 
-					<div class="social-media">
-						<i onclick="creerCompteAvec('google')" class="fab fa-google"></i>
-						<i onclick="creerCompteAvec('facebook')" class="fab fa-facebook"></i>
-						<i onclick="creerCompteAvec('twitter')" class="fab fa-twitter"></i>
-						<i onclick="creerCompteAvec('github')" class="fab fa-github"></i>
+					<p id="messageErreur" style="color: red; display: none; width: 80%; margin: 10px auto 20px auto;">Veuillez saisir un mot de passe avec au moins 5 caractères.</p>
+
+					<!-- <div class="social-media">
+						<i class="fab fa-google"></i>
+						<i class="fab fa-facebook"></i>
+						<i class="fab fa-twitter"></i>
+						<i class="fab fa-github"></i>
 					</div>
 
-					<p><b>OU</b></p>
+					<p><b>OU</b></p> -->
 
-					<div id="fb-root"></div>
-					<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v19.0" nonce="cxkBj1WI"></script>
-					<div class="fb-login-button" data-width="" data-size="" data-button-type="" data-layout="" data-auto-logout-link="true" data-use-continue-as="false"></div>
-
-					<form style="margin: 0 40px 0 40px;">
-						<label for="email">Pseudo</label><br>
-						<input style="width: 90%;" type="text" id="pseudo" name="pseudo" placeholder="Choisissez votre pseudo">
+					<form id="loginFormCreateAccount" style="margin: 0 40px 0 40px;">
+						<label id="pseudoCreateLabel" for="email">Pseudo</label><br>
+						<input style="width: 90%;" type="text" id="pseudoCreate" name="pseudo" placeholder="Choisissez votre pseudo">
 						<br><br>
-						<label for="password">Mot de passe</label><br>
-						<input style="width: 90%;" type="password" id="password" name="password" placeholder="Choisissez votre mot de passe">
-						<br><br>
-						<label for="password">Confirmer le mot de passe</label><br>
-						<input style="width: 90%;" type="password" id="password" name="password" placeholder="Confirmer votre mot de passe">
+						<label id="motDePasseCreateLabel" for="password">Mot de passe</label><br>
+						<input style="width: 90%;" type="password" id="motDePasseCreate" name="password" placeholder="Choisissez votre mot de passe">
+						<p style="color: rgb(118, 118, 118); width: 90%; margin: 5px auto auto 4%; text-align: left; font-size: 0.7lh;">Au moins 5 caractères.</p>
 						<br><br>
 						<input type="submit" value="Créer un compte">
 					</form>
 
-					<p onclick="clickSeConnecter()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179);">Se connecter</p>
+					<p onclick="clickSeConnecter()" style="margin: 20px 0 20px 0; color: rgb(26, 80, 179); cursor: pointer;">Se connecter</p>
 				</div>
 			</div>
 		</div>
+
+		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 		<script>
 			var compteur = 1;
@@ -180,10 +178,14 @@
 				if (compteur%2 === 0) {
 					// lightmode
 					darkModeAll()
+					document.getElementById("divRightConnect").style.backgroundColor = "white";
+					document.getElementById("divRightCreateAccount").style.backgroundColor = "white";
 					compteur += 1;
 				} else {
 					// darkmode
 					darkModeAll()
+					document.getElementById("divRightConnect").style.backgroundColor = "black";
+					document.getElementById("divRightCreateAccount").style.backgroundColor = "black";
 					compteur += 1;
 				}
 		    }
@@ -224,35 +226,103 @@
 		</script>
 
 		<script>
-			function creerCompteAvec(fournisseur) {
-				switch (fournisseur) {
-					case 'google':
-						// Code pour créer un compte avec Google
-						console.log('Création de compte avec Google');
-						break;
-					case 'facebook':
-						// Code pour créer un compte avec Facebook
-						console.log('Création de compte avec Facebook');
-						break;
-					case 'twitter':
-						// Code pour créer un compte avec Twitter
-						console.log('Création de compte avec Twitter');
-						break;
-					case 'github':
-						// Code pour créer un compte avec Github
-						console.log('Création de compte avec Github');
-						break;
-					default:
-						console.log('Fournisseur non pris en charge');
+			function logout() {
+				localStorage.removeItem('userLoggedIn');
+				localStorage.removeItem('currentUser');
+				localStorage.removeItem('userRights');
+				var previousPage = localStorage.getItem('previousPage');
+				if (previousPage) {
+					window.location.href = previousPage;
+				} else {
+					window.location.href = '../index.html';
 				}
 			}
 
-			function clickSeConnecter() {
-				// Code pour gérer le clic sur "Se connecter"
-				console.log('Clic sur Se connecter');
+			function encryptPassword(password) {
+				var md = forge.md.sha256.create();
+				md.update(password);
+				return md.digest().toHex();
 			}
+
+			document.getElementById('loginFormConnect').addEventListener('submit', function(event) {
+				event.preventDefault();
+
+				var pseudo = document.getElementById('pseudo').value;
+				var motDePasse = document.getElementById('motDePasse').value;
+
+				var hashedPassword = encryptPassword(motDePasse);
+
+				var usersRef = db.collection('user_gabinsbar');
+				usersRef.where('id', '==', pseudo).where('motdepasse', '==', hashedPassword).get()
+					.then((querySnapshot) => {
+						if (!querySnapshot.empty) {
+							querySnapshot.forEach((doc) => {
+								var userData = doc.data();
+								var droits = userData.droits;
+								localStorage.setItem('userLoggedIn', true);
+								localStorage.setItem('currentUser', pseudo);
+								localStorage.setItem('userRights', droits);
+								var previousPage = localStorage.getItem('previousPage');
+								if (previousPage) {
+									window.location.href = previousPage;
+								} else {
+									window.location.href = '../index.html';
+								}
+							});
+						} else {
+							alert('Les informations de connexion sont incorrectes. Veuillez réessayer.');
+						}
+					})
+					.catch((error) => {
+						console.error('Erreur lors de la vérification des informations de connexion:', error);
+					});
+			});
 		</script>
 
-		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+		<script>
+			function encryptPassword(password) {
+				var md = forge.md.sha256.create();
+				md.update(password);
+				return md.digest().toHex();
+			}
+
+			document.getElementById('loginFormCreateAccount').addEventListener('submit', function(event) {
+				event.preventDefault();
+
+				var pseudo = document.getElementById('pseudoCreate').value;
+				var motDePasse = document.getElementById('motDePasseCreate').value;
+
+				if (motDePasse.length > 4) {
+					hashedPassword = encryptPassword(motDePasse)
+
+					var usersRef = db.collection('user_gabinsbar');
+					usersRef.where('id', '==', pseudo).get()
+						.then((querySnapshot) => {
+							if (querySnapshot.empty) {
+								usersRef.add({
+									id: pseudo,
+									motdepasse: hashedPassword,
+									droits: "invite",
+								})
+								.then((docRef) => {
+									console.log("Nouveau compte utilisateur créé avec l'ID: ", docRef.id);
+									window.location.href = '../login.html';
+								})
+								.catch((error) => {
+									console.error("Erreur lors de la création du compte utilisateur: ", error);
+								});
+							} else {
+								alert('Le pseudo est déjà utilisé. Veuillez en choisir un autre.');
+							}
+						})
+						.catch((error) => {
+							console.error('Erreur lors de la vérification du pseudo existant:', error);
+						});
+				} else {
+					document.getElementById("messageErreur").style.display = "block";
+				}
+			});
+
+		</script>
 	</body>
 </html>
