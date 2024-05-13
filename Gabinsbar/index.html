@@ -243,52 +243,66 @@
 
 		<div style="display: flex;">
 			<div id="verticalMenu" style="writing-mode: vertical-lr; display: flex;">
-				<p style="margin: 10px; cursor: pointer;">Bières bouteilles</p>
-				<p style="margin: 10px; cursor: pointer;">Bière pression</p>
-				<p style="margin: 10px; cursor: pointer;">Vins</p>
-				<p style="margin: 10px; cursor: pointer;">Classiques</p>
-				<p style="margin: 10px; cursor: pointer;">Extravagants</p>
-				<p style="margin: 10px; cursor: pointer;">Softs</p>
-				<p style="margin: 10px; cursor: pointer;">Sirops</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurBieresBouteilles" style="text-decoration: none; color: black;">Bières bouteilles</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurBierePression" style="text-decoration: none; color: black;">Bière pression</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurVins" style="text-decoration: none; color: black;">Vins</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurClassiques" style="text-decoration: none; color: black;">Classiques</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurExtravagants" style="text-decoration: none; color: black;">Extravagants</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurSofts" style="text-decoration: none; color: black;">Softs</a>
+				</p>
+				<p style="margin: 10px; cursor: pointer;">
+					<a href="#conteneurSirops" style="text-decoration: none; color: black;">Sirops</a>
+				</p>
 			</div>
 			<div style="display: flex; align-items: center; width: 100%; flex-wrap: wrap; justify-content: center;">
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurBieresBouteilles" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bières bouteilles</h3>
 
 					<div class="contenuBoissons" id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurBierePression" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bière pression</h3>
 
 					<div class="contenuBoissons" id="bierePression" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurVins" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Vins</h3>
 
 					<div class="contenuBoissons" id="vinsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurClassiques" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Classiques</h3>
 
 					<div class="contenuBoissons" id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurExtravagants" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Extravagants</h3>
 
 					<div class="contenuBoissons" id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurSofts" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
 
 					<div class="contenuBoissons" id="softsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div id="conteneurSirops" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
 
 					<div class="contenuBoissons" id="siropsContenu" style="display: flex; flex-wrap: wrap;">
