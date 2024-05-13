@@ -73,10 +73,26 @@
 				width: 100%;
 			}
 
-			@media only screen and (max-width: 600px) {
+			@media only screen and (max-width: 767px) {
 				/* Masquer l'élément avec l'ID titreTopBar sur les écrans de petite taille */
 				#titreTopBar {
 					display: none;
+				}
+
+				.categorieCarte {
+					padding-left: 20px;
+				}
+			}
+
+			@media only screen and (min-width: 768px) and (max-width: 1023px) {
+				.categorieCarte {
+					padding-left: 50px;
+				}
+			}
+
+			@media only screen and (min-width: 1024px) {
+				.categorieCarte {
+					padding-left: 100px;
 				}
 			}
 
@@ -145,7 +161,7 @@
 		<h1 style="text-align: center; margin: 0 0 40px 0;">Gabin’s bar</h1>
 
 		<div style="display: flex;">
-			<div style="writing-mode: vertical-lr; display: flex;">
+			<div id="verticalMenu" style="writing-mode: vertical-lr; display: flex;">
 				<p style="margin: 10px; cursor: pointer;">Bières bouteilles</p>
 				<p style="margin: 10px; cursor: pointer;">Bière pression</p>
 				<p style="margin: 10px; cursor: pointer;">Vins</p>
@@ -155,46 +171,46 @@
 				<p style="margin: 10px; cursor: pointer;">Sirops</p>
 			</div>
 			<div style="display: flex; align-items: center; width: 100%; flex-wrap: wrap; justify-content: center;">
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bières bouteilles</h3>
 
-					<div id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bière pression</h3>
 
-					<div id="bierePression" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="bierePression" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Vins</h3>
 
-					<div id="vinsContenu" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="vinsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Classiques</h3>
 
-					<div id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Extravagants</h3>
 
-					<div id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
 
-					<div id="softsContenu" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="softsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
-				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+				<div class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
 
-					<div id="siropsContenu" style="display: flex; flex-wrap: wrap;">
+					<div class="contenuBoissons" id="siropsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
 			</div>
@@ -254,10 +270,40 @@
 				if (compteur%2 === 0) {
 					// lightmode
 					darkModeAll()
+					document.getElementById("verticalMenu").style.color = "black";
+					document.getElementById("softsContenu").style.color = "black";
+					document.getElementById("siropsContenu").style.color = "black";
+					document.getElementById("bieresBouteille").style.color = "black";
+					document.getElementById("bierePression").style.color = "black";
+					document.getElementById("vinsContenu").style.color = "black";
+					document.getElementById("classiquesContenu").style.color = "black";
+					document.getElementById("extravagantsContenu").style.color = "black";
+
+					var categorieCarte = document.getElementsByClassName("categorieCarte");
+					for (var i = 0; i < categorieCarte.length; i++) {
+						categorieCarte[i].style.color="black";
+						categorieCarte[i].style.border="2px solid black";
+						categorieCarte[i].style.boxShadow="10px 5px 5px rgba(0, 0, 0, 0.455)";
+					}
 					compteur += 1;
 				} else {
 					// darkmode
 					darkModeAll()
+					document.getElementById("verticalMenu").style.color = "white";
+					document.getElementById("softsContenu").style.color = "white";
+					document.getElementById("siropsContenu").style.color = "white";
+					document.getElementById("bieresBouteille").style.color = "white";
+					document.getElementById("bierePression").style.color = "white";
+					document.getElementById("vinsContenu").style.color = "white";
+					document.getElementById("classiquesContenu").style.color = "white";
+					document.getElementById("extravagantsContenu").style.color = "white";
+					
+					var categorieCarte = document.getElementsByClassName("categorieCarte");
+					for (var i = 0; i < categorieCarte.length; i++) {
+						categorieCarte[i].style.color="white";
+						categorieCarte[i].style.border="2px solid white";
+						categorieCarte[i].style.boxShadow="10px 5px 5px rgba(255, 255, 255, 0.455)";
+					}
 					compteur += 1;
 				}
 		    }
@@ -275,7 +321,7 @@
 					document.getElementById('boutonLienGithub').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" /></svg>';
 					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page.png");
 					document.body.style.backgroundColor = "#F2F2F2";
-					document.querySelectorAll('h3, hr').forEach(function(element) {
+					document.querySelectorAll('h1, h3, hr').forEach(function(element) {
 						element.style.color = "black";
 					});
 					var elementMenuAccueil = document.getElementsByClassName("elementMenuAccueil");
@@ -299,7 +345,7 @@
 					document.getElementById('boutonLienGithub').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" style="fill: white;" /></svg>';
 					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page_dark.png");
 					document.body.style.backgroundColor = "black";
-					document.querySelectorAll('h3, hr').forEach(function(element) {
+					document.querySelectorAll('h1, h3, hr').forEach(function(element) {
 						element.style.color = "white";
 					});
 					var elementMenuAccueil = document.getElementsByClassName("elementMenuAccueil");
