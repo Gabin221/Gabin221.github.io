@@ -8,8 +8,6 @@
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-
 		<style>
 			*{
 				margin: 0px;
@@ -18,7 +16,7 @@
 
 			nav{
 				width: 100%;
-				margin: 40px 0px 40px 0px;
+				margin: 10px 0px 40px 0px;
 				top: 0px;
 				font-weight: bold;
 				font-family: Avenir, sans-serif;
@@ -148,160 +146,55 @@
 
 		<div style="display: flex;">
 			<div style="writing-mode: vertical-lr; display: flex;">
-				<p style="margin: 10px;">Softs</p>
-				<p style="margin: 10px;">Sirops</p>
-				<p style="margin: 10px;">Bières bouteilles</p>
-				<p style="margin: 10px;">Bière pression</p>
-				<p style="margin: 10px;">Vins</p>
-				<p style="margin: 10px;">Classiques</p>
-				<p style="margin: 10px;">Extravagants</p>
+				<p style="margin: 10px; cursor: pointer;">Bières bouteilles</p>
+				<p style="margin: 10px; cursor: pointer;">Bière pression</p>
+				<p style="margin: 10px; cursor: pointer;">Vins</p>
+				<p style="margin: 10px; cursor: pointer;">Classiques</p>
+				<p style="margin: 10px; cursor: pointer;">Extravagants</p>
+				<p style="margin: 10px; cursor: pointer;">Softs</p>
+				<p style="margin: 10px; cursor: pointer;">Sirops</p>
 			</div>
-			<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
-
-					<div id="softsContenu" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
-					</div>
-				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
-
-					<div id="siropsContenu" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
-					</div>
-				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+			<div style="display: flex; align-items: center; width: 100%; flex-wrap: wrap; justify-content: center;">
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bières bouteilles</h3>
 
 					<div id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
 					</div>
 				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Bière pression</h3>
 
 					<div id="bierePression" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
 					</div>
 				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Vins</h3>
 
 					<div id="vinsContenu" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
 					</div>
 				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Classiques</h3>
 
 					<div id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
 					</div>
 				</div>
-				<div style="padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
 					<h3 style="text-align: center; margin: 0 0 20px 0;">Extravagants</h3>
 
 					<div id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
-						<!-- <div style="width: 100%;">
-							Pontarlier (45°)
-						</div>
-						<div style="width: 100%;">
-							Ricard (45°)
-						</div>
-						<div style="width: 100%;">
-							Berger (45°)
-						</div>
-						<div style="width: 100%;">
-							Picon orange (18°)
-						</div>
-						<div style="width: 100%;">
-							Picon citron (18°)
-						</div> -->
+					</div>
+				</div>
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+					<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
+
+					<div id="softsContenu" style="display: flex; flex-wrap: wrap;">
+					</div>
+				</div>
+				<div class="categorieCarte" style="margin: 10px; padding-left: 20px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; padding: 10px; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px; max-width: 500px;">
+					<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
+
+					<div id="siropsContenu" style="display: flex; flex-wrap: wrap;">
 					</div>
 				</div>
 			</div>
@@ -310,7 +203,7 @@
 
 		<hr style="margin-top: 40px; border-top: 2px solid black;">
 
-		<div style="display: flex; justify-content: space-around;">
+		<div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
 			<div style="margin-top: 40px;">
 				<h3>
 					Plan du site
@@ -445,32 +338,32 @@
 
 							// Afficher la liste des boissons en fonction de leur type
 							switch (boissonsType) {
-								case "Sirops":
-									divSirops.innerHTML += boisson['Nom'] + "<br>";
+								case "Softs":
+									divSofts.innerHTML += boisson['Nom'] + " " + boisson['Quantite'] + "cL" + "<br>";
 									option.value = boisson['Nom'];
 									option.textContent = boisson['Nom'];
 									// boissonASupprimer.appendChild(option);
 									break;
-								case "Softs":
-									divSofts.innerHTML += boisson['Nom'] + "<br>";
+								case "Sirops":
+									divSirops.innerHTML += boisson['Nom'] + " 3cL" + "<br>";
 									option.value = boisson['Nom'];
 									option.textContent = boisson['Nom'];
 									// boissonASupprimer.appendChild(option);
 									break;
 								case "Vins":
-									divVins.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + "<br>";
+									divVins.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
 									option.value = boisson['Nom'];
 									option.textContent = boisson['Nom'];
 									// boissonASupprimer.appendChild(option);
 									break;
 								case "Classiques":
-									divClassiques.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + "<br>";
+									divClassiques.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
 									option.value = boisson['Nom'];
 									option.textContent = boisson['Nom'];
 									// boissonASupprimer.appendChild(option);
 									break;
 								case "Extravagants":
-									divExtravagants.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + "<br>";
+									divExtravagants.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
 									option.value = boisson['Nom'];
 									option.textContent = boisson['Nom'];
 									// boissonASupprimer.appendChild(option);
@@ -494,7 +387,7 @@
 					var data = doc.data();
 
 					// Afficher la liste des boissons en bouteilles
-					divBieresBouteille.innerHTML += data['Nom'] + " (" + boisson['Alcool'] + "°)" + "<br>";
+					divBieresBouteille.innerHTML += data['Nom'] + " (" + data['Alcool'] + "°)" + " " + data['Quantite'] + "cL" + "<br>";
 					option.value = data['Nom'];
 					option.textContent = data['Nom'];
 					// boissonASupprimer.appendChild(option);
@@ -510,7 +403,7 @@
 					var data = doc.data();
 
 					// Afficher la liste des boissons en pressions
-					divBieresPression.innerHTML += data['Nom'] + " (" + boisson['Alcool'] + "°)" + "<br>";
+					divBieresPression.innerHTML += data['Nom'] + " (" + data['Alcool'] + "°)" + " " + data['Quantite'] + "" + "<br>";
 					option.value = data['Nom'];
 					option.textContent = data['Nom'];
 					// boissonASupprimer.appendChild(option);
