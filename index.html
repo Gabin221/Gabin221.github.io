@@ -193,29 +193,6 @@
 		</div>
 
 		<script>
-			var compteur = 1;
-			
-			function darkMode() {
-
-				if (compteur%2 === 0) {
-					// lightmode
-					darkModeAll()
-					document.getElementById('textePresentation').style.color="black";
-					document.getElementById('textePresentation').style.border="2px solid black";
-					document.getElementById('textePresentation').style.boxShadow="10px 5px 5px rgba(0, 0, 0, 0.455)";
-					compteur += 1;
-				} else {
-					// darkmode
-					darkModeAll()
-					document.getElementById('textePresentation').style.color="white";
-					document.getElementById('textePresentation').style.border="2px solid white";
-					document.getElementById('textePresentation').style.boxShadow="10px 5px 5px rgba(255, 255, 255, 0.455)";
-					compteur += 1;
-				}
-		    }
-		</script>
-
-		<script>
 			function darkModeAll() {
 				if (compteur%2 === 0) {
 					// lightmode
@@ -269,7 +246,28 @@
 			}
 		</script>
 
-		<script src="Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+		<script>
+			var compteur = 1;
+			
+			function darkMode() {
+
+				if (compteur%2 === 0) {
+					// lightmode
+					darkModeAll()
+					document.getElementById('textePresentation').style.color="black";
+					document.getElementById('textePresentation').style.border="2px solid black";
+					document.getElementById('textePresentation').style.boxShadow="10px 5px 5px rgba(0, 0, 0, 0.455)";
+					compteur += 1;
+				} else {
+					// darkmode
+					darkModeAll()
+					document.getElementById('textePresentation').style.color="white";
+					document.getElementById('textePresentation').style.border="2px solid white";
+					document.getElementById('textePresentation').style.boxShadow="10px 5px 5px rgba(255, 255, 255, 0.455)";
+					compteur += 1;
+				}
+		    }
+		</script>
 
 	</body>
 </html>
