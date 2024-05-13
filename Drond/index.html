@@ -82,10 +82,11 @@
 			}
 
 			#divLeft {
-				background-color: aqua; 
+				background-color: white; 
 				width: 50%; 
 				border-radius: 15px 0 0 15px;
 				text-align: center;
+				border-right: 2px solid black;
 			}
 
 			#divRightConnect {
@@ -104,6 +105,8 @@
 				#divLeft {
 					width: 100%;
 					border-radius: 15px 15px 0 0;
+					border-right: 0;
+					border-bottom: 2px solid black;
 				}
 
 				#divRightConnect {
@@ -171,7 +174,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="elementMenuDRond" href="../Drond/" style="border-bottom: 2px solid black; bottom: 2px;">
+					<a class="elementMenuDRond" href="../Drond/">
 						∂ rond
 					</a>
 				</li>
@@ -323,7 +326,7 @@
 				if (userLoggedIn){
 					document.getElementById('divLeft').style.display = 'block';
 				} else {
-					document.getElementById('divLeft').style.display = 'block'; //none
+					document.getElementById('divLeft').style.display = 'block'; // none
 					document.getElementById("divRightConnect").style.borderRadius = "15px";
 				}
 			});

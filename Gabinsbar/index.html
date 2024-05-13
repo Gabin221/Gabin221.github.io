@@ -73,6 +73,40 @@
 				width: 100%;
 			}
 
+			#divAll {
+				display: flex;
+				width: 90%;
+				margin: 0 auto 0 auto;
+				border-radius: 15px;
+				box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); 
+			}
+
+			#divModifierCarte {
+				margin: 30px 0 30px 0; 
+				width: 100%;
+			}
+
+			#divLeft {
+				background-color: white; 
+				width: 50%; 
+				border-radius: 15px 0 0 15px;
+				text-align: center;
+				border-right: 2px solid black;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			#divRightConnect {
+				background-color: white; 
+				width: 50%; 
+				border-radius: 0 15px 15px 0;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
 			@media only screen and (max-width: 767px) {
 				/* Masquer l'élément avec l'ID titreTopBar sur les écrans de petite taille */
 				#titreTopBar {
@@ -81,6 +115,23 @@
 
 				.categorieCarte {
 					padding-left: 20px;
+				}
+
+				#divLeft {
+					width: 100%;
+					border-radius: 15px 15px 0 0;
+					border-right: 0;
+					border-bottom: 2px solid black;
+				}
+
+				#divRightConnect {
+					width: 100%;
+					border-radius: 0 0 15px 15px;
+					padding-bottom: 20px;
+				}
+
+				#divAll {
+					flex-wrap: wrap;
 				}
 			}
 
@@ -159,6 +210,37 @@
 		</nav>
 
 		<h1 style="text-align: center; margin: 0 0 40px 0;">Gabin’s bar</h1>
+
+		<div id="divModifierCarte" style="display: flex; justify-content: center;">
+			<div id="divAll">
+				<div id="divLeft">
+					<h3 style="margin: 20px 0 20px 0;">Ajouter une boisson</h3>
+
+					<form style="margin: 20px 0 20px 0;" id="updateCarteForm">
+						<label for="nomBoisson">Nom de la boisson:</label><br>
+						<input type="text" id="nomBoisson" name="nomBoisson"><br><br>
+						<select id="categorie" name="categorie">
+							<option value="">Choisissez une catégorie</option>
+						</select><br><br>
+						<select id="pressionBouteille" name="pressionBouteille">
+							<option value="Bouteilles">Bouteille</option>
+							<option value="Pressions">Pression</option>
+						</select><br><br>
+						<button type="submit">Valider</button><br>
+					</form>
+				</div>
+				<div id="divRightConnect">
+					<h3 style="margin: 20px 0 auto 0;">Supprimer une boisson</h3>
+
+					<form style="margin: 20px 0 auto 0;" id="deleteCarteForm">
+						<select id="boissonASupprimer" name="boissonASupprimer">
+							<option value="">Choisissez une boisson à supprimer</option>
+						</select><br><br>
+						<button type="submit">Valider</button><br>
+					</form>
+				</div>
+			</div>
+		</div>
 
 		<div style="display: flex;">
 			<div id="verticalMenu" style="writing-mode: vertical-lr; display: flex;">
@@ -457,6 +539,18 @@
 				console.error('Erreur lors de la récupération des données:', error);
 			});
 
+		</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				var userLoggedIn = localStorage.getItem('userLoggedIn');
+
+				if (userLoggedIn){
+					document.getElementById('divModifierCarte').style.display = 'block';
+				} else {
+					document.getElementById('divModifierCarte').style.display = 'none'; // none
+				}
+			});
 		</script>
 	</body>
 </html>
