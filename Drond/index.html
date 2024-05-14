@@ -201,26 +201,26 @@
 				<div id="divRightConnect">
 					<div id="listeDeroulanteVoiture" style="margin: 20px 0 20px 0;">
 						<select id="voitureSelect" onchange="fetchAndDrawChart()">
-							<option value="">--Choisir--</option>
+							<option value="aucunChoix">--Veuillez choisir une voiture--</option>
 						</select>
 					</div>
 			
-					<div id="graphique" style="border: 1px solid black; margin: 0 10px 10px 10px;">
+					<div id="graphique" style="margin: 0 10px 10px 10px; height: 0;">
 						<canvas id="myChart"></canvas>
 					</div>
 			
 					<div id="infosPlein" style="display: flex; width: 100%; margin: 20px 0 20px 0;">
 						<div id="divConso" style="width: 33.3%; display: flex; flex-direction: column;">
 							<b>Conso:</b>
-							<p id="consommation">test</p>
+							<p id="consommation">Veuillez sélectionner un véhicule</p>
 						</div>
 						<div id="divR2" style="width: 33.3%; display: flex; flex-direction: column;">
 							<b>R²:</b>
-							<p id="r2">test</p>
+							<p id="r2">Veuillez sélectionner un véhicule</p>
 						</div>
 						<div id="divTendance" style="width: 33.3%; display: flex; flex-direction: column;">
 							<b>Tendance:</b>
-							<p id="courbeTendance">test</p>
+							<p id="courbeTendance">Veuillez sélectionner un véhicule</p>
 						</div>
 					</div>
 				</div>
@@ -353,25 +353,36 @@
 			function fetchAndDrawChart() {
 				var selectedCar = document.getElementById("voitureSelect").value;
 
-				var consommations = [];
+				if (selectedCar === "aucunChoix") {
+					if (myChart) {
+						myChart.destroy();
+					}
+					document.getElementById("graphique").style.height = "0";
+					document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
+					document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
+					document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
+				} else {
+					document.getElementById("graphique").style.height = "auto";
+					var consommations = [];
 
-				var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
+					var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
 
-				pleinCollectionRef.get().then(function(querySnapshot) {
-					querySnapshot.forEach(function(doc) {
-						var plein = doc.data();
-						var consommation = (plein.volume * 100) / plein.distance;
-						consommations.push(consommation);
+					pleinCollectionRef.get().then(function(querySnapshot) {
+						querySnapshot.forEach(function(doc) {
+							var plein = doc.data();
+							var consommation = (plein.volume * 100) / plein.distance;
+							consommations.push(consommation);
+						});
+
+						// Calculer la moyenne des consommations
+						var moyenne = calculateMean(consommations);
+
+						// Dessiner le graphique avec la moyenne des consommations
+						drawChart(consommations, moyenne);
+					}).catch(function(error) {
+						console.error("Erreur lors de la récupération des données des pleins :", error);
 					});
-
-					// Calculer la moyenne des consommations
-					var moyenne = calculateMean(consommations);
-
-					// Dessiner le graphique avec la moyenne des consommations
-					drawChart(consommations, moyenne);
-				}).catch(function(error) {
-					console.error("Erreur lors de la récupération des données des pleins :", error);
-				});
+				}
 			}
 
 			// Fonction pour calculer la moyenne d'un tableau de valeurs
