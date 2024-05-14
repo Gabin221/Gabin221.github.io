@@ -6,8 +6,10 @@
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+		<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+
 
 		<style>
 			*{
@@ -207,11 +209,6 @@
 					</div>
 			
 					<div id="graphique" style="margin: 0 10px 10px 10px; height: 0;">
-						<canvas id="myChart"></canvas>
-					</div>
-			
-					<div id="graphique2" style="margin: 0 10px 10px 10px; height: 0;">
-						<canvas id="myChart2"></canvas>
 					</div>
 			
 					<div id="infosPlein" style="display: flex; width: 100%; margin: 20px 0 20px 0;">
@@ -365,15 +362,11 @@
 						myChart.destroy();
 					}
 					document.getElementById("graphique").style.height = "0";
-					/////////////////////////////
-					document.getElementById("graphique2").style.height = "0";
 					document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
 				} else {
 					document.getElementById("graphique").style.height = "auto";
-					/////////////////////////////
-					document.getElementById("graphique2").style.height = "auto";
 					var consommations = [];
 
 					var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
@@ -408,9 +401,7 @@
 
 			// Fonction pour dessiner le graphique avec Chart.js
 			function drawChart(consommations, moyenne) {
-				var ctx = document.getElementById('myChart').getContext('2d');
-				////////////////////////////////
-				var ctx2 = document.getElementById('myChart2').getContext('2d');
+				// var ctx = document.getElementById('myChart').getContext('2d');
 
 				// Détruire le graphique existant s'il y en a un
 				if (myChart) {
@@ -426,38 +417,11 @@
 				for (var i = 1; i <= consommations.length; i++) {
 					label.push("Plein " + i);
 				}
-				myChart = new Chart(ctx, {
-					type: 'line',
-					data: {
-						//labels: Array.from({ length: consommations.length }, (_, i) => i + 1), // Itérations
-						labels: label,
-						datasets: [{
-							label: 'Consommation',
-							data: consommations,
-							backgroundColor: '#FF0000',
-							borderColor: '#FF0000',
-							borderWidth: 1
-						}, {
-							label: 'Tendance',
-							data: trendlineData,
-							borderColor: '#0000FF',
-							borderWidth: 1,
-							fill: false
-						}]
-					},
-					options: {
-    					responsive: true,
-						scales: {
-							y: {
-								beginAtZero: true
-							}
-						}
-					}
-				});
-				////////////////////////////////////////////
+				
 				var options = {
 					chart: {
-						type: 'line'
+						type: 'line',
+						width: "100%",
 					},
 					series: [{
 						name: 'Consommation',
@@ -471,7 +435,7 @@
 					},
 					yaxis: {
 						min: 0,
-						max: 9,
+						max: 10,
 						labels: {
 							formatter: function(val) {
 								if (Number.isInteger(val)) {
@@ -492,13 +456,6 @@
 							var km = kilometres;
 							var volume = volumes;
 							var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
-							console.log("!!!!!!!!!!!!!!!!!!!!");
-							console.log(series);
-							console.log(seriesIndex);
-							console.log(dataPointIndex);
-							console.log(seriesName);
-							console.log(w);
-							console.log("!!!!!!!!!!!!!!!!!!!!");
 							return '<div>' +
 								'<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
 								'<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
@@ -515,7 +472,7 @@
 					}
 				};
 
-				var chart = new ApexCharts(document.querySelector("#graphique2"), options);
+				var chart = new ApexCharts(document.querySelector("#graphique"), options);
 				chart.render();
 
 				// Mettre à jour les valeurs dans le HTML
