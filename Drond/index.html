@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
 	<head>
-		<title>Mes statistiques</title>
+		<title>∂ rond</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
@@ -431,7 +431,12 @@
 						data: trendlineData.map(val => Math.round(val * 1000) / 1000)
 					}],
 					xaxis: {
-						categories: label
+						categories: label,
+						labels: {
+							show: true,
+							rotate: -45,
+          					rotateAlways: true,
+						}
 					},
 					yaxis: {
 						min: 0,
@@ -445,6 +450,28 @@
 								}
 							}
 						}
+					},
+					grid: {
+						show: true,
+						xaxis: {
+							lines: {
+								show: true
+							}
+						},   
+						yaxis: {
+							lines: {
+								show: true
+							}
+						}, 
+					},
+					theme: {
+						mode: 'light', 
+						palette: 'palette1', 
+						monochrome: {
+							enabled: false,
+							color: '#000000',
+							shadeTo: 'light'
+						},
 					},
 					tooltip: {
 						y: {
@@ -473,7 +500,14 @@
 				};
 
 				var chart = new ApexCharts(document.querySelector("#graphique"), options);
-				chart.render();
+
+				var selectedCar = document.getElementById("voitureSelect").value;
+
+				if (selectedCar === "aucunChoix") {
+					chart.destroy();
+				} else {
+					chart.render();
+				}
 
 				// Mettre à jour les valeurs dans le HTML
 				document.getElementById("consommation").innerText = Math.round(moyenne*1000)/1000 + ' L/100';
