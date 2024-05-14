@@ -7,6 +7,7 @@
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 		<style>
 			*{
@@ -181,7 +182,7 @@
 			</ul>
 		</nav>
 
-		<h1 style="text-align: center;">Mes statistiques</h1>
+		<h1 style="text-align: center;">∂ rond</h1>
 
 		<div style="margin-top: 50px; display: flex; justify-content: center;">
 			<div id="divAll">
@@ -207,6 +208,10 @@
 			
 					<div id="graphique" style="margin: 0 10px 10px 10px; height: 0;">
 						<canvas id="myChart"></canvas>
+					</div>
+			
+					<div id="graphique2" style="margin: 0 10px 10px 10px; height: 0;">
+						<canvas id="myChart2"></canvas>
 					</div>
 			
 					<div id="infosPlein" style="display: flex; width: 100%; margin: 20px 0 20px 0;">
@@ -333,6 +338,8 @@
 		</script>
 
 		<script>
+			var kilometres = [];
+			var volumes = [];
 			// Fonction pour récupérer les noms des documents dans la collection "Voitures"
 			function fetchCarNames() {
 				var voitureSelect = document.getElementById("voitureSelect");
@@ -358,11 +365,15 @@
 						myChart.destroy();
 					}
 					document.getElementById("graphique").style.height = "0";
+					/////////////////////////////
+					document.getElementById("graphique2").style.height = "0";
 					document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
 				} else {
 					document.getElementById("graphique").style.height = "auto";
+					/////////////////////////////
+					document.getElementById("graphique2").style.height = "auto";
 					var consommations = [];
 
 					var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
@@ -370,6 +381,8 @@
 					pleinCollectionRef.get().then(function(querySnapshot) {
 						querySnapshot.forEach(function(doc) {
 							var plein = doc.data();
+							kilometres.push(plein.distance);
+							volumes.push(plein.volume);
 							var consommation = (plein.volume * 100) / plein.distance;
 							consommations.push(consommation);
 						});
@@ -396,6 +409,8 @@
 			// Fonction pour dessiner le graphique avec Chart.js
 			function drawChart(consommations, moyenne) {
 				var ctx = document.getElementById('myChart').getContext('2d');
+				////////////////////////////////
+				var ctx2 = document.getElementById('myChart2').getContext('2d');
 
 				// Détruire le graphique existant s'il y en a un
 				if (myChart) {
@@ -407,26 +422,23 @@
 				var regressionLine = linearRegression(consommationsX, consommations); // Calculer la régression linéaire
 				var trendlineData = consommationsX.map(x => regressionLine.slope * x + regressionLine.intercept); // Calculer les valeurs de la courbe de tendance
 
+				var label = [];
+				for (var i = 1; i <= consommations.length; i++) {
+					label.push("Plein " + i);
+				}
 				myChart = new Chart(ctx, {
 					type: 'line',
 					data: {
-						labels: Array.from({ length: consommations.length }, (_, i) => i + 1), // Itérations
+						//labels: Array.from({ length: consommations.length }, (_, i) => i + 1), // Itérations
+						labels: label,
 						datasets: [{
-							label: 'Consommation par plein',
+							label: 'Consommation',
 							data: consommations,
 							backgroundColor: '#FF0000',
 							borderColor: '#FF0000',
 							borderWidth: 1
-						}/*, {
-							type: 'line',
-							label: 'Moyenne',
-							data: Array(consommations.length).fill(moyenne), // Répéter la moyenne pour chaque itération
-							borderColor: '#000000',
-							backgroundColor: '#000000',
-							borderWidth: 1,
-						}*/, {
-							type: 'line',
-							label: 'Courbe de tendance',
+						}, {
+							label: 'Tendance',
 							data: trendlineData,
 							borderColor: '#0000FF',
 							borderWidth: 1,
@@ -434,6 +446,7 @@
 						}]
 					},
 					options: {
+    					responsive: true,
 						scales: {
 							y: {
 								beginAtZero: true
@@ -441,6 +454,69 @@
 						}
 					}
 				});
+				////////////////////////////////////////////
+				var options = {
+					chart: {
+						type: 'line'
+					},
+					series: [{
+						name: 'Consommation',
+						data: consommations.map(val => Math.round(val * 1000) / 1000)
+					}, {
+						name: 'Tendance',
+						data: trendlineData.map(val => Math.round(val * 1000) / 1000)
+					}],
+					xaxis: {
+						categories: label
+					},
+					yaxis: {
+						min: 0,
+						max: 9,
+						labels: {
+							formatter: function(val) {
+								if (Number.isInteger(val)) {
+									return val.toFixed(1); // arrondir à l'unité
+								} else {
+									return val.toFixed(3); // arrondir au millième
+								}
+							}
+						}
+					},
+					tooltip: {
+						y: {
+							formatter: function(val) {
+								return val.toFixed(3); // arrondir au millième
+							}
+						},
+						custom: function({ series, seriesIndex, dataPointIndex, w }) {
+							var km = kilometres;
+							var volume = volumes;
+							var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
+							console.log("!!!!!!!!!!!!!!!!!!!!");
+							console.log(series);
+							console.log(seriesIndex);
+							console.log(dataPointIndex);
+							console.log(seriesName);
+							console.log(w);
+							console.log("!!!!!!!!!!!!!!!!!!!!");
+							return '<div>' +
+								'<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
+								'<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
+								'<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
+								'</div>';
+						}
+					},
+					colors: ['#FF0000', '#0000FF'],
+					stroke: {
+						width: 2
+					},
+					markers: {
+						size: 3
+					}
+				};
+
+				var chart = new ApexCharts(document.querySelector("#graphique2"), options);
+				chart.render();
 
 				// Mettre à jour les valeurs dans le HTML
 				document.getElementById("consommation").innerText = Math.round(moyenne*1000)/1000 + ' L/100';
