@@ -10,7 +10,6 @@
 
 		<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
 
-
 		<style>
 			*{
 				margin: 0px;
@@ -94,7 +93,7 @@
 
 			#divRightConnect {
 				background-color: white; 
-				width: 50%; 
+				width: 100%; 
 				border-radius: 0 15px 15px 0;
 				text-align: center;
 			}
@@ -327,6 +326,7 @@
 
 				if (userLoggedIn){
 					document.getElementById('divLeft').style.display = 'block';
+					document.getElementById("divRightConnect").style.width = "50%";
 				} else {
 					document.getElementById('divLeft').style.display = 'none'; // none
 					document.getElementById("divRightConnect").style.borderRadius = "15px";
