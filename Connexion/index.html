@@ -233,10 +233,10 @@
 
 		<script>
 			function logout() {
-				localStorage.removeItem('userLoggedIn');
-				localStorage.removeItem('currentUser');
-				localStorage.removeItem('userRights');
-				var previousPage = localStorage.getItem('previousPage');
+				sessionStorage.removeItem('userLoggedIn');
+				sessionStorage.removeItem('currentUser');
+				sessionStorage.removeItem('userRights');
+				var previousPage = sessionStorage.getItem('previousPage');
 				if (previousPage) {
 					window.location.href = previousPage;
 				} else {
@@ -265,10 +265,10 @@
 							querySnapshot.forEach((doc) => {
 								var userData = doc.data();
 								var droits = userData.droits;
-								localStorage.setItem('userLoggedIn', true);
-								localStorage.setItem('currentUser', pseudo);
-								localStorage.setItem('userRights', droits);
-								var previousPage = localStorage.getItem('previousPage');
+								sessionStorage.setItem('userLoggedIn', true);
+								sessionStorage.setItem('currentUser', pseudo);
+								sessionStorage.setItem('userRights', droits);
+								var previousPage = sessionStorage.getItem('previousPage');
 								if (previousPage) {
 									window.location.href = previousPage;
 								} else {

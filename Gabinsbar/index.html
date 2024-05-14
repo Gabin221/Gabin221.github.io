@@ -562,7 +562,7 @@
 
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
-				var userLoggedIn = localStorage.getItem('userLoggedIn');
+				var userLoggedIn = sessionStorage.getItem('userLoggedIn');
 
 				if (userLoggedIn){
 					document.getElementById('divModifierCarte').style.display = 'block';
