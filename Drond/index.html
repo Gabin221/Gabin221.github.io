@@ -358,15 +358,13 @@
 				var selectedCar = document.getElementById("voitureSelect").value;
 
 				if (selectedCar === "aucunChoix") {
-					if (myChart) {
-						myChart.destroy();
-					}
-					document.getElementById("graphique").style.height = "0";
+					document.getElementById("graphique").style.display = "none";
 					document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
 					document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
 				} else {
 					document.getElementById("graphique").style.height = "auto";
+					document.getElementById("graphique").style.display = "block";
 					var consommations = [];
 
 					var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
@@ -564,7 +562,6 @@
 			window.onload = function() {
 				fetchCarNames();
 			};
-
 		</script>
 	</body>
 </html>
