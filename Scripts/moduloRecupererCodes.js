@@ -21,6 +21,7 @@ var langages = {
     divKotlinContenu: "Kotlin",
     divLatexContenu: "LaTeX",
     divLignesDeCommandesContenu: "Ligne de commande",
+    divLinuxContenu: "Linux",
     divPythonContenu: "Python",
     divShellContenu: "Shell",
     divWebContenu: "Web"

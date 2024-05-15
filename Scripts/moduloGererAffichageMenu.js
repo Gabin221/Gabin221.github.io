@@ -10,6 +10,8 @@ const latex = document.getElementById('divLatex');
 const boutonLatex = document.getElementById('boutonLatex');
 const lignesDeCommandes = document.getElementById('divLignesDeCommandes');
 const boutonLignesDeCommandes = document.getElementById('boutonLignesDeCommandes');
+const linux = document.getElementById('divLinux');
+const boutonLinux = document.getElementById('boutonLinux');
 const python = document.getElementById('divPython');
 const boutonPython = document.getElementById('boutonPython');
 const shell = document.getElementById('divShell');
@@ -24,6 +26,7 @@ boutonC.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -34,6 +37,7 @@ boutonC.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -48,6 +52,7 @@ boutonCpp.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -58,6 +63,7 @@ boutonCpp.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -72,6 +78,7 @@ boutonKotlin.addEventListener('click', function() {
         kotlin.style.display = 'block';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -82,6 +89,7 @@ boutonKotlin.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -96,6 +104,7 @@ boutonLatex.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'block';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -106,6 +115,7 @@ boutonLatex.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -120,6 +130,7 @@ boutonLignesDeCommandes.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'block';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -130,6 +141,33 @@ boutonLignesDeCommandes.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
+        python.style.display = 'none';
+        shell.style.display = 'none';
+        web.style.display = 'none';
+        presentation.style.display = 'none';
+    }
+});
+
+boutonLinux.addEventListener('click', function() {
+    if (linux.style.display === 'none') {
+        c.style.display = "none";
+        cpp.style.display = 'none';
+        kotlin.style.display = 'none';
+        latex.style.display = 'none';
+        lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'block';
+        python.style.display = 'none';
+        shell.style.display = 'none';
+        web.style.display = 'none';
+        presentation.style.display = 'none';
+    } else {
+        c.style.display = 'none';
+        cpp.style.display = 'none';
+        kotlin.style.display = 'none';
+        latex.style.display = 'none';
+        lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -144,6 +182,7 @@ boutonPython.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'block';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -154,6 +193,7 @@ boutonPython.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -168,6 +208,7 @@ boutonShell.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'block';
         web.style.display = 'none';
@@ -178,6 +219,7 @@ boutonShell.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -192,6 +234,7 @@ boutonWeb.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'block';
@@ -202,6 +245,7 @@ boutonWeb.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -216,6 +260,7 @@ boutonPresentation.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
@@ -226,6 +271,7 @@ boutonPresentation.addEventListener('click', function() {
         kotlin.style.display = 'none';
         latex.style.display = 'none';
         lignesDeCommandes.style.display = 'none';
+        linux.style.display = 'none';
         python.style.display = 'none';
         shell.style.display = 'none';
         web.style.display = 'none';
