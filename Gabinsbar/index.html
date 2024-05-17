@@ -113,7 +113,7 @@
 				}
 
 				.contenuBoissons {
-					padding-left: 20px;
+					padding-left: 0px;
 				}
 
 				#divLeft {
@@ -136,13 +136,13 @@
 
 			@media only screen and (min-width: 768px) and (max-width: 1023px) {
 				.contenuBoissons {
-					padding-left: 50px;
+					padding-left: 0px;
 				}
 			}
 
 			@media only screen and (min-width: 1024px) {
 				.contenuBoissons {
-					padding-left: 100px;
+					padding-left: 0px;
 				}
 			}
 
@@ -471,98 +471,111 @@
 		</script>
 
 		<script>
-			var divSirops = document.getElementById('siropsContenu');
-			var divSofts = document.getElementById('softsContenu');
-			var divBieresBouteille = document.getElementById('bieresBouteille');
-			var divBieresPression = document.getElementById('bierePression');
-			var divVins = document.getElementById('vinsContenu');
-			var divClassiques = document.getElementById('classiquesContenu');
-			var divExtravagants = document.getElementById('extravagantsContenu');
+			document.addEventListener('DOMContentLoaded', function() {
+				const fillChar = '.'; // Caractère de remplissage
 
-			// const boissonASupprimer = document.getElementById('boissonASupprimer');
+				function getTextWidth(text, font) {
+					const canvas = document.createElement('canvas');
+					const context = canvas.getContext('2d');
+					context.font = font;
+					const metrics = context.measureText(text);
+					return metrics.width;
+				}
 
-			db.collection("boissons").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					var boissonsType = doc.id;
-					db.collection("boissons").doc(boissonsType).collection(boissonsType).get().then((querySnapshot) => {
-						querySnapshot.forEach((doc) => {
-							var boisson = doc.data();
-							const option = document.createElement('option');
+				function formatTextWithFill(name, quantity, alcohol, container) {
+					if(alcohol == undefined) {
+						const containerWidth = container.clientWidth; // Largeur du conteneur parent
+						const computedStyle = getComputedStyle(container);
+						const font = `${computedStyle.fontSize} ${computedStyle.fontFamily}`;
+						
+						let text = `${name} ${quantity}`;
+						const initialWidth = getTextWidth(text, font);
+						
+						let fillWidth = containerWidth - initialWidth;
+						let numFillChars = Math.floor(fillWidth / getTextWidth(fillChar, font)) - 5;
+						
+						return `${name} ${fillChar.repeat(numFillChars)}${quantity}`;
+					} else {
+						const containerWidth = container.clientWidth; // Largeur du conteneur parent
+						const computedStyle = getComputedStyle(container);
+						const font = `${computedStyle.fontSize} ${computedStyle.fontFamily}`;
+						
+						let text = `${name} (${alcohol}° ${quantity}cL)`;
+						const initialWidth = getTextWidth(text, font);
+						
+						let fillWidth = containerWidth - initialWidth;
+						let numFillChars = Math.floor(fillWidth / getTextWidth(fillChar, font));
+						
+						return `${name} (${alcohol}°)${fillChar.repeat(numFillChars)}${quantity}`;
+					}
+				}
 
-							// Afficher la liste des boissons en fonction de leur type
-							switch (boissonsType) {
-								case "Softs":
-									divSofts.innerHTML += boisson['Nom'] + " " + boisson['Quantite'] + "cL" + "<br>";
-									option.value = boisson['Nom'];
-									option.textContent = boisson['Nom'];
-									// boissonASupprimer.appendChild(option);
-									break;
-								case "Sirops":
-									divSirops.innerHTML += boisson['Nom'] + " 3cL" + "<br>";
-									option.value = boisson['Nom'];
-									option.textContent = boisson['Nom'];
-									// boissonASupprimer.appendChild(option);
-									break;
-								case "Vins":
-									divVins.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
-									option.value = boisson['Nom'];
-									option.textContent = boisson['Nom'];
-									// boissonASupprimer.appendChild(option);
-									break;
-								case "Classiques":
-									divClassiques.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
-									option.value = boisson['Nom'];
-									option.textContent = boisson['Nom'];
-									// boissonASupprimer.appendChild(option);
-									break;
-								case "Extravagants":
-									divExtravagants.innerHTML += boisson['Nom'] + " (" + boisson['Alcool'] + "°)" + " " + boisson['Quantite'] + "cL" + "<br>";
-									option.value = boisson['Nom'];
-									option.textContent = boisson['Nom'];
-									// boissonASupprimer.appendChild(option);
-									break;
-								default:
-									break;
-							}
+				function appendBoisson(container, name, quantity, alcohol) {
+					container.innerHTML += formatTextWithFill(name, quantity, alcohol, container) + "<br>";
+				}
+
+				var divSirops = document.getElementById('siropsContenu');
+				var divSofts = document.getElementById('softsContenu');
+				var divBieresBouteille = document.getElementById('bieresBouteille');
+				var divBieresPression = document.getElementById('bierePression');
+				var divVins = document.getElementById('vinsContenu');
+				var divClassiques = document.getElementById('classiquesContenu');
+				var divExtravagants = document.getElementById('extravagantsContenu');
+
+				db.collection("boissons").get().then((querySnapshot) => {
+					querySnapshot.forEach((doc) => {
+						var boissonsType = doc.id;
+						db.collection("boissons").doc(boissonsType).collection(boissonsType).get().then((querySnapshot) => {
+							querySnapshot.forEach((doc) => {
+								var boisson = doc.data();
+								const option = document.createElement('option');
+
+								// Afficher la liste des boissons en fonction de leur type
+								switch (boissonsType) {
+									case "Softs":
+										appendBoisson(divSofts, boisson['Nom'], `${boisson['Quantite']} cL`);
+										break;
+									case "Sirops":
+										appendBoisson(divSirops, boisson['Nom'], "3 cL");
+										break;
+									case "Vins":
+										appendBoisson(divVins, boisson['Nom'], `${boisson['Quantite']} cL`, boisson['Alcool']);
+										break;
+									case "Classiques":
+										appendBoisson(divClassiques, boisson['Nom'], `${boisson['Quantite']} cL`, boisson['Alcool']);
+										break;
+									case "Extravagants":
+										appendBoisson(divExtravagants, boisson['Nom'], `${boisson['Quantite']} cL`, boisson['Alcool']);
+										break;
+									default:
+										break;
+								}
+							});
+						}).catch((error) => {
+							console.error('Erreur lors de la récupération des données:', error);
 						});
-					}).catch((error) => {
-						console.error('Erreur lors de la récupération des données:', error);
 					});
+				}).catch((error) => {
+					console.error('Erreur lors de la récupération des données:', error);
 				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
-			});
 
-			// Récupérer toutes les données des bières bouteilles
-			db.collection("boissons").doc("Bières").collection("Bouteilles").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					const option = document.createElement('option');
-					var data = doc.data();
-
-					// Afficher la liste des boissons en bouteilles
-					divBieresBouteille.innerHTML += data['Nom'] + " (" + data['Alcool'] + "°)" + " " + data['Quantite'] + "cL" + "<br>";
-					option.value = data['Nom'];
-					option.textContent = data['Nom'];
-					// boissonASupprimer.appendChild(option);
+				db.collection("boissons").doc("Bières").collection("Bouteilles").get().then((querySnapshot) => {
+					querySnapshot.forEach((doc) => {
+						var data = doc.data();
+						appendBoisson(divBieresBouteille, data['Nom'], `${data['Quantite']}cL`, data['Alcool']);
+					});
+				}).catch((error) => {
+					console.error('Erreur lors de la récupération des données:', error);
 				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
-			});
 
-			// Récupérer toutes les données des bières pressions
-			db.collection("boissons").doc("Bières").collection("Pressions").get().then((querySnapshot) => {
-				querySnapshot.forEach((doc) => {
-					const option = document.createElement('option');
-					var data = doc.data();
-
-					// Afficher la liste des boissons en pressions
-					divBieresPression.innerHTML += data['Nom'] + " (" + data['Alcool'] + "°)" + " " + data['Quantite'] + "" + "<br>";
-					option.value = data['Nom'];
-					option.textContent = data['Nom'];
-					// boissonASupprimer.appendChild(option);
+				db.collection("boissons").doc("Bières").collection("Pressions").get().then((querySnapshot) => {
+					querySnapshot.forEach((doc) => {
+						var data = doc.data();
+						appendBoisson(divBieresPression, data['Nom'], `${data['Quantite']}`, data['Alcool']);
+					});
+				}).catch((error) => {
+					console.error('Erreur lors de la récupération des données:', error);
 				});
-			}).catch((error) => {
-				console.error('Erreur lors de la récupération des données:', error);
 			});
 
 		</script>
