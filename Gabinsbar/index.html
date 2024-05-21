@@ -150,7 +150,7 @@
 
 		<link rel="icon" href="../Images/gabinsbar.png" type="image/png">
 	</head>
-	<body style="background-color: #F2F2F2;">
+	<body style="padding-left: 5%; padding-right: 5%; background-color: #F2F2F2;">
 		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
 			<a style="color: black; text-decoration: none;" href="../index.html">
 				<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
@@ -209,149 +209,157 @@
 		</nav>
 
 		<h1 style="text-align: center; margin: 0 0 40px 0;">Gabin’s bar</h1>
-
-		<div id="divModifierCarte" style="display: flex; justify-content: center;">
-			<div id="divAll">
-				<div id="divLeft">
-					<h3 style="margin: 20px 0 20px 0;">Ajouter une boisson</h3>
-
-					<form style="margin: 20px 0 20px 0;" id="updateCarteForm">
-						<input type="text" id="nomBoisson" name="nomBoisson" placeholder="Nom de la boisson"><br><br>
-						<select id="categorie" name="categorie">
-							<option value="">Catégorie de boisson</option>
-						</select><br><br>
-						<input type="number" step="1" id="quantiteBoisson" name="quantiteBoisson" placeholder="Quantité de la boisson"><br><br>
-						<input type="number" step="0.1" id="quantiteAlcool" name="quantiteAlcool" placeholder="Quantité d'alcool'"><br><br>
-						<select id="pressionBouteille" name="pressionBouteille">
-							<option value="Bouteilles">Bouteille</option>
-							<option value="Pressions">Pression</option>
-						</select><br><br>
-						<button type="submit">Valider</button><br>
-					</form>
+		
+		<div style="background-color: white;">
+			<div id="divModifierCarte" style="display: flex; justify-content: center;">
+				<div id="divAll">
+					<div id="divLeft">
+						<h3 style="margin: 20px 0 20px 0;">Ajouter une boisson</h3>
+	
+						<form style="margin: 20px 0 20px 0;" id="updateCarteForm">
+							<input type="text" id="nomBoisson" name="nomBoisson" placeholder="Nom de la boisson"><br><br>
+							<select id="categorie" name="categorie">
+								<option value="">Catégorie de boisson</option>
+							</select><br><br>
+							<input type="number" step="1" id="quantiteBoisson" name="quantiteBoisson" placeholder="Quantité de la boisson"><br><br>
+							<input type="number" step="0.1" id="quantiteAlcool" name="quantiteAlcool" placeholder="Quantité d'alcool'"><br><br>
+							<select id="pressionBouteille" name="pressionBouteille">
+								<option value="Bouteilles">Bouteille</option>
+								<option value="Pressions">Pression</option>
+							</select><br><br>
+							<button type="submit">Valider</button><br>
+						</form>
+					</div>
+					<div id="divRightConnect">
+						<h3 style="margin: 20px 0 auto 0;">Supprimer une boisson</h3>
+	
+						<form style="margin: 20px 0 auto 0;" id="deleteCarteForm">
+							<select id="boissonASupprimer" name="boissonASupprimer">
+								<option value="">Choisissez une boisson à supprimer</option>
+							</select><br><br>
+							<button type="submit">Valider</button><br>
+						</form>
+					</div>
 				</div>
-				<div id="divRightConnect">
-					<h3 style="margin: 20px 0 auto 0;">Supprimer une boisson</h3>
-
-					<form style="margin: 20px 0 auto 0;" id="deleteCarteForm">
-						<select id="boissonASupprimer" name="boissonASupprimer">
-							<option value="">Choisissez une boisson à supprimer</option>
-						</select><br><br>
-						<button type="submit">Valider</button><br>
-					</form>
+			</div>
+	
+			<div style="display: flex;">
+				<div id="verticalMenu" style="writing-mode: vertical-lr; display: flex;">
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurBieresBouteilles" style="text-decoration: none; color: black;">Bières bouteilles</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurBierePression" style="text-decoration: none; color: black;">Bière pression</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurVins" style="text-decoration: none; color: black;">Vins</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurClassiques" style="text-decoration: none; color: black;">Classiques</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurExtravagants" style="text-decoration: none; color: black;">Extravagants</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurSofts" style="text-decoration: none; color: black;">Softs</a>
+					</p>
+					<p style="margin: 10px; cursor: pointer;">
+						<a href="#conteneurSirops" style="text-decoration: none; color: black;">Sirops</a>
+					</p>
+				</div>
+				<div style="display: flex; align-items: center; width: 100%; flex-wrap: wrap; justify-content: center;">
+					<div id="conteneurBieresBouteilles" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Bières bouteilles</h3>
+	
+						<div class="contenuBoissons" id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurBierePression" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Bière pression</h3>
+	
+						<div class="contenuBoissons" id="bierePression" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurVins" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Vins</h3>
+	
+						<div class="contenuBoissons" id="vinsContenu" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurClassiques" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Classiques</h3>
+	
+						<div class="contenuBoissons" id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurExtravagants" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Extravagants</h3>
+	
+						<div class="contenuBoissons" id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurSofts" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
+	
+						<div class="contenuBoissons" id="softsContenu" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
+					<div id="conteneurSirops" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
+						<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
+	
+						<div class="contenuBoissons" id="siropsContenu" style="display: flex; flex-wrap: wrap;">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+	
+		<hr style="margin-top: 40px; border: 1px solid black;">
 
-		<div style="display: flex;">
-			<div id="verticalMenu" style="writing-mode: vertical-lr; display: flex;">
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurBieresBouteilles" style="text-decoration: none; color: black;">Bières bouteilles</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurBierePression" style="text-decoration: none; color: black;">Bière pression</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurVins" style="text-decoration: none; color: black;">Vins</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurClassiques" style="text-decoration: none; color: black;">Classiques</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurExtravagants" style="text-decoration: none; color: black;">Extravagants</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurSofts" style="text-decoration: none; color: black;">Softs</a>
-				</p>
-				<p style="margin: 10px; cursor: pointer;">
-					<a href="#conteneurSirops" style="text-decoration: none; color: black;">Sirops</a>
-				</p>
-			</div>
-			<div style="display: flex; align-items: center; width: 100%; flex-wrap: wrap; justify-content: center;">
-				<div id="conteneurBieresBouteilles" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Bières bouteilles</h3>
+		<div>
+			<div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 40px;">
+				<div style="background-color: white; width: 30%; padding: 20px;">
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						<h3>
+							Plan du site
+						</h3>
 
-					<div class="contenuBoissons" id="bieresBouteille" style="display: flex; flex-wrap: wrap;">
+						<ul style="margin-top: 20px; list-style-type: none; display: flex; flex-direction: column;">
+							<li>
+								<a class="elementMenuAccueil" href="../" style="color: black; text-decoration: none;">
+									Accueil
+								</a>
+							</li>
+							<li>
+								<a class="elementMenuGabinsBar" href="../Gabinsbar/" style="color: black; text-decoration: none;">
+									Gabin's bar
+								</a>
+							</li>
+							<li>
+								<a class="elementMenuModulo" href="../Modulo/" style="color: black; text-decoration: none;">
+									Modulo
+								</a>
+							</li>
+							<li>
+								<a class="elementMenuDRond" href="../Drond/" style="color: black; text-decoration: none;">
+									∂ rond
+								</a>
+							</li>
+						</ul>
 					</div>
 				</div>
-				<div id="conteneurBierePression" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Bière pression</h3>
-
-					<div class="contenuBoissons" id="bierePression" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-				<div id="conteneurVins" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Vins</h3>
-
-					<div class="contenuBoissons" id="vinsContenu" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-				<div id="conteneurClassiques" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Classiques</h3>
-
-					<div class="contenuBoissons" id="classiquesContenu" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-				<div id="conteneurExtravagants" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Extravagants</h3>
-
-					<div class="contenuBoissons" id="extravagantsContenu" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-				<div id="conteneurSofts" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Softs</h3>
-
-					<div class="contenuBoissons" id="softsContenu" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-				<div id="conteneurSirops" class="categorieCarte" style="margin: 10px; padding-bottom: 10px; padding-top: 10px; width: 80%; border: 2px solid black; box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); border-radius: 15px;">
-					<h3 style="text-align: center; margin: 0 0 20px 0;">Sirops</h3>
-
-					<div class="contenuBoissons" id="siropsContenu" style="display: flex; flex-wrap: wrap;">
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<hr style="margin-top: 40px; border-top: 2px solid black;">
-
-		<div style="display: flex; justify-content: space-around; margin-bottom: 10px;">
-			<div style="margin-top: 40px;">
-				<h3>
-					Plan du site
-				</h3>
-
-				<ul style="margin-top: 20px; list-style-type: none; display: flex; flex-direction: column;">
-					<li>
-						<a class="elementMenuAccueil" href="../" style="color: black; text-decoration: none;">
-							Accueil
+				<div style="background-color: white; width: 30%; padding: 20px;">
+					<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+						<h3>
+							Réseaux
+						</h3>
+						<a href="https://github.com/Gabin221">
+							<svg id="boutonLienGithub" style="width: 40px; height: 40px; margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+								<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+							</svg>
 						</a>
-					</li>
-					<li>
-						<a class="elementMenuGabinsBar" href="../Gabinsbar/" style="color: black; text-decoration: none;">
-							Gabin's bar
-						</a>
-					</li>
-					<li>
-						<a class="elementMenuModulo" href="../Modulo/" style="color: black; text-decoration: none;">
-							Modulo
-						</a>
-					</li>
-					<li>
-						<a class="elementMenuDRond" href="../Drond/" style="color: black; text-decoration: none;">
-							∂ rond
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div style="margin-top: 40px; display: flex; flex-direction: column; align-items: center;">
-				<h3>
-					Réseaux
-				</h3>
-				<a href="https://github.com/Gabin221">
-					<svg id="boutonLienGithub" style="width: 40px; height: 40px; margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-					</svg>
-				</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
