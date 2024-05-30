@@ -528,7 +528,8 @@
 						const computedStyle = getComputedStyle(container);
 						const font = `${computedStyle.fontSize} ${computedStyle.fontFamily}`;
 						
-						let text = `${name} (${alcohol}° ${quantity}cL)`;
+						let text = `${name} (${alcohol}°) ${quantity}`;
+						// let text = `${name} ${alcohol} ${quantity}`;
 						const initialWidth = getTextWidth(text, font);
 						
 						let fillWidth = containerWidth - initialWidth;
