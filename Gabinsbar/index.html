@@ -150,7 +150,7 @@
 
 		<link rel="icon" href="../Images/gabinsbar.png" type="image/png">
 	</head>
-	<body style="padding-left: 5%; padding-right: 5%; background-color: #F2F2F2;">
+	<body style="background-color: #F2F2F2;">
 		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
 			<a style="color: black; text-decoration: none;" href="../index.html">
 				<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
@@ -208,7 +208,7 @@
 			</ul>
 		</nav>
 		
-		<div style="background-color: white; border-radius: 10% / 10%; padding-bottom: 20px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+		<div style="background-color: white; padding-bottom: 20px; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
 			<h1 style="text-align: center; margin: 0 0 40px 0;">Gabin’s bar</h1>
 
 			<div id="divModifierCarte" style="display: flex; justify-content: center;">
@@ -510,7 +510,7 @@
 					return metrics.width;
 				}
 
-				function formatTextWithFill(name, quantity, alcohol, container) {
+				function formatTextWithFill(name, quantity, container, alcohol) {
 					if(alcohol == undefined) {
 						const containerWidth = container.clientWidth; // Largeur du conteneur parent
 						const computedStyle = getComputedStyle(container);
@@ -539,7 +539,7 @@
 				}
 
 				function appendBoisson(container, name, quantity, alcohol) {
-					container.innerHTML += formatTextWithFill(name, quantity, alcohol, container) + "<br>";
+					container.innerHTML += formatTextWithFill(name, quantity, container, alcohol) + "<br>";
 				}
 
 				var divSirops = document.getElementById('siropsContenu');
