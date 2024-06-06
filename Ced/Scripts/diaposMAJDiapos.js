@@ -18,18 +18,25 @@ async function updateSlideshow() {
 
   const urls = await fetchImages();
   if (urls && urls.length > 0) {
-    urls.forEach((url, index) => {
+    for (const [index, url] of urls.entries()) {
       const slide = document.createElement('div');
       slide.classList.add('mySlides');
       if (index === 0) {
         slide.style.display = 'block'; // Afficher la première image
       }
 
-      const img = document.createElement('img');
+      const img = new Image();
       img.src = url;
+      img.onload = function() {
+        if (img.naturalHeight > img.naturalWidth) {
+          img.style.height = '99.5%';
+        } else {
+          img.style.width = '99.5%';
+        }
+      };
       slide.appendChild(img);
       slideshow.appendChild(slide);
-    });
+    }
 
     // Démarrer le diaporama
     startSlideshow();
@@ -48,7 +55,6 @@ function startSlideshow() {
     slideIndex++;
     if (slideIndex > slides.length) {
         updateSlideshow();
-        console.log('Slideshow');
       slideIndex = 1; // Réinitialiser à la première diapositive
     }
     slides[slideIndex - 1].style.display = 'block';
@@ -57,9 +63,6 @@ function startSlideshow() {
 
   showSlide();
 }
-
-// Mettre à jour les images toutes les 5 minutes (300000 ms)
-// setInterval(updateSlideshow, 10000);
 
 // Charger les images lors du premier chargement de la page
 window.onload = updateSlideshow;
