@@ -1,55 +1,57 @@
+// Référence à Firebase Storage
 const storageRef = firebase.storage().ref('Ced/Diapos');
 
-async function getImageUrls() {
+// Fonction pour récupérer les URLs des images
+async function fetchImageUrls() {
+    const urls = [];
     try {
         const result = await storageRef.listAll();
-        const imagePromises = result.items.map(imageRef => imageRef.getDownloadURL());
-        const imageUrls = await Promise.all(imagePromises);
-        return imageUrls;
-    } catch (error) {
-        throw new Error('Failed to get image URLs: ' + error.message);
-    }
-}
-
-async function loadSlides() {
-    try {
-        const imageUrls = await getImageUrls();
-        const slideshowContainer = document.getElementById('slideshow');
-        
-        slideshowContainer.innerHTML = '';
-
-        imageUrls.forEach(function(url) {
-            const slide = document.createElement('div');
-            slide.className = 'mySlides fade';
-            const img = document.createElement('img');
-            img.src = url;
-            slide.appendChild(img);
-            slideshowContainer.appendChild(slide);
-        });
-
-        initSlideshow();
-    } catch (error) {
-        console.error('Error loading slides:', error);
-    }
-}
-
-function initSlideshow() {
-    const slides = document.querySelectorAll('.mySlides');
-    let currentSlideIndex = 0;
-
-    slides.forEach(function(slide, index) {
-        if (index !== currentSlideIndex) {
-            slide.style.display = 'none';
+        for (const itemRef of result.items) {
+            const url = await itemRef.getDownloadURL();
+            urls.push(url);
         }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des images:", error);
+    }
+    return urls;
+}
+
+// Fonction pour afficher les images dans le diaporama
+async function displaySlideshow() {
+    const imageUrls = await fetchImageUrls();
+    const slideshowContainer = document.getElementById('slideshow');
+    slideshowContainer.innerHTML = ''; // Clear existing slides
+
+    imageUrls.forEach((url, index) => {
+        const slideDiv = document.createElement('div');
+        slideDiv.className = 'mySlides';
+        if (index === 0) slideDiv.style.display = 'block'; // Show the first slide initially
+
+        const imgElement = document.createElement('img');
+        imgElement.src = url;
+
+        slideDiv.appendChild(imgElement);
+        slideshowContainer.appendChild(slideDiv);
     });
 
-    setInterval(function() {
-        slides[currentSlideIndex].style.display = 'none';
-        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-        slides[currentSlideIndex].style.display = 'block';
-    }, 5000);
+    showSlides();
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadSlides();
-});
+// Fonction pour montrer les diapositives une par une
+let slideIndex = 0;
+function showSlides() {
+    const slides = document.getElementsByClassName('mySlides');
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1; }
+    slides[slideIndex - 1].style.display = 'block';
+    setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+
+// Mettre à jour le diaporama périodiquement
+setInterval(displaySlideshow, 3000); // Update every 3 seconds
+
+// Initial call to display the slideshow
+displaySlideshow();
