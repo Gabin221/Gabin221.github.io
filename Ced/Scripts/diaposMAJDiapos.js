@@ -56,7 +56,7 @@ function startSlideshow() {
   showSlide();
 }
 
-// Mettre à jour les images toutes les 5 minutes (300000 ms)
+// Mettre à jour les images toutes les 3 secondes (3000 ms)
 setInterval(updateSlideshow, 3000);
 
 // Charger les images lors du premier chargement de la page
