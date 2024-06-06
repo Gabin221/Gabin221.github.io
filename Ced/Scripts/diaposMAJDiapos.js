@@ -47,7 +47,9 @@ function startSlideshow() {
     }
     slideIndex++;
     if (slideIndex > slides.length) {
-      slideIndex = 1;
+        updateSlideshow();
+        console.log('Slideshow');
+      slideIndex = 1; // Réinitialiser à la première diapositive
     }
     slides[slideIndex - 1].style.display = 'block';
     setTimeout(showSlide, 3000); // Changer d'image toutes les 3 secondes
@@ -56,8 +58,8 @@ function startSlideshow() {
   showSlide();
 }
 
-// Mettre à jour les images toutes les 3 secondes (3000 ms)
-setInterval(updateSlideshow, 3000);
+// Mettre à jour les images toutes les 5 minutes (300000 ms)
+// setInterval(updateSlideshow, 10000);
 
 // Charger les images lors du premier chargement de la page
 window.onload = updateSlideshow;
