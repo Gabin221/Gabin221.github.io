@@ -2,13 +2,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
 	<head>
-		<title>Title of the page</title>
+		<title>Formulaires</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
 	</head>
 	<body>
-		<h1 style="text-align: center;">Télécharger les images</h1>
+		<h1 style="text-align: center;">Formulaires</h1>
 
 		<button type="button">
 			<a href="../index.html">
@@ -16,15 +16,39 @@
 			</a>
 		</button><br><br><br>
 
-		<input type="file" id="fileInput" multiple><br>
-		<button onclick="uploadImages()">
-			Upload
-		</button>
+		<h3>Ajouter des images pour le diaporama</h3>
 
-		<div id="statusUpload"></div>
+		<div style="border: 1px solid black; padding: 20px; display: flex; flex-direction: column; align-items: center;">
+			<input type="file" id="fileInput" multiple><br>
+			<button onclick="uploadImages()">Upload</button>
+
+			<div id="statusUpload"></div>
+		</div>
+
+		<hr>
+
+		<h3>Ajouter des suggestions de musiques</h3>
+
+		<div style="border: 1px solid black; padding: 20px; display: flex; flex-direction: column; align-items: center;">
+			<p style="color: gray; width: 100%;">Les champs munis d'un astérisque (*) sont obligatoires.</p>
+			<form id="musicSuggestForm">
+				<label for="titleMusic">Titre*:</label><br>
+				<input type="text" id="titleMusic" name="titleMusic"><br><br>
+				<label for="artistesMusic">Artiste(s)*:</label><br>
+				<input type="text" id="artistesMusic" name="artistesMusic"><br><br>
+				<label for="remarqueMusic">Remarque particulière ?<br><span style="color: gray;">(par exemple une préférence pour le remix s'il existe ou l'original ?)</span></label><br>
+				<input type="text" id="remarqueMusic" name="remarqueMusic"><br><br>
+	
+				<button type="submit">Valider</button><br>
+
+				<div id="statusSuggestMusiques"></div>
+			</form>
+		</div>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 		<script src="../Scripts/diaposUploadImages.js"></script>
+
+		<script src="../Scripts/envoieSuggestionsMusiques.js"></script>
 	</body>
 </html>

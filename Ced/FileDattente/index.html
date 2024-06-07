@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
 	<head>
-		<title>Title of the page</title>
+		<title>File d'attente</title>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<style>
@@ -12,14 +12,7 @@
 				margin: 5px;
 				padding: 5px;
 				align-items: center;
-			  }
-			  
-			  li>span {
-				margin-left: auto;
-				background-color: #aaa;
-				padding: 5px;
-				cursor: pointer;
-			  }
+			}
 		</style>
 	</head>
 	<body>
@@ -31,94 +24,79 @@
 			</a>
 		</button>
 
-		<div id="playlist" style="width: 50%; margin: 0 auto; border: 1px solid black; padding: 30px;">
+		<div id="playlist" style="border: 1px solid black; padding: 20px;">
 			<h3 style="text-align: center;">
-				Liste d'attente
+				Liste des musiques en liste d'attente
 			</h3>
 
-			<ol id="items">
-				<li>
-					Musique 1
-					<br>
-					<a class='up' href='#'>up</a>
-					<a class='down' href='#'>down</a>
-				</li>
-				<li>
-					Musique 2
-					<br>
-					<a class='up' href='#'>up</a>
-					<a class='down' href='#'>down</a>
-				</li>
-				<li>
-					Musique 3
-					<br>
-					<a class='up' href='#'>up</a>
-					<a class='down' href='#'>down</a>
-				</li>
-				<li>
-					Musique 4
-					<br>
-					<a class='up' href='#'>up</a>
-					<a class='down' href='#'>down</a>
-				</li>
+			<ol id="musiquesListe">
 			</ol>
-
-			<button type="button" id="add-item">Add item</button>
 		</div>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-		<script>		
-			window.onload = function () {
-				var upLink = document.querySelectorAll(".up");
-			
-				for (var i = 0; i < upLink.length; i++) {
-					upLink[i].addEventListener('click', function () {
-						var wrapper = this.parentElement;
-			
-						if (wrapper.previousElementSibling)
-							wrapper.parentNode.insertBefore(wrapper, wrapper.previousElementSibling);
-					});
-				}
-			
-				var downLink = document.querySelectorAll(".down");
-			
-				for (var i = 0; i < downLink.length; i++) {
-					downLink[i].addEventListener('click', function () {
-						var wrapper = this.parentElement;
-			
-						if (wrapper.nextElementSibling)
-							wrapper.parentNode.insertBefore(wrapper.nextElementSibling, wrapper);
-					});
-				}
-			}
-		</script>
-
 		<script>
-			let addButton = document.getElementById("add-item");
+			// Récupération des musiques depuis Firestore
+			db.collection('Musiques').get().then(querySnapshot => {
+				const musiquesListe = document.getElementById('musiquesListe');
 
-			const currentIndex = 0
+				querySnapshot.forEach(doc => {
+					const data = doc.data();
+					if (data.Remarque != "") {
+						musiquesListe.innerHTML += `
+							<li style="display: flex; justify-content: space-between;">
+								Titre: ${data.Titre}
+								<br>
+								Artiste(s): ${data.Artistes}
+								<br>
+								Remarque: ${data.Remarque}
+								<br>
+								<div>
+									<a class='up' href='#' style="color: green;">up</a>
+									<br>
+									<a class='down' href='#' style="color: red;">down</a>
+								</div>
+							</li>
+							`;
+					} else {
+						musiquesListe.innerHTML += `
+							<li style="display: flex; justify-content: space-between;">
+								Titre: ${data.Titre}
+								<br>
+								Artiste(s): ${data.Artistes}
+								<br>
+								<div>
+									<a class='up' href='#' style="color: green;">up</a>
+									<br>
+									<a class='down' href='#' style="color: red;">down</a>
+								</div>
+							</li>
+							`;
+					}
+				});
+				
+				// Ajout des écouteurs d'événements pour les boutons "up" et "down"
+				document.querySelectorAll('.up').forEach(button => {
+					button.addEventListener('click', function (event) {
+						event.preventDefault();
+						const listItem = this.closest('li');
+						if (listItem.previousElementSibling) {
+							listItem.parentNode.insertBefore(listItem, listItem.previousElementSibling);
+						}
+					});
+				});
 
-			addButton.addEventListener("click", function() {
-
-			// Retrieves the 'list'
-			let list = document.getElementById("items");
-			let textNode = "coucou";
-			if (textNode != null) {
-				let item = document.createElement("li");
-				//Creates a textnode from the users input
-				item.appendChild(document.createTextNode(textNode));
-				//Adds the users textnode at the end of the list
-				list.appendChild(item);
-				// Creates a delete button 
-				let deleteButton = document.createElement("span");
-				//add a click event to remove the current item
-				deleteButton.addEventListener("click", function() {
-				item.remove()
-				})
-				deleteButton.innerHTML = "Delete"
-				item.appendChild(deleteButton)
-			}
+				document.querySelectorAll('.down').forEach(button => {
+					button.addEventListener('click', function (event) {
+						event.preventDefault();
+						const listItem = this.closest('li');
+						if (listItem.nextElementSibling) {
+							listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
+						}
+					});
+				});
+			}).catch(error => {
+				console.error("Erreur lors de la récupération des musiques:", error);
 			});
 		</script>
 	</body>
