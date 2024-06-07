@@ -7,11 +7,9 @@
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<style>
 			li {
-				display: flex;
-				background-color: #eee;
+				border: 1px solid black;
 				margin: 5px;
 				padding: 5px;
-				align-items: center;
 			}
 		</style>
 	</head>
@@ -24,14 +22,12 @@
 			</a>
 		</button>
 
-		<div id="playlist" style="border: 1px solid black; padding: 20px;">
-			<h3 style="text-align: center;">
-				Liste des musiques en liste d'attente
-			</h3>
+		<h3 style="text-align: center;">
+			Liste des musiques en liste d'attente
+		</h3>
 
-			<ol id="musiquesListe">
-			</ol>
-		</div>
+		<ol id="musiquesListe">
+		</ol>
 
 		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
@@ -45,13 +41,14 @@
 					if (data.Remarque != "") {
 						musiquesListe.innerHTML += `
 							<li style="display: flex; justify-content: space-between;">
-								Titre: ${data.Titre}
-								<br>
-								Artiste(s): ${data.Artistes}
-								<br>
-								Remarque: ${data.Remarque}
-								<br>
 								<div>
+									<div><span style="color: gray;">Titre</span>: ${data.Titre}</div>
+									<br>
+									<div><span style="color: gray;">Articte(s)</span>: ${data.Artistes}</div>
+									<br>
+									<div><span style="color: gray;">Remarque</span>: ${data.Remarque}</div>
+								</div>
+								<div style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
 									<a class='up' href='#' style="color: green;">up</a>
 									<br>
 									<a class='down' href='#' style="color: red;">down</a>
@@ -61,11 +58,12 @@
 					} else {
 						musiquesListe.innerHTML += `
 							<li style="display: flex; justify-content: space-between;">
-								Titre: ${data.Titre}
-								<br>
-								Artiste(s): ${data.Artistes}
-								<br>
 								<div>
+									<div><span style="color: gray;">Titre</span>: ${data.Titre}</div>
+									<br>
+									<div><span style="color: gray;">Articte(s)</span>: ${data.Artistes}</div>
+								</div>
+								<div style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
 									<a class='up' href='#' style="color: green;">up</a>
 									<br>
 									<a class='down' href='#' style="color: red;">down</a>
