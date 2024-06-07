@@ -7,27 +7,31 @@ document.getElementById('musicSuggestForm').addEventListener('submit', function(
     const artistes = document.getElementById('artistesMusic').value;
     const remarque = document.getElementById('remarqueMusic').value;
 
-    // Envoi des données à Firebase
-    db.collection('Musiques').add({
-        Titre: titre,
-        Artistes: artistes,
-        Remarque: remarque
-    }).then(function() {
-        console.log("Données envoyées avec succès !");
-        const successMessage = document.createElement('p');
-        successMessage.style.color = 'green';
-        successMessage.innerText = `Suggestion de musique envoyée avec succès.`;
-        statusUpload.appendChild(successMessage);
-        // Effacer le formulaire après l'envoi
-        document.getElementById('musicSuggestForm').reset();
-    }).catch(function(error) {
-        console.error("Erreur d'envoi des données:", error);
+    if (titre.length > 0 && artistes.length > 0) {
+        // Envoi des données à Firebase
+        db.collection('Musiques').add({
+            Titre: titre,
+            Artistes: artistes,
+            Remarque: remarque
+        }).then(function() {
+            console.log("Données envoyées avec succès !");
+            const successMessage = document.createElement('p');
+            successMessage.style.color = 'green';
+            successMessage.innerText = `Suggestion de musique envoyée avec succès.`;
+            statusSuggestMusiques.appendChild(successMessage);
+            // Effacer le formulaire après l'envoi
+            document.getElementById('musicSuggestForm').reset();
+        }).catch(function(error) {
+            console.error("Erreur d'envoi des données:", error);
+            const errorMessage = document.createElement('p');
+            errorMessage.style.color = 'red';
+            errorMessage.innerText = `Erreur de l'envoie de la musique: ${error.message}`;
+            statusSuggestMusiques.appendChild(errorMessage);
+        });
+    } else {
         const errorMessage = document.createElement('p');
         errorMessage.style.color = 'red';
-        errorMessage.innerText = `Erreur de l'envoie de la musique: ${error.message}`;
-        statusUpload.appendChild(errorMessage);
-    });
-    
-
-    
+        errorMessage.innerText = `Veuillez saisir tous les champs`;
+        statusSuggestMusiques.appendChild(errorMessage);
+    }    
 });
