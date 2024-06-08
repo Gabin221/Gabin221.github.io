@@ -51,6 +51,8 @@
             text-align: center;
             box-sizing: border-box;
             transition: transform 0.2s;
+            text-decoration: none;
+            color: inherit;
         }
 
         .link-card:hover {
@@ -59,9 +61,16 @@
 
         .link-card a {
             text-decoration: none;
-            color: #BB86FC;
-            font-size: 18px;
-            font-weight: bold;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .link-card .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .link-card p {
@@ -81,28 +90,36 @@
     <h1>DJ Ced</h1>
     <div class="container">
         <div class="section-title">Diaporama</div>
-        <div class="link-card">
-            <span class="icon">📷</span>
-            <a href="Diapos/index.html">Affichage des diapos</a>
-            <p>Cette page te renvoie vers l'affichage du diaporama.</p>
-        </div>
-        <div class="link-card">
-            <span class="icon">📤</span>
-            <a href="formulaireTelechargementDiapo/index.html">Formulaires pour télécharger les photos</a>
-            <p>Cette page te renvoie vers le formulaire accessible aux invités pour télécharger des photos.</p>
-        </div>
+        <a href="Diapos/index.html" class="link-card">
+            <div class="content">
+                <span class="icon">📷</span>
+                <span>Affichage des diapos</span>
+                <p>Cette page te renvoie vers l'affichage du diaporama.</p>
+            </div>
+        </a>
+        <a href="formulaireTelechargementDiapo/index.html" class="link-card">
+            <div class="content">
+                <span class="icon">📤</span>
+                <span>Formulaires pour télécharger les photos</span>
+                <p>Cette page te renvoie vers le formulaire accessible aux invités pour télécharger des photos.</p>
+            </div>
+        </a>
         
         <div class="section-title">Suggestions de musique</div>
-        <div class="link-card">
-            <span class="icon">🎵</span>
-            <a href="FileDattente/index.html">Affichage des musiques</a>
-            <p>Cette page te renvoie vers l'affichage des musiques proposées par les fêtards.</p>
-        </div>
-        <div class="link-card">
-            <span class="icon">📝</span>
-            <a href="formulaireSuggestionMusique/index.html">Formulaires pour suggérer des musiques</a>
-            <p>Cette page te renvoie vers le formulaire accessible aux invités pour suggérer des musiques.</p>
-        </div>
+        <a href="FileDattente/index.html" class="link-card">
+            <div class="content">
+                <span class="icon">🎵</span>
+                <span>Affichage des musiques</span>
+                <p>Cette page te renvoie vers l'affichage des musiques proposées par les fêtards.</p>
+            </div>
+        </a>
+        <a href="formulaireSuggestionMusique/index.html" class="link-card">
+            <div class="content">
+                <span class="icon">📝</span>
+                <span>Formulaires pour suggérer des musiques</span>
+                <p>Cette page te renvoie vers le formulaire accessible aux invités pour suggérer des musiques.</p>
+            </div>
+        </a>
     </div>
 </body>
 </html>
