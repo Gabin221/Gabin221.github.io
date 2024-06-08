@@ -7,6 +7,10 @@ document.getElementById('musicSuggestForm').addEventListener('submit', function(
     const artistes = document.getElementById('artistesMusic').value;
     const remarque = document.getElementById('remarqueMusic').value;
 
+    // Effacer les messages précédents
+    const statusSuggestMusiques = document.getElementById('statusSuggestMusiques');
+    statusSuggestMusiques.innerHTML = '';
+
     if (titre.length > 0 && artistes.length > 0) {
         // Envoi des données à Firebase
         db.collection('Musiques').add({
@@ -25,7 +29,7 @@ document.getElementById('musicSuggestForm').addEventListener('submit', function(
             console.error("Erreur d'envoi des données:", error);
             const errorMessage = document.createElement('p');
             errorMessage.style.color = 'red';
-            errorMessage.innerText = `Erreur de l'envoie de la musique: ${error.message}`;
+            errorMessage.innerText = `Erreur de l'envoi de la musique: ${error.message}`;
             statusSuggestMusiques.appendChild(errorMessage);
         });
     } else {
