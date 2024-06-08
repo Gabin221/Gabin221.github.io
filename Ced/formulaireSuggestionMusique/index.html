@@ -1,43 +1,107 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>Formulaires</title>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
-	</head>
-	<body>
-		<h1 style="text-align: center;">Formulaires</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Formulaires</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-		<button type="button">
-			<a href="../index.html">
-				Accueil
-			</a>
-		</button><br><br><br>
+        h1, h3 {
+            text-align: center;
+            color: #BB86FC;
+        }
 
-		<h3>Ajouter des suggestions de musiques</h3>
+        form {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
 
-		<div style="border: 1px solid black; padding: 20px; display: flex; flex-direction: column; align-items: center;">
-			<p style="color: gray; width: 100%;">Les champs munis d'un astérisque (*) sont obligatoires.</p>
-			<form id="musicSuggestForm">
-				<label for="titleMusic">Titre*:</label><br>
-				<input type="text" id="titleMusic" name="titleMusic"><br><br>
-				<label for="artistesMusic">Artiste(s)*:</label><br>
-				<input type="text" id="artistesMusic" name="artistesMusic"><br><br>
-				<label for="remarqueMusic">Remarque particulière ?<br><span style="color: gray;">(par exemple une préférence pour le remix s'il existe ou l'original ?)</span></label><br>
-				<input type="text" id="remarqueMusic" name="remarqueMusic"><br><br>
-	
-				<button type="submit">Valider</button><br>
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
 
-				<div id="statusSuggestMusiques"></div>
-			</form>
-		</div>
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2C2C2C;
+            color: #E0E0E0;
+            box-sizing: border-box;
+        }
 
-		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+        input[type="text"]:focus {
+            outline: 2px solid #BB86FC;
+        }
 
-		<script src="../Scripts/diaposUploadImages.js"></script>
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #BB86FC;
+            color: #121212;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-		<script src="../Scripts/envoieSuggestionsMusiques.js"></script>
-	</body>
+        button:hover {
+            background-color: #9E67E0;
+        }
+
+        p {
+            font-size: 14px;
+            color: #B0B0B0;
+        }
+
+        #statusSuggestMusiques {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-storage-compat.js"></script>
+</head>
+<body>
+    <div>
+        <h1>Formulaire</h1>
+        <h3>Ajouter des suggestions de musiques</h3>
+        <div>
+            <p>Les champs munis d'un astérisque (*) sont obligatoires.</p>
+            <form id="musicSuggestForm">
+                <label for="titleMusic">Titre*:</label>
+                <input type="text" id="titleMusic" name="titleMusic">
+                <label for="artistesMusic">Artiste(s)*:</label>
+                <input type="text" id="artistesMusic" name="artistesMusic">
+                <label for="remarqueMusic">Remarque particulière ?<br><span>(par exemple une préférence pour le remix s'il existe ou l'original ?)</span></label>
+                <input type="text" id="remarqueMusic" name="remarqueMusic">
+                <button type="submit">Valider</button>
+                <div id="statusSuggestMusiques"></div>
+            </form>
+        </div>
+    </div>
+    <script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+    <script src="../Scripts/diaposUploadImages.js"></script>
+    <script src="../Scripts/envoieSuggestionsMusiques.js"></script>
+</body>
 </html>
