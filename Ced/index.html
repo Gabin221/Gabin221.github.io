@@ -1,51 +1,95 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>Ced</title>
-	</head>
-	<body>
-		<h1 style="text-align: center;">
-			Ced
-		</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Ced</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+        }
 
-		<div>
-			<a href="Diapos/index.html">
-				Affichage des diapos
-			</a>
+        h1 {
+            text-align: center;
+            color: #BB86FC;
+        }
 
-			<p>Cette page te renvoie vers l'affichage du diaporama.</p>
-		</div>
+        .container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
 
-		<hr>
+        .link-card {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
 
-		<div>
-			<a href="formulaireTelechargementDiapo/index.html">
-				Formulaires pour télécharger les photos
-			</a>
+        .link-card:hover {
+            transform: scale(1.05);
+        }
 
-			<p>Cette page te renvoie vers le formulaire qui sera accessible aux invités de la soirée.</p>
-		</div>
+        .link-card a {
+            text-decoration: none;
+            color: #BB86FC;
+            font-size: 18px;
+            font-weight: bold;
+        }
 
-		<hr style="margin-top: 50px;">
-		<hr style="margin-bottom: 50px;">
+        .link-card p {
+            color: #B0B0B0;
+            font-size: 14px;
+            margin: 10px 0 0;
+        }
 
-		<div>
-			<a href="FileDattente/index.html">
-				Affichage des musique
-			</a>
-
-			<p>Cette page te renvoie vers l'affichage des musiques proposées par les fêtards.</p>
-		</div>
-
-		<hr>
-
-		<div>
-			<a href="formulaireSuggestionMusique/index.html">
-				Formulaires pour suggérer des musiques
-			</a>
-
-			<p>Cette page te renvoie vers le formulaire qui sera accessible aux invités de la soirée.</p>
-		</div>
-	</body>
+        .icon {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DJ Ced</h1>
+    <div class="container">
+        <div class="link-card">
+            <span class="icon">📷</span>
+            <a href="Diapos/index.html">Affichage des diapos</a>
+            <p>Cette page te renvoie vers l'affichage du diaporama.</p>
+        </div>
+        <div class="link-card">
+            <span class="icon">📤</span>
+            <a href="formulaireTelechargementDiapo/index.html">Formulaires pour télécharger les photos</a>
+            <p>Cette page te renvoie vers le formulaire accessible aux invités pour télécharger des photos.</p>
+        </div>
+        <div class="link-card">
+            <span class="icon">🎵</span>
+            <a href="FileDattente/index.html">Affichage des musiques</a>
+            <p>Cette page te renvoie vers l'affichage des musiques proposées par les fêtards.</p>
+        </div>
+        <div class="link-card">
+            <span class="icon">📝</span>
+            <a href="formulaireSuggestionMusique/index.html">Formulaires pour suggérer des musiques</a>
+            <p>Cette page te renvoie vers le formulaire accessible aux invités pour suggérer des musiques.</p>
+        </div>
+    </div>
+</body>
 </html>
