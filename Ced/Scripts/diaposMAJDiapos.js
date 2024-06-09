@@ -58,7 +58,7 @@ function startSlideshow() {
       slideIndex = 1; // Réinitialiser à la première diapositive
     }
     slides[slideIndex - 1].style.display = 'block';
-    setTimeout(showSlide, 3000); // Changer d'image toutes les 3 secondes
+    setTimeout(showSlide, 5000); // Changer d'image toutes les 3 secondes
   }
 
   showSlide();
