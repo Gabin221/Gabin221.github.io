@@ -82,6 +82,7 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+            align-items: center;
         }
 
         .controls a {
@@ -96,6 +97,12 @@
 
         .controls a.down {
             color: #F44336;
+        }
+
+        .delete-button {
+            color: #F44336;
+            cursor: pointer;
+            font-size: 20px;
         }
 
         .drag-over {
@@ -121,8 +128,9 @@
 
             querySnapshot.forEach(doc => {
                 const data = doc.data();
+                const musicId = doc.id;
                 let chaine = `
-                    <li draggable="true">
+                    <li draggable="true" data-id="${musicId}">
                         <div class="music-info">
                             <div><span>Titre</span>: ${data.Titre}</div>
                             <div><span>Artiste(s)</span>: ${data.Artistes}</div>
@@ -141,13 +149,14 @@
                         <div class="controls">
                             <a class='up' href='#'>⬆️</a>
                             <a class='down' href='#'>⬇️</a>
+                            <span class="delete-button">🗑️</span>
                         </div>
                     </li>
                 `;
                 musiquesListe.innerHTML += chaine;
             });
 
-            // Ajout des écouteurs d'événements pour les boutons "up" et "down"
+            // Ajout des écouteurs d'événements pour les boutons "up", "down" et "delete"
             document.querySelectorAll('.up').forEach(button => {
                 button.addEventListener('click', function (event) {
                     event.preventDefault();
@@ -165,6 +174,21 @@
                     if (listItem.nextElementSibling) {
                         listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
                     }
+                });
+            });
+
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const listItem = this.closest('li');
+                    const musicId = listItem.getAttribute('data-id');
+
+                    // Supprimer l'élément de Firestore
+                    db.collection('Musiques').doc(musicId).delete().then(() => {
+                        console.log("Document successfully deleted!");
+                        listItem.remove();  // Supprimer l'élément de l'interface utilisateur
+                    }).catch((error) => {
+                        console.error("Error removing document: ", error);
+                    });
                 });
             });
 
@@ -215,13 +239,13 @@
             }
 
             if (dragSrcEl !== this) {
-                // Insert the dragged element before the one it's dropped on
                 const parent = this.parentNode;
                 if (Array.from(parent.children).indexOf(this) > Array.from(parent.children).indexOf(dragSrcEl)) {
                     parent.insertBefore(dragSrcEl, this.nextSibling);
                 } else {
                     parent.insertBefore(dragSrcEl, this);
                 }
+                dragSrcEl.blur();
             }
 
             return false;
@@ -229,31 +253,6 @@
 
         function handleDragEnd(e) {
             this.classList.remove('drag-over');
-        }
-
-        function updateEventListeners(element) {
-            element.querySelector('.up').addEventListener('click', function (event) {
-                event.preventDefault();
-                const listItem = this.closest('li');
-                if (listItem.previousElementSibling) {
-                    listItem.parentNode.insertBefore(listItem, listItem.previousElementSibling);
-                }
-            });
-
-            element.querySelector('.down').addEventListener('click', function (event) {
-                event.preventDefault();
-                const listItem = this.closest('li');
-                if (listItem.nextElementSibling) {
-                    listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
-                }
-            });
-
-            // Re-attach drag and drop event listeners
-            element.addEventListener('dragstart', handleDragStart);
-            element.addEventListener('dragover', handleDragOver);
-            element.addEventListener('dragleave', handleDragLeave);
-            element.addEventListener('drop', handleDrop);
-            element.addEventListener('dragend', handleDragEnd);
         }
     </script>
 </body>
