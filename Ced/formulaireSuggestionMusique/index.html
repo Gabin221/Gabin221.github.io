@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Formulaires</title>
+    <title>Suggestion de musique</title>
     <style>
         body {
             background-color: #121212;
@@ -84,17 +84,21 @@
 </head>
 <body>
     <div>
-        <h1>Formulaire</h1>
+        <h1>Suggestion de musique</h1>
         <h3>Ajouter des suggestions de musiques</h3>
         <div>
             <p>Les champs munis d'un astérisque (*) sont obligatoires.</p>
             <form id="musicSuggestForm">
                 <label for="titleMusic">Titre*:</label>
-                <input type="text" id="titleMusic" name="titleMusic">
+                <input type="text" id="titleMusic" name="titleMusic" placeholder="Titre*">
                 <label for="artistesMusic">Artiste(s)*:</label>
-                <input type="text" id="artistesMusic" name="artistesMusic">
+                <input type="text" id="artistesMusic" name="artistesMusic" placeholder="Artiste(s)*">
+                <label for="fromMusic">De la part de:</label>
+                <input type="text" id="fromMusic" name="fromMusic" placeholder="De la part de">
+                <label for="forMusic">Pour:</label>
+                <input type="text" id="forMusic" name="forMusic" placeholder="Pour ?">
                 <label for="remarqueMusic">Remarque particulière ?<br><p>(par exemple une préférence pour le remix s'il existe ou l'original ?)</p></label>
-                <input type="text" id="remarqueMusic" name="remarqueMusic">
+                <input type="text" id="remarqueMusic" name="remarqueMusic" placeholder="Remarque">
                 <button type="submit">Valider</button>
                 <div id="statusSuggestMusiques"></div>
             </form>

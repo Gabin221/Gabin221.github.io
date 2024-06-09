@@ -6,6 +6,8 @@ document.getElementById('musicSuggestForm').addEventListener('submit', function(
     const titre = document.getElementById('titleMusic').value;
     const artistes = document.getElementById('artistesMusic').value;
     const remarque = document.getElementById('remarqueMusic').value;
+    const fromMusic = document.getElementById('fromMusic').value;
+    const forMusic = document.getElementById('forMusic').value;
 
     // Effacer les messages précédents
     const statusSuggestMusiques = document.getElementById('statusSuggestMusiques');
@@ -16,7 +18,9 @@ document.getElementById('musicSuggestForm').addEventListener('submit', function(
         db.collection('Musiques').add({
             Titre: titre,
             Artistes: artistes,
-            Remarque: remarque
+            Remarque: remarque,
+            From: fromMusic,
+            For: forMusic
         }).then(function() {
             console.log("Données envoyées avec succès !");
             const successMessage = document.createElement('p');

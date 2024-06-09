@@ -1,101 +1,260 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>File d'attente</title>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-		<style>
-			li {
-				border: 1px solid black;
-				margin: 5px;
-				padding: 5px;
-			}
-		</style>
-	</head>
-	<body>
-		<h1 style="text-align: center;">File d'attente</h1>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>File d'attente</title>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            height: 100vh;
+        }
 
-		<button type="button">
-			<a href="../index.html">
-				Accueil
-			</a>
-		</button>
+        h1, h3 {
+            text-align: center;
+            color: #BB86FC;
+        }
 
-		<h3 style="text-align: center;">
-			Liste des musiques en liste d'attente
-		</h3>
+        .back-button {
+            background-color: #BB86FC;
+            color: #121212;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
 
-		<ol id="musiquesListe">
-		</ol>
+        .back-button:hover {
+            background-color: #A45EE5;
+        }
 
-		<script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+        ol {
+            width: 100%;
+            max-width: 600px;
+            padding: 0;
+            list-style: none;
+        }
 
-		<script>
-			// Récupération des musiques depuis Firestore
-			db.collection('Musiques').get().then(querySnapshot => {
-				const musiquesListe = document.getElementById('musiquesListe');
+        li {
+            background-color: #1E1E1E;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+            cursor: move;
+        }
 
-				querySnapshot.forEach(doc => {
-					const data = doc.data();
-					if (data.Remarque != "") {
-						musiquesListe.innerHTML += `
-							<li style="display: flex; justify-content: space-between;">
-								<div>
-									<div><span style="color: gray;">Titre</span>: ${data.Titre}</div>
-									<br>
-									<div><span style="color: gray;">Articte(s)</span>: ${data.Artistes}</div>
-									<br>
-									<div><span style="color: gray;">Remarque</span>: ${data.Remarque}</div>
-								</div>
-								<div style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
-									<a class='up' href='#' style="color: green;">up</a>
-									<br>
-									<a class='down' href='#' style="color: red;">down</a>
-								</div>
-							</li>
-							`;
-					} else {
-						musiquesListe.innerHTML += `
-							<li style="display: flex; justify-content: space-between;">
-								<div>
-									<div><span style="color: gray;">Titre</span>: ${data.Titre}</div>
-									<br>
-									<div><span style="color: gray;">Articte(s)</span>: ${data.Artistes}</div>
-								</div>
-								<div style="display: flex; align-items: center; flex-direction: column; justify-content: center;">
-									<a class='up' href='#' style="color: green;">up</a>
-									<br>
-									<a class='down' href='#' style="color: red;">down</a>
-								</div>
-							</li>
-							`;
-					}
-				});
-				
-				// Ajout des écouteurs d'événements pour les boutons "up" et "down"
-				document.querySelectorAll('.up').forEach(button => {
-					button.addEventListener('click', function (event) {
-						event.preventDefault();
-						const listItem = this.closest('li');
-						if (listItem.previousElementSibling) {
-							listItem.parentNode.insertBefore(listItem, listItem.previousElementSibling);
-						}
-					});
-				});
+        li:hover {
+            transform: scale(1.02);
+        }
 
-				document.querySelectorAll('.down').forEach(button => {
-					button.addEventListener('click', function (event) {
-						event.preventDefault();
-						const listItem = this.closest('li');
-						if (listItem.nextElementSibling) {
-							listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
-						}
-					});
-				});
-			}).catch(error => {
-				console.error("Erreur lors de la récupération des musiques:", error);
-			});
-		</script>
-	</body>
+        .music-info {
+            flex: 1;
+        }
+
+        .music-info div {
+            margin-bottom: 5px;
+        }
+
+        .music-info span {
+            color: gray;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .controls a {
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .controls a.up {
+            color: #4CAF50;
+        }
+
+        .controls a.down {
+            color: #F44336;
+        }
+
+        .drag-over {
+            border: 2px dashed #BB86FC;
+        }
+    </style>
+</head>
+<body>
+    <h1>File d'attente</h1>
+
+    <a class="back-button" href="../index.html">Retour vers l'accueil</a>
+
+    <h3>Liste des musiques en liste d'attente</h3>
+
+    <ol id="musiquesListe"></ol>
+
+    <script src="../../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+    <script>
+        // Récupération des musiques depuis Firestore
+        db.collection('Musiques').get().then(querySnapshot => {
+            const musiquesListe = document.getElementById('musiquesListe');
+
+            querySnapshot.forEach(doc => {
+                const data = doc.data();
+                let chaine = `
+                    <li draggable="true">
+                        <div class="music-info">
+                            <div><span>Titre</span>: ${data.Titre}</div>
+                            <div><span>Artiste(s)</span>: ${data.Artistes}</div>
+                `;
+                if (data.Remarque) {
+                    chaine += `<div><span>Remarque</span>: ${data.Remarque}</div>`;
+                }
+                if (data.From) {
+                    chaine += `<div><span>De la part de</span>: ${data.From}</div>`;
+                }
+                if (data.For) {
+                    chaine += `<div><span>Pour</span>: ${data.For}</div>`;
+                }
+                chaine += `
+                        </div>
+                        <div class="controls">
+                            <a class='up' href='#'>⬆️</a>
+                            <a class='down' href='#'>⬇️</a>
+                        </div>
+                    </li>
+                `;
+                musiquesListe.innerHTML += chaine;
+            });
+
+            // Ajout des écouteurs d'événements pour les boutons "up" et "down"
+            document.querySelectorAll('.up').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const listItem = this.closest('li');
+                    if (listItem.previousElementSibling) {
+                        listItem.parentNode.insertBefore(listItem, listItem.previousElementSibling);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.down').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const listItem = this.closest('li');
+                    if (listItem.nextElementSibling) {
+                        listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
+                    }
+                });
+            });
+
+            // Ajout des écouteurs d'événements pour le drag and drop
+            const items = document.querySelectorAll('li[draggable="true"]');
+
+            items.forEach(item => {
+                item.addEventListener('dragstart', handleDragStart);
+                item.addEventListener('dragover', handleDragOver);
+                item.addEventListener('dragleave', handleDragLeave);
+                item.addEventListener('drop', handleDrop);
+                item.addEventListener('dragend', handleDragEnd);
+            });
+        }).catch(error => {
+            console.error("Erreur lors de la récupération des musiques:", error);
+        });
+
+        let dragSrcEl = null;
+
+        function handleDragStart(e) {
+            dragSrcEl = this;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
+
+            this.classList.add('dragElem');
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+
+            if (this !== dragSrcEl) {
+                this.classList.add('drag-over');
+            }
+
+            return false;
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation();
+            }
+
+            if (dragSrcEl !== this) {
+                // Insert the dragged element before the one it's dropped on
+                const parent = this.parentNode;
+                if (Array.from(parent.children).indexOf(this) > Array.from(parent.children).indexOf(dragSrcEl)) {
+                    parent.insertBefore(dragSrcEl, this.nextSibling);
+                } else {
+                    parent.insertBefore(dragSrcEl, this);
+                }
+            }
+
+            return false;
+        }
+
+        function handleDragEnd(e) {
+            this.classList.remove('drag-over');
+        }
+
+        function updateEventListeners(element) {
+            element.querySelector('.up').addEventListener('click', function (event) {
+                event.preventDefault();
+                const listItem = this.closest('li');
+                if (listItem.previousElementSibling) {
+                    listItem.parentNode.insertBefore(listItem, listItem.previousElementSibling);
+                }
+            });
+
+            element.querySelector('.down').addEventListener('click', function (event) {
+                event.preventDefault();
+                const listItem = this.closest('li');
+                if (listItem.nextElementSibling) {
+                    listItem.parentNode.insertBefore(listItem.nextElementSibling, listItem);
+                }
+            });
+
+            // Re-attach drag and drop event listeners
+            element.addEventListener('dragstart', handleDragStart);
+            element.addEventListener('dragover', handleDragOver);
+            element.addEventListener('dragleave', handleDragLeave);
+            element.addEventListener('drop', handleDrop);
+            element.addEventListener('dragend', handleDragEnd);
+        }
+    </script>
+</body>
 </html>
