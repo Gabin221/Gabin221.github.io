@@ -1,620 +1,837 @@
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>∂ rond</title>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+<head>
+	<title>∂ rond</title>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-		<style>
-			*{
-				margin: 0px;
-				padding: 0px;
+	<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
+
+	<style>
+		:root {
+			--primary-color: #333;
+			--secondary-color: #fff;
+			--accent-color: #007BFF;
+			--background-color: #F2F2F2;
+			--font-family: 'Avenir', sans-serif;
+			--menu-background: #fff;
+			--menu-border: #ddd;
+		}
+
+		[data-theme="dark"] {
+			--primary-color: #ddd;
+			--secondary-color: #333;
+			--accent-color: #4E8EF7;
+			--background-color: #222;
+			--menu-background: #444;
+			--menu-border: #666;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			padding-top: 1%;
+			padding-left: 5%;
+			padding-right: 5%;
+			background-color: var(--background-color);
+			font-family: var(--font-family);
+			color: var(--primary-color);
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		header a {
+			text-decoration: none;
+			color: var(--primary-color);
+			display: flex;
+			align-items: center;
+		}
+
+		header img {
+			width: 60px;
+			height: 60px;
+		}
+
+		header p {
+			font-weight: bold;
+			font-size: x-large;
+			margin-left: 20px;
+		}
+
+		#darkModeToggle {
+			background: none;
+			border: none;
+			color: var(--primary-color);
+			font-size: 1.2em;
+			cursor: pointer;
+			transition: color 0.3s;
+		}
+
+		nav {
+			background-color: var(--menu-background);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid var(--menu-border);
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			background-color: var(--menu-background);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid var(--menu-border);
+			margin-bottom: 20px;
+			text-align: center;
+			padding: 10px;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		nav a {
+			text-decoration: none;
+			color: var(--primary-color);
+			padding: 10px;
+			position: relative;
+			transition: color 0.3s;
+		}
+
+		nav a::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 0;
+			height: 2px;
+			background-color: var(--accent-color);
+			transition: width 0.3s;
+		}
+
+		nav a:hover::after,
+		nav a.active::after {
+			width: 100%;
+		}
+
+		.container {
+			background-color: var(--secondary-color);
+			border-radius: 10px;
+			padding: 20px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			transition: background-color 0.3s;
+			margin-bottom: 20px;
+		}
+
+		.container h1 {
+			margin-bottom: 20px;
+		}
+
+		.container h4 {
+			margin: 40px auto 10px auto;
+		}
+
+		.container p {
+			line-height: 1.6;
+		}
+
+		.container a {
+			color: var(--accent-color);
+			text-decoration: none;
+		}
+
+		.container a:hover {
+			text-decoration: underline;
+		}
+
+		footer {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 40px;
+		}
+
+		footer .box {
+			background-color: var(--secondary-color);
+			padding: 20px;
+			border-radius: 10px;
+			width: 30%;
+			text-align: center;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			transition: background-color 0.3s;
+		}
+
+		footer .box h3 {
+			margin-bottom: 20px;
+		}
+
+		footer .box ul {
+			list-style: none;
+		}
+
+		footer .box ul li {
+			margin: 10px 0;
+		}
+
+		footer .box ul a {
+			color: var(--primary-color);
+			text-decoration: none;
+		}
+
+		footer .box ul a:hover {
+			text-decoration: underline;
+		}
+
+		footer .box svg {
+			width: 40px;
+			height: 40px;
+			margin-top: 10px;
+			transition: fill 0.3s;
+		}
+
+		.form-container {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.form-section {
+			width: 48%;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+		}
+
+		.form-section h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.form-section form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.form-section form input,
+		.form-section form select,
+		.form-section form button {
+			width: 80%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		.categories {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.category-card {
+			width: 45%;
+			margin: 10px;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+		}
+
+		.category-card h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.category-card .drinks-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		#sirop-drinks {
+			width: 92%;
+			margin: 10px;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+		}
+
+		#sirop-drinks h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		#sirop-drinks .drinks-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.drink-item {
+			width: 45%;
+			margin: 5px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			text-align: center;
+		}
+
+		#bilanCarbon {
+			font-weight: bold;
+			font-size: x-large;
+			color: green;
+			margin-left: 20px;
+		}
+
+		[data-theme="dark"] svg {
+			fill: white;
+		}
+
+		#divConso {
+			width: 33.3%;
+		}
+
+		#divR2 {
+			width: 33.3%;
+		}
+
+		#divTendance {
+			width: 33.3%;
+		}
+
+		@media (max-width: 600px) {
+			#titreTopBar {
+				display: none;
 			}
 
-			nav{
+			#infosPlein {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			#divConso {
 				width: 100%;
-				margin: 10px 0px 40px 0px;
-				top: 0px;
-				font-weight: bold;
-				font-family: Avenir, sans-serif;
 			}
 
-			nav ul{
-				list-style-type: none;
-			}
-
-			nav li{
-				float: left;
-				width: 25%;/*100% divisé par le nombre d'éléments de menu*/
-				text-align: center;/*Centre le texte dans les éléments de menu*/
-			}
-
-			/*Evite que le menu n'ait une hauteur nulle*/
-			nav ul::after{
-				content: "";
-				display: table;
-				clear: both;
-			}
-
-			nav a{
-				position: relative;
-				display: block; /*Toute la surface sera cliquable*/
-				text-decoration: none;
-				color: black;
-				border-bottom: 2px solid transparent;/*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
-				padding: 10px 0px;/*Agrandit le menu et espace la bordure du texte*/
-			}
-
-			.conteneur{
-				margin: 0px 20px;
-				height: 1500px;
-			}
-
-			nav a::after { /* Ajout */
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 0;
-				height: 2px;
-				background-color: black;
-				transition: width 0.3s;
-			}
-
-			nav a:hover::after { /* Ajout */
+			#divR2 {
 				width: 100%;
 			}
 
-			nav a.active::after { /* Nouvelle règle pour l'élément actif */
+			#divTendance {
 				width: 100%;
 			}
 
-			#divAll {
-				display: flex;
-				justify-content: center;
+			footer {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			footer .box {
 				width: 80%;
-				border: 1px solid black;
+				margin-bottom: 20px;
+			}
+
+			.form-container {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.form-section {
+				width: 90%;
+				margin-bottom: 20px;
+			}
+
+			.category-card {
+				width: 90%;
+				margin: 10px;
+				padding: 20px;
+				border: 2px solid #000;
 				border-radius: 15px;
-				box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.455); 
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				background-color: #fff;
 			}
 
-			#divLeft {
-				background-color: white; 
-				width: 50%; 
-				border-radius: 15px 0 0 15px;
-				text-align: center;
-				border-right: 2px solid black;
+			.drink-item {
+				width: 90%;
 			}
 
-			#divRightConnect {
-				background-color: white; 
-				width: 100%; 
-				border-radius: 0 15px 15px 0;
-				text-align: center;
+			footer .box {
+				width: 100%;
 			}
+		}
+	</style>
 
-			@media only screen and (max-width: 767px) {
-				/* Masquer l'élément avec l'ID titreTopBar sur les écrans de petite taille */
-				#titreTopBar {
-					display: none;
-				}
+	<link rel="icon" href="../Images/logo_home_page.png" type="image/png">
+</head>
 
-				#divLeft {
-					width: 100%;
-					border-radius: 15px 15px 0 0;
-					border-right: 0;
-					border-bottom: 2px solid black;
-				}
-
-				#divRightConnect {
-					width: 100%;
-					border-radius: 0 0 15px 15px;
-				}
-
-				#divAll {
-					flex-wrap: wrap;
-				}
-			}
-
-		</style>
-
-        <link rel="icon" href="../Images/logo_home_page.png" type="image/png">
-	</head>
-	<body style="padding-left: 5%; padding-right: 5%; background-color: #F2F2F2;">
-		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
-			<a style="color: black; text-decoration: none;" href="../index.html">
-				<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
-					<img id="logoTopBar" src="../Images/logo_home_page.png" style="width: 60px; height: 60px;">
-					<p id="titreTopBar" style="font-weight: bold; font-size: x-large; margin-left: 20px;">
-						Gabin221.github.io
-					</p>
-				</div>
-			</a>
-			<div style="display: flex; align-items: center;">
-				<div style="display: flex; align-items: center; justify-content: center;">
-					<svg id="lightSvg" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" />
-					</svg>
-					<svg id="buttonSwitch" onclick="darkMode()" style="width: 40px; height: 40px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-					</svg>
-					<svg id="darkSvg" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-						<path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
-					</svg>
-				</div>
-				<div style="margin-left: 20px;">
-					<a href="../Connexion/index.html">
-						<svg id="buttonAccount" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-							<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
-						</svg>
-					</a>
-					
-				</div>
-			</div>
-		</div>
-
-		<nav>
-			<ul>
-				<li>
-					<a class="elementMenuAccueil" href="../index.html">
-						Accueil
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuGabinsBar" href="../Gabinsbar/index.html">
-						Gabin's bar
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuModulo" href="../Modulo/index.html">
-						Modulo
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuDRond" href="../Drond/index.html">
-						∂ rond
-					</a>
-				</li>
-			</ul>
-		</nav>
-		
-		<div style="background-color: white; border-radius: 10% / 10%; padding-bottom: 20px;">
-			<h1 style="text-align: center; margin: 0 0 40px 0;">∂ rond</h1>
-
-			<div style="display: flex; justify-content: center;">
-				<div id="divAll">
-					<div id="divLeft">
-						<h3 style="margin: 20px 0 20px 0;">Ajouter un plein</h3>
-
-						<form id="addPleinForm" style="margin: 0 0 20px 0;">
-							<label for="distance">Distance parcourue (en km):</label><br>
-							<input type="number" id="distance" name="distance" step="0.1" required><br><br>
-						
-							<label for="volume">Volume de carburant (en litres):</label><br>
-							<input type="number" id="volume" name="volume" step="0.01" required><br><br>
-						
-							<button type="submit">Ajouter Plein</button>
-						</form>
-					</div>
-					<div id="divRightConnect">
-						<div id="listeDeroulanteVoiture" style="margin: 20px 0 20px 0;">
-							<select id="voitureSelect" onchange="fetchAndDrawChart()">
-								<option value="aucunChoix">--Veuillez choisir une voiture--</option>
-							</select>
-						</div>
-				
-						<div id="graphique" style="margin: 0 10px 10px 10px; height: 0;">
-						</div>
-				
-						<div id="infosPlein" style="display: flex; width: 100%; margin: 20px 0 20px 0;">
-							<div id="divConso" style="width: 33.3%; display: flex; flex-direction: column;">
-								<b>Conso:</b>
-								<p id="consommation">Veuillez sélectionner un véhicule</p>
-							</div>
-							<div id="divR2" style="width: 33.3%; display: flex; flex-direction: column;">
-								<b>R²:</b>
-								<p id="r2">Veuillez sélectionner un véhicule</p>
-							</div>
-							<div id="divTendance" style="width: 33.3%; display: flex; flex-direction: column;">
-								<b>Tendance:</b>
-								<p id="courbeTendance">Veuillez sélectionner un véhicule</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-		<hr style="margin-top: 40px; border: 1px solid black;">
-
+<body style="padding-left: 5%; padding-right: 5%; background-color: #F2F2F2;">
+	<header>
+		<a href="../Gabin221.github.io/index.html">
+			<img id="logoTopBar" src="../Images/logo_home_page.png" alt="Logo">
+			<p id="titreTopBar">Gabin221.github.io</p>
+		</a>
 		<div>
-			<div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 40px;">
-				<div style="background-color: white; width: 30%; padding: 20px; border-radius: 15%;">
-					<div style="display: flex; flex-direction: column; align-items: center;">
-						<h3>
-							Plan du site
-						</h3>
+			<button id="darkModeToggle">🌙</button>
+			<a href="../Connexion/index.html">
+				<svg id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
+				</svg>
+			</a>
+			<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
+		</div>
+	</header>
 
-						<ul style="margin-top: 20px; list-style-type: none; display: flex; flex-direction: column;">
-							<li>
-								<a class="elementMenuAccueil" href="../index.html" style="color: black; text-decoration: none;">
-									Accueil
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuGabinsBar" href="../Gabinsbar/index.html" style="color: black; text-decoration: none;">
-									Gabin's bar
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuModulo" href="../Modulo/index.html" style="color: black; text-decoration: none;">
-									Modulo
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuDRond" href="../Drond/index.html" style="color: black; text-decoration: none;">
-									∂ rond
-								</a>
-							</li>
-						</ul>
-					</div>
+	<nav>
+		<ul>
+			<li><a class="elementMenuAccueil" href="../index.html">Accueil</a></li>
+			<li><a class="elementMenuGabinsBar" href="Gabinsbar/index.html">Gabin's bar</a></li>
+			<li><a class="elementMenuModulo" href="Modulo/index.html">Modulo</a></li>
+			<li><a class="elementMenuDrond" href="Drond/index.html">∂ rond</a></li>
+		</ul>
+	</nav>
+
+	<h2>∂ rond</h2>
+
+	<div class="container" id="divLeft">
+		<h3 style="margin: 20px 0 20px 0;">Ajouter un plein</h3>
+
+		<form id="addPleinForm" style="margin: 0 0 20px 0;">
+			<label for="distance">Distance parcourue (en km):</label><br>
+			<input type="number" id="distance" name="distance" step="0.1" required><br><br>
+
+			<label for="volume">Volume de carburant (en litres):</label><br>
+			<input type="number" id="volume" name="volume" step="0.01" required><br><br>
+
+			<button type="submit">Ajouter Plein</button>
+		</form>
+	</div>
+
+	<div class="container">
+		<div id="divRightConnect">
+			<div id="listeDeroulanteVoiture" style="margin: 20px 0 20px 0;">
+				<select id="voitureSelect" onchange="fetchAndDrawChart()">
+					<option value="aucunChoix">--Veuillez choisir une voiture--</option>
+				</select>
+			</div>
+
+			<div id="graphique" style="margin: 0 10px 10px 10px; height: 0;">
+			</div>
+
+			<div id="infosPlein" style="display: flex; width: 100%; margin: 20px 0 20px 0;">
+				<div id="divConso" style="display: flex; flex-direction: column;">
+					<b>Conso:</b>
+					<p id="consommation"></p>
 				</div>
-				<div style="background-color: white; width: 30%; padding: 20px; border-radius: 15%;">
-					<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-						<h3>
-							Réseaux
-						</h3>
-						<a href="https://github.com/Gabin221">
-							<svg id="boutonLienGithub" style="width: 40px; height: 40px; margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-								<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-							</svg>
-						</a>
-					</div>
+				<div id="divR2" style="display: flex; flex-direction: column;">
+					<b>R²:</b>
+					<p id="r2"></p>
+				</div>
+				<div id="divTendance" style="display: flex; flex-direction: column;">
+					<b>Tendance:</b>
+					<p id="courbeTendance"></p>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+	<hr style="margin-top: 40px; margin-bottom: 40px; border: 1px solid black;">
 
-		<script>
-			var compteur = 1;
-			
-			function darkMode() {
+	<footer>
+		<div class="box">
+			<h3>Plan du site</h3>
+			<ul>
+				<li><a href="../index.html">Accueil</a></li>
+				<li><a href="Gabinsbar/index.html">Gabin's bar</a></li>
+				<li><a href="Modulo/index.html">Modulo</a></li>
+				<li><a href="Drond/index.html">∂ rond</a></li>
+			</ul>
+		</div>
+		<div class="box">
+			<h3>Réseaux</h3>
+			<a href="https://github.com/Gabin221">
+				<svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+				</svg>
+			</a>
+		</div>
+	</footer>
 
-				if (compteur%2 === 0) {
-					// lightmode
-					darkModeAll()
-					document.getElementById("divRightConnect").style.backgroundColor = "white";
-					document.querySelectorAll('h3, label').forEach(function(element) {
-						element.style.color = "black";
-					});
-					compteur += 1;
-				} else {
-					// darkmode
-					darkModeAll()
-					document.getElementById("divRightConnect").style.backgroundColor = "black";
-					document.querySelectorAll('h3, label').forEach(function(element) {
-						element.style.color = "white";
-					});
-					compteur += 1;
-				}
-		    }
-		</script>
+	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-		<script>
-			function darkModeAll() {
-				if (compteur%2 === 0) {
-					// lightmode
-					document.getElementById('titreTopBar').style.color="black";
-					document.getElementById('buttonSwitch').innerHTML = '<svg style="width: 40px; height: 40px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>';
-					document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" /></svg>';
-					document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>';
-					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page.png");
-					document.body.style.backgroundColor = "#F2F2F2";
-				} else {
-					// darkmode
-					document.getElementById('titreTopBar').style.color="white";
-					document.getElementById('buttonSwitch').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>toggle-switch-outline</title><path d="M17 6H7C3.69 6 1 8.69 1 12S3.69 18 7 18H17C20.31 18 23 15.31 23 12S20.31 6 17 6M17 16H7C4.79 16 3 14.21 3 12S4.79 8 7 8H17C19.21 8 21 9.79 21 12S19.21 16 17 16M17 9C15.34 9 14 10.34 14 12S15.34 15 17 15 20 13.66 20 12 18.66 9 17 9Z" style="fill: white;" /></svg>';
-					document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" style="fill: white;" /></svg>';
-					document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" style="fill: white;" /></svg>';
-					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page_dark.png");
-					document.body.style.backgroundColor = "black";
-				}
+	<script>
+		var compteur = 1;
+
+		function darkMode() {
+
+			if (compteur % 2 === 0) {
+				// lightmode
+				darkModeAll()
+				document.getElementById("divRightConnect").style.backgroundColor = "white";
+				document.querySelectorAll('h3, label').forEach(function (element) {
+					element.style.color = "black";
+				});
+				compteur += 1;
+			} else {
+				// darkmode
+				darkModeAll()
+				document.getElementById("divRightConnect").style.backgroundColor = "black";
+				document.querySelectorAll('h3, label').forEach(function (element) {
+					element.style.color = "white";
+				});
+				compteur += 1;
 			}
-		</script>
+		}
+	</script>
 
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				var userLoggedIn = sessionStorage.getItem('userLoggedIn');
+	<script>
+		function darkModeAll() {
+			if (compteur % 2 === 0) {
+				// lightmode
+				document.getElementById('titreTopBar').style.color = "black";
+				document.getElementById('buttonSwitch').innerHTML = '<svg style="width: 40px; height: 40px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>';
+				document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" /></svg>';
+				document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>';
+				document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page.png");
+				document.body.style.backgroundColor = "#F2F2F2";
+			} else {
+				// darkmode
+				document.getElementById('titreTopBar').style.color = "white";
+				document.getElementById('buttonSwitch').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>toggle-switch-outline</title><path d="M17 6H7C3.69 6 1 8.69 1 12S3.69 18 7 18H17C20.31 18 23 15.31 23 12S20.31 6 17 6M17 16H7C4.79 16 3 14.21 3 12S4.79 8 7 8H17C19.21 8 21 9.79 21 12S19.21 16 17 16M17 9C15.34 9 14 10.34 14 12S15.34 15 17 15 20 13.66 20 12 18.66 9 17 9Z" style="fill: white;" /></svg>';
+				document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" style="fill: white;" /></svg>';
+				document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" style="fill: white;" /></svg>';
+				document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page_dark.png");
+				document.body.style.backgroundColor = "black";
+			}
+		}
+	</script>
 
-				if (userLoggedIn){
-					document.getElementById('divLeft').style.display = 'block';
-					document.getElementById("divRightConnect").style.width = "50%";
-				} else {
-					document.getElementById('divLeft').style.display = 'none'; // none
-					document.getElementById("divRightConnect").style.borderRadius = "15px";
-				}
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var userLoggedIn = sessionStorage.getItem('userLoggedIn');
+
+			if (userLoggedIn) {
+				document.getElementById('divLeft').style.display = 'block';
+				document.getElementById("divRightConnect").style.width = "50%";
+			} else {
+				document.getElementById('divLeft').style.display = 'none'; // none
+				document.getElementById("divRightConnect").style.borderRadius = "15px";
+			}
+		});
+	</script>
+
+	<script>
+		var kilometres = [];
+		var volumes = [];
+		var dates = [];
+		// Fonction pour récupérer les noms des documents dans la collection "Voitures"
+		function fetchCarNames() {
+			var voitureSelect = document.getElementById("voitureSelect");
+
+			db.collection("Voitures").get().then(function (querySnapshot) {
+				querySnapshot.forEach(function (doc) {
+					var option = document.createElement("option");
+					// Remplacer le caractère "+" par "plus"
+					option.text = doc.id;
+					voitureSelect.add(option);
+				});
+			}).catch(function (error) {
+				console.error("Erreur lors de la récupération des noms de voiture :", error);
 			});
-		</script>
+		}
 
-		<script>
-			var kilometres = [];
-			var volumes = [];
-			var dates = [];
-			// Fonction pour récupérer les noms des documents dans la collection "Voitures"
-			function fetchCarNames() {
-				var voitureSelect = document.getElementById("voitureSelect");
+		// Fonction pour récupérer les données des pleins et dessiner le graphique correspondant à la voiture sélectionnée
+		function fetchAndDrawChart() {
+			var selectedCar = document.getElementById("voitureSelect").value;
 
-				db.collection("Voitures").get().then(function(querySnapshot) {
-					querySnapshot.forEach(function(doc) {
-						var option = document.createElement("option");
-						// Remplacer le caractère "+" par "plus"
-						option.text = doc.id;
-						voitureSelect.add(option);
+			if (selectedCar === "aucunChoix") {
+				document.getElementById("graphique").style.display = "none";
+				document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
+				document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
+				document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
+			} else {
+				document.getElementById("graphique").style.height = "auto";
+				document.getElementById("graphique").style.display = "block";
+				var consommations = [];
+
+				var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
+
+				pleinCollectionRef.get().then(function (querySnapshot) {
+					querySnapshot.forEach(function (doc) {
+						var plein = doc.data();
+						kilometres.push(plein.distance);
+						volumes.push(plein.volume);
+						dates.push(plein.date);
+						var consommation = (plein.volume * 100) / plein.distance;
+						consommations.push(consommation);
 					});
-				}).catch(function(error) {
-					console.error("Erreur lors de la récupération des noms de voiture :", error);
+
+					// Calculer la moyenne des consommations
+					var moyenne = calculateMean(consommations);
+
+					// Dessiner le graphique avec la moyenne des consommations
+					drawChart(consommations, moyenne);
+				}).catch(function (error) {
+					console.error("Erreur lors de la récupération des données des pleins :", error);
 				});
 			}
+		}
 
-			// Fonction pour récupérer les données des pleins et dessiner le graphique correspondant à la voiture sélectionnée
-			function fetchAndDrawChart() {
-				var selectedCar = document.getElementById("voitureSelect").value;
+		// Fonction pour calculer la moyenne d'un tableau de valeurs
+		function calculateMean(values) {
+			var sum = values.reduce((a, b) => a + b, 0);
+			return sum / values.length;
+		}
 
-				if (selectedCar === "aucunChoix") {
-					document.getElementById("graphique").style.display = "none";
-					document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
-					document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
-					document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
-				} else {
-					document.getElementById("graphique").style.height = "auto";
-					document.getElementById("graphique").style.display = "block";
-					var consommations = [];
+		var myChart = null; // Déclarer la variable myChart à l'extérieur de la fonction drawChart
 
-					var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
+		// Fonction pour dessiner le graphique avec Chart.js
+		function drawChart(consommations, moyenne) {
+			// var ctx = document.getElementById('myChart').getContext('2d');
 
-					pleinCollectionRef.get().then(function(querySnapshot) {
-						querySnapshot.forEach(function(doc) {
-							var plein = doc.data();
-							kilometres.push(plein.distance);
-							volumes.push(plein.volume);
-							dates.push(plein.date);
-							var consommation = (plein.volume * 100) / plein.distance;
-							consommations.push(consommation);
-						});
-
-						// Calculer la moyenne des consommations
-						var moyenne = calculateMean(consommations);
-
-						// Dessiner le graphique avec la moyenne des consommations
-						drawChart(consommations, moyenne);
-					}).catch(function(error) {
-						console.error("Erreur lors de la récupération des données des pleins :", error);
-					});
-				}
+			// Détruire le graphique existant s'il y en a un
+			if (myChart) {
+				myChart.destroy();
 			}
 
-			// Fonction pour calculer la moyenne d'un tableau de valeurs
-			function calculateMean(values) {
-				var sum = values.reduce((a, b) => a + b, 0);
-				return sum / values.length;
+			// Calculer la régression linéaire
+			var consommationsX = Array.from({ length: consommations.length }, (_, i) => i + 1); // Créer un tableau de valeurs x (itérations)
+			var regressionLine = linearRegression(consommationsX, consommations); // Calculer la régression linéaire
+			var trendlineData = consommationsX.map(x => regressionLine.slope * x + regressionLine.intercept); // Calculer les valeurs de la courbe de tendance
+
+			var label = [];
+			for (var i = 1; i <= consommations.length; i++) {
+				label.push("Plein " + i);
 			}
 
-			var myChart = null; // Déclarer la variable myChart à l'extérieur de la fonction drawChart
-
-			// Fonction pour dessiner le graphique avec Chart.js
-			function drawChart(consommations, moyenne) {
-				// var ctx = document.getElementById('myChart').getContext('2d');
-
-				// Détruire le graphique existant s'il y en a un
-				if (myChart) {
-					myChart.destroy();
-				}
-
-				// Calculer la régression linéaire
-				var consommationsX = Array.from({ length: consommations.length }, (_, i) => i + 1); // Créer un tableau de valeurs x (itérations)
-				var regressionLine = linearRegression(consommationsX, consommations); // Calculer la régression linéaire
-				var trendlineData = consommationsX.map(x => regressionLine.slope * x + regressionLine.intercept); // Calculer les valeurs de la courbe de tendance
-
-				var label = [];
-				for (var i = 1; i <= consommations.length; i++) {
-					label.push("Plein " + i);
-				}
-				
-				var options = {
-					chart: {
-						type: 'line',
-						width: "100%",
-					},
-					series: [{
-						name: 'Consommation',
-						data: consommations.map(val => Math.round(val * 1000) / 1000)
-					}],
+			var options = {
+				chart: {
+					type: 'line',
+					width: "100%",
+				},
+				series: [{
+					name: 'Consommation',
+					data: consommations.map(val => Math.round(val * 1000) / 1000)
+				}],
+				xaxis: {
+					categories: dates,
+					labels: {
+						show: true,
+						rotate: -45,
+						rotateAlways: true,
+					}
+				},
+				yaxis: {
+					min: 0,
+					labels: {
+						formatter: function (val) {
+							if (Number.isInteger(val)) {
+								return val.toFixed(1); // arrondir à l'unité
+							} else {
+								return val.toFixed(3); // arrondir au millième
+							}
+						}
+					}
+				},
+				grid: {
+					show: true,
 					xaxis: {
-						categories: dates,
-						labels: {
-							show: true,
-							rotate: -45,
-          					rotateAlways: true,
+						lines: {
+							show: true
 						}
 					},
 					yaxis: {
-						min: 0,
-						labels: {
-							formatter: function(val) {
-								if (Number.isInteger(val)) {
-									return val.toFixed(1); // arrondir à l'unité
-								} else {
-									return val.toFixed(3); // arrondir au millième
-								}
-							}
+						lines: {
+							show: true
 						}
 					},
-					grid: {
-						show: true,
-						xaxis: {
-							lines: {
-								show: true
-							}
-						},   
-						yaxis: {
-							lines: {
-								show: true
-							}
-						}, 
+				},
+				theme: {
+					mode: 'light',
+					palette: 'palette1',
+					monochrome: {
+						enabled: false,
+						color: '#000000',
+						shadeTo: 'light'
 					},
-					theme: {
-						mode: 'light', 
-						palette: 'palette1', 
-						monochrome: {
-							enabled: false,
-							color: '#000000',
-							shadeTo: 'light'
-						},
-					},
-					tooltip: {
-						y: {
-							formatter: function(val) {
-								return val.toFixed(3); // arrondir au millième
-							}
-						},
-						custom: function({ series, seriesIndex, dataPointIndex, w }) {
-							var km = kilometres;
-							var volume = volumes;
-							var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
-							return '<div>' +
-								'<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
-								'<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
-								'<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
-								'</div>';
+				},
+				tooltip: {
+					y: {
+						formatter: function (val) {
+							return val.toFixed(3); // arrondir au millième
 						}
 					},
-					colors: ['#FF0000', '#0000FF'],
-					stroke: {
-						width: 2
-					},
-					markers: {
-						size: 2
+					custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+						var km = kilometres;
+						var volume = volumes;
+						var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
+						return '<div>' +
+							'<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
+							'<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
+							'<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
+							'</div>';
 					}
-				};
-
-				var chart = new ApexCharts(document.querySelector("#graphique"), options);
-
-				var selectedCar = document.getElementById("voitureSelect").value;
-
-				if (selectedCar === "aucunChoix") {
-					chart.destroy();
-				} else {
-					chart.render();
+				},
+				colors: ['#FF0000', '#0000FF'],
+				stroke: {
+					width: 2
+				},
+				markers: {
+					size: 2
 				}
-
-				// Mettre à jour les valeurs dans le HTML
-				document.getElementById("consommation").innerText = Math.round(moyenne*1000)/1000 + ' L/100';
-				document.getElementById("r2").innerText = Math.round(regressionLine.rSquare*1000)/1000;
-				document.getElementById("courbeTendance").innerText = Math.round(regressionLine.slope*1000)/1000 + "x + " + Math.round(regressionLine.intercept*1000)/1000;
-			}
-
-			function rSquared(x, y, coefficients) {
-
-				let regressionSquaredError = 0
-				let totalSquaredError = 0
-			
-				function yPrediction(x, coefficients) {
-					return coefficients[0] + coefficients[1] * x
-				}
-			
-				let yMean = y.reduce((a, b) => a + b) / y.length
-			
-				for (let i = 0; i < x.length; i++) {
-					regressionSquaredError += Math.pow(y[i] - yPrediction(x[i], coefficients), 2)
-					totalSquaredError += Math.pow(y[i] - yMean, 2)
-				}
-			
-				return 1 - (regressionSquaredError / totalSquaredError)
-			
-			}
-
-			// Fonction pour calculer la régression linéaire
-			function linearRegression(x, y) {
-				var n = x.length;
-				var sumX = 0;
-				var sumY = 0;
-				var sumXY = 0;
-				var sumXX = 0;
-				var sumYY = 0;
-
-				for (var i = 0; i < n; i++) {
-					sumX += x[i];
-					sumY += y[i];
-					sumXY += x[i] * y[i];
-					sumXX += x[i] * x[i];
-					sumYY += y[i] * y[i];
-				}
-
-				var slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-				var intercept = (sumY - slope * sumX) / n;
-
-				let rSquare = rSquared(x, y, [intercept, slope]);
-
-				return { slope: slope, intercept: intercept, rSquare: rSquare };
-			}
-
-			// Appeler la fonction pour récupérer les noms des voitures au chargement de la page
-			window.onload = function() {
-				fetchCarNames();
 			};
-		</script>
 
-		<script>
-			// Gestionnaire d'événement pour soumettre le formulaire
-			document.getElementById('addPleinForm').addEventListener('submit', function(event) {
-				event.preventDefault(); // Empêcher le rechargement de la page
+			var chart = new ApexCharts(document.querySelector("#graphique"), options);
 
-				// Récupérer les valeurs des champs du formulaire
-				var distance = parseFloat(document.getElementById('distance').value);
-				var volume = parseFloat(document.getElementById('volume').value);
-				var dateActuelle = new Date().toLocaleDateString();
+			var selectedCar = document.getElementById("voitureSelect").value;
 
-				// Obtenir le nombre total de documents dans la collection "Pleins"
-				db.collection('Voitures')
-					.doc('206plus')
-					.collection('Pleins')
-					.get()
-					.then(function(querySnapshot) {
-						// Nombre total de documents
-						var numberOfDocuments = querySnapshot.size;
+			if (selectedCar === "aucunChoix") {
+				chart.destroy();
+			} else {
+				chart.render();
+			}
 
-						// Créer un nouveau document avec un nom unique basé sur le nombre total de documents
-						db.collection('Voitures')
-							.doc('206plus')
-							.collection('Pleins')
-							.doc('Plein' + (numberOfDocuments + 1)) // Nouveau nom de document
-							.set({
-								distance: distance,
-								volume: volume,
-								date: dateActuelle
-							})
-							.then(function() {
-								console.log("Nouveau plein ajouté avec succès !");
-								// Réinitialiser le formulaire après l'ajout du plein
-								document.getElementById('addPleinForm').reset();
-							})
-							.catch(function(error) {
-								console.error("Erreur lors de l'ajout du plein :", error);
-								alert("Erreur lors de l'ajout du plein. Veuillez réessayer.");
-							});
-					})
-					.catch(function(error) {
-						console.error("Erreur lors de la récupération du nombre de documents :", error);
-						alert("Erreur lors de l'ajout du plein. Veuillez réessayer.");
-					});
-			});
-		</script>
-	</body>
+			// Mettre à jour les valeurs dans le HTML
+			document.getElementById("consommation").innerText = Math.round(moyenne * 1000) / 1000 + ' L/100';
+			document.getElementById("r2").innerText = Math.round(regressionLine.rSquare * 1000) / 1000;
+			document.getElementById("courbeTendance").innerText = Math.round(regressionLine.slope * 1000) / 1000 + "x + " + Math.round(regressionLine.intercept * 1000) / 1000;
+		}
+
+		function rSquared(x, y, coefficients) {
+
+			let regressionSquaredError = 0
+			let totalSquaredError = 0
+
+			function yPrediction(x, coefficients) {
+				return coefficients[0] + coefficients[1] * x
+			}
+
+			let yMean = y.reduce((a, b) => a + b) / y.length
+
+			for (let i = 0; i < x.length; i++) {
+				regressionSquaredError += Math.pow(y[i] - yPrediction(x[i], coefficients), 2)
+				totalSquaredError += Math.pow(y[i] - yMean, 2)
+			}
+
+			return 1 - (regressionSquaredError / totalSquaredError)
+
+		}
+
+		// Fonction pour calculer la régression linéaire
+		function linearRegression(x, y) {
+			var n = x.length;
+			var sumX = 0;
+			var sumY = 0;
+			var sumXY = 0;
+			var sumXX = 0;
+			var sumYY = 0;
+
+			for (var i = 0; i < n; i++) {
+				sumX += x[i];
+				sumY += y[i];
+				sumXY += x[i] * y[i];
+				sumXX += x[i] * x[i];
+				sumYY += y[i] * y[i];
+			}
+
+			var slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+			var intercept = (sumY - slope * sumX) / n;
+
+			let rSquare = rSquared(x, y, [intercept, slope]);
+
+			return { slope: slope, intercept: intercept, rSquare: rSquare };
+		}
+
+		// Appeler la fonction pour récupérer les noms des voitures au chargement de la page
+		window.onload = function () {
+			fetchCarNames();
+		};
+	</script>
+
+	<script>
+		// Gestionnaire d'événement pour soumettre le formulaire
+		document.getElementById('addPleinForm').addEventListener('submit', function (event) {
+			event.preventDefault(); // Empêcher le rechargement de la page
+
+			// Récupérer les valeurs des champs du formulaire
+			var distance = parseFloat(document.getElementById('distance').value);
+			var volume = parseFloat(document.getElementById('volume').value);
+			var dateActuelle = new Date().toLocaleDateString();
+
+			// Obtenir le nombre total de documents dans la collection "Pleins"
+			db.collection('Voitures')
+				.doc('206plus')
+				.collection('Pleins')
+				.get()
+				.then(function (querySnapshot) {
+					// Nombre total de documents
+					var numberOfDocuments = querySnapshot.size;
+
+					// Créer un nouveau document avec un nom unique basé sur le nombre total de documents
+					db.collection('Voitures')
+						.doc('206plus')
+						.collection('Pleins')
+						.doc('Plein' + (numberOfDocuments + 1)) // Nouveau nom de document
+						.set({
+							distance: distance,
+							volume: volume,
+							date: dateActuelle
+						})
+						.then(function () {
+							console.log("Nouveau plein ajouté avec succès !");
+							// Réinitialiser le formulaire après l'ajout du plein
+							document.getElementById('addPleinForm').reset();
+						})
+						.catch(function (error) {
+							console.error("Erreur lors de l'ajout du plein :", error);
+							alert("Erreur lors de l'ajout du plein. Veuillez réessayer.");
+						});
+				})
+				.catch(function (error) {
+					console.error("Erreur lors de la récupération du nombre de documents :", error);
+					alert("Erreur lors de l'ajout du plein. Veuillez réessayer.");
+				});
+		});
+	</script>
+
+	<script>
+		// Dark Mode Toggle
+		const toggleButton = document.getElementById('darkModeToggle');
+		const body = document.body;
+
+		toggleButton.addEventListener('click', () => {
+			if (body.getAttribute('data-theme') === 'dark') {
+				body.removeAttribute('data-theme');
+				toggleButton.textContent = '🌙';
+			} else {
+				body.setAttribute('data-theme', 'dark');
+				toggleButton.textContent = '☀️';
+			}
+		});
+	</script>
+</body>
+
 </html>
