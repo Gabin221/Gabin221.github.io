@@ -14,36 +14,56 @@ db.collection("boissons").get().then((querySnapshot) => {
         db.collection("boissons").doc(boissonsType).collection(boissonsType).get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 var boisson = doc.data();
-                const option = document.createElement('option');
+                 var option = document.createElement('option');
 
                 // Afficher la liste des boissons en fonction de leur type
                 switch (boissonsType) {
                     case "Sirops":
-                        divSirops.innerHTML += boisson['Nom'] + "<br>";
+                        var siropDiv = document.createElement('div');
+                        siropDiv.textContent = boisson['Nom'];
+                        siropDiv.classList.add('drink-item');
+                        divSirops.appendChild(siropDiv);
+                        
                         option.value = boisson['Nom'];
                         option.textContent = boisson['Nom'];
                         boissonASupprimer.appendChild(option);
                         break;
                     case "Softs":
-                        divSofts.innerHTML += boisson['Nom'] + "<br>";
+                        var softDiv = document.createElement('div');
+                        softDiv.textContent = boisson['Nom'];
+                        softDiv.classList.add('drink-item');
+                        divSofts.appendChild(softDiv);
+                        
                         option.value = boisson['Nom'];
                         option.textContent = boisson['Nom'];
                         boissonASupprimer.appendChild(option);
                         break;
                     case "Vins":
-                        divVins.innerHTML += boisson['Nom'] + "<br>";
+                        var vinDiv = document.createElement('div');
+                        vinDiv.textContent = boisson['Nom'];
+                        vinDiv.classList.add('drink-item');
+                        divVins.appendChild(vinDiv);
+                        
                         option.value = boisson['Nom'];
                         option.textContent = boisson['Nom'];
                         boissonASupprimer.appendChild(option);
                         break;
                     case "Classiques":
-                        divClassiques.innerHTML += boisson['Nom'] + "<br>";
+                        var classiqueDiv = document.createElement('div');
+                        classiqueDiv.textContent = boisson['Nom'];
+                        classiqueDiv.classList.add('drink-item');
+                        divClassiques.appendChild(classiqueDiv);
+                        
                         option.value = boisson['Nom'];
                         option.textContent = boisson['Nom'];
                         boissonASupprimer.appendChild(option);
                         break;
                     case "Extravagants":
-                        divExtravagants.innerHTML += boisson['Nom'] + "<br>";
+                        var extravagantDiv = document.createElement('div');
+                        extravagantDiv.textContent = boisson['Nom'];
+                        extravagantDiv.classList.add('drink-item');
+                        divExtravagants.appendChild(extravagantDiv);
+                        
                         option.value = boisson['Nom'];
                         option.textContent = boisson['Nom'];
                         boissonASupprimer.appendChild(option);
@@ -67,7 +87,10 @@ db.collection("boissons").doc("Bières").collection("Bouteilles").get().then((qu
         var data = doc.data();
 
         // Afficher la liste des boissons en bouteilles
-        divBieresBouteille.innerHTML += data['Nom'] + "<br>";
+        var BieresBouteillediv = document.createElement('div');
+        BieresBouteillediv.textContent = data['Nom'];
+        BieresBouteillediv.classList.add('drink-item');
+        divBieresBouteille.appendChild(BieresBouteillediv);
         option.value = data['Nom'];
         option.textContent = data['Nom'];
         boissonASupprimer.appendChild(option);
@@ -82,8 +105,11 @@ db.collection("boissons").doc("Bières").collection("Pressions").get().then((que
         const option = document.createElement('option');
         var data = doc.data();
 
-        // Afficher la liste des boissons en pressions
-        divBieresPression.innerHTML += data['Nom'] + "<br>";
+        // Afficher la liste des boissons en pression
+        var BieresPressiondiv = document.createElement('div');
+        BieresPressiondiv.textContent = data['Nom'];
+        BieresPressiondiv.classList.add('drink-item');
+        divBieresPression.appendChild(BieresPressiondiv);
         option.value = data['Nom'];
         option.textContent = data['Nom'];
         boissonASupprimer.appendChild(option);
