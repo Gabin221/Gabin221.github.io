@@ -87,6 +87,17 @@
             margin-bottom: 20px;
         }
 
+		h2 {
+			background-color: var(--menu-background);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid var(--menu-border);
+			margin-bottom: 20px;
+			text-align: center;
+			padding: 10px;
+		}
+
         nav ul {
             list-style: none;
             display: flex;
@@ -125,15 +136,12 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: background-color 0.3s;
+			margin-bottom: 20px;
         }
 
         .container h1 {
             margin-bottom: 20px;
         }
-
-		.container h2 {
-			margin-bottom: 20px;
-		}
 
 		.container h4 {
 			margin: 40px auto 10px auto;
@@ -155,7 +163,6 @@
         footer {
             display: flex;
             justify-content: space-between;
-            margin-top: 40px;
             margin-bottom: 40px;
         }
 
@@ -200,7 +207,6 @@
 		.form-container {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 40px;
         }
 
         .form-section {
@@ -333,6 +339,10 @@
 				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 				background-color: #fff;
 			}
+
+			.drink-item {
+				width: 90%;
+			}
         }
     </style>
 
@@ -364,8 +374,9 @@
         </ul>
     </nav>
 
+	<h2>Gabin's bar</h2>
+
     <div class="container">
-		<h2>Gabin's bar</h2>
         <div class="form-container">
             <div class="form-section">
                 <h3>Ajout de boissons</h3>
@@ -385,7 +396,7 @@
             </div>
 
             <div class="form-section">
-                <h3>Ajout de catégories</h3>
+                <h3>Suppression de boissons</h3>
                 <form style="margin: 20px 0 auto 0;" id="deleteCarteForm">
 					<select id="boissonASupprimer" name="boissonASupprimer">
 						<option value="">Choisissez une boisson</option>
@@ -394,7 +405,9 @@
 				</form>
             </div>
         </div>
+	</div>
 
+	<div class="container">
         <div class="categories">
             <div class="category-card" id="biereBouteilles-drinks">
 				<h3>Bières bouteilles</h3>
