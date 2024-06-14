@@ -1,424 +1,613 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>Modulo</title>
 
-        <link rel="icon" href="../Images/logo_modulo.png" type="image/png">
+<head>
+	<title>Modulo</title>
 
-		<link href="../Styles/allPagesConnexion.css" rel="stylesheet">
-		<link href="../Styles/modulo.css" rel="stylesheet">
+	<link rel="icon" href="../Images/logo_modulo.png" type="image/png">
 
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
-        <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+	<link href="../Styles/allPagesConnexion.css" rel="stylesheet">
+	<link href="../Styles/modulo.css" rel="stylesheet">
 
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.css" /> -->
-        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
 
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.css" /> -->
-        <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/match-braces/prism-match-braces.min.js"></script>
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.css" /> -->
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-core.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
 
-		<style>
-			*{
-				margin: 0px;
-				padding: 0px;
+	<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.css" /> -->
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/match-braces/prism-match-braces.min.js"></script>
+
+	<style>
+		:root {
+			--primary-color: #333;
+			--secondary-color: #fff;
+			--accent-color: #007BFF;
+			--background-color: #F2F2F2;
+			--font-family: 'Avenir', sans-serif;
+			--menu-background: #fff;
+			--menu-border: #ddd;
+		}
+
+		[data-theme="dark"] {
+			--primary-color: #ddd;
+			--secondary-color: #333;
+			--accent-color: #4E8EF7;
+			--background-color: #222;
+			--menu-background: #444;
+			--menu-border: #666;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		#menuHorizontal {
+			margin-bottom: 20px;
+		}
+
+		body {
+			padding-top: 1%;
+			padding-left: 5%;
+			padding-right: 5%;
+			background-color: var(--background-color);
+			font-family: var(--font-family);
+			color: var(--primary-color);
+			transition: background-color 0.3s, color 0.3s;
+		}
+
+		header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		header a {
+			text-decoration: none;
+			color: var(--primary-color);
+			display: flex;
+			align-items: center;
+		}
+
+		header img {
+			width: 60px;
+			height: 60px;
+		}
+
+		header p {
+			font-weight: bold;
+			font-size: x-large;
+			margin-left: 20px;
+		}
+
+		#darkModeToggle {
+			background: none;
+			border: none;
+			color: var(--primary-color);
+			font-size: 1.2em;
+			cursor: pointer;
+			transition: color 0.3s;
+		}
+
+		nav {
+			background-color: var(--menu-background);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid var(--menu-border);
+			margin-bottom: 20px;
+		}
+
+		h2 {
+			background-color: var(--menu-background);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			border-radius: 10px;
+			overflow: hidden;
+			border: 1px solid var(--menu-border);
+			margin-bottom: 20px;
+			text-align: center;
+			padding: 10px;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		nav a {
+			text-decoration: none;
+			color: var(--primary-color);
+			padding: 10px;
+			position: relative;
+			transition: color 0.3s;
+		}
+
+		nav a::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 0;
+			height: 2px;
+			background-color: var(--accent-color);
+			transition: width 0.3s;
+		}
+
+		nav a:hover::after,
+		nav a.active::after {
+			width: 100%;
+		}
+
+		.container {
+			background-color: var(--secondary-color);
+			border-radius: 10px;
+			padding: 20px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			text-align: center;
+			transition: background-color 0.3s;
+			margin-bottom: 20px;
+		}
+
+		.container h1 {
+			margin-bottom: 20px;
+		}
+
+		.container h4 {
+			margin: 40px auto 10px auto;
+		}
+
+		.container p {
+			line-height: 1.6;
+		}
+
+		.container a {
+			color: var(--accent-color);
+			text-decoration: none;
+		}
+
+		.container a:hover {
+			text-decoration: underline;
+		}
+
+		footer {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 40px;
+		}
+
+		footer .box {
+			background-color: var(--secondary-color);
+			padding: 20px;
+			border-radius: 10px;
+			width: 30%;
+			text-align: center;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			transition: background-color 0.3s;
+		}
+
+		footer .box h3 {
+			margin-bottom: 20px;
+		}
+
+		footer .box ul {
+			list-style: none;
+		}
+
+		footer .box ul li {
+			margin: 10px 0;
+		}
+
+		footer .box ul a {
+			color: var(--primary-color);
+			text-decoration: none;
+		}
+
+		footer .box ul a:hover {
+			text-decoration: underline;
+		}
+
+		footer .box svg {
+			width: 40px;
+			height: 40px;
+			margin-top: 10px;
+			transition: fill 0.3s;
+		}
+
+		.form-container {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.form-section {
+			width: 48%;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+		}
+
+		.form-section h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.form-section form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.form-section form input,
+		.form-section form select,
+		.form-section form button {
+			width: 80%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		.categories {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.category-card {
+			width: 45%;
+			margin: 10px;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+		}
+
+		.category-card h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.category-card .drinks-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		#sirop-drinks {
+			width: 92%;
+			margin: 10px;
+			padding: 20px;
+			border: 2px solid #000;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+		}
+
+		#sirop-drinks h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		#sirop-drinks .drinks-list {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.drink-item {
+			width: 45%;
+			margin: 5px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			text-align: center;
+		}
+
+		#bilanCarbon {
+			font-weight: bold;
+			font-size: x-large;
+			color: green;
+			margin-left: 20px;
+		}
+
+		[data-theme="dark"] svg {
+			fill: white;
+		}
+
+		#divConso {
+			width: 33.3%;
+		}
+
+		#divR2 {
+			width: 33.3%;
+		}
+
+		#divTendance {
+			width: 33.3%;
+		}
+
+		@media (max-width: 600px) {
+			#titreTopBar {
+				display: none;
 			}
 
-			nav{
+			#infosPlein {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			#divConso {
 				width: 100%;
-				margin: 40px 0px 40px 0px;
-				top: 0px;
-				font-weight: bold;
-				font-family: Avenir, sans-serif;
 			}
 
-			nav ul{
-				list-style-type: none;
-			}
-
-			nav li{
-				float: left;
-				width: 25%;/*100% divisé par le nombre d'éléments de menu*/
-				text-align: center;/*Centre le texte dans les éléments de menu*/
-			}
-
-			/*Evite que le menu n'ait une hauteur nulle*/
-			nav ul::after{
-				content: "";
-				display: table;
-				clear: both;
-			}
-
-			nav a{
-				position: relative;
-				display: block; /*Toute la surface sera cliquable*/
-				text-decoration: none;
-				color: black;
-				border-bottom: 2px solid transparent;/*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
-				padding: 10px 0px;/*Agrandit le menu et espace la bordure du texte*/
-			}
-
-			.conteneur{
-				margin: 0px 20px;
-				height: 1500px;
-			}
-
-			nav a::after { /* Ajout */
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				width: 0;
-				height: 2px;
-				background-color: black;
-				transition: width 0.3s;
-			}
-
-			nav a:hover::after { /* Ajout */
+			#divR2 {
 				width: 100%;
 			}
 
-			nav a.active::after { /* Nouvelle règle pour l'élément actif */
+			#divTendance {
 				width: 100%;
 			}
 
-			@media only screen and (max-width: 600px) {
-				/* Masquer l'élément avec l'ID titreTopBar sur les écrans de petite taille */
-				#titreTopBar {
-					display: none;
-				}
+			footer {
+				flex-direction: column;
+				align-items: center;
 			}
-		</style>
-	</head>
-	<body style="padding-left: 5%; padding-right: 5%; background-color: #F2F2F2;">
-		<div style="display: flex; justify-content: space-between; margin: 5px 15px 0 5px;">
-			<a style="color: black; text-decoration: none;" href="../Gabin221.github.io/index.html">
-				<div class="elementMenuAccueil" style="display: flex; align-items: center; cursor: pointer;">
-					<img id="logoTopBar" src="../Images/logo_home_page.png" style="width: 60px; height: 60px;">
-					<p id="titreTopBar" style="font-weight: bold; font-size: x-large; margin-left: 20px;">
-						Gabin221.github.io
-					</p>
-				</div>
-			</a>
-			<div style="display: flex; align-items: end; flex-direction: column;">
-				<div style="display: flex; align-items: center;">
-					<div style="display: flex; align-items: center; justify-content: center;">
-						<svg id="lightSvg" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-							<path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" />
-						</svg>
-						<svg id="buttonSwitch" onclick="darkMode()" style="width: 40px; height: 40px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-							<path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-						</svg>
-						<svg id="darkSvg" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-							<path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
-						</svg>
-					</div>
-					<div style="margin-left: 20px;">
-						<a href="Connexion/index.html">
-							<svg id="buttonAccount" style="width: 30px; height: 30px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-								<path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
-							</svg>
-						</a>
-					</div>
-				</div>
-				<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon" style="font-weight: bold; font-size: x-large; margin-left: 20px; color: green;">
-				</p>
-			</div>
-		</div>
 
-		<nav>
-			<ul>
-				<li>
-					<a class="elementMenuAccueil" href="../index.html">
-						Accueil
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuGabinsBar" href="Gabinsbar/index.html">
-						Gabin's bar
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuModulo" href="Modulo/index.html">
-						Modulo
-					</a>
-				</li>
-				<li>
-					<a class="elementMenuDRond" href="Drond/index.html">
-						∂ rond
-					</a>
-				</li>
-			</ul>
-		</nav>
+			footer .box {
+				width: 80%;
+				margin-bottom: 20px;
+			}
 
-		<h1>
-			Modulo
-		</h1>
+			.form-container {
+				flex-direction: column;
+				align-items: center;
+			}
 
-		<div id="menuHorizontal">
-			<div class="elementMenuHorizontal" id="boutonPresentation">
-				Présentation
-			</div>
-			<div class="elementMenuHorizontal" id="boutonC">
-				C
-			</div>
-			<div class="elementMenuHorizontal" id="boutonCpp">
-				C++
-			</div>
-			<div class="elementMenuHorizontal" id="boutonKotlin">
-				Kotlin
-			</div>
-			<div class="elementMenuHorizontal" id="boutonLatex">
-				LaTeX
-			</div>
-			<div class="elementMenuHorizontal" id="boutonLignesDeCommandes">
-				Ligne de commandes
-			</div>
-			<div class="elementMenuHorizontal" id="boutonLinux">
-				Linux
-			</div>
-			<div class="elementMenuHorizontal" id="boutonPython">
-				Python
-			</div>
-			<div class="elementMenuHorizontal" id="boutonShell">
-				Shell
-			</div>
-			<div class="elementMenuHorizontal" id="boutonWeb">
-				Web
-			</div>
-		</div>
+			.form-section {
+				width: 90%;
+				margin-bottom: 20px;
+			}
 
-		<div id="conteneurPartiesCartesAll">
-			<div id="divPresentation">
-				<h3>
-					Présentation
-				</h3>
+			.category-card {
+				width: 90%;
+				margin: 10px;
+				padding: 20px;
+				border: 2px solid #000;
+				border-radius: 15px;
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+				background-color: #fff;
+			}
 
-				<p>Ceci est une présentation</p>
-			</div>
+			.drink-item {
+				width: 90%;
+			}
 
-			<div class="conteneurLangage" id="divC">
-				<h3>
-					C
-				</h3>
-				<div class="contenuLangage" id="divCContenu"></div>
-			</div>
+			footer .box {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
 
-			<div class="conteneurLangage" id="divCpp">
-				<h3>
-					C++
-				</h3>
-				<div class="contenuLangage" id="divCppContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divKotlin">
-				<h3>
-					Kotlin
-				</h3>
-				<div class="contenuLangage" id="divKotlinContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divLatex">
-				<h3>
-					LaTeX
-				</h3>
-				<div class="contenuLangage" id="divLatexContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divLignesDeCommandes">
-				<h3>
-					Lignes de commandes
-				</h3>
-				<div class="contenuLangage" id="divLignesDeCommandesContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divLinux">
-				<h3>
-					Linux
-				</h3>
-				<div class="contenuLangage" id="divLinuxContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divPython">
-				<h3>
-					Python
-				</h3>
-				<div class="contenuLangage" id="divPythonContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divShell">
-				<h3>
-					Shell
-				</h3>
-				<div class="contenuLangage" id="divShellContenu"></div>
-			</div>
-
-			<div class="conteneurLangage" id="divWeb">
-				<h3>
-					Web
-				</h3>
-				<div class="contenuLangage" id="divWebContenu"></div>
-			</div>
-		</div>
-		
-		<hr style="margin-top: 40px; border: 1px solid black;">
-
+<body>
+	<header>
+		<a href="../Gabin221.github.io/index.html">
+			<img id="logoTopBar" src="../Images/logo_home_page.png" alt="Logo">
+			<p id="titreTopBar">Gabin221.github.io</p>
+		</a>
 		<div>
-			<div style="display: flex; justify-content: space-between; margin-bottom: 10px; margin-top: 40px;">
-				<div style="background-color: white; width: 30%; padding: 20px; border-radius: 15%;">
-					<div style="display: flex; flex-direction: column; align-items: center;">
-						<h3>
-							Plan du site
-						</h3>
+			<button id="darkModeToggle">🌙</button>
+			<a href="../Connexion/index.html">
+				<svg id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
+				</svg>
+			</a>
+			<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
+		</div>
+	</header>
 
-						<ul style="margin-top: 20px; list-style-type: none; display: flex; flex-direction: column;">
-							<li>
-								<a class="elementMenuAccueil" href="../index.html" style="color: black; text-decoration: none;">
-									Accueil
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuGabinsBar" href="../Gabinsbar/index.html" style="color: black; text-decoration: none;">
-									Gabin's bar
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuModulo" href="../Modulo/index.html" style="color: black; text-decoration: none;">
-									Modulo
-								</a>
-							</li>
-							<li>
-								<a class="elementMenuDRond" href="../Drond/index.html" style="color: black; text-decoration: none;">
-									∂ rond
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div style="background-color: white; width: 30%; padding: 20px; border-radius: 15%;">
-					<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-						<h3>
-							Réseaux
-						</h3>
-						<a href="https://github.com/Gabin221">
-							<svg id="boutonLienGithub" style="width: 40px; height: 40px; margin-top: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-								<path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
+	<nav>
+		<ul>
+			<li><a class="elementMenuAccueil" href="../index.html">Accueil</a></li>
+			<li><a class="elementMenuGabinsBar" href="Gabinsbar/index.html">Gabin's bar</a></li>
+			<li><a class="elementMenuModulo" href="Modulo/index.html">Modulo</a></li>
+			<li><a class="elementMenuDrond" href="Drond/index.html">∂ rond</a></li>
+		</ul>
+	</nav>
+
+	<h2>Modulo</h2>
+
+	<div id="menuHorizontal">
+		<div class="elementMenuHorizontal" id="boutonPresentation">
+			Présentation
+		</div>
+		<div class="elementMenuHorizontal" id="boutonC">
+			C
+		</div>
+		<div class="elementMenuHorizontal" id="boutonCpp">
+			C++
+		</div>
+		<div class="elementMenuHorizontal" id="boutonKotlin">
+			Kotlin
+		</div>
+		<div class="elementMenuHorizontal" id="boutonLatex">
+			LaTeX
+		</div>
+		<div class="elementMenuHorizontal" id="boutonLignesDeCommandes">
+			Ligne de commandes
+		</div>
+		<div class="elementMenuHorizontal" id="boutonLinux">
+			Linux
+		</div>
+		<div class="elementMenuHorizontal" id="boutonPython">
+			Python
+		</div>
+		<div class="elementMenuHorizontal" id="boutonShell">
+			Shell
+		</div>
+		<div class="elementMenuHorizontal" id="boutonWeb">
+			Web
+		</div>
+	</div>
+
+	<div class="container" id="conteneurPartiesCartesAll">
+		<div id="divPresentation">
+			<h3>
+				Présentation
+			</h3>
+
+			<p>Ceci est une présentation</p>
 		</div>
 
-		<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+		<div class="conteneurLangage" id="divC">
+			<h3>
+				C
+			</h3>
+			<div class="contenuLangage" id="divCContenu"></div>
+		</div>
 
-		<script>
-			function darkModeAll() {
-				if (compteur%2 === 0) {
-					// lightmode
-					document.getElementById('titreTopBar').style.color="black";
-					document.getElementById('buttonSwitch').innerHTML = '<svg style="width: 40px; height: 40px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>';
-					document.getElementById('buttonAccount').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" /></svg>';
-					document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" /></svg>';
-					document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>';
-					document.getElementById('boutonLienGithub').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" /></svg>';
-					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page.png");
-					document.body.style.backgroundColor = "#F2F2F2";
-					document.querySelectorAll('h3, hr').forEach(function(element) {
-						element.style.color = "black";
-					});
-					var elementMenuAccueil = document.getElementsByClassName("elementMenuAccueil");
-					var elementMenuGabinsBar = document.getElementsByClassName("elementMenuGabinsBar");
-					var elementMenuModulo = document.getElementsByClassName("elementMenuModulo");
-					var elementMenuDRond = document.getElementsByClassName("elementMenuDRond");
-					for (var i = 0; i < elementMenuGabinsBar.length; i++) {
-						elementMenuAccueil[i].style.color = "black";
-						elementMenuGabinsBar[i].style.color = "black";
-						elementMenuModulo[i].style.color = "black";
-						elementMenuDRond[i].style.color = "black";
+		<div class="conteneurLangage" id="divCpp">
+			<h3>
+				C++
+			</h3>
+			<div class="contenuLangage" id="divCppContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divKotlin">
+			<h3>
+				Kotlin
+			</h3>
+			<div class="contenuLangage" id="divKotlinContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divLatex">
+			<h3>
+				LaTeX
+			</h3>
+			<div class="contenuLangage" id="divLatexContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divLignesDeCommandes">
+			<h3>
+				Lignes de commandes
+			</h3>
+			<div class="contenuLangage" id="divLignesDeCommandesContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divLinux">
+			<h3>
+				Linux
+			</h3>
+			<div class="contenuLangage" id="divLinuxContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divPython">
+			<h3>
+				Python
+			</h3>
+			<div class="contenuLangage" id="divPythonContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divShell">
+			<h3>
+				Shell
+			</h3>
+			<div class="contenuLangage" id="divShellContenu"></div>
+		</div>
+
+		<div class="conteneurLangage" id="divWeb">
+			<h3>
+				Web
+			</h3>
+			<div class="contenuLangage" id="divWebContenu"></div>
+		</div>
+	</div>
+
+	<hr style="margin-top: 40px; margin-bottom: 40px; border: 1px solid black;">
+
+	<footer>
+		<div class="box">
+			<h3>Plan du site</h3>
+			<ul>
+				<li><a href="../index.html">Accueil</a></li>
+				<li><a href="Gabinsbar/index.html">Gabin's bar</a></li>
+				<li><a href="Modulo/index.html">Modulo</a></li>
+				<li><a href="Drond/index.html">∂ rond</a></li>
+			</ul>
+		</div>
+		<div class="box">
+			<h3>Réseaux</h3>
+			<a href="https://github.com/Gabin221">
+				<svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+				</svg>
+			</a>
+		</div>
+	</footer>
+
+	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok ' + response.statusText);
 					}
-					elementMenuAccueil[elementMenuAccueil.length - 1].style.color = "black";
-				} else {
-					// darkmode
-					document.getElementById('titreTopBar').style.color="white";
-					document.getElementById('buttonSwitch').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>toggle-switch-outline</title><path d="M17 6H7C3.69 6 1 8.69 1 12S3.69 18 7 18H17C20.31 18 23 15.31 23 12S20.31 6 17 6M17 16H7C4.79 16 3 14.21 3 12S4.79 8 7 8H17C19.21 8 21 9.79 21 12S19.21 16 17 16M17 9C15.34 9 14 10.34 14 12S15.34 15 17 15 20 13.66 20 12 18.66 9 17 9Z" style="fill: white;" /></svg>';
-					document.getElementById('buttonAccount').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" style="fill: white;" /></svg>';
-					document.getElementById('lightSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11H23V13H20V11M1,11H4V13H1V11M13,1V4H11V1H13M4.92,3.5L7.05,5.64L5.63,7.05L3.5,4.93L4.92,3.5M16.95,5.63L19.07,3.5L20.5,4.93L18.37,7.05L16.95,5.63M12,6A6,6 0 0,1 18,12C18,14.22 16.79,16.16 15,17.2V19A1,1 0 0,1 14,20H10A1,1 0 0,1 9,19V17.2C7.21,16.16 6,14.22 6,12A6,6 0 0,1 12,6M14,21V22A1,1 0 0,1 13,23H11A1,1 0 0,1 10,22V21H14M11,18H13V15.87C14.73,15.43 16,13.86 16,12A4,4 0 0,0 12,8A4,4 0 0,0 8,12C8,13.86 9.27,15.43 11,15.87V18Z" style="fill: white;" /></svg>';
-					document.getElementById('darkSvg').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" style="fill: white;" /></svg>';
-					document.getElementById('boutonLienGithub').innerHTML = '<svg style="width: 30px; height: 30px; margin-left: 8px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" style="fill: white;" /></svg>';
-					document.getElementById("logoTopBar").setAttribute("src", "../Images/logo_home_page_dark.png");
-					document.body.style.backgroundColor = "black";
-					document.querySelectorAll('h3, hr').forEach(function(element) {
-						element.style.color = "white";
-					});
-					var elementMenuAccueil = document.getElementsByClassName("elementMenuAccueil");
-					var elementMenuGabinsBar = document.getElementsByClassName("elementMenuGabinsBar");
-					var elementMenuModulo = document.getElementsByClassName("elementMenuModulo");
-					var elementMenuDRond = document.getElementsByClassName("elementMenuDRond");
-					for (var i = 0; i < elementMenuGabinsBar.length; i++) {
-						elementMenuAccueil[i].style.color = "white";
-						elementMenuGabinsBar[i].style.color = "white";
-						elementMenuModulo[i].style.color = "white";
-						elementMenuDRond[i].style.color = "white";
+					return response.json();
+				})
+				.then(data => {
+					// Récupérer l'élément avec l'ID 'bilanCarbon'
+					const bilanCarbonElement = document.getElementById('bilanCarbon');
+					if (bilanCarbonElement) {
+						// Ajouter la valeur de timestamp
+						bilanCarbonElement.textContent = Math.round(data.statistics.co2.grid.grams * 100000) / 100000 + " g";
+					} else {
+						console.error('Element with ID "bilanCarbon" not found.');
 					}
-					elementMenuAccueil[elementMenuAccueil.length - 1].style.color = "white";
-				}
+				})
+				.catch(error => {
+					console.error('There was a problem with the fetch operation:', error);
+				});
+		});
+	</script>
+
+	<script src="../Scripts/moduloGererAffichageMenu.js"></script>
+
+	<script src="../Scripts/moduloRecupererCodes.js"></script>
+
+	<script src="../Scripts/moduloCopierCode.js"></script>
+
+	<script>
+		// Dark Mode Toggle
+		const toggleButton = document.getElementById('darkModeToggle');
+		const body = document.body;
+
+		toggleButton.addEventListener('click', () => {
+			if (body.getAttribute('data-theme') === 'dark') {
+				body.removeAttribute('data-theme');
+				toggleButton.textContent = '🌙';
+			} else {
+				body.setAttribute('data-theme', 'dark');
+				toggleButton.textContent = '☀️';
 			}
-		</script>
+		});
+	</script>
 
-		<script>
-			var compteur = 1;
-			
-			function darkMode() {
+</body>
 
-				if (compteur%2 === 0) {
-					// lightmode
-					darkModeAll()
-					compteur += 1;
-				} else {
-					// darkmode
-					darkModeAll()
-					compteur += 1;
-				}
-		    }
-		</script>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', (event) => {
-				fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
-					.then(response => {
-						if (!response.ok) {
-							throw new Error('Network response was not ok ' + response.statusText);
-						}
-						return response.json();
-					})
-					.then(data => {
-						// Récupérer l'élément avec l'ID 'bilanCarbon'
-						const bilanCarbonElement = document.getElementById('bilanCarbon');
-						if (bilanCarbonElement) {
-							// Ajouter la valeur de timestamp
-							bilanCarbonElement.textContent = Math.round(data.statistics.co2.grid.grams*100000)/100000 + " g";
-						} else {
-							console.error('Element with ID "bilanCarbon" not found.');
-						}
-					})
-					.catch(error => {
-						console.error('There was a problem with the fetch operation:', error);
-					});
-			});
-		</script>
-
-		<script src="../Scripts/moduloGererAffichageMenu.js"></script>
-
-		<script src="../Scripts/moduloRecupererCodes.js"></script>
-
-		<script src="../Scripts/moduloCopierCode.js"></script>
-
-	</body>
 </html>
