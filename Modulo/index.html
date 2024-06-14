@@ -250,12 +250,18 @@
 
 		.form-section form input,
 		.form-section form select,
+		.form-section form textarea,
 		.form-section form button {
 			width: 80%;
 			padding: 10px;
 			margin-bottom: 10px;
 			border: 1px solid #ccc;
 			border-radius: 5px;
+		}
+
+		.form-section form textarea {
+			height: 100px;
+			resize: none;
 		}
 
 		.categories {
@@ -430,8 +436,44 @@
 
 	<h2>Modulo</h2>
 
+	<div class="container" id="ajoutCode">
+        <div class="form-container">
+            <div class="form-section">
+                <h3>Ajouter un code</h3>
+
+				<form id="programForm"><br>
+					<input type="text" id="nomProgramme" name="nomProgramme" placeholder="Nom du programme">
+					<select id="langage" name="langage">
+						<option value="">Choisissez un langage</option>
+					</select>
+					<textarea id="description" name="description" placeholder="Description du programme"></textarea>
+					<textarea id="codeProgramme" name="codeProgramme" placeholder="Code du programme"></textarea><br><br>
+					<button type="submit">Enregistrer</button><br><br>
+				</form>
+            </div>
+
+            <div class="form-section">
+                <h3>Supprimer un code</h3>
+
+				<form id="programForm"><br>
+					<label for="nomProgramme">Nom du Programme:</label><br>
+					<input type="text" id="nomProgramme" name="nomProgramme"><br><br>
+					<label for="langage">Langage de Programmation :</label><br>
+					<select id="langage" name="langage">
+						<option value="">Choisissez un langage</option>
+					</select><br><br>
+					<label for="description">Description:</label><br>
+					<textarea id="description" name="description"></textarea><br><br>
+					<label for="codeProgramme">Code du Programme:</label><br>
+					<textarea id="codeProgramme" name="codeProgramme"></textarea><br><br>
+					<button type="submit">Enregistrer</button><br><br>
+				</form>
+            </div>
+        </div>
+	</div>
+
 	<div class="container">
-		<p>Présentation</p>
+		<p>Modulo est une plateforme dédiée à l'apprentissage et à la pratique de différents langages de programmation et outils informatiques. Explorez ci-dessous pour découvrir des exemples de code et des tutoriels interactifs pour divers langages et technologies.</p>
 	</div>
 
 	<div id="menuHorizontal">
@@ -532,25 +574,24 @@
 	<hr style="margin-top: 40px; margin-bottom: 40px; border: 1px solid black;">
 
 	<footer>
-		<div class="box">
-			<h3>Plan du site</h3>
-			<ul>
-				<li><a href="../index.html">Accueil</a></li>
-				<li><a href="../Gabinsbar/index.html">Gabin's bar</a></li>
-				<li><a href="../Modulo/index.html">Modulo</a></li>
-				<li><a href="../Drond/index.html">∂ rond</a></li>
-			</ul>
-		</div>
-		<div class="box">
-			<h3>Réseaux</h3>
-			<a href="https://github.com/Gabin221">
-				<svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-					<path
-						d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-				</svg>
-			</a>
-		</div>
-	</footer>
+        <div class="box">
+            <h3>Plan du site</h3>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../Gabinsbar/index.html">Gabin's bar</a></li>
+                <li><a href="../Modulo/index.html">Modulo</a></li>
+                <li><a href="../Drond/index.html">∂ rond</a></li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>Réseaux</h3>
+            <a href="https://github.com/Gabin221">
+                <svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" fill="#000000" />
+                </svg>
+            </a>
+        </div>
+    </footer>
 
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
