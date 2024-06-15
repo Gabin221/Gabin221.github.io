@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var userRights = localStorage.getItem('userRights');
+    var userRights = sessionStorage.getItem('userRights');
 
     if (userRights === "boss"){
         document.getElementById('ajoutSuppressionCode').style.display = "block";
