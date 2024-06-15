@@ -285,42 +285,6 @@
 			margin-bottom: 20px;
 		}
 
-		.category-card .drinks-list {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		#sirop-drinks {
-			width: 92%;
-			margin: 10px;
-			padding: 20px;
-			border: 2px solid #000;
-			border-radius: 15px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			background-color: #fff;
-		}
-
-		#sirop-drinks h3 {
-			text-align: center;
-			margin-bottom: 20px;
-		}
-
-		#sirop-drinks .drinks-list {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-		}
-
-		.drink-item {
-			width: 45%;
-			margin: 5px;
-			padding: 10px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			text-align: center;
-		}
-
 		#bilanCarbon {
 			font-weight: bold;
 			font-size: x-large;
@@ -332,38 +296,95 @@
 			fill: white;
 		}
 
-		#divConso {
-			width: 33.3%;
+		.conteneurLangage {
+            display: none;
+        }
+
+        .conteneurLangage.active {
+            display: block;
+        }
+
+        .conteneurLangage h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contenuLangage {
+            padding: 20px;
+            border: 1px solid var(--menu-border);
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+		#menuHorizontal {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .elementMenuHorizontal {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: var(--secondary-color);
+            border: 1px solid var(--menu-border);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .elementMenuHorizontal:hover {
+            background-color: var(--background-color);
+        }
+
+		#menuHorizontalPartieC {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 20px;
 		}
 
-		#divR2 {
-			width: 33.3%;
+		.elementMenuHorizontalPartieC {
+			padding: 10px 20px;
+			margin: 5px;
+			background-color: var(--secondary-color);
+			border: 1px solid var(--menu-border);
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s;
 		}
 
-		#divTendance {
-			width: 33.3%;
+		.elementMenuHorizontalPartieC:hover {
+			background-color: var(--background-color);
+		}
+
+		.contenuLangagePartieC {
+			display: none;
+			width: 90%;
+			margin: auto;
+		}
+
+		.contenuLangagePartieC.active {
+			display: block;
+		}
+
+		.contenuLangagePartieC h3 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		.contenuLangagePartieC {
+			padding: 20px;
+			border: 1px solid var(--menu-border);
+			border-radius: 5px;
+			background-color: var(--secondary-color);
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
 
 		@media (max-width: 600px) {
 			#titreTopBar {
 				display: none;
-			}
-
-			#infosPlein {
-				flex-direction: column;
-				align-items: center;
-			}
-
-			#divConso {
-				width: 100%;
-			}
-
-			#divR2 {
-				width: 100%;
-			}
-
-			#divTendance {
-				width: 100%;
 			}
 
 			footer {
@@ -396,12 +417,13 @@
 				background-color: #fff;
 			}
 
-			.drink-item {
-				width: 90%;
-			}
-
 			footer .box {
 				width: 100%;
+			}
+
+			.contenuLangagePartieC {
+				width: 95%;
+				margin: auto;
 			}
 		}
 	</style>
@@ -477,93 +499,108 @@
 	</div>
 
 	<div id="menuHorizontal">
-		<div class="elementMenuHorizontal" id="boutonC">
+		<div class="elementMenuHorizontal" data-langage="c">
 			C
 		</div>
-		<div class="elementMenuHorizontal" id="boutonCpp">
+		<div class="elementMenuHorizontal" data-langage="cpp">
 			C++
 		</div>
-		<div class="elementMenuHorizontal" id="boutonKotlin">
+		<div class="elementMenuHorizontal" data-langage="kotlin">
 			Kotlin
 		</div>
-		<div class="elementMenuHorizontal" id="boutonLatex">
+		<div class="elementMenuHorizontal" data-langage="latex">
 			LaTeX
 		</div>
-		<div class="elementMenuHorizontal" id="boutonLignesDeCommandes">
+		<div class="elementMenuHorizontal" data-langage="lignedecommande">
 			Ligne de commandes
 		</div>
-		<div class="elementMenuHorizontal" id="boutonLinux">
+		<div class="elementMenuHorizontal" data-langage="linux">
 			Linux
 		</div>
-		<div class="elementMenuHorizontal" id="boutonPython">
+		<div class="elementMenuHorizontal" data-langage="python">
 			Python
 		</div>
-		<div class="elementMenuHorizontal" id="boutonShell">
+		<div class="elementMenuHorizontal" data-langage="shell">
 			Shell
 		</div>
-		<div class="elementMenuHorizontal" id="boutonWeb">
+		<div class="elementMenuHorizontal" data-langage="web">
 			Web
 		</div>
 	</div>
 
 	<div class="container" id="conteneurPartiesCartesAll">
-		<div class="conteneurLangage" id="divC">
+		<div class="conteneurLangage active" id="c">
 			<h3>
 				C
 			</h3>
-			<div class="contenuLangage" id="divCContenu"></div>
+			<div id="menuHorizontalPartieC">
+				<div class="elementMenuHorizontalPartieC" data-langage="c1">
+					Code 1
+				</div>
+				<div class="elementMenuHorizontalPartieC" data-langage="c2">
+					Code 2
+				</div>
+			</div>
+			<div class="contenuLangagePartieC" id="c1">
+				Contenu code 1
+			</div>
+			<div class="contenuLangagePartieC" id="c2">
+				Contenu code 2
+			</div>
+
+			<div class="contenuLangage" id="divCContenu" style="margin-top: 50px;"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divCpp">
+		<div class="conteneurLangage" id="cpp">
 			<h3>
 				C++
 			</h3>
 			<div class="contenuLangage" id="divCppContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divKotlin">
+		<div class="conteneurLangage" id="kotlin">
 			<h3>
 				Kotlin
 			</h3>
 			<div class="contenuLangage" id="divKotlinContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divLatex">
+		<div class="conteneurLangage" id="latex">
 			<h3>
 				LaTeX
 			</h3>
 			<div class="contenuLangage" id="divLatexContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divLignesDeCommandes">
+		<div class="conteneurLangage" id="lignedecommande">
 			<h3>
 				Lignes de commandes
 			</h3>
 			<div class="contenuLangage" id="divLignesDeCommandesContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divLinux">
+		<div class="conteneurLangage" id="linux">
 			<h3>
 				Linux
 			</h3>
 			<div class="contenuLangage" id="divLinuxContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divPython">
+		<div class="conteneurLangage" id="python">
 			<h3>
 				Python
 			</h3>
 			<div class="contenuLangage" id="divPythonContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divShell">
+		<div class="conteneurLangage" id="shell">
 			<h3>
 				Shell
 			</h3>
 			<div class="contenuLangage" id="divShellContenu"></div>
 		</div>
 
-		<div class="conteneurLangage" id="divWeb">
+		<div class="conteneurLangage" id="web">
 			<h3>
 				Web
 			</h3>
@@ -596,6 +633,40 @@
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 	<script>
+		// Menu horizontal interaction
+        const menuItems = document.querySelectorAll('.elementMenuHorizontal');
+        const languageContainers = document.querySelectorAll('.conteneurLangage');
+        
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-langage');
+                languageContainers.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === target) {
+                        container.classList.add('active');
+                    }
+                });
+            });
+        });
+
+		// Menu horizontal interaction
+        const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
+        const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
+        
+        menuItemsPartieC.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-langage');
+                languageContainersPartieC.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === target) {
+                        container.classList.add('active');
+                    }
+                });
+            });
+        });
+	</script>
+
+	<script>
 		document.addEventListener('DOMContentLoaded', (event) => {
 			fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
 				.then(response => {
@@ -620,11 +691,165 @@
 		});
 	</script>
 
-	<script src="../Scripts/moduloGererAffichageMenu.js"></script>
+	<script>
+		var langageClasses = {
+			'Python': 'language-python',
+			'JavaScript': 'language-javascript',
+			'Java': 'language-java',
+			'LaTeX': 'language-latex',
+			'HTML': 'language-html',
+			'C++': 'language-cpp',
+			'CSS': 'language-css',
+			'C': 'language-c',
+			'PHP': 'language-php',
+			'Linux': 'language-shell',
+			'SQL': 'language-sql',
+			'Markdown': 'language-markdown',
+			'Arduino': 'language-arduino'
+			// Ajoutez d'autres langages et leurs classes ici
+		};
 
-	<script src="../Scripts/moduloRecupererCodes.js"></script>
+		var langages = {
+			divCContenu: "C",
+			divCppContenu: "C++",
+			divKotlinContenu: "Kotlin",
+			divLatexContenu: "LaTeX",
+			divLignesDeCommandesContenu: "Ligne de commande",
+			divLinuxContenu: "Linux",
+			divPythonContenu: "Python",
+			divShellContenu: "Shell",
+			divWebContenu: "Web"
+		};
 
-	<script src="../Scripts/moduloCopierCode.js"></script>
+		// Définissez une fonction pour générer un ID unique
+		function generateUniqueId() {
+			return Math.random().toString(36).substr(2, 9);
+		}
+
+		// Fonction pour récupérer la liste des IDs pour un langage donné
+		function getIDsForLanguage(langage) {
+			const path = 'Codes/' + langage + '/' + langage;
+			return db.collection(path).get().then((querySnapshot) => {
+				const ids = [];
+				querySnapshot.forEach((doc) => {
+					ids.push(doc.id);
+				});
+				return ids;
+			}).catch((error) => {
+				console.error("Error getting documents:", error);
+			});
+		}
+
+		// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
+		function fetchDataFromFirestore(path, div, langage) {
+			db.doc(path).get().then((doc) => {
+				if (doc.exists) {
+					const data = doc.data();
+					const nom = data.Nom;
+					const description = data.Description;
+					const code = data.Code;
+
+					// Remplacer les caractères "<" par "&lt;" et ">" par "&gt;"
+					const sanitizedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+					// Séparer les lignes de code
+					const lines = sanitizedCode.split('\n');
+
+					const codeContent = lines.map((line, index) => {
+						return `<div style='margin-right: 5px;'>${index + 1}</div>`;
+					}).join('');
+
+					const uniqueId = generateUniqueId();
+
+					const html = `
+						<div style='display: inline-block; width: 100%;'>
+							<div class='element' style='display: block; height: auto; border: 1px solid red;'>
+								${nom}<br><br>
+								<p style='white-space: normal;'>${description}</p><br><br>
+								<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
+									<span style='margin-left: 10px; font-size: 16px;'>
+										<b>${langage}</b>
+									</span>
+									<button onclick='copyCode("codeBlock${uniqueId}", "copyButton${uniqueId}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${uniqueId}'>
+										<div id='buttonCopier'>
+											Copier
+										</div>
+									</button>
+								</div>
+								<div style='line-height: 24px;'>
+									<div style='display: flex; font-size: 16px;'>
+										<div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 24px; padding-bottom: 24px; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 2px solid black;'>
+											<div>
+												${codeContent}
+											</div>
+										</div>
+										<pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
+											<code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock${uniqueId}' data-language='${langage}'>
+${sanitizedCode}
+											</code>
+										</pre>
+									</div>
+								</div>
+							</div>
+						</div>
+					`;
+
+					div.innerHTML += html;
+				} else {
+					console.log("No such document!");
+				}
+			}).catch((error) => {
+				console.error("Error getting document:", error);
+			});
+		}
+
+		// Fonction pour récupérer les données et afficher dans la div associée à chaque langage
+		async function fetchDataAndDisplay() {
+			for (const [divID, langage] of Object.entries(langages)) {
+				const divElement = document.getElementById(`${divID}`);
+				const ids = await getIDsForLanguage(langage);
+				ids.forEach((docID) => {
+					const path = 'Codes/' + langage + '/' + langage + '/' + docID;
+					fetchDataFromFirestore(path, divElement, langage);
+				});
+			}
+		}
+
+		// Appeler fetchDataAndDisplay
+		fetchDataAndDisplay();
+	</script>
+
+	<script>
+		function copyCode(elementId, buttonId) {
+			var button = document.getElementById(buttonId);
+
+			const codeElement = document.getElementById(elementId);
+			const codeText = codeElement.innerText;
+
+			var initialText = button.innerText;
+
+			button.style.backgroundColor = "lightgreen";
+			button.innerText = "Copié !";
+
+			navigator.clipboard.writeText(codeText)
+				.then(() => {
+					console.log("Le code a été copié !");
+					setTimeout(function() {
+						button.style.backgroundColor = "";
+						button.innerText = initialText;
+					}, 1000);
+				})
+				.catch((error) => {
+					console.error("Erreur lors de la copie du code :", error);
+					button.style.backgroundColor = "red";
+					button.innerText = "Erreur !";
+					setTimeout(function() {
+						button.style.backgroundColor = "";
+						button.innerText = initialText;
+					}, 1000);
+				});
+		}
+	</script>
 
 	<script>
 		// Dark Mode Toggle
