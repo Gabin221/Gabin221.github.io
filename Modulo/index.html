@@ -426,7 +426,7 @@
 	</style>
 </head>
 
-<body>
+<body onload="fetchDataAndDisplay()">
 	<header>
 		<a href="../Gabin221.github.io/index.html">
 			<img id="logoTopBar" src="../Images/logo_home_page.png" alt="Logo">
@@ -495,7 +495,7 @@
 		<p>Modulo est une plateforme dédiée à l'apprentissage et à la pratique de différents langages de programmation et outils informatiques. Explorez ci-dessous pour découvrir des exemples de code et des tutoriels interactifs pour divers langages et technologies.</p>
 	</div>
 
-	<div id="menuHorizontal">
+	<div id="menuHorizontal" class="container">
 		<div class="elementMenuHorizontal" data-langage="c">
 			C
 		</div>
@@ -526,7 +526,7 @@
 	</div>
 
 	<div class="container" id="conteneurPartiesCartesAll">
-		<div class="conteneurLangage active" id="c">
+		<div class="conteneurLangage active" id="cMachin">
 			<h3>
 				C
 			</h3>
@@ -538,14 +538,17 @@
 					Code 2
 				</div>
 			</div>
-			<div class="contenuLangagePartieC" id="c1">
-				Contenu code 1
+			<div id="test">
+				<div class="contenuLangagePartieC" id="c1">
+					Contenu code 1
+				</div>
+				<div class="contenuLangagePartieC" id="c2">
+					Contenu code 2
+				</div>
 			</div>
-			<div class="contenuLangagePartieC" id="c2">
-				Contenu code 2
-			</div>
+			
 
-			<div class="contenuLangage" id="divCContenu" style="margin-top: 50px;"></div>
+			<div class="contenuLangage" id="divCContenu" style="margin-top: 200px;"></div>
 		</div>
 
 		<div class="conteneurLangage" id="cpp">
@@ -629,67 +632,6 @@
 
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
-	<script src="../Scripts/moduloAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
-
-	<script>
-		// Menu horizontal interaction
-        const menuItems = document.querySelectorAll('.elementMenuHorizontal');
-        const languageContainers = document.querySelectorAll('.conteneurLangage');
-        
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const target = item.getAttribute('data-langage');
-                languageContainers.forEach(container => {
-                    container.classList.remove('active');
-                    if (container.id === target) {
-                        container.classList.add('active');
-                    }
-                });
-            });
-        });
-
-		// Menu horizontal interaction
-        const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
-        const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
-        
-        menuItemsPartieC.forEach(item => {
-            item.addEventListener('click', () => {
-                const target = item.getAttribute('data-langage');
-                languageContainersPartieC.forEach(container => {
-                    container.classList.remove('active');
-                    if (container.id === target) {
-                        container.classList.add('active');
-                    }
-                });
-            });
-        });
-	</script>
-
-	<script>
-		document.addEventListener('DOMContentLoaded', (event) => {
-			fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Network response was not ok ' + response.statusText);
-					}
-					return response.json();
-				})
-				.then(data => {
-					// Récupérer l'élément avec l'ID 'bilanCarbon'
-					const bilanCarbonElement = document.getElementById('bilanCarbon');
-					if (bilanCarbonElement) {
-						// Ajouter la valeur de timestamp
-						bilanCarbonElement.textContent = Math.round(data.statistics.co2.grid.grams * 100000) / 100000 + " g";
-					} else {
-						console.error('Element with ID "bilanCarbon" not found.');
-					}
-				})
-				.catch(error => {
-					console.error('There was a problem with the fetch operation:', error);
-				});
-		});
-	</script>
-
 	<script>
 		var langageClasses = {
 			'Python': 'language-python',
@@ -739,6 +681,8 @@
 			});
 		}
 
+		var compteur = 3;
+
 		// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
 		function fetchDataFromFirestore(path, div, langage) {
 			db.doc(path).get().then((doc) => {
@@ -747,6 +691,25 @@
 					const nom = data.Nom;
 					const description = data.Description;
 					const code = data.Code;
+
+					var menuHorizontalPartieC = document.getElementById("menuHorizontalPartieC");
+					var cMachin = document.getElementById("test");
+
+					if (langage === "C") {
+						const random = Math.random().toString();
+
+						const newMenuItem = document.createElement("div");
+						newMenuItem.textContent = nom;
+						newMenuItem.classList.add("elementMenuHorizontalPartieC");
+						newMenuItem.setAttribute("data-langage", random);
+						menuHorizontalPartieC.appendChild(newMenuItem);
+
+						const newCode = document.createElement("div");
+						newCode.textContent = code;
+						newCode.classList.add("contenuLangagePartieC");
+						newCode.setAttribute("id", random);
+						cMachin.appendChild(newCode);
+					}
 
 					// Remplacer les caractères "<" par "&lt;" et ">" par "&gt;"
 					const sanitizedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -813,9 +776,67 @@ ${sanitizedCode}
 				});
 			}
 		}
+	</script>
 
-		// Appeler fetchDataAndDisplay
-		fetchDataAndDisplay();
+	<script src="../Scripts/moduloAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
+
+	<script>
+		// Menu horizontal interaction
+        const menuItems = document.querySelectorAll('.elementMenuHorizontal');
+        const languageContainers = document.querySelectorAll('.conteneurLangage');
+        
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-langage');
+                languageContainers.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === target) {
+                        container.classList.add('active');
+                    }
+                });
+            });
+        });
+
+		// Menu horizontal interaction
+        const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
+        const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
+        
+        menuItemsPartieC.forEach(item => {
+            item.addEventListener('click', () => {
+                const target = item.getAttribute('data-langage');
+                languageContainersPartieC.forEach(container => {
+                    container.classList.remove('active');
+                    if (container.id === target) {
+                        container.classList.add('active');
+                    }
+                });
+            });
+        });
+	</script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Network response was not ok ' + response.statusText);
+					}
+					return response.json();
+				})
+				.then(data => {
+					// Récupérer l'élément avec l'ID 'bilanCarbon'
+					const bilanCarbonElement = document.getElementById('bilanCarbon');
+					if (bilanCarbonElement) {
+						// Ajouter la valeur de timestamp
+						bilanCarbonElement.textContent = Math.round(data.statistics.co2.grid.grams * 100000) / 100000 + " g";
+					} else {
+						console.error('Element with ID "bilanCarbon" not found.');
+					}
+				})
+				.catch(error => {
+					console.error('There was a problem with the fetch operation:', error);
+				});
+		});
 	</script>
 
 	<script>
