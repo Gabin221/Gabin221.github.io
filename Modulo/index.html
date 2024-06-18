@@ -289,7 +289,6 @@
 			font-weight: bold;
 			font-size: x-large;
 			color: green;
-			margin-left: 20px;
 		}
 
 		[data-theme="dark"] svg {
@@ -823,7 +822,6 @@
 						d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7.07,18.28C7.5,17.38 10.12,16.5 12,16.5C13.88,16.5 16.5,17.38 16.93,18.28C15.57,19.36 13.86,20 12,20C10.14,20 8.43,19.36 7.07,18.28M18.36,16.83C16.93,15.09 13.46,14.5 12,14.5C10.54,14.5 7.07,15.09 5.64,16.83C4.62,15.5 4,13.82 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,13.82 19.38,15.5 18.36,16.83M12,6C10.06,6 8.5,7.56 8.5,9.5C8.5,11.44 10.06,13 12,13C13.94,13 15.5,11.44 15.5,9.5C15.5,7.56 13.94,6 12,6M12,11A1.5,1.5 0 0,1 10.5,9.5A1.5,1.5 0 0,1 12,8A1.5,1.5 0 0,1 13.5,9.5A1.5,1.5 0 0,1 12,11Z" />
 				</svg>
 			</a>
-			<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
 		</div>
 	</header>
 
@@ -977,6 +975,8 @@
                     <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
                 </svg>
             </a>
+			<hr style="margin: 20px 0 20px 0;">
+			<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
         </div>
     </footer>
 
@@ -1161,7 +1161,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1197,7 +1198,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1233,7 +1235,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1269,7 +1272,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1305,7 +1309,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1341,7 +1346,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1377,7 +1383,8 @@
 							newCode.innerHTML = `
 								<div style='display: inline-block; width: 100%;'>
 									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
+										<h4>${nom}</h4>
+										<p style='white-space: normal; text-align: left;'>${description}</p><br><br>
 										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
 											<span style='margin-left: 10px; font-size: 16px;'>
 												<b>${langage}</b>
@@ -1446,6 +1453,10 @@
 	</script>
 
 	<script src="../Scripts/moduloAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
+
+	<script src="../Scripts/moduloRecupererListeLangages.js"></script>
+
+	<script src="../Scripts/moduloAjoutCode.js"></script>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', (event) => {
