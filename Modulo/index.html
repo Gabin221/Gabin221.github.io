@@ -879,9 +879,6 @@
 	</div>
 
 	<div id="menuHorizontal" class="container">
-		<div class="elementMenuHorizontal" data-langage="c">
-			C
-		</div>
 		<div class="elementMenuHorizontal" data-langage="cpp">
 			C++
 		</div>
@@ -890,9 +887,6 @@
 		</div>
 		<div class="elementMenuHorizontal" data-langage="latex">
 			LaTeX
-		</div>
-		<div class="elementMenuHorizontal" data-langage="lignedecommande">
-			Ligne de commandes
 		</div>
 		<div class="elementMenuHorizontal" data-langage="linux">
 			Linux
@@ -905,14 +899,6 @@
 		</div>
 		<div class="elementMenuHorizontal" data-langage="web">
 			Web
-		</div>
-	</div>
-
-	<div class="conteneurLangage" id="c">
-		<h3>
-			C
-		</h3>
-		<div id="menuHorizontalPartieC">
 		</div>
 	</div>
 
@@ -937,14 +923,6 @@
 			LaTeX
 		</h3>
 		<div id="menuHorizontalPartieLatex">
-		</div>
-	</div>
-
-	<div class="conteneurLangage" id="lignedecommande">
-		<h3>
-			Lignes de commandes
-		</h3>
-		<div id="menuHorizontalPartieLignedecommande">
 		</div>
 	</div>
 
@@ -1006,21 +984,6 @@
 
 	<script>
 		function addMenuEventListeners() {
-			const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
-			const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
-			
-			menuItemsPartieC.forEach(item => {
-				item.addEventListener('click', () => {
-					const target = item.getAttribute('data-langage');
-					languageContainersPartieC.forEach(container => {
-						container.classList.remove('active');
-						if (container.id === target) {
-							container.classList.add('active');
-						}
-					});
-				});
-			});
-
 			const menuItemsPartieCpp = document.querySelectorAll('.elementMenuHorizontalPartieCpp');
 			const languageContainersPartieCpp = document.querySelectorAll('.contenuLangagePartieCpp');
 			
@@ -1058,21 +1021,6 @@
 				item.addEventListener('click', () => {
 					const target = item.getAttribute('data-langage');
 					languageContainersPartieLatex.forEach(container => {
-						container.classList.remove('active');
-						if (container.id === target) {
-							container.classList.add('active');
-						}
-					});
-				});
-			});
-
-			const menuItemsPartieLignedecommande = document.querySelectorAll('.elementMenuHorizontalPartieLignedecommande');
-			const languageContainersPartieLignedecommande = document.querySelectorAll('.contenuLangagePartieLignedecommande');
-
-			menuItemsPartieLignedecommande.forEach(item => {
-				item.addEventListener('click', () => {
-					const target = item.getAttribute('data-langage');
-					languageContainersPartieLignedecommande.forEach(container => {
 						container.classList.remove('active');
 						if (container.id === target) {
 							container.classList.add('active');
@@ -1200,42 +1148,6 @@
 					const code = data.Code;
 
 					switch(langage) {
-						case "C":
-							var menuHorizontalPartieC = document.getElementById("menuHorizontalPartieC");
-							var c = document.getElementById("c");
-							var random = Math.random().toString();
-							var newMenuItem = document.createElement("div");
-							newMenuItem.textContent = nom;
-							newMenuItem.classList.add("elementMenuHorizontalPartieC");
-							newMenuItem.setAttribute("data-langage", random);
-							menuHorizontalPartieC.appendChild(newMenuItem);
-							var newCode = document.createElement("div");
-							newCode.innerHTML = `
-								<div style='display: inline-block; width: 100%;'>
-									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
-										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
-											<span style='margin-left: 10px; font-size: 16px;'>
-												<b>${langage}</b>
-											</span>
-											<button onclick='copyCode("codeBlock${random}", "copyButton${random}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${random}'>
-												Copier
-											</button>
-										</div>
-										<pre style='margin-top: 0; padding-left: 10px; width: 100%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border: 2px solid black; overflow: auto;'>
-											<code id='codeBlock${random}' class='language-${langage.toLowerCase()} line-numbers' data-language='${langage}'>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>
-										</pre>
-									</div>
-								</div>
-							`;
-							c.classList.add("container");
-							newCode.classList.add("contenuLangagePartieC");
-							newCode.setAttribute("id", random);
-							c.appendChild(newCode);
-
-							Prism.highlightAll();
-							addMenuEventListeners();
-							break;
 						case "C++":
 							var menuHorizontalPartieCpp = document.getElementById("menuHorizontalPartieCpp");
 							var cpp = document.getElementById("cpp");
@@ -1340,42 +1252,6 @@
 							newCode.classList.add("contenuLangagePartieLatex");
 							newCode.setAttribute("id", random);
 							latex.appendChild(newCode);
-
-							Prism.highlightAll();
-							addMenuEventListeners();
-							break;
-						case "Ligne de commande":
-							var menuHorizontalPartieLignedecommande = document.getElementById("menuHorizontalPartieLignedecommande");
-							var lignedecommande = document.getElementById("lignedecommande");
-							var random = Math.random().toString();
-							var newMenuItem = document.createElement("div");
-							newMenuItem.textContent = nom;
-							newMenuItem.classList.add("elementMenuHorizontalPartieLignedecommande");
-							newMenuItem.setAttribute("data-langage", random);
-							menuHorizontalPartieLignedecommande.appendChild(newMenuItem);
-							var newCode = document.createElement("div");
-							newCode.innerHTML = `
-								<div style='display: inline-block; width: 100%;'>
-									<div class='element' style='display: block; height: auto;'>
-										<p style='white-space: normal;'>${description}</p><br><br>
-										<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
-											<span style='margin-left: 10px; font-size: 16px;'>
-												<b>${langage}</b>
-											</span>
-											<button onclick='copyCode("codeBlock${random}", "copyButton${random}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${random}'>
-												Copier
-											</button>
-										</div>
-										<pre style='margin-top: 0; padding-left: 10px; width: 100%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border: 2px solid black; overflow: auto;'>
-											<code id='codeBlock${random}' class='language-${langage.toLowerCase()} line-numbers' data-language='${langage}'>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>
-										</pre>
-									</div>
-								</div>
-							`;
-							lignedecommande.classList.add("container");
-							newCode.classList.add("contenuLangagePartieLignedecommande");
-							newCode.setAttribute("id", random);
-							lignedecommande.appendChild(newCode);
 
 							Prism.highlightAll();
 							addMenuEventListeners();
