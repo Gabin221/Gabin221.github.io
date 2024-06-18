@@ -21,6 +21,9 @@
 	<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/autoloader/prism-autoloader.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/match-braces/prism-match-braces.min.js"></script>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+
 	<style>
 		:root {
 			--primary-color: #333;
@@ -379,6 +382,34 @@
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		}
 
+		pre.line-numbers {
+			padding-left: 3.8em; /* Ajustez selon vos besoins */
+		}
+		pre.line-numbers > code {
+			position: relative;
+			white-space: pre;
+		}
+		.line-numbers .line-numbers-rows {
+			position: absolute;
+			pointer-events: none;
+			top: 0;
+			font-size: 100%;
+			left: -3.8em; /* Ajustez selon vos besoins */
+			width: 3em; /* Ajustez selon vos besoins */
+			/* pour ajuster le style */
+		}
+		.line-numbers .line-numbers-rows > span {
+			display: block;
+			counter-increment: linenumber;
+		}
+		.line-numbers .line-numbers-rows > span:before {
+			content: counter(linenumber);
+			color: #999;
+			display: block;
+			padding-right: 0.8em; /* Ajustez selon vos besoins */
+			text-align: right;
+		}
+
 		@media (max-width: 600px) {
 			#titreTopBar {
 				display: none;
@@ -426,7 +457,7 @@
 	</style>
 </head>
 
-<body onload="fetchDataAndDisplay()">
+<body>
 	<header>
 		<a href="../Gabin221.github.io/index.html">
 			<img id="logoTopBar" src="../Images/logo_home_page.png" alt="Logo">
@@ -526,29 +557,12 @@
 	</div>
 
 	<div class="container" id="conteneurPartiesCartesAll">
-		<div class="conteneurLangage active" id="cMachin">
+		<div class="conteneurLangage" id="c">
 			<h3>
 				C
 			</h3>
 			<div id="menuHorizontalPartieC">
-				<div class="elementMenuHorizontalPartieC" data-langage="c1">
-					Code 1
-				</div>
-				<div class="elementMenuHorizontalPartieC" data-langage="c2">
-					Code 2
-				</div>
 			</div>
-			<div id="test">
-				<div class="contenuLangagePartieC" id="c1">
-					Contenu code 1
-				</div>
-				<div class="contenuLangagePartieC" id="c2">
-					Contenu code 2
-				</div>
-			</div>
-			
-
-			<div class="contenuLangage" id="divCContenu" style="margin-top: 200px;"></div>
 		</div>
 
 		<div class="conteneurLangage" id="cpp">
@@ -633,6 +647,25 @@
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 	<script>
+		function addMenuEventListeners() {
+			const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
+			const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
+			
+			menuItemsPartieC.forEach(item => {
+				item.addEventListener('click', () => {
+					const target = item.getAttribute('data-langage');
+					languageContainersPartieC.forEach(container => {
+						container.classList.remove('active');
+						if (container.id === target) {
+							container.classList.add('active');
+						}
+					});
+				});
+			});
+		}
+	</script>
+
+	<script>
 		var langageClasses = {
 			'Python': 'language-python',
 			'JavaScript': 'language-javascript',
@@ -681,9 +714,6 @@
 			});
 		}
 
-		var compteur = 3;
-
-		// Fonction pour récupérer les données à partir d'un chemin spécifique dans Firestore et les afficher
 		function fetchDataFromFirestore(path, div, langage) {
 			db.doc(path).get().then((doc) => {
 				if (doc.exists) {
@@ -693,7 +723,7 @@
 					const code = data.Code;
 
 					var menuHorizontalPartieC = document.getElementById("menuHorizontalPartieC");
-					var cMachin = document.getElementById("test");
+					var c = document.getElementById("c");
 
 					if (langage === "C") {
 						const random = Math.random().toString();
@@ -705,58 +735,33 @@
 						menuHorizontalPartieC.appendChild(newMenuItem);
 
 						const newCode = document.createElement("div");
-						newCode.textContent = code;
-						newCode.classList.add("contenuLangagePartieC");
-						newCode.setAttribute("id", random);
-						cMachin.appendChild(newCode);
-					}
-
-					// Remplacer les caractères "<" par "&lt;" et ">" par "&gt;"
-					const sanitizedCode = code.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-					// Séparer les lignes de code
-					const lines = sanitizedCode.split('\n');
-
-					const codeContent = lines.map((line, index) => {
-						return `<div style='margin-right: 5px;'>${index + 1}</div>`;
-					}).join('');
-
-					const uniqueId = generateUniqueId();
-
-					const html = `
-						<div style='display: inline-block; width: 100%;'>
-							<div class='element' style='display: block; height: auto; border: 1px solid red;'>
-								${nom}<br><br>
-								<p style='white-space: normal;'>${description}</p><br><br>
-								<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
-									<span style='margin-left: 10px; font-size: 16px;'>
-										<b>${langage}</b>
-									</span>
-									<button onclick='copyCode("codeBlock${uniqueId}", "copyButton${uniqueId}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${uniqueId}'>
-										<div id='buttonCopier'>
+						newCode.innerHTML = `
+							<div style='display: inline-block; width: 100%;'>
+								<div class='element' style='display: block; height: auto;'>
+									<p style='white-space: normal;'>${description}</p><br><br>
+									<div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
+										<span style='margin-left: 10px; font-size: 16px;'>
+											<b>${langage}</b>
+										</span>
+										<button onclick='copyCode("codeBlock${random}", "copyButton${random}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${random}'>
 											Copier
-										</div>
-									</button>
-								</div>
-								<div style='line-height: 24px;'>
-									<div style='display: flex; font-size: 16px;'>
-										<div style='background-color: #f5f2f0; width: 10%; display: flex; align-items: flex-start; justify-content: center; height: 100%; align-self: stretch; padding-top: 24px; padding-bottom: 24px; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 2px solid black;'>
-											<div>
-												${codeContent}
-											</div>
-										</div>
-										<pre style='margin-top: 0; padding-left: 10px; width: 90%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border-top: 0px solid black; border-right: 2px solid black; border-bottom: 2px solid black; border-left: 0px solid black; overflow: auto;'>
-											<code style='font-size: 16px;' class='${langageClasses[langage]}' id='codeBlock${uniqueId}' data-language='${langage}'>
-${sanitizedCode}
-											</code>
-										</pre>
+										</button>
 									</div>
+									<pre style='margin-top: 0; padding-left: 10px; width: 100%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border: 2px solid black; overflow: auto;'>
+										<code id='codeBlock${random}' class='language-${langage.toLowerCase()} line-numbers' data-language='${langage}'>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>
+									</pre>
 								</div>
 							</div>
-						</div>
-					`;
+						`;
+						newCode.classList.add("contenuLangagePartieC");
+						newCode.setAttribute("id", random);
+						c.appendChild(newCode);
 
-					div.innerHTML += html;
+						Prism.highlightAll(); // Applique la coloration syntaxique aux nouveaux éléments ajoutés
+					}
+
+					// Réappliquez les gestionnaires d'événements aux nouveaux éléments
+					addMenuEventListeners();
 				} else {
 					console.log("No such document!");
 				}
@@ -776,9 +781,12 @@ ${sanitizedCode}
 				});
 			}
 		}
+	
+		window.addEventListener("load", (event) => {
+			fetchDataAndDisplay();
+			addMenuEventListeners();
+		});
 	</script>
-
-	<script src="../Scripts/moduloAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
 
 	<script>
 		// Menu horizontal interaction
@@ -796,23 +804,9 @@ ${sanitizedCode}
                 });
             });
         });
-
-		// Menu horizontal interaction
-        const menuItemsPartieC = document.querySelectorAll('.elementMenuHorizontalPartieC');
-        const languageContainersPartieC = document.querySelectorAll('.contenuLangagePartieC');
-        
-        menuItemsPartieC.forEach(item => {
-            item.addEventListener('click', () => {
-                const target = item.getAttribute('data-langage');
-                languageContainersPartieC.forEach(container => {
-                    container.classList.remove('active');
-                    if (container.id === target) {
-                        container.classList.add('active');
-                    }
-                });
-            });
-        });
 	</script>
+
+	<script src="../Scripts/moduloAffichageFormulaireAjoutSuppressionAvecDroits.js"></script>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', (event) => {
@@ -869,6 +863,7 @@ ${sanitizedCode}
 					}, 1000);
 				});
 		}
+
 	</script>
 
 	<script>
