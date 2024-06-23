@@ -212,8 +212,7 @@ footer .box svg {
     width: 50%;
     border-radius: 15px 0 0 15px;
     text-align: center;
-    background: linear-gradient(to right, #20A454, #007BFF);
-    color: white;
+    background: linear-gradient(to right, #007BFF, #ffffff);
 }
 
 #divRightConnect {
