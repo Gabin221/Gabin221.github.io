@@ -8,7 +8,7 @@
 	<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jstat@latest/dist/jstat.min.js"></script>
 
 	<style>
@@ -193,7 +193,7 @@
 		}
 
 		footer .box ul a {
-			color: var(--primary-color);
+			color: var(--accent-color);
 			text-decoration: none;
 		}
 
@@ -463,11 +463,11 @@
 		<div class="box">
 			<h3>Plan du site</h3>
 			<ul>
-				<li><a href="../index.html">Accueil</a></li>
-				<li><a href="../Gabinsbar/index.html">Gabin's bar</a></li>
-				<li><a href="../Modulo/index.html">Modulo</a></li>
-				<li><a href="../Drond/index.html">∂ rond</a></li>
-			</ul>
+                <li><a href="../"><u><b>Accueil</b></u></a></li>
+                <li><a href="../Gabinsbar"><u><b>Gabin's bar</b></u></a></li>
+                <li><a href="../Modulo"><u><b>Modulo</b></u></a></li>
+                <li><a href="../Drond"><u><b>∂ rond</b></u></a></li>
+            </ul>
 		</div>
 		<div class="box">
 			<h3>Réseaux</h3>
@@ -483,15 +483,28 @@
 	<script src="../Scripts/hbvebvhezvkbzjvkzjv.js"></script>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			var userLoggedIn = sessionStorage.getItem('userLoggedIn');
+		function decryptData(data, key) {
+			var bytes = CryptoJS.AES.decrypt(data, key);
+			return bytes.toString(CryptoJS.enc.Utf8);
+		}
 
-			if (userLoggedIn) {
-				document.getElementById('divLeft').style.display = 'block';
-				document.getElementById("divRightConnect").style.width = "50%";
+		document.addEventListener('DOMContentLoaded', function () {
+			var encryptionKey = 'secretKey'; // La même clé utilisée pour chiffrer
+
+			var encryptedUserLoggedIn = sessionStorage.getItem('userLoggedIn');
+			var encryptedUserRights = sessionStorage.getItem('userRights');
+
+			if (encryptedUserLoggedIn && encryptedUserRights) {
+				var userLoggedIn = decryptData(encryptedUserLoggedIn, encryptionKey);
+				var userRights = decryptData(encryptedUserRights, encryptionKey);
+
+				if (userLoggedIn === 'true' && userRights === 'boss') {
+					document.getElementById('divLeft').style.display = 'block';
+				} else {
+					document.getElementById('divLeft').style.display = 'none';
+				}
 			} else {
-				document.getElementById('divLeft').style.display = 'none'; // none
-				document.getElementById("divRightConnect").style.borderRadius = "15px";
+				document.getElementById('divLeft').style.display = 'none';
 			}
 		});
 	</script>
