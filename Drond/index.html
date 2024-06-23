@@ -789,27 +789,25 @@
 		const body = document.body;
 		const logo = document.getElementById('logoTopBar');
 
-		toggleButton.addEventListener('click', () => {
-			if (body.getAttribute('data-theme') === 'dark') {
-				body.removeAttribute('data-theme');
-				toggleButton.textContent = '🌙';
-				logo.src = '../Images/logo_home_page.png';
-			} else {
-				body.setAttribute('data-theme', 'dark');
-				toggleButton.textContent = '☀️';
-				logo.src = '../Images/logo_home_page_dark.png';
-			}
-		});
+		// Function to set the theme
+		function setTheme(theme) {
+			body.setAttribute('data-theme', theme);
+			toggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
+			logo.src = theme === 'dark' ? '../Images/logo_home_page_dark.png' : '../Images/logo_home_page.png';
+		}
 
-		// Initialiser l'image du logo en fonction du thème actuel
-		document.addEventListener('DOMContentLoaded', () => {
-			if (body.getAttribute('data-theme') === 'dark') {
-				logo.src = '../Images/logo_home_page_dark.png';
-				toggleButton.textContent = '☀️';
-			} else {
-				logo.src = '../Images/logo_home_page.png';
-				toggleButton.textContent = '🌙';
-			}
+		// Check for the saved theme in sessionStorage
+		const savedTheme = sessionStorage.getItem('mode');
+		if (savedTheme) {
+			setTheme(savedTheme);
+		}
+
+		// Toggle the theme and save it in sessionStorage
+		toggleButton.addEventListener('click', () => {
+			const currentTheme = body.getAttribute('data-theme');
+			const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+			setTheme(newTheme);
+			sessionStorage.setItem('mode', newTheme);
 		});
 	</script>
 </body>
