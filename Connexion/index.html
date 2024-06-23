@@ -7,6 +7,7 @@
 		<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
@@ -250,24 +251,35 @@
 				return md.digest().toHex();
 			}
 
+			function encryptData(data, key) {
+				return CryptoJS.AES.encrypt(data, key).toString();
+			}
+
+			function decryptData(data, key) {
+				var bytes = CryptoJS.AES.decrypt(data, key);
+				return bytes.toString(CryptoJS.enc.Utf8);
+			}
+
 			document.getElementById('loginFormConnect').addEventListener('submit', function(event) {
 				event.preventDefault();
 
 				var pseudo = document.getElementById('pseudo').value;
 				var motDePasse = document.getElementById('motDePasse').value;
-
 				var hashedPassword = encryptPassword(motDePasse);
-
 				var usersRef = db.collection('user_gabinsbar');
+				
 				usersRef.where('id', '==', pseudo).where('motdepasse', '==', hashedPassword).get()
 					.then((querySnapshot) => {
 						if (!querySnapshot.empty) {
 							querySnapshot.forEach((doc) => {
 								var userData = doc.data();
 								var droits = userData.droits;
-								sessionStorage.setItem('userLoggedIn', true);
-								sessionStorage.setItem('currentUser', pseudo);
-								sessionStorage.setItem('userRights', droits);
+								var encryptionKey = 'secretKey'; // Utilisez une clé plus sécurisée et gérée de manière appropriée
+
+								sessionStorage.setItem('userLoggedIn', encryptData('true', encryptionKey));
+								sessionStorage.setItem('currentUser', encryptData(pseudo, encryptionKey));
+								sessionStorage.setItem('userRights', encryptData(droits, encryptionKey));
+
 								var previousPage = sessionStorage.getItem('previousPage');
 								if (previousPage) {
 									window.location.href = previousPage;
@@ -283,14 +295,6 @@
 						console.error('Erreur lors de la vérification des informations de connexion:', error);
 					});
 			});
-		</script>
-
-		<script>
-			function encryptPassword(password) {
-				var md = forge.md.sha256.create();
-				md.update(password);
-				return md.digest().toHex();
-			}
 
 			document.getElementById('loginFormCreateAccount').addEventListener('submit', function(event) {
 				event.preventDefault();
@@ -299,9 +303,9 @@
 				var motDePasse = document.getElementById('motDePasseCreate').value;
 
 				if (motDePasse.length > 4) {
-					hashedPassword = encryptPassword(motDePasse)
-
+					var hashedPassword = encryptPassword(motDePasse);
 					var usersRef = db.collection('user_gabinsbar');
+
 					usersRef.where('id', '==', pseudo).get()
 						.then((querySnapshot) => {
 							if (querySnapshot.empty) {
@@ -329,6 +333,14 @@
 				}
 			});
 
+			function getSessionData(item) {
+				var encryptionKey = 'secretKey'; // La même clé utilisée pour chiffrer
+				var encryptedData = sessionStorage.getItem(item);
+				if (encryptedData) {
+					return decryptData(encryptedData, encryptionKey);
+				}
+				return null;
+			}
 		</script>
 	</body>
 </html>
