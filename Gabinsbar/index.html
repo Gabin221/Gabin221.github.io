@@ -355,7 +355,7 @@
 </head>
 <body>
     <header>
-        <a href="../Gabin221.github.io/index.html">
+        <a href="../">
             <img id="logoTopBar" src="../Images/logo_home_page.png" alt="Logo">
             <p id="titreTopBar">Gabin221.github.io</p>
         </a>
@@ -501,19 +501,33 @@
 	<script src="../Scripts/gabinsBarRecupererListeCategoriesBoissons.js"></script>
 
     <script>
-		// Dark Mode Toggle
+        // Dark Mode Toggle
         const toggleButton = document.getElementById('darkModeToggle');
         const body = document.body;
+        const logo = document.getElementById('logoTopBar');
 
         toggleButton.addEventListener('click', () => {
             if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
                 toggleButton.textContent = '🌙';
+                logo.src = '../Images/logo_home_page.png';
             } else {
                 body.setAttribute('data-theme', 'dark');
                 toggleButton.textContent = '☀️';
+                logo.src = '../Images/logo_home_page_dark.png';
             }
         });
-	</script>
+
+        // Initialiser l'image du logo en fonction du thème actuel
+        document.addEventListener('DOMContentLoaded', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                logo.src = '../Images/logo_home_page_dark.png';
+                toggleButton.textContent = '☀️';
+            } else {
+                logo.src = '../Images/logo_home_page.png';
+                toggleButton.textContent = '🌙';
+            }
+        });
+    </script>
 </body>
 </html>
