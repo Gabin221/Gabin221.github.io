@@ -342,12 +342,7 @@
             sessionStorage.removeItem('userLoggedIn');
             sessionStorage.removeItem('currentUser');
             sessionStorage.removeItem('userRights');
-            var previousPage = sessionStorage.getItem('previousPage');
-            if (previousPage) {
-                window.location.href = previousPage;
-            } else {
-                window.location.href = '../index.html';
-            }
+            window.location.href = '/index.html';
         }
 
         function decryptData(data, key) {
