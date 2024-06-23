@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var userRights = decryptData(encryptedUserRights, encryptionKey);
 
         if (userLoggedIn === 'true' && userRights === 'boss') {
-            document.getElementById('ajoutSuppressionCode').style.display = 'block';
+            document.getElementById('divLeft').style.display = 'block';
         } else {
-            document.getElementById('ajoutSuppressionCode').style.display = 'none';
+            document.getElementById('divLeft').style.display = 'none';
         }
     } else {
-        document.getElementById('ajoutSuppressionCode').style.display = 'none';
+        document.getElementById('divLeft').style.display = 'none';
     }
 });

@@ -114,7 +114,8 @@ nav a::after {
     transition: width 0.3s;
 }
 
-nav a:hover::after, nav a.active::after {
+nav a:hover::after,
+nav a.active::after {
     width: 100%;
 }
 
@@ -239,7 +240,7 @@ footer .box svg {
     border: 2px solid #000;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
+    background-color: #fff;
 }
 
 .category-card h3 {
@@ -260,7 +261,7 @@ footer .box svg {
     border: 2px solid #000;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
+    background-color: #fff;
 }
 
 #sirop-drinks h3 {
@@ -294,9 +295,38 @@ footer .box svg {
     fill: white;
 }
 
+#divConso {
+    width: 33.3%;
+}
+
+#divR2 {
+    width: 33.3%;
+}
+
+#divTendance {
+    width: 33.3%;
+}
+
 @media (max-width: 600px) {
     #titreTopBar {
         display: none;
+    }
+
+    #infosPlein {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #divConso {
+        width: 100%;
+    }
+
+    #divR2 {
+        width: 100%;
+    }
+
+    #divTendance {
+        width: 100%;
     }
 
     footer {

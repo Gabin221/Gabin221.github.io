@@ -67,15 +67,6 @@ header p {
     transition: color 0.3s;
 }
 
-nav {
-    background-color: var(--menu-background);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid var(--menu-border);
-    margin-bottom: 20px;
-}
-
 h2 {
     background-color: var(--menu-background);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -85,6 +76,15 @@ h2 {
     margin-bottom: 20px;
     text-align: center;
     padding: 10px;
+}
+
+nav {
+    background-color: var(--menu-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--menu-border);
+    margin-bottom: 20px;
 }
 
 nav ul {
@@ -125,15 +125,10 @@ nav a:hover::after, nav a.active::after {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: background-color 0.3s;
-    margin-bottom: 20px;
 }
 
 .container h1 {
     margin-bottom: 20px;
-}
-
-.container h4 {
-    margin: 40px auto 10px auto;
 }
 
 .container p {
@@ -152,7 +147,7 @@ nav a:hover::after, nav a.active::after {
 footer {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 footer .box {
@@ -193,96 +188,6 @@ footer .box svg {
     transition: fill 0.3s;
 }
 
-.form-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-section {
-    width: 48%;
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 15px;
-}
-
-.form-section h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.form-section form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.form-section form input,
-.form-section form select,
-.form-section form button {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.category-card {
-    width: 45%;
-    margin: 10px;
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
-}
-
-.category-card h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.category-card .drinks-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#sirop-drinks {
-    width: 92%;
-    margin: 10px;
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--secondary-color);
-}
-
-#sirop-drinks h3 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#sirop-drinks .drinks-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.drink-item {
-    width: 45%;
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-}
-
 #bilanCarbon {
     font-weight: bold;
     font-size: x-large;
@@ -299,6 +204,10 @@ footer .box svg {
         display: none;
     }
 
+    nav ul {
+        flex-direction: column;
+    }
+
     footer {
         flex-direction: column;
         align-items: center;
@@ -307,33 +216,5 @@ footer .box svg {
     footer .box {
         width: 80%;
         margin-bottom: 20px;
-    }
-
-    .form-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .form-section {
-        width: 90%;
-        margin-bottom: 20px;
-    }
-
-    .category-card {
-        width: 90%;
-        margin: 10px;
-        padding: 20px;
-        border: 2px solid #000;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-    }
-
-    .drink-item {
-        width: 90%;
-    }
-
-    footer .box {
-        width: 100%;
     }
 }

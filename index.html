@@ -1,238 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gabin221.github.io</title>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <link rel="icon" href="Images/logo_home_page.png" type="image/png">
 
-    <style>
-        :root {
-            --primary-color: #333;
-            --secondary-color: #fff;
-            --accent-color: #007BFF;
-            --background-color: #F2F2F2;
-            --font-family: 'Avenir', sans-serif;
-            --menu-background: #fff;
-            --menu-border: #ddd;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #ddd;
-            --secondary-color: #333;
-            --accent-color: #4E8EF7;
-            --background-color: #222;
-            --menu-background: #444;
-            --menu-border: #666;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            padding-top: 1%;
-            padding-left: 5%;
-            padding-right: 5%;
-            background-color: var(--background-color);
-            font-family: var(--font-family);
-            color: var(--primary-color);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        header a {
-            text-decoration: none;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-        }
-
-        header img {
-            width: 60px;
-            height: 60px;
-        }
-
-        header p {
-            font-weight: bold;
-            font-size: x-large;
-            margin-left: 20px;
-        }
-
-        #darkModeToggle {
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        
-        h2 {
-			background-color: var(--menu-background);
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-			border-radius: 10px;
-			overflow: hidden;
-			border: 1px solid var(--menu-border);
-			margin-bottom: 20px;
-			text-align: center;
-			padding: 10px;
-		}
-
-        nav {
-            background-color: var(--menu-background);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--menu-border);
-            margin-bottom: 20px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--primary-color);
-            padding: 10px;
-            position: relative;
-            transition: color 0.3s;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after, nav a.active::after {
-            width: 100%;
-        }
-
-        .container {
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: background-color 0.3s;
-        }
-
-        .container h1 {
-            margin-bottom: 20px;
-        }
-
-        .container p {
-            line-height: 1.6;
-        }
-
-        .container a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        .container a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-        }
-
-        footer .box {
-            background-color: var(--secondary-color);
-            padding: 20px;
-            border-radius: 10px;
-            width: 30%;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-
-        footer .box h3 {
-            margin-bottom: 20px;
-        }
-
-        footer .box ul {
-            list-style: none;
-        }
-
-        footer .box ul li {
-            margin: 10px 0;
-        }
-
-        footer .box ul a {
-            color: var(--accent-color);
-            text-decoration: none;
-        }
-
-        footer .box ul a:hover {
-            text-decoration: underline;
-        }
-
-        footer .box svg {
-            width: 40px;
-            height: 40px;
-            margin-top: 10px;
-            transition: fill 0.3s;
-        }
-
-        #bilanCarbon {
-            font-weight: bold;
-            font-size: x-large;
-            color: green;
-            margin-left: 20px;
-        }
-
-        [data-theme="dark"] svg {
-            fill: white;
-        }
-
-        @media (max-width: 600px) {
-            #titreTopBar {
-                display: none;
-            }
-
-            nav ul {
-                flex-direction: column;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            footer .box {
-                width: 80%;
-                margin-bottom: 20px;
-            }
-        }
-    </style>
+    <link href="Styles/accueil.css" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <a href="../">
@@ -243,7 +22,8 @@
             <button id="darkModeToggle">🌙</button>
             <div onCLick="loginout()">
                 <svg id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
+                    <path
+                        d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
                 </svg>
             </div>
             <p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
@@ -251,19 +31,25 @@
     </header>
 
     <nav>
-		<ul>
-			<li><a class="elementMenuAccueil" href="../">Accueil</a></li>
-			<li><a class="elementMenuGabinsBar" href="Gabinsbar">Gabin's bar</a></li>
-			<li><a class="elementMenuModulo" href="Modulo">Modulo</a></li>
-			<li><a class="elementMenuDrond" href="Drond">∂ rond</a></li>
-		</ul>
-	</nav>
+        <ul>
+            <li><a class="elementMenuAccueil" href="../">Accueil</a></li>
+            <li><a class="elementMenuGabinsBar" href="Gabinsbar">Gabin's bar</a></li>
+            <li><a class="elementMenuModulo" href="Modulo">Modulo</a></li>
+            <li><a class="elementMenuDrond" href="Drond">∂ rond</a></li>
+        </ul>
+    </nav>
 
     <h2>Gabin221.github.io</h2>
 
     <div class="container">
-        <p>Ce site est personnel, il n’a aucunement vocation à être utilisé par qui que ce soit. Malgré tout, si quelqu’un par hasard tombe dessus, j’espère que vous passerez un bon moment sur ce site.</p>
-        <p>Les seules parties du site qui pourraient être utiles à quelqu’un seraient la page <a href="Modulo/index.html"><u><b>Modulo</b></u></a>, la page dans laquelle je mets quelques codes, et l’autre page qui peut vous être utile serait la page <a href="Gabinsbar/index.html"><u><b>Gabin’s bar</b></u></a> si vous êtes chez moi. La page <a href="Drond/index.html"><u><b>∂ rond</b></u></a> (à prononcer "<i>d rond</i>") vous permettra malgré tout de voir un graphique montrant l'historique de mes consommations pour ma voiture.</p>
+        <p>Ce site est personnel, il n’a aucunement vocation à être utilisé par qui que ce soit. Malgré tout, si
+            quelqu’un par hasard tombe dessus, j’espère que vous passerez un bon moment sur ce site.</p>
+        <p>Les seules parties du site qui pourraient être utiles à quelqu’un seraient la page <a
+                href="Modulo/index.html"><u><b>Modulo</b></u></a>, la page dans laquelle je mets quelques codes, et
+            l’autre page qui peut vous être utile serait la page <a href="Gabinsbar/index.html"><u><b>Gabin’s
+                        bar</b></u></a> si vous êtes chez moi. La page <a href="Drond/index.html"><u><b>∂
+                        rond</b></u></a> (à prononcer "<i>d rond</i>") vous permettra malgré tout de voir un graphique
+            montrant l'historique de mes consommations pour ma voiture.</p>
     </div>
 
     <footer>
@@ -280,104 +66,19 @@
             <h3>Réseaux</h3>
             <a href="https://github.com/Gabin221">
                 <svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                    <path
+                        d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
                 </svg>
             </a>
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            fetch('https://api.websitecarbon.com/site?url=https:%2F%2Fwww.gabin221.github.io')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    const bilanCarbonElement = document.getElementById('bilanCarbon');
-                    if (bilanCarbonElement) {
-                        bilanCarbonElement.textContent = Math.round(data.statistics.co2.grid.grams * 100000) / 100000 + " g";
-                    } else {
-                        console.error('Element with ID "bilanCarbon" not found.');
-                    }
-                })
-                .catch(error => {
-                    console.error('There was a problem with the fetch operation:', error);
-                });
-        });
-    </script>
+    <script src="Scripts/allPagesCarbonAPI.js"></script>
 
-    <script>
-        // Dark Mode Toggle
-        const toggleButton = document.getElementById('darkModeToggle');
-        const body = document.body;
-        const logo = document.getElementById('logoTopBar');
+    <script src="Scripts/allPagesDarkMode.js"></script>
 
-        // Function to set the theme
-        function setTheme(theme) {
-            body.setAttribute('data-theme', theme);
-            toggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
-            logo.src = theme === 'dark' ? 'Images/logo_home_page_dark.png' : 'Images/logo_home_page.png';
-        }
-
-        // Check for the saved theme in sessionStorage
-        const savedTheme = sessionStorage.getItem('mode');
-        if (savedTheme) {
-            setTheme(savedTheme);
-        }
-
-        // Toggle the theme and save it in sessionStorage
-        toggleButton.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-            sessionStorage.setItem('mode', newTheme);
-        });
-    </script>
-
-    <script>
-        function logout() {
-            sessionStorage.removeItem('userLoggedIn');
-            sessionStorage.removeItem('currentUser');
-            sessionStorage.removeItem('userRights');
-            window.location.href = '../';
-        }
-
-        function login() {
-            window.location.href = 'Connexion/index.html';
-        }
-
-        function loginout() {
-            if (sessionStorage.getItem('userLoggedIn')) {
-                logout();
-            } else {
-                login();
-            }
-        }
-
-        function decryptData(data, key) {
-            var bytes = CryptoJS.AES.decrypt(data, key);
-            return bytes.toString(CryptoJS.enc.Utf8);
-        }
-
-        const svgElement = document.getElementById('buttonAccount');
-        var encryptionKey = 'secretKey';
-        var userLoggedIn = decryptData(sessionStorage.getItem('userLoggedIn'), encryptionKey);
-        const connecte = `<svg onCLick="loginout()" id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" /></svg>`;
-        const nonConnecte = `<svg onCLick="loginout()" id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2.75,7L4.03,5.75L13.26,15L20,21.72L18.73,23L15.73,20H4V17C4,15.14 6.61,13.92 9.09,13.36L2.75,7M20,17V19.18L18.1,17.28V17C18.1,16.74 17.6,16.35 16.8,16L14,13.18C16.71,13.63 20,14.91 20,17M5.9,17V18.1H13.83L10.72,15C8.19,15.3 5.9,16.45 5.9,17M12,4A4,4 0 0,1 16,8C16,9.95 14.6,11.58 12.75,11.93L8.07,7.25C8.42,5.4 10.05,4 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6Z" /></svg>`;
-
-        function updateSVG() {
-            if (userLoggedIn === 'true') {
-                svgElement.innerHTML = nonConnecte;
-            } else {
-                svgElement.innerHTML = connecte;
-            }
-        }
-
-        updateSVG();
-    </script>
+    <script src="Scripts/allPagesConnexionDeconnexion.js"></script>
 
 </body>
+
 </html>
