@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         var userData = doc.data();
                         var droits = userData.droits; // Récupérer le niveau de droits de l'utilisateur
                         // Enregistrement de l'état de connexion de l'utilisateur dans le stockage local ou les cookies, par exemple :
-                        localStorage.setItem('userLoggedIn', true);
-                        localStorage.setItem('currentUser', pseudo);
-                        localStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
+                        sessionStorage.setItem('userLoggedIn', true);
+                        sessionStorage.setItem('currentUser', pseudo);
+                        sessionStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
                         window.location.href = '../index.html'; // Page par défaut
                     });
                 } else {

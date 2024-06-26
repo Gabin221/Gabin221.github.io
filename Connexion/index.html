@@ -25,12 +25,11 @@
 		</a>
 		<div>
 			<button id="darkModeToggle">🌙</button>
-			<div onCLick="loginout()">
-				<svg id="buttonAccount" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-					<path
-						d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
-				</svg>
-			</div>
+			<div id="buttonAccount" onClick="loginout()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
+                </svg>
+            </div>
 		</div>
 	</header>
 
@@ -47,8 +46,8 @@
 					<label for="pseudo">Pseudo</label><br>
 					<input style="width: 90%;" type="text" id="pseudo" name="pseudo" placeholder="Pseudo">
 					<br><br>
-					<label for="password">Mot de passe</label><br>
-					<input style="width: 90%;" type="password" id="motDePasse" name="password" placeholder="Mot de passe">
+					<label for="motDePasse">Mot de passe</label><br>
+					<input style="width: 90%;" type="password" id="motDePasse" name="motDePasse" placeholder="Mot de passe">
 					<br><br>
 					<input type="submit" value="Se connecter">
 				</form>
@@ -63,12 +62,12 @@
 					Veuillez saisir un mot de passe avec au moins 5 caractères.</p>
 
 				<form id="loginFormCreateAccount" style="margin: 0 40px 0 40px;">
-					<label id="pseudoCreateLabel" for="email">Pseudo</label><br>
-					<input style="width: 90%;" type="text" id="pseudoCreate" name="pseudo"
+					<label id="pseudoCreateLabel" for="pseudoCreate">Pseudo</label><br>
+					<input style="width: 90%;" type="text" id="pseudoCreate" name="pseudoCreate"
 						placeholder="Choisissez votre pseudo">
 					<br><br>
-					<label id="motDePasseCreateLabel" for="password">Mot de passe</label><br>
-					<input style="width: 90%;" type="password" id="motDePasseCreate" name="password"
+					<label id="motDePasseCreateLabel" for="motDePasseCreate">Mot de passe</label><br>
+					<input style="width: 90%;" type="password" id="motDePasseCreate" name="motDePasseCreate"
 						placeholder="Choisissez votre mot de passe">
 					<p
 						style="color: rgb(118, 118, 118); width: 90%; margin: 5px auto auto 4%; text-align: left; font-size: 0.7lh;">
