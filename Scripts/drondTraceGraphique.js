@@ -1,6 +1,7 @@
 var kilometres = [];
 var volumes = [];
 var dates = [];
+
 // Fonction pour récupérer les noms des documents dans la collection "Voitures"
 function fetchCarNames() {
     var voitureSelect = document.getElementById("voitureSelect");
@@ -35,6 +36,11 @@ function fetchAndDrawChart() {
         var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
 
         pleinCollectionRef.get().then(function (querySnapshot) {
+            kilometres = [];
+            volumes = [];
+            dates = [];
+            consommations = [];
+
             querySnapshot.forEach(function (doc) {
                 var plein = doc.data();
                 kilometres.push(plein.distance);
@@ -65,8 +71,6 @@ var myChart = null; // Déclarer la variable myChart à l'extérieur de la fonct
 
 // Fonction pour dessiner le graphique avec Chart.js
 function drawChart(consommations, moyenne) {
-    // var ctx = document.getElementById('myChart').getContext('2d');
-
     // Détruire le graphique existant s'il y en a un
     if (myChart) {
         myChart.destroy();
@@ -90,6 +94,9 @@ function drawChart(consommations, moyenne) {
         series: [{
             name: 'Consommation',
             data: consommations.map(val => Math.round(val * 1000) / 1000)
+        }, {
+            name: 'Courbe de tendance',
+            data: trendlineData.map(val => Math.round(val * 1000) / 1000)
         }],
         xaxis: {
             categories: dates,
@@ -103,11 +110,7 @@ function drawChart(consommations, moyenne) {
             min: 0,
             labels: {
                 formatter: function (val) {
-                    if (Number.isInteger(val)) {
-                        return val.toFixed(1); // arrondir à l'unité
-                    } else {
-                        return val.toFixed(3); // arrondir au millième
-                    }
+                    return val.toFixed(3); // arrondir au millième
                 }
             }
         },
@@ -144,7 +147,7 @@ function drawChart(consommations, moyenne) {
                 var volume = volumes;
                 var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
                 return '<div style="color: black;">' +
-                    '<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
+                    '<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' +
                     '<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
                     '<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
                     '</div>';
@@ -176,7 +179,6 @@ function drawChart(consommations, moyenne) {
 }
 
 function rSquared(x, y, coefficients) {
-
     let regressionSquaredError = 0
     let totalSquaredError = 0
 
@@ -192,7 +194,6 @@ function rSquared(x, y, coefficients) {
     }
 
     return 1 - (regressionSquaredError / totalSquaredError)
-
 }
 
 // Fonction pour calculer la régression linéaire
@@ -202,14 +203,12 @@ function linearRegression(x, y) {
     var sumY = 0;
     var sumXY = 0;
     var sumXX = 0;
-    var sumYY = 0;
 
     for (var i = 0; i < n; i++) {
         sumX += x[i];
         sumY += y[i];
         sumXY += x[i] * y[i];
         sumXX += x[i] * x[i];
-        sumYY += y[i] * y[i];
     }
 
     var slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
