@@ -1,18 +1,3 @@
-// Fonction de déconnexion
-function logout() {
-    // Supprimer les informations de connexion du stockage local
-    localStorage.removeItem('userLoggedIn');
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('userRights');
-    // Redirection vers la page précédente ou la page par défaut
-    var previousPage = localStorage.getItem('previousPage');
-    if (previousPage) {
-        window.location.href = previousPage;
-    } else {
-        window.location.href = 'index.html'; // Page par défaut
-    }
-}
-
 // Fonction pour encoder le mot de passe avec SHA-256 en utilisant Forge
 function encryptPassword(password) {
     var md = forge.md.sha256.create();
@@ -21,7 +6,7 @@ function encryptPassword(password) {
 }
 
 // Vérification des informations de connexion
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById('loginFormConnect').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêcher le rechargement de la page
 
     var pseudo = document.getElementById('pseudo').value;
@@ -43,13 +28,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
                     localStorage.setItem('userLoggedIn', true);
                     localStorage.setItem('currentUser', pseudo);
                     localStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
-                    // Redirection vers la page précédente ou la page par défaut
-                    var previousPage = localStorage.getItem('previousPage');
-                    if (previousPage) {
-                        window.location.href = previousPage;
-                    } else {
-                        window.location.href = 'index.html'; // Page par défaut
-                    }
+                    window.location.href = '../index.html'; // Page par défaut
                 });
             } else {
                 // Informer l'utilisateur que les informations de connexion sont incorrectes
