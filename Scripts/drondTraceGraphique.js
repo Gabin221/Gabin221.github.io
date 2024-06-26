@@ -23,12 +23,13 @@ function fetchAndDrawChart() {
 
     if (selectedCar === "aucunChoix") {
         document.getElementById("graphique").style.display = "none";
-        document.getElementById("consommation").textContent = "Veuillez sélectionner un véhicule";
-        document.getElementById("r2").textContent = "Veuillez sélectionner un véhicule";
-        document.getElementById("courbeTendance").textContent = "Veuillez sélectionner un véhicule";
+        document.getElementById("consommation").textContent = "";
+        document.getElementById("r2").textContent = "";
+        document.getElementById("courbeTendance").textContent = "";
     } else {
         document.getElementById("graphique").style.height = "auto";
         document.getElementById("graphique").style.display = "block";
+        document.getElementById("graphique").style.padding = "10px";
         var consommations = [];
 
         var pleinCollectionRef = db.collection("Voitures").doc(selectedCar).collection("Pleins");
@@ -142,7 +143,7 @@ function drawChart(consommations, moyenne) {
                 var km = kilometres;
                 var volume = volumes;
                 var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
-                return '<div>' +
+                return '<div style="color: black;">' +
                     '<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' + // Inclure le nom de la série
                     '<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
                     '<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
