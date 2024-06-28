@@ -103,7 +103,7 @@ function drawChart(consommations, moyenne) {
             categories: dates,
             labels: {
                 show: true,
-                rotate: -45,
+                rotate: -60,
                 rotateAlways: true,
             }
         },
@@ -111,7 +111,7 @@ function drawChart(consommations, moyenne) {
             min: 0,
             labels: {
                 formatter: function (val) {
-                    return val.toFixed(3); // arrondir au millième
+                    return val.toFixed(1); // arrondir au millième
                 }
             }
         },
