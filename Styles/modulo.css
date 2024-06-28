@@ -777,4 +777,26 @@ pre.line-numbers > code {
         width: 95%;
         margin: auto;
     }
+
+    nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        display: block;
+    }
+
+    nav ul {
+        display: inline-flex;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        width: auto;
+    }
+
+    nav ul li a {
+        display: inline-block;
+        width: auto;
+        padding: 10px 20px;
+    }
 }
