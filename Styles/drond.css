@@ -388,4 +388,9 @@ footer .box svg {
         width: auto;
         padding: 10px 20px;
     }
+
+    #graphique {
+        margin: 0;
+        padding: 0;
+    }
 }

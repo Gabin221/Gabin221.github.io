@@ -69,7 +69,7 @@ function calculateMean(values) {
 
 var myChart = null; // Déclarer la variable myChart à l'extérieur de la fonction drawChart
 
-// Fonction pour dessiner le graphique avec Chart.js
+// Fonction pour dessiner le graphique avec ApexCharts
 function drawChart(consommations, moyenne) {
     // Détruire le graphique existant s'il y en a un
     if (myChart) {
@@ -81,22 +81,23 @@ function drawChart(consommations, moyenne) {
     var regressionLine = linearRegression(consommationsX, consommations); // Calculer la régression linéaire
     var trendlineData = consommationsX.map(x => regressionLine.slope * x + regressionLine.intercept); // Calculer les valeurs de la courbe de tendance
 
-    var label = [];
-    for (var i = 1; i <= consommations.length; i++) {
-        label.push("Plein " + i);
-    }
-
     var options = {
         chart: {
             type: 'line',
-            width: "100%",
+            width: '100%',
+            height: '100%',
+            toolbar: {
+                show: false
+            },
+            zoom: {
+                enabled: false
+            },
+            responsive: true,
+            maintainAspectRatio: false,
         },
         series: [{
             name: 'Consommation',
             data: consommations.map(val => Math.round(val * 1000) / 1000)
-        }, {
-            name: 'Courbe de tendance',
-            data: trendlineData.map(val => Math.round(val * 1000) / 1000)
         }],
         xaxis: {
             categories: dates,
