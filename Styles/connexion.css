@@ -230,6 +230,10 @@ footer .box svg {
     display: none;
 }
 
+#buttonAccount {
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     #titreTopBar {
         display: none;

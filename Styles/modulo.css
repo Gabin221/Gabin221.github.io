@@ -734,6 +734,10 @@ pre.line-numbers > code {
     text-align: right;
 }
 
+#buttonAccount {
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     #titreTopBar {
         display: none;

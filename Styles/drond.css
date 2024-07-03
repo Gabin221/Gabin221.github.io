@@ -67,6 +67,10 @@ header p {
     transition: color 0.3s;
 }
 
+#buttonAccount {
+    cursor: pointer;
+}
+
 nav {
     background-color: var(--menu-background);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

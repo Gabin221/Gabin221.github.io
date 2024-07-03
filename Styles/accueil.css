@@ -195,6 +195,10 @@ footer .box svg {
     margin-left: 20px;
 }
 
+#buttonAccount {
+    cursor: pointer;
+}
+
 [data-theme="dark"] svg {
     fill: white;
 }
