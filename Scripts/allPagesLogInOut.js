@@ -2,7 +2,7 @@ function logout() {
     sessionStorage.removeItem('userLoggedIn');
     sessionStorage.removeItem('currentUser');
     sessionStorage.removeItem('userRights');
-    window.location.href = '../';
+    history.back();
 }
 
 function login() {

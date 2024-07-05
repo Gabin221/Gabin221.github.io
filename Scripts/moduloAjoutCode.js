@@ -17,6 +17,7 @@ document.getElementById('programForm').addEventListener('submit', function(event
         console.log("Données envoyées avec succès !");
         // Effacer le formulaire après l'envoi
         document.getElementById('programForm').reset();
+        location.reload();
     }).catch(function(error) {
         console.error("Erreur d'envoi des données:", error);
     });

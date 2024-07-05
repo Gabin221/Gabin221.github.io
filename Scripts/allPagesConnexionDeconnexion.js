@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         sessionStorage.setItem('userLoggedIn', true);
                         sessionStorage.setItem('currentUser', pseudo);
                         sessionStorage.setItem('userRights', droits); // Enregistrer le niveau de droits
-                        window.location.href = '../index.html'; // Page par défaut
+                        history.back(); // Page par défaut
                     });
                 } else {
                     // Informer l'utilisateur que les informations de connexion sont incorrectes

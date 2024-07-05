@@ -30,6 +30,7 @@ document.getElementById('addPleinForm').addEventListener('submit', function (eve
                     console.log("Nouveau plein ajouté avec succès !");
                     // Réinitialiser le formulaire après l'ajout du plein
                     document.getElementById('addPleinForm').reset();
+                    location.reload();
                 })
                 .catch(function (error) {
                     console.error("Erreur lors de l'ajout du plein :", error);
