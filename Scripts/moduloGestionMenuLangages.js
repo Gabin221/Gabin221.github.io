@@ -74,13 +74,13 @@ function addMenuEventListeners() {
         });
     });
 
-    const menuItemsPartieShell = document.querySelectorAll('.elementMenuHorizontalPartieShell');
-    const languageContainersPartieShell = document.querySelectorAll('.contenuLangagePartieShell');
+    const menuItemsPartieBash = document.querySelectorAll('.elementMenuHorizontalPartieBash');
+    const languageContainersPartieBash = document.querySelectorAll('.contenuLangagePartieBash');
 
-    menuItemsPartieShell.forEach(item => {
+    menuItemsPartieBash.forEach(item => {
         item.addEventListener('click', () => {
             const target = item.getAttribute('data-langage');
-            languageContainersPartieShell.forEach(container => {
+            languageContainersPartieBash.forEach(container => {
                 container.classList.remove('active');
                 if (container.id === target) {
                     container.classList.add('active');

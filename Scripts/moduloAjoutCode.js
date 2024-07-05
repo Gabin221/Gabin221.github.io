@@ -1,5 +1,5 @@
 // Soumission du formulaire
-document.getElementById('programForm').addEventListener('submit', function(event) {
+document.getElementById('programFormAjout').addEventListener('submit', function(event) {
     event.preventDefault(); // Empêcher le formulaire de se soumettre normalement
 
     // Récupération des valeurs du formulaire
@@ -16,7 +16,7 @@ document.getElementById('programForm').addEventListener('submit', function(event
     }).then(function() {
         console.log("Données envoyées avec succès !");
         // Effacer le formulaire après l'envoi
-        document.getElementById('programForm').reset();
+        document.getElementById('programFormAjout').reset();
         location.reload();
     }).catch(function(error) {
         console.error("Erreur d'envoi des données:", error);

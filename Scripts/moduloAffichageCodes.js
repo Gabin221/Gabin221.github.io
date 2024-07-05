@@ -8,7 +8,7 @@ var langageClasses = {
     'CSS': 'language-css',
     'C': 'language-c',
     'PHP': 'language-php',
-    'Linux': 'language-shell',
+    'Linux': 'language-bash',
     'SQL': 'language-sql',
     'Markdown': 'language-markdown',
     'Arduino': 'language-arduino'
@@ -22,7 +22,7 @@ var langages = {
     divLignesDeCommandesContenu: "Ligne de commande",
     divLinuxContenu: "Linux",
     divPythonContenu: "Python",
-    divShellContenu: "Shell",
+    divBashContenu: "Bash",
     divWebContenu: "Web"
 };
 
@@ -239,15 +239,15 @@ function fetchDataFromFirestore(path, div, langage) {
                     Prism.highlightAll();
                     addMenuEventListeners();
                     break;
-                case "Shell":
-                    var menuHorizontalPartieShell = document.getElementById("menuHorizontalPartieShell");
-                    var shell = document.getElementById("shell");
+                case "Bash":
+                    var menuHorizontalPartieBash = document.getElementById("menuHorizontalPartieBash");
+                    var bash = document.getElementById("bash");
                     var random = Math.random().toString();
                     var newMenuItem = document.createElement("div");
                     newMenuItem.textContent = nom;
-                    newMenuItem.classList.add("elementMenuHorizontalPartieShell");
+                    newMenuItem.classList.add("elementMenuHorizontalPartieBash");
                     newMenuItem.setAttribute("data-langage", random);
-                    menuHorizontalPartieShell.appendChild(newMenuItem);
+                    menuHorizontalPartieBash.appendChild(newMenuItem);
                     var newCode = document.createElement("div");
                     newCode.innerHTML = `
                         <div style='display: inline-block; width: 100%;'>
@@ -268,10 +268,10 @@ function fetchDataFromFirestore(path, div, langage) {
                             </div>
                         </div>
                     `;
-                    shell.classList.add("container");
-                    newCode.classList.add("contenuLangagePartieShell");
+                    bash.classList.add("container");
+                    newCode.classList.add("contenuLangagePartieBash");
                     newCode.setAttribute("id", random);
-                    shell.appendChild(newCode);
+                    bash.appendChild(newCode);
 
                     Prism.highlightAll();
                     addMenuEventListeners();

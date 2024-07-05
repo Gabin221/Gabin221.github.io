@@ -618,14 +618,14 @@ footer .box svg {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#menuHorizontalPartieShell {
+#menuHorizontalPartieBash {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.elementMenuHorizontalPartieShell {
+.elementMenuHorizontalPartieBash {
     padding: 10px 20px;
     margin: 5px;
     background-color: var(--secondary-color);
@@ -635,26 +635,26 @@ footer .box svg {
     transition: background-color 0.3s;
 }
 
-.elementMenuHorizontalPartieShell:hover {
+.elementMenuHorizontalPartieBash:hover {
     background-color: var(--background-color);
 }
 
-.contenuLangagePartieShell {
+.contenuLangagePartieBash {
     display: none;
     width: 90%;
     margin: auto;
 }
 
-.contenuLangagePartieShell.active {
+.contenuLangagePartieBash.active {
     display: block;
 }
 
-.contenuLangagePartieShell h3 {
+.contenuLangagePartieBash h3 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.contenuLangagePartieShell {
+.contenuLangagePartieBash {
     padding: 20px;
     border: 1px solid var(--menu-border);
     border-radius: 5px;

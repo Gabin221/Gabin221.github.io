@@ -61,7 +61,7 @@
             <div class="form-section">
                 <h3>Ajouter un code</h3>
 
-				<form id="programForm"><br>
+				<form id="programFormAjout"><br>
 					<input type="text" id="nomProgramme" name="nomProgramme" placeholder="Nom du programme">
 					<select id="langage" name="langage">
 						<option value="">Choisissez un langage</option>
@@ -75,17 +75,10 @@
             <div class="form-section">
                 <h3>Supprimer un code</h3>
 
-				<form id="programForm"><br>
-					<label for="nomProgramme">Nom du Programme:</label><br>
-					<input type="text" id="nomProgramme" name="nomProgramme"><br><br>
-					<label for="langage">Langage de Programmation :</label><br>
-					<select id="langage" name="langage">
-						<option value="">Choisissez un langage</option>
+				<form id="programFormSupprimer"><br>
+					<select id="codeASupprimer" name="codeASupprimer">
+						<option value="">Choisissez un code</option>
 					</select><br><br>
-					<label for="description">Description:</label><br>
-					<textarea id="description" name="description"></textarea><br><br>
-					<label for="codeProgramme">Code du Programme:</label><br>
-					<textarea id="codeProgramme" name="codeProgramme"></textarea><br><br>
 					<button type="submit">Enregistrer</button><br><br>
 				</form>
             </div>
@@ -97,6 +90,9 @@
 	</div>
 
 	<div id="menuHorizontal" class="container">
+		<div class="elementMenuHorizontal" data-langage="bash">
+			Bash
+		</div>
 		<div class="elementMenuHorizontal" data-langage="cpp">
 			C++
 		</div>
@@ -112,11 +108,16 @@
 		<div class="elementMenuHorizontal" data-langage="python">
 			Python
 		</div>
-		<div class="elementMenuHorizontal" data-langage="shell">
-			Shell
-		</div>
 		<div class="elementMenuHorizontal" data-langage="web">
 			Web
+		</div>
+	</div>
+
+	<div class="conteneurLangage" id="bash">
+		<h3>
+			Bash
+		</h3>
+		<div id="menuHorizontalPartieBash">
 		</div>
 	</div>
 
@@ -160,14 +161,6 @@
 		</div>
 	</div>
 
-	<div class="conteneurLangage" id="shell">
-		<h3>
-			Shell
-		</h3>
-		<div id="menuHorizontalPartieShell">
-		</div>
-	</div>
-
 	<div class="conteneurLangage" id="web">
 		<h3>
 			Web
@@ -204,6 +197,8 @@
 
 	<script src="../Scripts/moduloGestionMenuLangages.js"></script>
 
+	<script src="../Scripts/moduloSupprimerCode.js"></script>
+
 	<script src="../Scripts/moduloAffichageCodes.js"></script>
 
 	<script src="../Scripts/moduloGestionMenuCodes.js"></script>
@@ -225,6 +220,8 @@
     <script src="../Scripts/allPagesGestionBoutonCompte.js"></script>
 
     <script src="../Scripts/allPagesLogInOut.js"></script>
+
+	<script src="../Scripts/moduloRecupererListeCodes.js"></script>
 </body>
 
 </html>
