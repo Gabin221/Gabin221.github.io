@@ -224,6 +224,8 @@ footer .box svg {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 .categories {
@@ -248,6 +250,132 @@ footer .box svg {
 }
 
 .category-card .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#biereBouteilles-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#biereBouteilles-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#biereBouteilles-drinks .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#bierePression-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#bierePression-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#bierePression-drinks .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#vin-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#vin-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#vin-drinks .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#classique-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#classique-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#classique-drinks .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#extravagant-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#extravagant-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#extravagant-drinks .drinks-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#soft-drinks {
+    width: 92%;
+    margin: 10px;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--secondary-color);
+}
+
+#soft-drinks h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#soft-drinks .drinks-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

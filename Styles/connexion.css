@@ -6,6 +6,8 @@
     --font-family: 'Avenir', sans-serif;
     --menu-background: #fff;
     --menu-border: #ddd;
+    --background: linear-gradient(to right, #007BFF, #ffffff);
+    --background-reverse: linear-gradient(to right, #ffffff, #007BFF);
 }
 
 [data-theme="dark"] {
@@ -15,6 +17,8 @@
     --background-color: #222;
     --menu-background: #444;
     --menu-border: #666;
+    --background: linear-gradient(to right, #4b4b4b, #ffffff);
+    --background-reverse: linear-gradient(to right, #ffffff, #4b4b4b);
 }
 
 * {
@@ -31,6 +35,36 @@ body {
     font-family: var(--font-family);
     color: var(--primary-color);
     transition: background-color 0.3s, color 0.3s;
+}
+
+#leftContent {
+    color: var(--secondary-color);
+    width: 80%;
+    margin-left: 20px;
+}
+
+#leftTitle {
+    color: var(--secondary-color);
+}
+
+#rightTitle {
+    color: var(--secondary-color);
+}
+
+label {
+    color: var(--secondary-color);
+}
+
+.form-section form input,
+.form-section form select,
+.form-section form button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 header {
@@ -212,7 +246,7 @@ footer .box svg {
     width: 50%;
     border-radius: 15px 0 0 15px;
     text-align: center;
-    background: linear-gradient(to right, #007BFF, #ffffff);
+    background: var(--background);
 }
 
 #divRightConnect {
@@ -220,6 +254,7 @@ footer .box svg {
     width: 50%;
     border-radius: 0 15px 15px 0;
     text-align: center;
+    background: var(--background-reverse);
 }
 
 #divRightCreateAccount {
@@ -228,6 +263,7 @@ footer .box svg {
     border-radius: 0 15px 15px 0;
     text-align: center;
     display: none;
+    background: var(--background-reverse);
 }
 
 #buttonAccount {
