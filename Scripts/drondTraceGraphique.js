@@ -18,6 +18,23 @@ function fetchCarNames() {
     });
 }
 
+// Fonction pour convertir une date au format JJ/MM/AAAA en objet Date
+function parseDate(dateStr) {
+    var parts = dateStr.split('/');
+    // Note : mois - 1 car les mois en JavaScript sont de 0 à 11
+    return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
+// Fonction pour trier les documents par date
+function sortDocumentsByDate(documents) {
+    return documents.sort(function (a, b) {
+        // Convertir les dates en objets Date
+        var dateA = parseDate(a.data().date);
+        var dateB = parseDate(b.data().date);
+        return dateA - dateB; // Trier par date croissante
+    });
+}
+
 // Fonction pour récupérer les données des pleins et dessiner le graphique correspondant à la voiture sélectionnée
 function fetchAndDrawChart() {
     var selectedCar = document.getElementById("voitureSelect").value;
@@ -41,7 +58,10 @@ function fetchAndDrawChart() {
             dates = [];
             consommations = [];
 
-            querySnapshot.forEach(function (doc) {
+            // Trier les documents par date
+            var sortedDocs = sortDocumentsByDate(querySnapshot.docs);
+
+            sortedDocs.forEach(function (doc) {
                 var plein = doc.data();
                 kilometres.push(plein.distance);
                 volumes.push(plein.volume);
