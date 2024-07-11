@@ -168,9 +168,9 @@ function drawChart(consommations, moyenne) {
                 var volume = volumes;
                 var seriesName = w.globals.seriesNames[seriesIndex]; // Récupérer le nom de la série
                 return '<div style="color: black;">' +
-                    '<div>' + seriesName + ': ' + series[seriesIndex][dataPointIndex] + ' L/100</div>' +
-                    '<div>Kilomètres: ' + km[dataPointIndex] + ' Km</div>' +
-                    '<div>Volume: ' + volume[dataPointIndex] + ' L</div>' +
+                    '<div>' + seriesName + ': <span style="color: #007BFF;">' + series[seriesIndex][dataPointIndex] + ' L/100</span></div>' +
+                    '<div>Kilomètres: <span style="color: #007BFF;">' + km[dataPointIndex] + ' Km</span></div>' +
+                    '<div>Volume:  <span style="color: #007BFF;">' + volume[dataPointIndex] + ' L</span></div>' +
                     '</div>';
             }
         },
