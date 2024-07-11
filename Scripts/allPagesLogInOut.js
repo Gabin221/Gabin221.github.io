@@ -6,7 +6,7 @@ function logout() {
 }
 
 function login() {
-    window.location.href = '../Connexion/index.html';
+    window.location.href = '../../Connexion/index.html';
 }
 
 function loginout() {

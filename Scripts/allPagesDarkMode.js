@@ -5,7 +5,7 @@ const logo = document.getElementById('logoTopBar');
 function setTheme(theme) {
     body.setAttribute('data-theme', theme);
     toggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
-    logo.src = theme === 'dark' ? '../Images/logo_home_page_dark.png' : '../Images/logo_home_page.png';
+    logo.src = theme === 'dark' ? '../../Images/logo_home_page_dark.png' : '../../Images/logo_home_page.png';
 }
 
 const savedTheme = sessionStorage.getItem('mode');

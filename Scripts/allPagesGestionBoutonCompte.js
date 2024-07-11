@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', function() {
         sessionStorage.removeItem('userLoggedIn');
         sessionStorage.removeItem('currentUser');
         sessionStorage.removeItem('userRights');
-        window.location.href = '../';
+        window.location.href = '../../';
     }
 
     function login() {
-        window.location.href = '../Connexion/index.html';
+        window.location.href = '../../Connexion/index.html';
     }
 
     function loginout() {
