@@ -1,10 +1,157 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="fr">
-	<head>
-		<title>Title of the page</title>
-	</head>
-	<body>
-		<h1>Hello world!</h1>
-	</body>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gabin221.github.io</title>
+	<script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+	<link rel="icon" href="../../Images/logo_home_page.png" type="image/png">
+
+	<link href="../../Styles/history.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<a href="../../">
+			<img id="logoTopBar" src="../../Images/logo_home_page.png" alt="Logo">
+			<p id="titreTopBar">Gabin221.github.io</p>
+		</a>
+		<div>
+			<button id="darkModeToggle">🌙</button>
+			<div id="buttonAccount" onClick="loginout()">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
+				</svg>
+			</div>
+		</div>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a class="elementMenuAccueil" href="../../">Accueil</a></li>
+			<li><a class="elementMenuGabinsBar" href="../../Gabinsbar">Gabin's bar</a></li>
+			<li><a class="elementMenuModulo" href="../../Modulo">Modulo</a></li>
+			<li><a class="elementMenuDrond" href="../../Drond">∂ rond</a></li>
+			<li><a class="elementMenuHistory" href="../../History">History</a></li>
+		</ul>
+	</nav>
+
+	<h2>TVR</h2>
+
+	<section class="timeline">
+		<ol>
+			<li>
+				<div>
+					<time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+					praesentium At vero eos et accusamus et iusto odio dignissimos.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse
+					finibus mauris et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar
+					tortor ex eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1946</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1956</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1957</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1967</time> Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta
+					faucibus, euismod quis ante.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1977</time> Vestibulum porttitor lorem sed pharetra dignissim. Nulla maximus, dui a tristique
+					iaculis, quam dolor convallis enim, non dignissim ligula ipsum a turpis.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>1985</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>2000</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li>
+				<div>
+					<time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius
+					volutpat mattis. Vestibulum id magna est.
+				</div>
+			</li>
+			<li></li>
+		</ol>
+	</section>
+
+	<footer>
+		<div class="box">
+			<h3>Plan du site</h3>
+			<ul>
+				<li><a href="../../"><u><b>Accueil</b></u></a></li>
+				<li><a href="../../Gabinsbar"><u><b>Gabin's bar</b></u></a></li>
+				<li><a href="../../Modulo"><u><b>Modulo</b></u></a></li>
+				<li><a href="../../Drond"><u><b>∂ rond</b></u></a></li>
+				<li><a href="../../History"><u><b>History</b></u></a></li>
+			</ul>
+		</div>
+		<div class="box">
+			<h3>Réseaux</h3>
+			<a href="https://github.com/Gabin221">
+				<svg id="boutonLienGithub" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+					<path
+						d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+				</svg>
+			</a>
+			<hr style="margin: 20px 0 20px 0;">
+			<p title="Ce chiffre représente le bilan carbon de ce site." id="bilanCarbon"></p>
+		</div>
+	</footer>
+
+	<script src="../../Scripts/allPagesCarbonAPI.js"></script>
+
+	<script src="../../Scripts/allPagesDarkMode.js"></script>
+
+	<script src="../../Scripts/allPagesGestionBoutonCompte.js"></script>
+
+	<script src="../../Scripts/allPagesLogInOut.js"></script>
+
+	<script src="../../Scripts/historyTvrFrise.js"></script>
+</body>
+
 </html>
