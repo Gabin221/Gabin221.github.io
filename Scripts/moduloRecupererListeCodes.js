@@ -40,6 +40,11 @@ db.collection("Codes").get().then((querySnapshot) => {
                         option.textContent = code['Nom'];
                         codeASupprimer.appendChild(option);
                         break;
+                    case "Markdown":                        
+                        option.value = code['Nom'];
+                        option.textContent = code['Nom'];
+                        codeASupprimer.appendChild(option);
+                        break;
                     case "Web":                        
                         option.value = code['Nom'];
                         option.textContent = code['Nom'];

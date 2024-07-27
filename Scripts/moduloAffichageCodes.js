@@ -22,6 +22,7 @@ var langages = {
     divLignesDeCommandesContenu: "Ligne de commande",
     divLinuxContenu: "Linux",
     divPythonContenu: "Python",
+    divMarkdownContenu: "Markdown",
     divBashContenu: "Bash",
     divWebContenu: "Web"
 };
@@ -235,6 +236,43 @@ function fetchDataFromFirestore(path, div, langage) {
                     newCode.classList.add("contenuLangagePartiePython");
                     newCode.setAttribute("id", random);
                     python.appendChild(newCode);
+
+                    Prism.highlightAll();
+                    addMenuEventListeners();
+                    break;
+                case "Markdown":
+                    var menuHorizontalPartieMarkdown = document.getElementById("menuHorizontalPartieMarkdown");
+                    var markdown = document.getElementById("markdown");
+                    var random = Math.random().toString();
+                    var newMenuItem = document.createElement("div");
+                    newMenuItem.textContent = nom;
+                    newMenuItem.classList.add("elementMenuHorizontalPartieMarkdown");
+                    newMenuItem.setAttribute("data-langage", random);
+                    menuHorizontalPartieMarkdown.appendChild(newMenuItem);
+                    var newCode = document.createElement("div");
+                    newCode.innerHTML = `
+                        <div style='display: inline-block; width: 100%;'>
+                            <div class='element' style='display: block; height: auto;'>
+                                <h4>${nom}</h4>
+                                <p style='white-space: normal; text-align: left;'>${description}</p><br><br>
+                                <div style='background-color: #f5f2f0; color: black; display: flex; justify-content: space-between; align-items: center; margin: 0; border: 2px solid black;'>
+                                    <span style='margin-left: 10px; font-size: 16px;'>
+                                        <b>${langage}</b>
+                                    </span>
+                                    <button onclick='copyCode("codeBlock${random}", "copyButton${random}")' style='margin-top: 0; float: right; margin: 10px; padding: 5px 10px; font-size: 16px; box-shadow: true; border: 1px solid black; cursor: pointer;' id='copyButton${random}'>
+                                        Copier
+                                    </button>
+                                </div>
+                                <pre style='margin-top: 0; padding-left: 10px; width: 100%; height: 100%; float: right; display: flex; align-items: flex-start; align-self: stretch; border: 2px solid black; overflow: auto;'>
+                                    <code id='codeBlock${random}' class='language-${langage.toLowerCase()} line-numbers' data-language='${langage}'>${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code>
+                                </pre>
+                            </div>
+                        </div>
+                    `;
+                    markdown.classList.add("container");
+                    newCode.classList.add("contenuLangagePartieMarkdown");
+                    newCode.setAttribute("id", random);
+                    markdown.appendChild(newCode);
 
                     Prism.highlightAll();
                     addMenuEventListeners();
