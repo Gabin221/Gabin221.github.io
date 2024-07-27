@@ -160,7 +160,7 @@ footer .box svg {
 }
 
 .nav-quick {
-    background: #fff;
+    background: var(--secondary-color);
     border-radius: 0 6px 6px 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, .16);
     left: 0;
@@ -248,7 +248,7 @@ footer .box svg {
     -ms-flex-pack: center;
     -ms-flex-line-pack: center;
     align-content: center;
-    color: #616d7a;
+    color: var(--primary-color);
     display: grid;
     font-family: Bariol;
     font-size: 14px;
@@ -262,7 +262,7 @@ footer .box svg {
 
 .nav-quick a:not(.btn):focus-visible,
 .nav-quick a:not(.btn):hover {
-    color: #616d7a
+    color: var(--primary-color)
 }
 
 .nav-quick a:not(.btn):focus,
@@ -292,7 +292,7 @@ footer .box svg {
 
 .nav-quick a:not(.btn):focus,
 .nav-quick a:not(.btn):hover {
-    color: #060708
+    color: var(--primary-color)
 }
 
 .nav-quick a:not(.btn):focus svg,
