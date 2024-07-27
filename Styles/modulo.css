@@ -808,6 +808,50 @@ footer .box svg {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+#menuHorizontalPartieMarkdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.elementMenuHorizontalPartieMarkdown {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--menu-border);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.elementMenuHorizontalPartieMarkdown:hover {
+    background-color: var(--background-color);
+}
+
+.contenuLangagePartieMarkdown {
+    display: none;
+    width: 90%;
+    margin: auto;
+}
+
+.contenuLangagePartieMarkdown.active {
+    display: block;
+}
+
+.contenuLangagePartieMarkdown h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenuLangagePartieMarkdown {
+    padding: 20px;
+    border: 1px solid var(--menu-border);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 #menuHorizontalPartieWeb {
     display: flex;
     flex-wrap: wrap;
