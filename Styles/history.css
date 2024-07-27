@@ -537,6 +537,12 @@ footer .box svg {
     justify-content: space-between;
 }
 
+#conteneurCartes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+}
+
 [data-theme="dark"] svg {
     fill: white;
 }
@@ -620,5 +626,9 @@ footer .box svg {
 
     .timeline .info {
         display: none;
+    }
+
+    #conteneurCartes {
+        padding: 20px;
     }
 }
